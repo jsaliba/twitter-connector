@@ -5,7 +5,7 @@
     <artifactId>mule-module-twitter</artifactId>
     <packaging>cloud-connector</packaging>
     <version>1.2-SNAPSHOT</version>
-    <name>Cloud Connector for Flickr</name>
+    <name>Cloud Connector for Twitter</name>
     <description>A Twitter cloud connector.</description>
 
     <properties>

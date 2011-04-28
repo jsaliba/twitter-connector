@@ -10,7 +10,6 @@
 
 package org.mule.ibeans.twitter;
 
-import org.mule.ibeans.twitter.config.TwitterIBeanFactoryBean;
 import org.mule.tools.cloudconnect.annotations.Connector;
 
 import org.ibeans.annotation.IBeanGroup;

@@ -8,7 +8,7 @@
  * LICENSE.txt file.
  */
 
-package org.mule.ibeans.twitter.config;
+package org.mule.ibeans.twitter;
 
 import org.mule.api.MuleContext;
 import org.mule.api.context.MuleContextAware;
@@ -18,14 +18,20 @@ import org.mule.module.ibeans.config.IBeanBinding;
 import org.mule.module.ibeans.config.IBeanFlowConstruct;
 import org.mule.module.ibeans.spi.MuleIBeansPlugin;
 
+import org.mule.tools.cloudconnect.annotations.Property;
 import org.springframework.beans.factory.FactoryBean;
 
 public class TwitterIBeanFactoryBean implements FactoryBean<TwitterIBean>, MuleContextAware
 {
+    @Property
     private FORMAT format;
+    @Property
     private String consumerKey;
+    @Property
     private String consumerSecret;
+    @Property
     private String oathToken;
+    @Property
     private String oathTokenSecret;
 
     protected MuleContext muleContext;
