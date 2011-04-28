@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/ibeans-contrib/!svn/ver/297/trunk/twitter/src/test/resources
+END
+TwitterTestCase-testTrends-response1.json
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testTrends-response1.json
+END
+twitter-config-test.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/ibeans-contrib/!svn/ver/297/trunk/twitter/src/test/resources/twitter-config-test.xml
+END
+TwitterTestCase-testTrends-response2.json
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testTrends-response2.json
+END
+TwitterTestCase-testTrends-response3.json
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testTrends-response3.json
+END
+profile.png
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/ibeans-contrib/!svn/ver/67/trunk/twitter/src/test/resources/profile.png
+END
+TwitterTestCase-twitterAuthentication-response1.json
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/ibeans-contrib/!svn/ver/148/trunk/twitter/src/test/resources/TwitterTestCase-twitterAuthentication-response1.json
+END
+TwitterTestCase-testTwitterAuthentication-response1.json
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testTwitterAuthentication-response1.json
+END
+TwitterTestCase-twitterAuthentication-response2.json
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/ibeans-contrib/!svn/ver/148/trunk/twitter/src/test/resources/TwitterTestCase-twitterAuthentication-response2.json
+END
+TwitterTestCase-testTwitterAuthentication-response2.json
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testTwitterAuthentication-response2.json
+END
+TwitterTestCase-testTwitterJsonWithErrorListener-response1.json
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testTwitterJsonWithErrorListener-response1.json
+END
+TwitterTestCase-testSearchWithAtom-response1.atom
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testSearchWithAtom-response1.atom
+END
+TwitterTestCase-testTwitterJsonBindings-response1.json
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testTwitterJsonBindings-response1.json
+END
+TwitterTestCase-testUpdateProfileImageWithURL-response1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testUpdateProfileImageWithURL-response1.xml
+END
+TwitterTestCase-testStatusUpdateJson-response1.json
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testStatusUpdateJson-response1.json
+END
+TwitterTestCase-testTwitterFriendTimeline-response1.json
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testTwitterFriendTimeline-response1.json
+END
+TwitterTestCase-testTwitterStatusUpdateXML-response1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testTwitterStatusUpdateXML-response1.xml
+END
+TwitterTestCase-testTwitterShowWithoutAuthentication-response1.json
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testTwitterShowWithoutAuthentication-response1.json
+END
+TwitterTestCase-testTwitterPublicTimeline-response1.json
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testTwitterPublicTimeline-response1.json
+END
+TwitterTestCase-testTwitterPublicTimeline-response2.json
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testTwitterPublicTimeline-response2.json
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/ibeans-contrib/!svn/ver/67/trunk/twitter/src/test/resources/log4j.properties
+END
+TwitterTestCase-testUpdateProfile-response1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testUpdateProfile-response1.xml
+END
+TwitterTestCase-testUpdateProfile-response2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/ibeans-contrib/!svn/ver/84/trunk/twitter/src/test/resources/TwitterTestCase-testUpdateProfile-response2.xml
+END
