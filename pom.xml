@@ -7,7 +7,69 @@
     <packaging>cloud-connector</packaging>
     <name>Mule Twitter Connector</name>
     <version>2.0-SNAPSHOT</version>
-    <description>Mule Twitter Connector</description>
+    
+    <description>
+The Twitter Connector currently makes it possible to query different timelines 
+available to a user, such as the public, friends or private timeline. For example:
+
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:spring="http://www.springframework.org/schema/beans"
+        xmlns:twitter="http://www.mulesoft.org/schema/mule/twitter"
+        xmlns:json="http://www.mulesoft.org/schema/mule/json"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                              http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.1/mule.xsd
+                              http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/3.1/mule-json.xsd
+                              http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/1.0-SNAPSHOT/mule-twitter.xsd"&gt;
+                              
+        &lt;twitter:config consumerKey="${consumer.key}" consumerSecret="${consumer.secret}"/&gt;
+        
+        &lt;flow name="TwitterTest"&gt;
+            &lt;inbound-endpoint address="http://localhost:9002/get-statuses"/&gt;
+            &lt;response&gt;
+                &lt;json:object-to-json-transformer/&gt;
+            &lt;/response&gt;
+            &lt;twitter:public-timeline/&gt;
+        &lt;/flow&gt;
+        ....
+        
+Authenticating with OAuth
+-------------------------
+With OAuth 1.0, you must do a two step process to authenticate the connector. 
+First, request authorization from Twitter. Then, submit the OAuth verifier code back 
+to the connector.
+
+You'll need to set up the following two flows to do this:
+
+    &lt;flow name="request-authorization"&gt;
+        &lt;inbound-endpoint address="http://localhost:9002/twitter/request-authorization"/&gt;
+        &lt;twitter:request-authorization/&gt;
+        &lt;message-properties-transformer&gt;
+            &lt;add-message-property key="http.status" value="302"/&gt;
+            &lt;add-message-property key="Location" value="#[payload]"/&gt;
+        &lt;/message-properties-transformer&gt;
+    &lt;/flow&gt;
+    
+    &lt;flow name="set-oauth-verifier"&gt;
+        &lt;inbound-endpoint address="http://localhost:9002/twitter/set-oauth-verifier"/&gt;
+        &lt;logger /&gt;
+        &lt;twitter:set-oauth-verifier oauthVerifier="#[header:inbound:verifier]"/&gt;
+    &lt;/flow&gt;
+    
+The first flow will redirect you to the Twitter authorization page once the connector has
+requested an authentication token. The second flow will allow you to set the OAuth verifier code.
+
+To authenticate your connector, do the following:
+
+- [Create a Twitter account](http://twitter.com)
+- [Register your application](http://dev.twitter.com/login?redirect_after_login=%2Fapps%2Fnew) with Twitter  
+- Set your OAuth consumer key and secret on your config element as shown above
+- Go to http://localhost:9002/twitter/request-authorization in your browser
+- You will be redirected to the Twitter authorization page. Click Authorize.
+- Take the resulting OAuth verifier code and go to http://localhost:9002/twitter/set-oauth-verifier?verifier=OAUTH_VERIFIER in your browser.
+- Your access token and secret will be logged to your application logs. You can use those to avoid future authentication setup by setting the accessToken and accessTokenSecret attributes on the connector.
+
+    </description>
     <url>http://www.muleforge.org/projects/twitter-connector</url>
 
     <properties>
@@ -271,4 +333,17 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+    <distributionManagement>
+        <repository>
+            <id>muleforge.webdav.releases</id>
+            <name>MuleSoft Release Repository</name>
+            <url>dav:https://repository.muleforge.org/release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>muleforge.webdav.snapshots</id>
+            <name>MuleSoft Snapshot Repository</name>
+            <url>dav:https://repository.muleforge.org/snapshot/</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
