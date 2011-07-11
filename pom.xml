@@ -175,12 +175,6 @@
             <artifactId>twitter4j-core</artifactId>
             <version>2.2.3</version>
         </dependency>
-        <dependency>
-            <groupId>org.twitter4j</groupId>
-            <artifactId>twitter4j-httpclient-support</artifactId>
-            <version>2.2.3</version>
-        </dependency>
-
 
         <!-- for testing -->
         <dependency>
