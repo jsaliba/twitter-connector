@@ -29,7 +29,7 @@ available to a user, such as the public, friends or private timeline. For exampl
             &lt;response&gt;
                 &lt;json:object-to-json-transformer/&gt;
             &lt;/response&gt;
-            &lt;twitter:public-timeline/&gt;
+            &lt;twitter:get-public-timeline/&gt;
         &lt;/flow&gt;
         ....
         
