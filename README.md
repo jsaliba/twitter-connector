@@ -12,7 +12,7 @@ available to a user, such as the public, friends or private timeline. For exampl
         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                               http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.1/mule.xsd
                               http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/3.1/mule-json.xsd
-                              http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/1.0-SNAPSHOT/mule-twitter.xsd">
+                              http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/2.0/mule-twitter.xsd">
                               
         <twitter:config consumerKey="${consumer.key}" consumerSecret="${consumer.secret}"/>
         
@@ -82,9 +82,9 @@ Add the connector's maven repo to your pom.xml:
 
     <repositories>
         <repository>
-            <id>muleforge.webdav.releases</id>
+            <id>mulesoft.releases</id>
             <name>MuleSoft Release Repository</name>
-            <url>https://repository.muleforge.org/release/</url>
+            <url>https://repository.mulesoft.org/releases/</url>
             <layout>default</layout>
         </repsitory>
     </repositories>
@@ -96,7 +96,7 @@ application:
     <dependency>
         <groupId>org.mule.modules</groupId>
         <artifactId>mule-module-twitter</artifactId>
-        <version>2.0-SNAPSHOT</version>
+        <version>2.0</version>
     </dependency>
 
 Configuration
