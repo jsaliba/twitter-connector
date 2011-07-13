@@ -127,8 +127,11 @@ To authenticate your connector, do the following:
             <plugin>
                 <groupId>org.mule.tools</groupId>
                 <artifactId>mule-cloud-connector-maven-plugin</artifactId>
-                <version>2.0.15-SNAPSHOT</version>
+                <version>2.0.15</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <schemaVersion>2.0</schemaVersion>
+                </configuration>
             </plugin>
 
             <!-- The release distribution for this project -->
@@ -254,7 +257,7 @@ To authenticate your connector, do the following:
         <dependency>
             <groupId>org.mule.tools</groupId>
             <artifactId>mule-cloud-connector-annotations</artifactId>
-            <version>2.0.15-SNAPSHOT</version>
+            <version>2.0.15</version>
         </dependency>
         <dependency>
         	<groupId>org.htmlparser</groupId>
@@ -265,23 +268,29 @@ To authenticate your connector, do the following:
         </dependency>
     </dependencies>
 
+    <scm>
+        <connection>scm:git:git://github.com:mulesoft/twitter-connector.git</connection>
+        <developerConnection>scm:git:git@github.com:mulesoft/twitter-connector.git</developerConnection>
+        <url>http://github.com/mulesoft/twitter-connector</url>
+    </scm>
+  
     <repositories>
         <repository>
             <id>codehaus-repo</id>
-            <name>MuleForge Release Repository</name>
+            <name>Codehaus Release Repository</name>
             <url>http://repository.codehaus.org/</url>
             <layout>default</layout>
         </repository>
         <repository>
-            <id>muleforge-release</id>
-            <name>MuleForge Release Repository</name>
-            <url>http://repository.muleforge.org/release/</url>
+            <id>mulesoft.releases</id>
+            <name>MuleSoft Releases Repository</name>
+            <url>http://repository.mulesoft.org/releases/</url>
             <layout>default</layout>
         </repository>
         <repository>
-            <id>muleforge-snapshot</id>
+            <id>mulesoft.snapshots</id>
             <name>MuleForge Release Repository</name>
-            <url>http://repository.muleforge.org/snapshot/</url>
+            <url>http://repository.mulesoft.org/snapshots/</url>
             <layout>default</layout>
             <releases>
                 <enabled>false</enabled>
@@ -315,15 +324,15 @@ To authenticate your connector, do the following:
             </snapshots>
         </pluginRepository>
         <pluginRepository>
-            <id>muleforge-release</id>
+            <id>mulesoft.releases</id>
             <name>MuleForge Release Repository</name>
-            <url>http://repository.muleforge.org/release/</url>
+            <url>http://repository.mulesoft.org/releases/</url>
             <layout>default</layout>
         </pluginRepository>
         <pluginRepository>
-            <id>muleforge-snapshot</id>
+            <id>mulesoft.snapshots</id>
             <name>MuleForge Release Repository</name>
-            <url>http://repository.muleforge.org/snapshot/</url>
+            <url>http://repository.mulesoft.org/snapshots/</url>
             <layout>default</layout>
             <releases>
                 <enabled>false</enabled>
@@ -335,14 +344,14 @@ To authenticate your connector, do the following:
     </pluginRepositories>
     <distributionManagement>
         <repository>
-            <id>muleforge.webdav.releases</id>
-            <name>MuleSoft Release Repository</name>
-            <url>dav:https://repository.muleforge.org/release/</url>
+            <id>mulesoft.releases</id>
+            <name>Muleforge Releases Repository</name>
+            <url>https://repository.mulesoft.org/releases/</url>
         </repository>
         <snapshotRepository>
-            <id>muleforge.webdav.snapshots</id>
-            <name>MuleSoft Snapshot Repository</name>
-            <url>dav:https://repository.muleforge.org/snapshot/</url>
+            <id>mulesoft.snapshots</id>
+            <name>Muleforge Snapshots Repository</name>
+            <url>https://repository.mulesoft.org/snapshots/</url>
             <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
