@@ -40,4 +40,27 @@
         <logger level="ERROR"/>
         <twitter:set-oauth-verifier oauthVerifier="#[header:inbound:verifier]"/>
     </flow>
+    
+    
+    <flow name="GeoCode">
+      <twitter:reverse-geo-code query-ref="#[header:query]" />
+    </flow>
+    
+    <flow name="CurrentTrends">
+      <twitter:get-current-trends excludeHashtags="true" />
+    </flow>
+    
+    <flow name="DailyTrends">
+      <twitter:get-daily-trends />
+    </flow>
+    
+    <flow name="GetTrends">
+      <twitter:get-trends/>
+    </flow>
+    
+    <flow name="WeeklyTrends">
+      <twitter:get-weekly-trends/>
+    </flow>
+    
+    
 </mule>

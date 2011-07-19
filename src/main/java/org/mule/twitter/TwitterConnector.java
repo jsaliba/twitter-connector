@@ -15,17 +15,23 @@ import org.mule.api.context.MuleContextAware;
 import org.mule.api.lifecycle.Initialisable;
 import org.mule.api.lifecycle.InitialisationException;
 
+import java.util.Date;
+import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import twitter4j.GeoLocation;
+import twitter4j.GeoQuery;
 import twitter4j.IDs;
 import twitter4j.Paging;
+import twitter4j.Place;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.StatusUpdate;
+import twitter4j.Trends;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -507,6 +513,73 @@ public class TwitterConnector implements MuleContextAware {
         return token.getAuthorizationURL();
     }
 
+    /**
+     * {@code <reverse-geo-code query="#[header:query]" />}
+     * @param query
+     * @return
+     * @throws TwitterException 
+     */
+    @Processor
+    public ResponseList<Place> reverseGeoCode(GeoQuery query) throws TwitterException
+    {
+        return twitter.reverseGeoCode(query);
+    }
+    
+    /**
+     * {@code <get-current-trends excludeHashtags="true" />}
+     * @param excludeHashtags
+     * @return 
+     * @return
+     * @throws TwitterException 
+     */
+    @Processor
+    public Trends getCurrentTrends(@Optional @Default("false") boolean excludeHashtags)
+        throws TwitterException
+    {
+        return twitter.getCurrentTrends(excludeHashtags);
+    }
+    
+    /**
+     * {@code <get-daily-trends />}
+     * @param date 
+     * @param excludeHashTags 
+     * @return 
+     * @throws TwitterException 
+     */
+    @Processor
+    public List<Trends> getDailyTrends(@Optional Date date,
+                                       @Optional @Default("false") boolean excludeHashTags)
+        throws TwitterException
+    {
+        return twitter.getDailyTrends(date, excludeHashTags);
+    }
+
+    /**
+     * {@code <get-trends/>}
+     * 
+     * @return
+     * @return
+     * @throws TwitterException
+     */
+    @Processor
+    public Trends getTrends() throws TwitterException
+    {
+        return twitter.getTrends();
+    }
+
+    /**
+     * {@code <get-weekly-trends/>}
+     * 
+     * @return
+     * @throws TwitterException
+     */
+    @Processor
+    public List<Trends> getWeeklyTrends(@Optional Date date,
+                                        @Optional @Default("false") boolean excludeHashTags)
+        throws TwitterException
+    {
+        return twitter.getWeeklyTrends(date, excludeHashTags);
+    }
 
     public Twitter getTwitterClient() {
         return twitter;
@@ -540,5 +613,9 @@ public class TwitterConnector implements MuleContextAware {
     public void setMuleContext(MuleContext context) {
         HttpClientImpl.setMuleContext(context);
     }
+    
+    
+    
+
 
 }
