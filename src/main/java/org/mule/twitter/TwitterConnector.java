@@ -5,13 +5,15 @@
 package org.mule.twitter;
 
 import org.mule.api.MuleContext;
+import org.mule.api.annotations.Configurable;
+import org.mule.api.annotations.Module;
+import org.mule.api.annotations.Processor;
+import org.mule.api.annotations.lifecycle.Start;
+import org.mule.api.annotations.param.Default;
+import org.mule.api.annotations.param.Optional;
 import org.mule.api.context.MuleContextAware;
 import org.mule.api.lifecycle.Initialisable;
 import org.mule.api.lifecycle.InitialisationException;
-import org.mule.tools.cloudconnect.annotations.Connector;
-import org.mule.tools.cloudconnect.annotations.Operation;
-import org.mule.tools.cloudconnect.annotations.Parameter;
-import org.mule.tools.cloudconnect.annotations.Property;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -36,29 +38,35 @@ import twitter4j.internal.http.alternative.HttpClientImpl;
 /**
  * A Connector for Twitter which uses twitter4j.
  */
-@Connector(namespacePrefix = "twitter")
-public class TwitterConnector implements Initialisable, MuleContextAware {
+@Module(name = "twitter",
+        namespace = "http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter",
+        schemaLocation = "http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter/2.1/mule-twitter.xsd")
+public class TwitterConnector implements MuleContextAware {
     protected transient Log logger = LogFactory.getLog(getClass());
 
     private Twitter twitter;
     
-    @Property
+    @Configurable
     private String consumerKey;
 
-    @Property
+    @Configurable
     private String consumerSecret;
 
-    @Property(optional=true)
+    @Optional
+    @Configurable
     private String accessToken;
 
-    @Property(optional=true)
+    @Optional
+    @Configurable
     private String accessTokenSecret;
 
-    @Property(optional=true)
+    @Optional
+    @Configurable
+    @Default("true")
     private boolean useSSL;
     
-    @Override
-    public void initialise() throws InitialisationException {
+    @Start
+    public void initialise() {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setUseSSL(useSSL);
         
@@ -79,8 +87,9 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @return
      * @throws TwitterException
      */
-    @Operation
-    public QueryResult search(String query) throws TwitterException {
+    @Processor
+    public QueryResult search(String query) throws TwitterException
+    {
         return twitter.search(new Query(query));
     }
     
@@ -92,8 +101,9 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws twitter4j.TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/public_timeline">GET statuses/public_timeline | dev.twitter.com</a>
      */
-    @Operation
-    public ResponseList<Status> getPublicTimeline() throws TwitterException {
+    @Processor
+    public ResponseList<Status> getPublicTimeline() throws TwitterException
+    {
         return twitter.getPublicTimeline();
     }
 
@@ -108,13 +118,14 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/home_timeline">GET statuses/home_timeline | dev.twitter.com</a>
      */
-    @Operation
-    public ResponseList<Status> getHomeTimeline(@Parameter(defaultValue="1", optional=true) int page, 
-                                                @Parameter(defaultValue="100",optional=true) int count, 
-                                                @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+    @Processor
+    public ResponseList<Status> getHomeTimeline(@Default(value = "1") @Optional int page,
+                                                @Default(value = "100") @Optional int count,
+                                                @Default(value = "-1") @Optional int sinceId)
+        throws TwitterException
+    {
         return twitter.getHomeTimeline(getPaging(page, count, sinceId));
     }
-
 
     /**
      * Returns the 20 most recent statuses posted from the authenticating user. It's also possible to request another user's timeline via the id parameter.<br>
@@ -127,8 +138,13 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/user_timeline">GET statuses/user_timeline | dev.twitter.com</a>
      */
-    @Operation
-    public ResponseList<Status> getUserTimelineByScreenName(String screenName, @Parameter(defaultValue="1", optional=true) int page, @Parameter(defaultValue="100",optional=true) int count, @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+    @Processor
+    public ResponseList<Status> getUserTimelineByScreenName(String screenName,
+                                                            @Default(value = "1") @Optional int page,
+                                                            @Default(value = "100") @Optional int count,
+                                                            @Default(value = "-1") @Optional int sinceId)
+        throws TwitterException
+    {
         return twitter.getUserTimeline(screenName, getPaging(page, count, sinceId));
     }
 
@@ -144,8 +160,13 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/user_timeline">GET statuses/user_timeline | dev.twitter.com</a>
      */
-    @Operation
-    public ResponseList<Status> getUserTimelineByUserId(long userId, @Parameter(defaultValue="1", optional=true) int page, @Parameter(defaultValue="100",optional=true) int count, @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+    @Processor
+    public ResponseList<Status> getUserTimelineByUserId(long userId,
+                                                        @Default(value = "1") @Optional int page,
+                                                        @Default(value = "100") @Optional int count,
+                                                        @Default(value = "-1") @Optional int sinceId)
+        throws TwitterException
+    {
         return twitter.getUserTimeline(userId, getPaging(page, count, sinceId));
     }
 
@@ -169,8 +190,12 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/user_timeline">GET statuses/user_timeline | dev.twitter.com</a>
      */
-    @Operation
-    public ResponseList<Status> getUserTimeline(@Parameter(defaultValue="1", optional=true) int page, @Parameter(defaultValue="100",optional=true) int count, @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+    @Processor
+    public ResponseList<Status> getUserTimeline(@Default(value = "1") @Optional int page,
+                                                @Default(value = "100") @Optional int count,
+                                                @Default(value = "-1") @Optional int sinceId)
+        throws TwitterException
+    {
         return twitter.getUserTimeline(getPaging(page, count, sinceId));
     }
 
@@ -183,8 +208,12 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/mentions">GET statuses/mentions | dev.twitter.com</a>
      */
-    @Operation
-    public ResponseList<Status> getMentions(@Parameter(defaultValue="1", optional=true) int page, @Parameter(defaultValue="100",optional=true) int count, @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+    @Processor
+    public ResponseList<Status> getMentions(@Default(value = "1") @Optional int page,
+                                            @Default(value = "100") @Optional int count,
+                                            @Default(value = "-1") @Optional int sinceId)
+        throws TwitterException
+    {
         return twitter.getMentions(getPaging(page, count, sinceId));
     }
 
@@ -196,8 +225,12 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/retweeted_by_me">GET statuses/retweeted_by_me | dev.twitter.com</a>
      */
-    @Operation
-    public ResponseList<Status> getRetweetedByMe(@Parameter(defaultValue="1", optional=true) int page, @Parameter(defaultValue="100",optional=true) int count, @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+    @Processor
+    public ResponseList<Status> getRetweetedByMe(@Default(value = "1") @Optional int page,
+                                                 @Default(value = "100") @Optional int count,
+                                                 @Default(value = "-1") @Optional int sinceId)
+        throws TwitterException
+    {
         return twitter.getRetweetedByMe(getPaging(page, count, sinceId));
     }
 
@@ -210,8 +243,12 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/retweeted_to_me">GET statuses/retweeted_to_me | dev.twitter.com</a>
      */
-    @Operation
-    public ResponseList<Status> getRetweetedToMe(@Parameter(defaultValue="1", optional=true) int page, @Parameter(defaultValue="100",optional=true) int count, @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+    @Processor
+    public ResponseList<Status> getRetweetedToMe(@Default(value = "1") @Optional int page,
+                                                 @Default(value = "100") @Optional int count,
+                                                 @Default(value = "-1") @Optional int sinceId)
+        throws TwitterException
+    {
         return twitter.getRetweetedToMe(getPaging(page, count, sinceId));
     }
 
@@ -224,8 +261,12 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/retweets_of_me">GET statuses/retweets_of_me | dev.twitter.com</a>
      */
-    @Operation
-    public ResponseList<Status> getRetweetsOfMe(@Parameter(defaultValue="1", optional=true) int page, @Parameter(defaultValue="100",optional=true) int count, @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+    @Processor
+    public ResponseList<Status> getRetweetsOfMe(@Default(value = "1") @Optional int page,
+                                                @Default(value = "100") @Optional int count,
+                                                @Default(value = "-1") @Optional int sinceId)
+        throws TwitterException
+    {
         return twitter.getRetweetsOfMe(getPaging(page, count, sinceId));
     }
 
@@ -240,8 +281,13 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter and the API - Twitter API Announcements | Google Group</a>
      */
-    @Operation
-    public ResponseList<Status> getRetweetedToUserByScreenName(String screenName, @Parameter(defaultValue="1", optional=true) int page, @Parameter(defaultValue="100",optional=true) int count, @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+    @Processor
+    public ResponseList<Status> getRetweetedToUserByScreenName(String screenName,
+                                                               @Default(value = "1") @Optional int page,
+                                                               @Default(value = "100") @Optional int count,
+                                                               @Default(value = "-1") @Optional int sinceId)
+        throws TwitterException
+    {
         return twitter.getRetweetedToUser(screenName, getPaging(page, count, sinceId));
     }
 
@@ -256,8 +302,13 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter and the API - Twitter API Announcements | Google Group</a>
      */
-    @Operation
-    public ResponseList<Status> getRetweetedToUserByUserId(long userId, @Parameter(defaultValue="1", optional=true) int page, @Parameter(defaultValue="100",optional=true) int count, @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+    @Processor
+    public ResponseList<Status> getRetweetedToUserByUserId(long userId,
+                                                           @Default(value = "1") @Optional int page,
+                                                           @Default(value = "100") @Optional int count,
+                                                           @Default(value = "-1") @Optional int sinceId)
+        throws TwitterException
+    {
         return twitter.getRetweetedToUser(userId, getPaging(page, count, sinceId));
     }
 
@@ -272,11 +323,13 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter and the API - Twitter API Announcements | Google Group</a>
      */
-    @Operation
+    @Processor
     public ResponseList<Status> getRetweetedByUserByScreenName(String screenName,
-                                                               @Parameter(defaultValue = "1", optional = true) int page,
-                                                               @Parameter(defaultValue = "100", optional = true) int count,
-                                                               @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+                                                               @Default(value = "1") @Optional int page,
+                                                               @Default(value = "100") @Optional int count,
+                                                               @Default(value = "-1") @Optional int sinceId)
+        throws TwitterException
+    {
         return twitter.getRetweetedByUser(screenName, getPaging(page, count, sinceId));
     }
 
@@ -291,11 +344,13 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter and the API - Twitter API Announcements | Google Group</a>
      */
-    @Operation
+    @Processor
     public ResponseList<Status> getRetweetedByUserByUserId(long userId,
-                                                           @Parameter(defaultValue = "1", optional = true) int page,
-                                                           @Parameter(defaultValue = "100", optional = true) int count,
-                                                           @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+                                                           @Default(value = "1") @Optional int page,
+                                                           @Default(value = "100") @Optional int count,
+                                                           @Default(value = "-1") @Optional int sinceId)
+        throws TwitterException
+    {
         return twitter.getRetweetedByUser(userId, getPaging(page, count, sinceId));
     }
 
@@ -308,7 +363,7 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws twitter4j.TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/show/:id">GET statuses/show/:id | dev.twitter.com</a>
      */
-    @Operation
+    @Processor
     public Status showStatus(long id) throws TwitterException {
         return twitter.showStatus(id);
     }
@@ -322,10 +377,11 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/post/statuses/update">POST statuses/update | dev.twitter.com</a>
      */
-    @Operation
-    public Status updateStatus(String status, 
-                               @Parameter(optional=true, defaultValue="-1") long inReplyTo,
-                               @Parameter(optional=true) GeoLocation geoLocation) throws TwitterException {
+    @Processor
+    public Status updateStatus(String status,
+                               @Optional @Default(value = "-1") long inReplyTo,
+                               @Optional GeoLocation geoLocation) throws TwitterException
+    {
         StatusUpdate update = new StatusUpdate(status);
         if (inReplyTo > 0) {
            update.setInReplyToStatusId(inReplyTo);
@@ -347,8 +403,9 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/post/statuses/destroy/:id">POST statuses/destroy/:id | dev.twitter.com</a>
      */
-    @Operation
-    public Status destroyStatus(long statusId) throws TwitterException {
+    @Processor
+    public Status destroyStatus(long statusId) throws TwitterException
+    {
         return twitter.destroyStatus(statusId);
     }
 
@@ -361,8 +418,9 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/post/statuses/retweet/:id">POST statuses/retweet/:id | dev.twitter.com</a>
      */
-    @Operation
-    public Status retweetStatus(long statusId) throws TwitterException {
+    @Processor
+    public Status retweetStatus(long statusId) throws TwitterException
+    {
         return twitter.retweetStatus(statusId);
     }
 
@@ -376,8 +434,9 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @see <a href="http://dev.twitter.com/doc/get/statuses/retweets/:id">Tweets Resources › statuses/retweets/:id</a>
      * @since Twitter4J 2.0.10
      */
-    @Operation
-    public ResponseList<Status> getRetweets(long statusId) throws TwitterException {
+    @Processor
+    public ResponseList<Status> getRetweets(long statusId) throws TwitterException
+    {
         return twitter.getRetweets(statusId);
     }
 
@@ -391,11 +450,14 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/:id/retweeted_by">GET statuses/:id/retweeted_by | dev.twitter.com</a>
      */
-    @Operation
+    @Processor
     public ResponseList<User> getRetweetedBy(long statusId,
-                                             @Parameter(defaultValue = "1", optional = true) int page,
-                                             @Parameter(defaultValue = "100", optional = true) int count,
-                                             @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+
+                                             @Default(value = "1") @Optional int page,
+                                             @Default(value = "100") @Optional int count,
+                                             @Default(value = "-1") @Optional int sinceId)
+        throws TwitterException
+    {
         return twitter.getRetweetedBy(statusId, getPaging(page, count, sinceId));
     }
 
@@ -409,14 +471,14 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/:id/retweeted_by/ids">GET statuses/:id/retweeted_by/ids | dev.twitter.com</a>
      */
-    @Operation
+    @Processor
     public IDs getRetweetedByIDs(long statusId,
-                                 @Parameter(defaultValue = "1", optional = true) int page,
-                                 @Parameter(defaultValue = "100", optional = true) int count,
-                                 @Parameter(defaultValue="-1",optional=true) int sinceId) throws TwitterException {
+                                 @Default(value = "1") @Optional int page,
+                                 @Default(value = "100") @Optional int count,
+                                 @Default(value = "-1") @Optional int sinceId) throws TwitterException
+    {
         return twitter.getRetweetedByIDs(statusId, getPaging(page, count, sinceId));
     }
-    
 
     /**
      * Set the OAuth verifier after it has been retrieved via requestAuthorization. The resulting access tokens
@@ -425,8 +487,9 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * 
      * @param oauthVerifier The OAuth verifier code from Twitter.
      */
-    @Operation
-    public void setOauthVerifier(String oauthVerifier) throws TwitterException {
+    @Processor
+    public void setOauthVerifier(String oauthVerifier) throws TwitterException
+    {
         AccessToken accessToken = twitter.getOAuthAccessToken(oauthVerifier);
         logger.info("Got OAuth access tokens. Access token:"  + accessToken.getToken() + " Access token secret:" + accessToken.getTokenSecret());
     }
@@ -436,8 +499,9 @@ public class TwitterConnector implements Initialisable, MuleContextAware {
      * a URL which the user can visit to authorize the connector for their account.
      * @return The user authorization URL.
      */
-    @Operation
-    public String requestAuthorization(@Parameter(optional=true) String callbackUrl) throws TwitterException {
+    @Processor
+    public String requestAuthorization(@Optional String callbackUrl) throws TwitterException
+    {
         RequestToken token = twitter.getOAuthRequestToken();
         
         return token.getAuthorizationURL();
