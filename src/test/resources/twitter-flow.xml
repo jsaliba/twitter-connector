@@ -41,9 +41,12 @@
         <twitter:set-oauth-verifier oauthVerifier="#[header:inbound:verifier]"/>
     </flow>
     
+    <flow name="SearchPlaces">
+      <twitter:search-places latitude="#[header:latitude]" longitude="#[header:longitude]" />
+    </flow>
     
     <flow name="GeoCode">
-      <twitter:reverse-geo-code query-ref="#[header:query]" />
+      <twitter:reverse-geo-code latitude="#[header:latitud]" longitude="#[header:longitude]" />
     </flow>
     
     <flow name="CurrentTrends">

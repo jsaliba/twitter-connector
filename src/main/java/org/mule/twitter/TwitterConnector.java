@@ -539,17 +539,93 @@ public class TwitterConnector implements MuleContextAware
      * "neighborhoods", "cities", etc. At this time, only United States data is
      * available through this method.
      * 
-     * {@code <reverse-geo-code query="#[header:query]" />}
+     * {@code <reverse-geo-code ip="#[header:ip]" />}
+     * @param latitude 
+     * @param longitude 
      * 
-     * @param query
      * @return a ResponseList of Place
      * @throws TwitterException
      */
     @Processor
-    public ResponseList<Place> reverseGeoCode(GeoQuery query) throws TwitterException
+    public ResponseList<Place> reverseGeoCode(@Optional Double latitude,
+                                              @Optional Double longitude,
+                                              @Optional String ip) throws TwitterException
     {
-        return twitter.reverseGeoCode(query);
+        return twitter.reverseGeoCode(createQuery(latitude, longitude, ip));
     }
+
+    /**
+     * Search for places that can be attached to a statuses/update. Given a latitude
+     * and a longitude pair, or and IP address, this request will return a
+     * list of all the valid places that can be used as the place_id when updating a
+     * status.
+     * 
+     * {@code  <search-places latitude="#[header:latitude]" longitude="#[header:longitude]" />}
+     * 
+     * @param latitude
+     * @param longitude
+     * @param ip
+     * @return a ResponseList of Place
+     * @throws TwitterException
+     */
+    @Processor
+    public ResponseList<Place> searchPlaces(@Optional Double latitude,
+                                            @Optional Double longitude,
+                                            @Optional String ip) throws TwitterException
+    {
+        return twitter.searchPlaces(createQuery(latitude, longitude, ip));
+    }
+
+    private GeoQuery createQuery(Double latitude, Double longitude, String ip)
+    {
+        if (ip == null)
+        {
+            return new GeoQuery(new GeoLocation(latitude, longitude));
+        }
+        return new GeoQuery(ip);
+    }
+
+    /**
+     * Find out more details of a place that was returned from the
+     * reverseGeoCode operation.
+     * 
+     * @param id
+     * @return a Place
+     * @throws TwitterException
+     */
+    @Processor
+    public Place getGeoDetails(String id) throws TwitterException
+    {
+        return twitter.getGeoDetails(id);
+    }
+
+    /**
+     * Creates a new place at the given latitude and longitude.
+     * 
+     * @param name The name a place is known as.
+     * @param containedWithin The place_id within which the new place can be found.
+     *            Try and be as close as possible with the containing place. For
+     *            example, for a room in a building, set the contained_within as the
+     *            building place_id.
+     * @param token The token found in the response from geo/similar_places.
+     * @param location The latitude and longitude the place is located at.
+     * @param streetAddress optional: This parameter searches for places which have
+     *            this given street address. There are other well-known, and
+     *            application specific attributes available. Custom attributes are
+     *            also permitted. Learn more about Place Attributes.
+     * @return a new Place
+     * @throws TwitterException
+     */
+    @Processor
+    public Place createPlace(String name,
+                             String containedWithin,
+                             String token,
+                             GeoLocation location,
+                             @Optional String streetAddress) throws TwitterException
+    {
+        return twitter.createPlace(name, containedWithin, token, location, streetAddress);
+    }
+
 
     /**
      * Returns the current top 10 trending topics on Twitter. The response includes
