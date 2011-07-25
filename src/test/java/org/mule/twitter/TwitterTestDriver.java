@@ -4,13 +4,10 @@
 
 package org.mule.twitter;
 
+import org.mule.api.annotations.callback.SourceCallback;
 import org.mule.tck.AbstractMuleTestCase;
 
-import org.junit.Assert;
-
-import twitter4j.ResponseList;
-import twitter4j.Status;
-import static org.junit.Assert.*;
+import java.util.Arrays;
 public class TwitterTestDriver extends AbstractMuleTestCase
 {
 
@@ -21,21 +18,45 @@ public class TwitterTestDriver extends AbstractMuleTestCase
         super();
         setStartContext(true);
     }
-
+    
     @Override
-    protected void suitePreSetUp() throws Exception
+    protected void doSetUp() throws Exception
     {
         connector = new TwitterConnector();
         connector.setMuleContext(muleContext);
-        connector.setConsumerKey(System.getProperty("consumer.key"));
-        connector.setConsumerSecret(System.getProperty("consumer.secret"));
+        connector.setConsumerKey(System.getenv("consumerKey"));
+        connector.setConsumerSecret(System.getenv("consumerSecret"));
+        connector.setAccessToken(System.getenv("accessKey"));
+        connector.setAccessTokenSecret(System.getenv("accessSecret"));
         connector.initialise();
     }
 
     public void testGetMessages() throws Exception
     {
-        Assert.assertNotNull(connector.getCurrentTrends(true));
-        // ResponseList<Status> response = connector.getPublicTimeline();
-        // assertTrue(response.size() > 0);
+        assertNotNull(connector.getCurrentTrends(true));
+    }
+    
+    public void testPublicTimeline() throws Exception
+    {
+        assertNotNull(connector.getPublicTimeline());
+    }
+    
+    public void testSearchPlaces() throws Exception
+    {
+        assertNotNull(connector.searchPlaces(50.0, 50.0, null));
+    }
+
+    public void ignoreTestFilteredStream() throws Exception
+    {
+        connector.filteredStream(0, null, Arrays.asList("foo", "bar", "football"), new SourceCallback()
+        {
+            @Override
+            public Void process(Object payload)
+            {
+                System.out.println(payload);
+                return null;
+            }
+        });
+        Thread.sleep(60000);
     }
 }
