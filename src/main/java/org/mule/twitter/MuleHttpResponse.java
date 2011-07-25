@@ -7,6 +7,7 @@
  * license, a copy of which has been included with this distribution in the
  * LICENSE.txt file.
  */
+
 package org.mule.twitter;
 
 import org.mule.api.MuleMessage;
@@ -21,32 +22,40 @@ import twitter4j.TwitterException;
 import twitter4j.internal.http.HttpClientConfiguration;
 import twitter4j.internal.http.HttpResponse;
 
-public class MuleHttpResponse extends HttpResponse {
+public class MuleHttpResponse extends HttpResponse
+{
 
     private final MuleMessage response;
 
-    public MuleHttpResponse(HttpClientConfiguration conf, MuleMessage response) throws TwitterException {
+    public MuleHttpResponse(HttpClientConfiguration conf, MuleMessage response) throws TwitterException
+    {
         super(conf);
         this.response = response;
-        try {
+        try
+        {
             this.is = response.getPayload(InputStream.class);
-        } catch (TransformerException e) {
+        }
+        catch (TransformerException e)
+        {
             throw new TwitterException(e);
         }
     }
-    
+
     @Override
-    public String getResponseHeader(String name) {
+    public String getResponseHeader(String name)
+    {
         return response.getInboundProperty(name);
     }
 
     @Override
-    public Map<String, List<String>> getResponseHeaderFields() {
-       throw new IllegalStateException();
+    public Map<String, List<String>> getResponseHeaderFields()
+    {
+        throw new IllegalStateException();
     }
 
     @Override
-    public void disconnect() throws IOException {
+    public void disconnect() throws IOException
+    {
     }
 
 }

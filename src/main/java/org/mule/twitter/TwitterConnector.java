@@ -47,7 +47,8 @@ import twitter4j.internal.http.alternative.HttpClientImpl;
 @Module(name = "twitter",
         namespace = "http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter",
         schemaLocation = "http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter/2.1/mule-twitter.xsd")
-public class TwitterConnector implements MuleContextAware {
+public class TwitterConnector implements MuleContextAware
+{
     protected transient Log logger = LogFactory.getLog(getClass());
 
     private Twitter twitter;
@@ -72,14 +73,16 @@ public class TwitterConnector implements MuleContextAware {
     private boolean useSSL;
     
     @Start
-    public void initialise() {
+    public void initialise()
+    {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setUseSSL(useSSL);
-        
+
         twitter = new TwitterFactory(cb.build()).getInstance();
 
         twitter.setOAuthConsumer(consumerKey, consumerSecret);
-        if (accessToken != null) {
+        if (accessToken != null)
+        {
             twitter.setOAuthAccessToken(new AccessToken(accessToken, accessTokenSecret));
         }
     }
@@ -176,12 +179,14 @@ public class TwitterConnector implements MuleContextAware {
         return twitter.getUserTimeline(userId, getPaging(page, count, sinceId));
     }
 
-    protected Paging getPaging(int page, int count, long sinceId) {
-         Paging paging = new Paging(page, count);
-         if (sinceId > 0) {
-             paging.setSinceId(sinceId);
-         }
-         return paging;
+    protected Paging getPaging(int page, int count, long sinceId)
+    {
+        Paging paging = new Paging(page, count);
+        if (sinceId > 0)
+        {
+            paging.setSinceId(sinceId);
+        }
+        return paging;
     }
 
     /**
@@ -189,9 +194,9 @@ public class TwitterConnector implements MuleContextAware {
      * This is the equivalent of the Web / page for your own user, or the profile page for a third party.<br>
      * For backwards compatibility reasons, retweets are stripped out of the user_timeline when calling in XML or JSON (they appear with 'RT' in RSS and Atom). If you'd like them included, you can merge them in from statuses retweeted_by_me.<br>
      * <br>This method calls http://api.twitter.com/1/statuses/user_timeline.json
-     *
-     * @param userId specifies the ID of the user for whom to return the user_timeline
-     * @param paging controls pagination. Supports since_id, max_id, count and page parameters.
+     * @param page 
+     * @param count 
+     * @param sinceId 
      * @return list of the user Timeline
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/user_timeline">GET statuses/user_timeline | dev.twitter.com</a>
@@ -208,6 +213,10 @@ public class TwitterConnector implements MuleContextAware {
     /**
      * Returns the 20 most recent mentions (status containing @username) for the authenticating user.
      * <br>This method calls http://api.twitter.com/1/statuses/mentions
+     * 
+     * @param page  
+     * @param count 
+     * @param sinceId 
      *
      * @param paging controls pagination. Supports since_id, max_id, count and page parameters.
      * @return the 20 most recent replies
@@ -370,7 +379,8 @@ public class TwitterConnector implements MuleContextAware {
      * @see <a href="http://dev.twitter.com/doc/get/statuses/show/:id">GET statuses/show/:id | dev.twitter.com</a>
      */
     @Processor
-    public Status showStatus(long id) throws TwitterException {
+    public Status showStatus(long id) throws TwitterException
+    {
         return twitter.showStatus(id);
     }
 
@@ -389,13 +399,15 @@ public class TwitterConnector implements MuleContextAware {
                                @Optional GeoLocation geoLocation) throws TwitterException
     {
         StatusUpdate update = new StatusUpdate(status);
-        if (inReplyTo > 0) {
-           update.setInReplyToStatusId(inReplyTo);
+        if (inReplyTo > 0)
+        {
+            update.setInReplyToStatusId(inReplyTo);
         }
-        if (geoLocation != null) {
+        if (geoLocation != null)
+        {
             update.setLocation(geoLocation);
         }
-        
+
         return twitter.updateStatus(status);
     }
 
@@ -492,6 +504,7 @@ public class TwitterConnector implements MuleContextAware {
      * if desired.
      * 
      * @param oauthVerifier The OAuth verifier code from Twitter.
+     * @throws TwitterException 
      */
     @Processor
     public void setOauthVerifier(String oauthVerifier) throws TwitterException
@@ -501,9 +514,11 @@ public class TwitterConnector implements MuleContextAware {
     }
 
     /**
-     * Start the OAuth request authorization process. This will request a token from Yammer and return
-     * a URL which the user can visit to authorize the connector for their account.
+     * Start the OAuth request authorization process. 
+     * 
+     * @param callbackUrl
      * @return The user authorization URL.
+     * @throws TwitterException 
      */
     @Processor
     public String requestAuthorization(@Optional String callbackUrl) throws TwitterException
@@ -514,23 +529,38 @@ public class TwitterConnector implements MuleContextAware {
     }
 
     /**
+     * Search for places (cities and neighborhoods) that can be attached to a
+     * statuses/update. Given a latitude and a longitude, return a list of all the
+     * valid places that can be used as a place_id when updating a status.
+     * Conceptually, a query can be made from the user's location, retrieve a list of
+     * places, have the user validate the location he or she is at, and then send the
+     * ID of this location up with a call to statuses/update.<br>
+     * There are multiple granularities of places that can be returned --
+     * "neighborhoods", "cities", etc. At this time, only United States data is
+     * available through this method.
+     * 
      * {@code <reverse-geo-code query="#[header:query]" />}
+     * 
      * @param query
-     * @return
-     * @throws TwitterException 
+     * @return a ResponseList of Place
+     * @throws TwitterException
      */
     @Processor
     public ResponseList<Place> reverseGeoCode(GeoQuery query) throws TwitterException
     {
         return twitter.reverseGeoCode(query);
     }
-    
+
     /**
+     * Returns the current top 10 trending topics on Twitter. The response includes
+     * the time of the request, the name of each trending topic, and query used on
+     * Twitter Search results page for that topic. 
+     * 
      * {@code <get-current-trends excludeHashtags="true" />}
+     * 
      * @param excludeHashtags
-     * @return 
-     * @return
-     * @throws TwitterException 
+     * @return a Trends object
+     * @throws TwitterException
      */
     @Processor
     public Trends getCurrentTrends(@Optional @Default("false") boolean excludeHashtags)
@@ -538,13 +568,17 @@ public class TwitterConnector implements MuleContextAware {
     {
         return twitter.getCurrentTrends(excludeHashtags);
     }
-    
+
     /**
+     * Returns the top 20 trending topics for each hour in a given day.
+     * 
      * {@code <get-daily-trends />}
-     * @param date 
-     * @param excludeHashTags 
-     * @return 
-     * @throws TwitterException 
+     * 
+     * @param date starting date of daily trends. If no date is specified, current
+     *            date is used
+     * @param excludeHashTags if hashtags should be excluded
+     * @return a list of Trends objects
+     * @throws TwitterException
      */
     @Processor
     public List<Trends> getDailyTrends(@Optional Date date,
@@ -555,10 +589,13 @@ public class TwitterConnector implements MuleContextAware {
     }
 
     /**
+     * Returns the top ten topics that are currently trending on Twitter. The
+     * response includes the time of the request, the name of each trend, and the url
+     * to the Twitter Search results page for that topic. 
+     * 
      * {@code <get-trends/>}
      * 
-     * @return
-     * @return
+     * @return a Trends object
      * @throws TwitterException
      */
     @Processor
@@ -568,9 +605,13 @@ public class TwitterConnector implements MuleContextAware {
     }
 
     /**
+     * Returns the top 30 trending topics for each day in a given week.
+     * 
      * {@code <get-weekly-trends/>}
      * 
-     * @return
+     * @param date starting date of daily trends. If no date is specified, current
+     *            date is used
+     * @return a list of Trends objects
      * @throws TwitterException
      */
     @Processor
@@ -581,41 +622,45 @@ public class TwitterConnector implements MuleContextAware {
         return twitter.getWeeklyTrends(date, excludeHashTags);
     }
 
-    public Twitter getTwitterClient() {
+    public Twitter getTwitterClient()
+    {
         return twitter;
     }
 
-    public boolean getUseSSL() {
+    public boolean getUseSSL()
+    {
         return useSSL;
     }
 
-    public void setUseSSL(boolean useSSL) {
+    public void setUseSSL(boolean useSSL)
+    {
         this.useSSL = useSSL;
     }
 
-    public void setAccessToken(String accessToken) {
+    public void setAccessToken(String accessToken)
+    {
         this.accessToken = accessToken;
     }
 
-    public void setAccessTokenSecret(String accessTokenSecret) {
+    public void setAccessTokenSecret(String accessTokenSecret)
+    {
         this.accessTokenSecret = accessTokenSecret;
     }
 
-    public void setConsumerKey(String consumerKey) {
+    public void setConsumerKey(String consumerKey)
+    {
         this.consumerKey = consumerKey;
     }
 
-    public void setConsumerSecret(String consumerSecret) {
+    public void setConsumerSecret(String consumerSecret)
+    {
         this.consumerSecret = consumerSecret;
     }
 
     @Override
-    public void setMuleContext(MuleContext context) {
+    public void setMuleContext(MuleContext context)
+    {
         HttpClientImpl.setMuleContext(context);
     }
-    
-    
-    
-
 
 }
