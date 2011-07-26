@@ -335,7 +335,6 @@ To authenticate your connector, do the following:
       <groupId>org.mule.tools.devkit</groupId>
       <artifactId>mule-devkit-annotations</artifactId>
       <version>${mule.devkit.version}</version>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
 
