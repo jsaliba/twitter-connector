@@ -796,18 +796,39 @@ public class TwitterConnector implements MuleContextAware
         return twitter.getWeeklyTrends(date, excludeHashTags);
     }
 
+    
+    
     /**
-     * {@code <filtered-stream count="5" track-ref="#[varibale:trackWordsLis]"/>}
+     * Start consuming public statuses that match one or more filter predicates.
      * 
-     * @param count
+     * At least a keyword or userId must be specified. Multiple parameters may be 
+     * specified. 
+     * 
+     * Placing long parameters in the URL may cause the request to be rejected for excessive URL length.
+     * 
+     * The default access level allows up to 200 track keywords and 400 follow userids.
+     * 
+     * Only one Twitter stream can be consumed.
+     *  
+     * {@code <filtered-stream count="5">
+     *      <keywords>
+     *          <keyword>enterprise</keyword>
+     *          <keyword>integration</keyword>
+     *      </keywords>
+     *      </filtered-stream>}
+     * 
+     * @param count the number of previous statuses to stream before transitioning to the live stream.
+     * @param userIds the user ids to follow
+     * @param keywords the keywords to track
+     * @param callback
      */
     @Source
     public void filteredStream(@Optional @Default("0") int count,
                                @Optional List<Long> userIds,
-                               @Optional List<String> track,
+                               @Optional List<String> keywords,
                                final SourceCallback callback)
     {
-        listenToStatues(callback).filter(new FilterQuery(count, toLongArray(userIds), toStringArray(track)));
+        listenToStatues(callback).filter(new FilterQuery(count, toLongArray(userIds), toStringArray(keywords)));
     }
 
     /**
@@ -1008,7 +1029,7 @@ public class TwitterConnector implements MuleContextAware
         return stream;
     }
 
-    public TwitterStream newStream()
+    private TwitterStream newStream()
     {
         ConfigurationBuilder cb = new ConfigurationBuilder().setUseSSL(useSSL).setOAuthConsumerKey(
             consumerKey).setOAuthConsumerSecret(consumerSecret);

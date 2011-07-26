@@ -22,35 +22,60 @@
                           
     <twitter:config consumerKey="${twitter.consumer.key}" consumerSecret="${twitter.consumer.secret}"/>
     
-    <flow name="twitterTest">
-        <inbound-endpoint address="http://localhost:9002/public"/>
-        <response>
-            <json:object-to-json-transformer/>
-        </response>
+    <flow name="PublicTimeline">
         <twitter:get-public-timeline/>
     </flow>
     
-    <flow name="updatestatus">
-        <inbound-endpoint address="http://localhost:9002/update"/>
-        <response>
-            <json:object-to-json-transformer/>
-        </response>
+    <flow name="HomeTimeline">
+        <twitter:get-home-timeline/>
+    </flow>
+    
+    <flow name="UserTimeline">
+        <twitter:get-user-timeline/>
+    </flow>
+    
+    <flow name="UpdateStatus">
         <twitter:update-status status="hello world"/>
     </flow>
     
-    <flow name="request-authorization">
-        <inbound-endpoint address="http://localhost:9002/request-authorization"/>
-        <twitter:request-authorization callbackUrl="http://localhost:9002/set-oauth-verifier"/>
-        <message-properties-transformer>
-            <add-message-property key="http.status" value="302"/>
-            <add-message-property key="Location" value="#[payload]"/>
-        </message-properties-transformer>
+    
+    
+    <flow name="Search">
+        <twitter:search query="#[payload]"/>
     </flow>
     
-    <flow name="set-oauth-verifier">
-        <inbound-endpoint address="http://localhost:9002/set-oauth-verifier"/>
-        <logger level="ERROR"/>
-        <twitter:set-oauth-verifier oauthVerifier="#[header:inbound:verifier]"/>
+    <flow name="SearchPlaces">
+      <twitter:search-places latitude="#[header:latitude]" longitude="#[header:longitude]" />
+    </flow>
+    
+    <flow name="GeoCode">
+      <twitter:reverse-geo-code latitude="#[header:latitud]" longitude="#[header:longitude]" />
+    </flow>
+    
+    <flow name="CurrentTrends">
+      <twitter:get-current-trends excludeHashtags="true" />
+    </flow>
+    
+    <flow name="DailyTrends">
+      <twitter:get-daily-trends />
+    </flow>
+    
+    <flow name="GetTrends">
+      <twitter:get-trends/>
+    </flow>
+    
+    <flow name="WeeklyTrends">
+      <twitter:get-weekly-trends/>
+    </flow>
+  
+    <flow name="FilteredStream">
+      <twitter:filtered-stream>
+        <twitter:keywords>
+          <twitter:keyword>muleesb</twitter:keyword>
+          <twitter:keyword>mulesoft</twitter:keyword>
+        </twitter:keywords>
+      </twitter:filtered-stream>
+      <echo-component />
     </flow>
     
 </mule>
