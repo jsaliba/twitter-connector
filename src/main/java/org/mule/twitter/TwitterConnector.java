@@ -49,6 +49,8 @@ import twitter4j.auth.RequestToken;
 import twitter4j.conf.ConfigurationBuilder;
 import twitter4j.internal.http.alternative.HttpClientImpl;
 
+import javax.annotation.PostConstruct;
+
 /**
  * A Connector for Twitter which uses twitter4j.
  */
@@ -78,7 +80,7 @@ public class TwitterConnector implements MuleContextAware
     @Default("true")
     private boolean useSSL;
 
-    @Start
+    @PostConstruct
     public void initialise()
     {
         ConfigurationBuilder cb = new ConfigurationBuilder();

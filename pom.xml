@@ -73,7 +73,7 @@ To authenticate your connector, do the following:
   <url>http://www.muleforge.org/projects/twitter-connector</url>
 
   <properties>
-    <mule.version>3.2.0-SNAPSHOT</mule.version>
+    <mule.version>3.1.0</mule.version>
     <mule.devkit.version>1.0-SNAPSHOT</mule.devkit.version>
     <junit.version>4.8.2</junit.version>
     <mockito.version>1.8.2</mockito.version>
@@ -171,15 +171,6 @@ To authenticate your connector, do the following:
         <configuration>
           <downloadSources>true</downloadSources>
           <jdkName>${jdk.version}</jdkName>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.mule.tools</groupId>
-        <artifactId>mule-cloud-connector-maven-plugin</artifactId>
-        <version>2.0.15</version>
-        <extensions>true</extensions>
-        <configuration>
-          <schemaVersion>2.0</schemaVersion>
         </configuration>
       </plugin>
 
