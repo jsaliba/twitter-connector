@@ -30,9 +30,13 @@
     consumerSecret="${twitterConsumerSecret}" />
 
   <flow name="GetTrendingTopics">
-    <http:inbound-endpoint host="localhost" port="9090" path="twitter-demo-stream" />
-     <twitter:filtered-stream track-ref="#[groovy: ['muleesb', 'mulesoft'] ]" />
-     <echo-component />
+    <twitter:filtered-stream>
+      <twitter:keywords>
+        <twitter:keyword>muleesb</twitter:keyword>
+        <twitter:keyword>mulesoft</twitter:keyword>
+      </twitter:keywords>
+    </twitter:filtered-stream>
+    <echo-component />
   </flow>
   
 </mule>
