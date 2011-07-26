@@ -79,11 +79,11 @@ public class TwitterConnector implements MuleContextAware
 
     @Optional
     @Configurable
-    private String accessToken;
+    private String accessKey;
 
     @Optional
     @Configurable
-    private String accessTokenSecret;
+    private String accessSecret;
 
     @Optional
     @Configurable
@@ -99,9 +99,9 @@ public class TwitterConnector implements MuleContextAware
         twitter = new TwitterFactory(cb.build()).getInstance();
 
         twitter.setOAuthConsumer(consumerKey, consumerSecret);
-        if (accessToken != null)
+        if (accessKey != null)
         {
-            twitter.setOAuthAccessToken(new AccessToken(accessToken, accessTokenSecret));
+            twitter.setOAuthAccessToken(new AccessToken(accessKey, accessSecret));
         }
     }
 
@@ -1012,9 +1012,9 @@ public class TwitterConnector implements MuleContextAware
     {
         ConfigurationBuilder cb = new ConfigurationBuilder().setUseSSL(useSSL).setOAuthConsumerKey(
             consumerKey).setOAuthConsumerSecret(consumerSecret);
-        if (accessToken != null)
+        if (accessKey != null)
         {
-            cb.setOAuthAccessToken(accessToken).setOAuthAccessTokenSecret(accessTokenSecret);
+            cb.setOAuthAccessToken(accessKey).setOAuthAccessTokenSecret(accessSecret);
         }
 
         TwitterStream stream = new TwitterStreamFactory(cb.build()).getInstance();
@@ -1050,14 +1050,14 @@ public class TwitterConnector implements MuleContextAware
         this.useSSL = useSSL;
     }
 
-    public void setAccessToken(String accessToken)
+    public void setAccessKey(String accessToken)
     {
-        this.accessToken = accessToken;
+        this.accessKey = accessToken;
     }
 
-    public void setAccessTokenSecret(String accessTokenSecret)
+    public void setAccessSecret(String accessTokenSecret)
     {
-        this.accessTokenSecret = accessTokenSecret;
+        this.accessSecret = accessTokenSecret;
     }
 
     public void setConsumerKey(String consumerKey)
