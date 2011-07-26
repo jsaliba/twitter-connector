@@ -14,7 +14,7 @@ import org.mule.api.MuleMessage;
 import org.mule.client.DefaultLocalMuleClient;
 import org.mule.tck.FunctionalTestCase;
 
-public class TwitterFlowTestCase extends FunctionalTestCase {
+public class TwitterFlowTestDriver extends FunctionalTestCase {
 
     @Override
     protected String getConfigResources() {
