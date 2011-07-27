@@ -70,6 +70,8 @@ public class TwitterConnector implements MuleContextAware
     protected transient Log logger = LogFactory.getLog(getClass());
 
     private Twitter twitter;
+    
+    private TwitterStream stream;
 
     @Configurable
     private String consumerKey;
@@ -476,6 +478,11 @@ public class TwitterConnector implements MuleContextAware
     public Status showStatus(long id) throws TwitterException
     {
         return twitter.showStatus(id);
+    }
+    
+    @Processor
+    public User showUser() throws TwitterException {
+        return twitter.showUser(twitter.getId());
     }
 
     /**
@@ -884,8 +891,8 @@ public class TwitterConnector implements MuleContextAware
     @Source
     public void userStream(List<String> keywords, final SourceCallback callback)
     {
-        TwitterStream userStream = newStream();
-        userStream.addListener(new UserStreamAdapter()
+        initStream();
+        stream.addListener(new UserStreamAdapter()
         {
             @Override
             public void onException(Exception ex)
@@ -972,16 +979,17 @@ public class TwitterConnector implements MuleContextAware
                 callback.process(UserEvent.fromPayload(EventType.PROFILE_UPDATE, updatedUser, null));
             }
         });
-        userStream.user(toStringArray(keywords));
+        stream.user(toStringArray(keywords));
     }
+
 
     @Source
     public void siteStream(List<Long> userIds,
                            @Optional @Default("false") boolean withFollowings,
                            final SourceCallback callback)
     {
-        TwitterStream userStream = newStream();
-        userStream.addListener(new SiteStreamsAdapter()
+        initStream();
+        stream.addListener(new SiteStreamsAdapter()
         {
 
             @Override
@@ -997,9 +1005,18 @@ public class TwitterConnector implements MuleContextAware
             }
 
         });
-        userStream.site(withFollowings, toLongArray(userIds));
+        stream.site(withFollowings, toLongArray(userIds));
     }
-
+    
+    private void initStream()
+    {
+        if (stream != null)
+        {
+            throw new IllegalStateException("Only one stream can be consumed per twitter account");
+        }
+        this.stream = newStream();
+    }
+    
     private String[] toStringArray(List<String> list)
     {
         if (list == null)
@@ -1011,7 +1028,7 @@ public class TwitterConnector implements MuleContextAware
 
     private TwitterStream listenToStatues(final SourceCallback callback)
     {
-        TwitterStream stream = newStream();
+        initStream();
         stream.addListener(new StatusAdapter()
         {
             @Override

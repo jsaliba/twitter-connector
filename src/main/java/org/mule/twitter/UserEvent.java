@@ -11,6 +11,7 @@
 package org.mule.twitter;
 
 import org.apache.commons.lang.Validate;
+import org.apache.commons.lang.builder.ToStringBuilder;
 
 import twitter4j.Status;
 import twitter4j.User;
@@ -93,6 +94,12 @@ public class UserEvent
         LIST_MEMBER_DELETION, //
         LIST_SUBSCRIPTION, // 
         LIST_UNSUBSCRIPTION
+    }
+    
+    @Override
+    public String toString()
+    {
+        return ToStringBuilder.reflectionToString(this);
     }
 
 }

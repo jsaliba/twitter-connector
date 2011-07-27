@@ -14,10 +14,18 @@
 
 package org.mule.twitter;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.junit.Assert.assertThat;
+
 import org.mule.api.annotations.callback.SourceCallback;
 import org.mule.tck.AbstractMuleTestCase;
 
 import java.util.Arrays;
+import java.util.Date;
+
+import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
+
+import twitter4j.Status;
 public class TwitterTestDriver extends AbstractMuleTestCase
 {
 
@@ -40,6 +48,11 @@ public class TwitterTestDriver extends AbstractMuleTestCase
         connector.setAccessSecret(System.getenv("accessSecret"));
         connector.initialise();
     }
+    
+    public void testGetTrends() throws Exception
+    {
+        assertNotNull(connector.getTrends());
+    }
 
     public void testGetMessages() throws Exception
     {
@@ -55,18 +68,84 @@ public class TwitterTestDriver extends AbstractMuleTestCase
     {
         assertNotNull(connector.searchPlaces(50.0, 50.0, null));
     }
-
-    public void testFilteredStream() throws Exception
+    
+    public void testGetUserInfo() throws Exception
+    {
+        System.out.println(connector.showUser());
+    }
+    
+    public void testUpdateStatus() throws Exception
+    {
+        long id = connector.updateStatus("Foo bar baz " + new Date(), -1, null).getId();
+        assertTrue(connector.showStatus(id).getText().contains("Foo bar baz"));
+    }
+    
+    /**Run only one of those tests per connector instance*/
+    public void testSampleStream() throws Exception
+    {
+        connector.sampleStream(new SourceCallback()
+        {
+            @Override
+            public Void process(Object payload)
+            {
+                assertNotNull(payload);
+                assertThat(payload, instanceOf(Status.class));
+                System.out.println("Sample: " + payload);
+                return null;
+            }
+        });
+        Thread.sleep(10000);
+    }
+    
+    /**Run only one of those tests per connector instance*/
+    public void ignoretestFilteredStream() throws Exception
     {
         connector.filteredStream(0, null, Arrays.asList("football"), new SourceCallback()
         {
             @Override
             public Void process(Object payload)
             {
-                System.out.println(payload);
+                assertNotNull(payload);
+                assertThat(payload, instanceOf(Status.class));
+                System.out.println("Filtered: " + payload);
                 return null;
             }
         });
-        Thread.sleep(60000);
+        Thread.sleep(10000);
     }
+    
+    /**Run only one of those tests per connector instance*/
+    public void ignoreTestUserStream() throws Exception
+    {
+        connector.userStream(null, new SourceCallback()
+        {
+            @Override
+            public Void process(Object payload)
+            {
+                assertNotNull(payload);
+                assertThat(payload, instanceOf(UserEvent.class));
+                System.out.println("User: " + payload);
+                return null;
+            }
+        });
+        
+        connector.updateStatus("Foobar " + new Date(), -1, null);
+        Thread.sleep(1000);
+        
+        connector.updateStatus("Foobar " + new Date(), -1, null);
+        Thread.sleep(1000);
+        
+        connector.updateStatus("Foobar " + new Date(), -1, null);
+        Thread.sleep(1000);
+        
+        connector.updateStatus("Foobar " + new Date(), -1, null);
+        Thread.sleep(10000);
+    }
+    
+    @Override
+    public void handleTimeout(long timeout, TimeUnit unit)
+    {
+    }
+    
+
 }
