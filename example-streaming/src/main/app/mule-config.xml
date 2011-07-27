@@ -11,32 +11,61 @@
 
 -->
 
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:spring="http://www.springframework.org/schema/beans"
   xmlns:http="http://www.mulesoft.org/schema/mule/http"
   xmlns:twitter="http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter"
+  xmlns:mongo="http://www.mulesoft.org/schema/mule/mongo"
   xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
   xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.1/mule.xsd
         http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/3.1/mule-scripting.xsd
         http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/3.0/mule-http.xsd
-        http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter/2.1/mule-twitter.xsd">
+        http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter/2.1/mule-twitter.xsd
+        http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mongo/1.0/mule-mongo.xsd">
 
   <twitter:config 
     accessKey="${accessKey}"
     accessSecret="${accessSecret}" 
     consumerKey="${consumerKey}"
     consumerSecret="${consumerSecret}" />
+  <mongo:config  name="mongo" />
 
-  <flow name="GetTrendingTopics">
+  <flow name="StreamStatuses">
     <twitter:filtered-stream>
       <twitter:keywords>
-        <twitter:keyword>mulesoft</twitter:keyword>
-        <twitter:keyword>muleesb</twitter:keyword>
+        <twitter:keyword>footbal</twitter:keyword>
+        <twitter:keyword>futbol</twitter:keyword>
+        <twitter:keyword>soccer</twitter:keyword>
+        <twitter:keyword>fussball</twitter:keyword>
       </twitter:keywords>
     </twitter:filtered-stream>
-    <logger level="ERROR" message="#[payload]"/>
+    <mongo:insert-object collection="Statuses"
+     element='{ 
+        "lang" : "#[groovy:payload.user.lang]",
+        "createdAt" : "#[groovy:payload.createdAt]" } '/>
+  </flow>
+  
+  <flow name="GroupStatusesByLanguage">
+    <http:inbound-endpoint host="localhost" port="9092" path="twitter-demo-group-statuses-by-language" />
+    <mongo:map-reduce-objects collection="Statuses"
+      mapFunction="function() { emit(this.lang, 1) }"
+      reduceFunction="function(key, values) { return values.reduce( function(a,x) { return a + x }  )  }" />
+    <scripting:component >
+      <scripting:script engine="groovy">
+        <![CDATA[
+return """Statuses count by user language:
+
+""" + payload.collect( { x -> 
+"""${x['_id']}: ${x['value']}
+""" }).join('');
+    
+        ]]>
+      </scripting:script>
+     </scripting:component>
   </flow>
   
 </mule>

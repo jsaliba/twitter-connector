@@ -10,11 +10,15 @@
 
 package org.mulesoft.demo.twitter;
 
+import static org.junit.Assert.*;
+
 import org.mule.api.MuleEvent;
 import org.mule.api.MuleMessage;
 import org.mule.api.transport.PropertyScope;
 import org.mule.construct.SimpleFlowConstruct;
 import org.mule.tck.FunctionalTestCase;
+
+import org.junit.Test;
 
 public class TwitterFunctionalTestDriver extends FunctionalTestCase
 {
@@ -28,6 +32,12 @@ public class TwitterFunctionalTestDriver extends FunctionalTestCase
     public void testStream() throws Exception
     {
         Thread.sleep(20000);
+    }
+    
+    @Test
+    public void testGroupStatusesByLanguage() throws Exception
+    {
+        System.out.println(lookupFlowConstruct("GroupStatusesByLanguage").process(getTestEvent("")).getMessage().getPayloadAsString());
     }
     
     private SimpleFlowConstruct lookupFlowConstruct(final String name)

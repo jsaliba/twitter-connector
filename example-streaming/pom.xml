@@ -14,10 +14,10 @@
     <junit.version>4.8.2</junit.version>
     <mule.twitter.version>2.1-SNAPSHOT</mule.twitter.version>
     <ibeans.version>1.1</ibeans.version>
+    <mule.mongo.version>1.1</mule.mongo.version>
   </properties>
 
   <description>Example that streams statues from Twitter</description>
-
 
   <build>
     <defaultGoal>install</defaultGoal>
@@ -69,6 +69,10 @@
             <inclusion>
               <groupId>org.mule.tools.devkit</groupId>
               <artifactId>mule-devkit-annotations</artifactId>
+            </inclusion>
+            <inclusion>
+                <groupId>org.mule.modules</groupId>
+                <artifactId>mule-module-mongo</artifactId>
             </inclusion>
           </inclusions>
         </configuration>
@@ -127,6 +131,11 @@
       <groupId>org.mule.modules</groupId>
       <artifactId>mule-module-scripting</artifactId>
       <version>${mule.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mule.modules</groupId>
+      <artifactId>mule-module-mongo</artifactId>
+      <version>${mule.mongo.version}</version>
     </dependency>
   </dependencies>
   <repositories>
