@@ -24,10 +24,10 @@
         http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter/2.1/mule-twitter.xsd">
 
   <twitter:config 
-    accessKey="${twitterAccessKey}"
-    accessSecret="${twitterAccessSecret}" 
-    consumerKey="${twitterConsumerKey}"
-    consumerSecret="${twitterConsumerSecret}" />
+    accessKey="${accessKey}"
+    accessSecret="${accessSecret}" 
+    consumerKey="${consumerKey}"
+    consumerSecret="${consumerSecret}" />
 
   <flow name="UpdateStatus">
     <http:inbound-endpoint host="localhost" port="9090" path="twitter-demo-update-status" />

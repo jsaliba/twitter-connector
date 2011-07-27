@@ -24,19 +24,19 @@
         http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter/2.1/mule-twitter.xsd">
 
   <twitter:config 
-    accessKey="${twitterAccessKey}"
-    accessSecret="${twitterAccessSecret}" 
-    consumerKey="${twitterConsumerKey}"
-    consumerSecret="${twitterConsumerSecret}" />
+    accessKey="${accessKey}"
+    accessSecret="${accessSecret}" 
+    consumerKey="${consumerKey}"
+    consumerSecret="${consumerSecret}" />
 
   <flow name="GetTrendingTopics">
     <twitter:filtered-stream>
       <twitter:keywords>
-        <twitter:keyword>muleesb</twitter:keyword>
         <twitter:keyword>mulesoft</twitter:keyword>
+        <twitter:keyword>muleesb</twitter:keyword>
       </twitter:keywords>
     </twitter:filtered-stream>
-    <echo-component />
+    <logger level="ERROR" message="#[payload]"/>
   </flow>
   
 </mule>

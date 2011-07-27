@@ -11,7 +11,6 @@
 package org.mulesoft.demo.twitter;
 
 import org.mule.api.MuleEvent;
-import org.mule.api.MuleMessage;
 import org.mule.api.transport.PropertyScope;
 import org.mule.construct.SimpleFlowConstruct;
 import org.mule.tck.FunctionalTestCase;
