@@ -20,7 +20,6 @@ import org.mule.api.annotations.Module;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.Source;
 import org.mule.api.annotations.callback.SourceCallback;
-import org.mule.api.annotations.lifecycle.Start;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.api.context.MuleContextAware;
@@ -28,6 +27,8 @@ import org.mule.twitter.UserEvent.EventType;
 
 import java.util.Date;
 import java.util.List;
+
+import javax.annotation.PostConstruct;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -57,9 +58,8 @@ import twitter4j.UserStreamAdapter;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 import twitter4j.conf.ConfigurationBuilder;
-import twitter4j.internal.http.alternative.HttpClientImpl;
-
-import javax.annotation.PostConstruct;
+import twitter4j.internal.http.alternative.HttpClientHiddenConstructionArgument;
+import twitter4j.internal.http.alternative.MuleHttpClient;
 
 /**
  * A Connector for Twitter which uses twitter4j.
@@ -98,6 +98,7 @@ public class TwitterConnector implements MuleContextAware
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setUseSSL(useSSL);
 
+        HttpClientHiddenConstructionArgument.setUseMule(true);
         twitter = new TwitterFactory(cb.build()).getInstance();
 
         twitter.setOAuthConsumer(consumerKey, consumerSecret);
@@ -1055,6 +1056,7 @@ public class TwitterConnector implements MuleContextAware
             cb.setOAuthAccessToken(accessKey).setOAuthAccessTokenSecret(accessSecret);
         }
 
+        HttpClientHiddenConstructionArgument.setUseMule(false);
         TwitterStream stream = new TwitterStreamFactory(cb.build()).getInstance();
         return stream;
     }
@@ -1111,7 +1113,7 @@ public class TwitterConnector implements MuleContextAware
     @Override
     public void setMuleContext(MuleContext context)
     {
-        HttpClientImpl.setMuleContext(context);
+        MuleHttpClient.setMuleContext(context);
     }
 
 }

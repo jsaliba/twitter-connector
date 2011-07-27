@@ -98,9 +98,9 @@ public class TwitterTestDriver extends AbstractMuleTestCase
     }
     
     /**Run only one of those tests per connector instance*/
-    public void ignoretestFilteredStream() throws Exception
+    public void ignoreTestFilteredStream() throws Exception
     {
-        connector.filteredStream(0, null, Arrays.asList("football"), new SourceCallback()
+        connector.filteredStream(0, null, Arrays.asList("mulesoft"), new SourceCallback()
         {
             @Override
             public Void process(Object payload)
@@ -111,7 +111,7 @@ public class TwitterTestDriver extends AbstractMuleTestCase
                 return null;
             }
         });
-        Thread.sleep(10000);
+        Thread.sleep(20000);
     }
     
     /**Run only one of those tests per connector instance*/
@@ -142,10 +142,6 @@ public class TwitterTestDriver extends AbstractMuleTestCase
         Thread.sleep(10000);
     }
     
-    @Override
-    public void handleTimeout(long timeout, TimeUnit unit)
-    {
-    }
     
 
 }
