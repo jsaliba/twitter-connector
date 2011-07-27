@@ -33,7 +33,7 @@
     <http:inbound-endpoint host="localhost" port="9091" path="twitter-demo-current-trends" />
      <twitter:get-current-trends />
      <expression-transformer>
-        <return-argument evaluator="groovy" expression="payload.trends.collect({ it.name }).join('\n')" />
+        <return-argument evaluator="groovy" expression="'Current Trending Topics are: \n' + payload.trends.collect({ it.name }).join('\n')" />
      </expression-transformer>
   </flow>
   

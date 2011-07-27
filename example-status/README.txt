@@ -2,7 +2,7 @@ Twitter Status  Demo
 ======================
 
 INTRODUCTION
-   TODO
+   This demo shows to update status on Twitter
 
 HOW TO DEMO:
   1. Set the following environment variables:
