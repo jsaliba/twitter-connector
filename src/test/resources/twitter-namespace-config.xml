@@ -67,6 +67,21 @@
     <flow name="WeeklyTrends">
       <twitter:get-weekly-trends/>
     </flow>
+    
+    <flow name="GetGeoDetais">
+      <twitter:get-geo-details id="#[header:geocodeId]"/>    
+    </flow>
+    
+    <flow name="CreatePlace">
+      <twitter:create-place
+           token="#[header:token]"
+           containedWithin="#[header:containedWithin]" 
+           name="#[header:placeName]"
+           latitude="#[header:latitude]"
+           longitude="#[header:longitude]"
+           streetAddress="[header:address]"/>
+    
+    </flow>
   
     <flow name="FilteredStream">
       <twitter:filtered-stream>
@@ -76,6 +91,16 @@
         </twitter:keywords>
       </twitter:filtered-stream>
       <echo-component />
+    </flow>
+    
+    <flow name="UserStream">
+      <twitter:user-stream>
+         <twitter:keywords>
+             <twitter:keyword>enterprise</twitter:keyword>
+             <twitter:keyword>integration</twitter:keyword>
+         </twitter:keywords>
+      </twitter:user-stream>
+      <echo-component/>
     </flow>
     
 </mule>

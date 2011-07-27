@@ -13,7 +13,6 @@ package org.mule.twitter;
 import org.apache.commons.lang.Validate;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-import twitter4j.Status;
 import twitter4j.User;
 
 /**
@@ -54,11 +53,15 @@ public class UserEvent
         return targetUser;
     }
 
+    /**
+     * @return The type of event
+     */
     public EventType getEventType()
     {
         return eventType;
     }
 
+    /**@return The paylaod of the event*/
     public Object getPayload()
     {
         return payload;

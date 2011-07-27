@@ -481,6 +481,12 @@ public class TwitterConnector implements MuleContextAware
         return twitter.showStatus(id);
     }
     
+    /**
+     * Answers user information for the authenticated user 
+     * 
+     * @return a User object
+     * @throws TwitterException
+     */
     @Processor
     public User showUser() throws TwitterException {
         return twitter.showUser(twitter.getId());
@@ -651,10 +657,14 @@ public class TwitterConnector implements MuleContextAware
      * ID of this location up with a call to statuses/update.<br>
      * There are multiple granularities of places that can be returned --
      * "neighborhoods", "cities", etc. At this time, only United States data is
-     * available through this method. {@code <reverse-geo-code ip="#[header:ip]" />}
+     * available through this method. 
      * 
-     * @param latitude
-     * @param longitude
+     * 
+     * {@code <reverse-geo-code ip="#[header:ip]" />}
+     * 
+     * @param latitude latitude coordinate. Mandatory if ip is not specified
+     * @param longitude longitude coordinate. 
+     * @param ip the ip. Mandatory if coordinates are not specified
      * @return a ResponseList of Place
      * @throws TwitterException
      */
@@ -670,12 +680,12 @@ public class TwitterConnector implements MuleContextAware
      * Search for places that can be attached to a statuses/update. Given a latitude
      * and a longitude pair, or and IP address, this request will return a list of
      * all the valid places that can be used as the place_id when updating a status.
-     * {@code <search-places latitude="#[header:latitude]"
-     * longitude="#[header:longitude]" />}
      * 
-     * @param latitude
-     * @param longitude
-     * @param ip
+     * {@code <search-places latitude="#[header:latitude]" longitude="#[header:longitude]" />}
+     * 
+     * @param latitude latitude coordinate. Mandatory if ip is not specified
+     * @param longitude longitude coordinate. 
+     * @param ip the ip. Mandatory if coordinates are not specified
      * @return a ResponseList of Place
      * @throws TwitterException
      */
@@ -700,7 +710,9 @@ public class TwitterConnector implements MuleContextAware
      * Find out more details of a place that was returned from the reverseGeoCode
      * operation.
      * 
-     * @param id
+     * {@code <get-geo-details id="#[header:geocodeId]"/>}
+     * 
+     * @param id The ID of the location to query about.
      * @return a Place
      * @throws TwitterException
      */
@@ -713,13 +725,22 @@ public class TwitterConnector implements MuleContextAware
     /**
      * Creates a new place at the given latitude and longitude.
      * 
+     * {@code <create-place
+     *      token="#[header:token]"
+     *      containedWithin="#[header:containedWithin]" 
+     *      name="#[header:placeName]"
+     *      latitude="#[header:latitude]"
+     *      longitude="#[header:longitude]"
+     *      streetAddress="[header:address]"/>}   
+     * 
      * @param name The name a place is known as.
      * @param containedWithin The place_id within which the new place can be found.
      *            Try and be as close as possible with the containing place. For
      *            example, for a room in a building, set the contained_within as the
      *            building place_id.
      * @param token The token found in the response from geo/similar_places.
-     * @param location The latitude and longitude the place is located at.
+     * @param latitude The latitude the place is located at.
+     * @param longitude The longitude the place is located at.
      * @param streetAddress optional: This parameter searches for places which have
      *            this given street address. There are other well-known, and
      *            application specific attributes available. Custom attributes are
@@ -731,19 +752,22 @@ public class TwitterConnector implements MuleContextAware
     public Place createPlace(String name,
                              String containedWithin,
                              String token,
-                             GeoLocation location,
+                             Double latitude, 
+                             Double longitude,
                              @Optional String streetAddress) throws TwitterException
     {
-        return twitter.createPlace(name, containedWithin, token, location, streetAddress);
+        return twitter.createPlace(name, containedWithin, token, new GeoLocation(latitude, longitude),
+            streetAddress);
     }
 
     /**
      * Returns the current top 10 trending topics on Twitter. The response includes
      * the time of the request, the name of each trending topic, and query used on
-     * Twitter Search results page for that topic. {@code <get-current-trends
-     * excludeHashtags="true" />}
+     * Twitter Search results page for that topic. 
      * 
-     * @param excludeHashtags
+     * {@code <get-current-trends excludeHashtags="true" />}
+     * 
+     * @param excludeHashtags whether all hashtags shoudl be removed from the trends list.
      * @return a Trends object
      * @throws TwitterException
      */
@@ -755,12 +779,13 @@ public class TwitterConnector implements MuleContextAware
     }
 
     /**
-     * Returns the top 20 trending topics for each hour in a given day. {@code
-     * <get-daily-trends />}
+     * Returns the top 20 trending topics for each hour in a given day. 
+     * 
+     * {@code <get-daily-trends />}
      * 
      * @param date starting date of daily trends. If no date is specified, current
      *            date is used
-     * @param excludeHashTags if hashtags should be excluded
+     * @param excludeHashTags whether hashtags should be excluded
      * @return a list of Trends objects
      * @throws TwitterException
      */
@@ -775,7 +800,9 @@ public class TwitterConnector implements MuleContextAware
     /**
      * Returns the top ten topics that are currently trending on Twitter. The
      * response includes the time of the request, the name of each trend, and the url
-     * to the Twitter Search results page for that topic. {@code <get-trends/>}
+     * to the Twitter Search results page for that topic. 
+     * 
+     * {@code <get-trends/>}
      * 
      * @return a Trends object
      * @throws TwitterException
@@ -787,8 +814,9 @@ public class TwitterConnector implements MuleContextAware
     }
 
     /**
-     * Returns the top 30 trending topics for each day in a given week. {@code
-     * <get-weekly-trends/>}
+     * Returns the top 30 trending topics for each day in a given week. 
+     * 
+     * {@code  <get-weekly-trends/>}
      * 
      * @param date starting date of daily trends. If no date is specified, current
      *            date is used
@@ -807,7 +835,7 @@ public class TwitterConnector implements MuleContextAware
     
     
     /**
-     * Start consuming public statuses that match one or more filter predicates.
+     * Asynchronously retrieves public statuses that match one or more filter predicates.
      * 
      * At least a keyword or userId must be specified. Multiple parameters may be 
      * specified. 
@@ -816,7 +844,8 @@ public class TwitterConnector implements MuleContextAware
      * 
      * The default access level allows up to 200 track keywords and 400 follow userids.
      * 
-     * Only one Twitter stream can be consumed.
+     * Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+     * only one twitter stream can be consumed per connector instance.
      *  
      * {@code <filtered-stream count="5">
      *      <keywords>
@@ -841,8 +870,17 @@ public class TwitterConnector implements MuleContextAware
 
     /**
      * Asynchronously retrieves a random sample of all public statuses. The sample
-     * size and quality varies depending on the account permissions {@code
-     * <sample-stream/>}
+     * size and quality varies depending on the account permissions
+     * 
+     * The default access level provides a small proportion of the Firehose. The "Gardenhose"
+     * access level provides a proportion more suitable for data mining
+     * and research applications that desire a larger proportion to be
+     * statistically significant sample.  
+     * 
+     * Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+     * only one twitter stream can be consumed per connector instance.
+     * 
+     * {@code <sample-stream/>}
      * 
      * @param callback
      */
@@ -857,6 +895,9 @@ public class TwitterConnector implements MuleContextAware
      * available - it requires special permissions and its usage is discouraged by
      * Twitter
      * 
+     * Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+     * only one twitter stream can be consumed per connector instance.
+     * 
      * @param count
      * @param callback
      */
@@ -870,6 +911,9 @@ public class TwitterConnector implements MuleContextAware
      * Asynchronously retrieves all statuses containing 'http:' and 'https:'. Like
      * Firehorse, its is not a generally available stream
      * 
+     * Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+     * only one twitter stream can be consumed per connector instance.
+     * 
      * @param count
      * @param callback
      */
@@ -880,13 +924,31 @@ public class TwitterConnector implements MuleContextAware
     }
 
     /**
-     * Retrieves the follwoing user updates notifications:<br/>
+     * Retrieves the following user updates notifications:<br/>
      * - New Statuses <br/>
-     * - Block events <br/>
+     * - Block/Unblock events <br/>
      * - Follow events <br/>
      * - User profile updates <br/>
+     * - Retweets <br/>
+     * - List creation/deletion <br/>
+     * - List member addition/remotion <br/>
+     * - List subscription/unsubscription <br/>
+     * - List updates <br/>
+     * - Profile updates <br/>
      * 
-     * @param keywords
+     * Such notifications are represented as org.mule.twitter.UserEvent objects
+     * 
+     * Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+     * only one twitter stream can be consumed per connector instance.
+     * 
+     * {@code <user-stream>
+     *      <keywords>
+     *          <keyword>enterprise</keyword>
+     *          <keyword>integration</keyword>
+     *      </keywords>
+     *      </user-stream>}
+     * 
+     * @param keywords the keywords to track for new statuses
      * @param callback
      */
     @Source
@@ -984,6 +1046,17 @@ public class TwitterConnector implements MuleContextAware
     }
 
 
+    /**
+     * Asynchronously retrieves statutes for a set of supplied user's ids. 
+     * Site Streams are a beta service, so refer always to latest twitter documentation about them.
+     * 
+     * Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+     * only one twitter stream can be consumed per connector instance.
+     * 
+     * @param userIds ids of users to include in the stream
+     * @param withFollowings withFollowings whether to receive status updates from people following
+     * @param callback
+     */
     @Source
     public void siteStream(List<Long> userIds,
                            @Optional @Default("false") boolean withFollowings,
