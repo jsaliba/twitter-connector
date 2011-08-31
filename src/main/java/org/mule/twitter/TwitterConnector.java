@@ -1126,8 +1126,13 @@ public class TwitterConnector implements MuleContextAware
     
     private TwitterStream newStream()
     {
-        ConfigurationBuilder cb = new ConfigurationBuilder().setUseSSL(useSSL).setOAuthConsumerKey(
-            consumerKey).setOAuthConsumerSecret(consumerSecret);
+        ConfigurationBuilder cb = new ConfigurationBuilder()
+            .setUseSSL(useSSL)
+            .setOAuthConsumerKey(consumerKey)
+            .setOAuthConsumerSecret(consumerSecret)
+            .setStreamBaseURL("https://stream.twitter.com/1/")
+            .setSiteStreamBaseURL("https://sitestream.twitter.com/2b/");
+        
         if (accessKey != null)
         {
             cb.setOAuthAccessToken(accessKey).setOAuthAccessTokenSecret(accessSecret);

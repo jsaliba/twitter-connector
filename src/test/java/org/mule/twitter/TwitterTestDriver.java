@@ -46,6 +46,7 @@ public class TwitterTestDriver extends AbstractMuleTestCase
         connector.setConsumerSecret(System.getenv("consumerSecret"));
         connector.setAccessKey(System.getenv("accessKey"));
         connector.setAccessSecret(System.getenv("accessSecret"));
+        connector.setUseSSL(true);
         connector.initialise();
     }
     
