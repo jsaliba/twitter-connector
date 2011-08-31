@@ -5,7 +5,7 @@
   <artifactId>mule-module-twitter</artifactId>
   <packaging>mule-module</packaging>
   <name>Mule Twitter Connector</name>
-  <version>2.2</version>
+  <version>2.3-SNAPSHOT</version>
 
   <description>
 The Twitter Connector currently makes it possible to query different timelines 
