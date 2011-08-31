@@ -81,6 +81,7 @@ To authenticate your connector, do the following:
     <!-- Jersey client is JDK6 only -->
     <jdk.name>JavaSE-1.6</jdk.name>
     <jdk.version>1.6</jdk.version>
+    <twitter4j.version>2.2.4</twitter4j.version>
   </properties>
 
   <build>
@@ -304,12 +305,12 @@ To authenticate your connector, do the following:
     <dependency>
       <groupId>org.twitter4j</groupId>
       <artifactId>twitter4j-core</artifactId>
-      <version>2.2.3</version>
+      <version>${twitter4j.version}</version>
     </dependency>
     <dependency>
   <groupId>org.twitter4j</groupId>
   <artifactId>twitter4j-stream</artifactId>
-  <version>2.2.3</version>
+  <version>${twitter4j.version}</version>
 </dependency>
 
     <!-- for testing -->
