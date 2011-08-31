@@ -73,7 +73,7 @@ To authenticate your connector, do the following:
 
   <properties>
     <mule.version>3.1.0</mule.version>
-    <mule.devkit.version>1.0-SNAPSHOT</mule.devkit.version>
+    <mule.devkit.version>3.0-SNAPSHOT</mule.devkit.version>
     <junit.version>4.8.2</junit.version>
     <mockito.version>1.8.2</mockito.version>
     <eclipsePluginVersion>2.8</eclipsePluginVersion>

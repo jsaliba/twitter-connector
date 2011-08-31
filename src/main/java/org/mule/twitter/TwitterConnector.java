@@ -30,6 +30,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.lang.UnhandledException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -952,9 +953,10 @@ public class TwitterConnector implements MuleContextAware
      * @param callback
      */
     @Source
-    public void userStream(List<String> keywords, final SourceCallback callback)
+    public void userStream(List<String> keywords, final SourceCallback callback_)
     {
         initStream();
+        final SoftCallback callback = new SoftCallback(callback_);
         stream.addListener(new UserStreamAdapter()
         {
             @Override
@@ -1060,9 +1062,10 @@ public class TwitterConnector implements MuleContextAware
     @Source
     public void siteStream(List<Long> userIds,
                            @Optional @Default("false") boolean withFollowings,
-                           final SourceCallback callback)
+                           final SourceCallback callback_)
     {
         initStream();
+        final SoftCallback callback = new SoftCallback(callback_);
         stream.addListener(new SiteStreamsAdapter()
         {
 
@@ -1100,9 +1103,10 @@ public class TwitterConnector implements MuleContextAware
         return list.toArray(new String[list.size()]);
     }
 
-    private TwitterStream listenToStatues(final SourceCallback callback)
+    private TwitterStream listenToStatues(final SourceCallback callback_)
     {
         initStream();
+        final SoftCallback callback = new SoftCallback(callback_);
         stream.addListener(new StatusAdapter()
         {
             @Override
@@ -1119,7 +1123,7 @@ public class TwitterConnector implements MuleContextAware
         });
         return stream;
     }
-
+    
     private TwitterStream newStream()
     {
         ConfigurationBuilder cb = new ConfigurationBuilder().setUseSSL(useSSL).setOAuthConsumerKey(
@@ -1187,6 +1191,29 @@ public class TwitterConnector implements MuleContextAware
     public void setMuleContext(MuleContext context)
     {
         MuleHttpClient.setMuleContext(context);
+    }
+    
+    static final class SoftCallback implements SourceCallback {
+        private final SourceCallback callback;
+        
+        public SoftCallback(SourceCallback callback)
+        {
+            this.callback = callback;
+        }
+
+        @Override
+        public Object process(Object payload)
+        {
+            try
+            {
+                return callback.process(payload);
+            }
+            catch (Exception e)
+            {
+                throw new UnhandledException(e);
+            }
+        }
+        
     }
 
 }
