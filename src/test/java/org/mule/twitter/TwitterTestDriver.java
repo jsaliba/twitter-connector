@@ -14,10 +14,12 @@
 
 package org.mule.twitter;
 
-import org.mule.api.annotations.callback.SourceCallback;
+import org.mule.api.callback.SourceCallback;
 import org.mule.tck.AbstractMuleTestCase;
 
 import java.util.Arrays;
+import java.util.Map;
+
 public class TwitterTestDriver extends AbstractMuleTestCase
 {
 
@@ -63,6 +65,11 @@ public class TwitterTestDriver extends AbstractMuleTestCase
             @Override
             public Void process(Object payload)
             {
+                System.out.println(payload);
+                return null;
+            }
+
+            public Object process(Object payload, Map<String, Object> properties) throws Exception {
                 System.out.println(payload);
                 return null;
             }
