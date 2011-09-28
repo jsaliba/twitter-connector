@@ -1,0 +1,5 @@
+org.mule.twitter
+org.mule.twitter.config
+org.mule.twitter.config.spring
+twitter4j.internal.http.alternative
+
