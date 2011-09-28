@@ -16,8 +16,10 @@ package org.mule.twitter;
 
 import org.mule.api.callback.SourceCallback;
 import org.mule.tck.AbstractMuleTestCase;
+import twitter4j.Status;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Map;
 
 public class TwitterTestDriver extends AbstractMuleTestCase
@@ -84,7 +86,7 @@ public class TwitterTestDriver extends AbstractMuleTestCase
             public Void process(Object payload)
             {
                 assertNotNull(payload);
-                assertThat(payload, instanceOf(Status.class));
+                assertTrue(payload instanceof Status);
                 System.out.println("Sample: " + payload);
                 return null;
             }
@@ -106,9 +108,13 @@ public class TwitterTestDriver extends AbstractMuleTestCase
             public Void process(Object payload)
             {
                 assertNotNull(payload);
-                assertThat(payload, instanceOf(Status.class));
+                assertTrue(payload instanceof Status);
                 System.out.println("Filtered: " + payload);
                 return null;
+            }
+
+            public Object process(Object payload, Map<String, Object> properties) throws Exception {
+                return null;  //To change body of implemented methods use File | Settings | File Templates.
             }
         });
         Thread.sleep(20000);
@@ -123,9 +129,13 @@ public class TwitterTestDriver extends AbstractMuleTestCase
             public Void process(Object payload)
             {
                 assertNotNull(payload);
-                assertThat(payload, instanceOf(UserEvent.class));
+                assertTrue(payload instanceof UserEvent);
                 System.out.println("User: " + payload);
                 return null;
+            }
+
+            public Object process(Object payload, Map<String, Object> properties) throws Exception {
+                return null;  //To change body of implemented methods use File | Settings | File Templates.
             }
         });
         

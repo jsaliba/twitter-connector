@@ -145,21 +145,16 @@
             <version>${mule.version}</version>
         </dependency>
         <dependency>
-            <groupId>rhino</groupId>
-            <artifactId>js</artifactId>
-            <version>1.7R2</version>
-        </dependency>
-        <dependency>
             <groupId>org.mule.tools.devkit</groupId>
             <artifactId>mule-devkit-annotations</artifactId>
             <version>${mule.devkit.version}</version>
         </dependency>
-		<dependency>
-			<groupId>org.mule.dsl</groupId>
-			<artifactId>dsl-api</artifactId>
-			<version>${mule.dsl.version}</version>
-			<scope>provided</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.mule.dsl</groupId>
+            <artifactId>dsl-api</artifactId>
+            <version>${mule.dsl.version}</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.mule.tests</groupId>
             <artifactId>mule-tests-functional</artifactId>
@@ -172,17 +167,17 @@
             <version>2.2.1</version>
             <scope>provided</scope>
         </dependency>
-		<dependency>
-	      <groupId>org.twitter4j</groupId>
-	      <artifactId>twitter4j-core</artifactId>
-	      <version>2.2.3</version>
-	    </dependency>
-	    <dependency>
-	  <groupId>org.twitter4j</groupId>
-	  <artifactId>twitter4j-stream</artifactId>
-	  <version>2.2.3</version>
-	</dependency>
-	
+        <dependency>
+            <groupId>org.twitter4j</groupId>
+            <artifactId>twitter4j-core</artifactId>
+            <version>2.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.twitter4j</groupId>
+            <artifactId>twitter4j-stream</artifactId>
+            <version>2.2.3</version>
+        </dependency>
+
         <!-- test dependencies -->
         <dependency>
             <groupId>org.mule.tests</groupId>
@@ -207,13 +202,13 @@
             <artifactId>log4j</artifactId>
             <version>1.2.14</version>
         </dependency>
-	    <dependency>
-	      <groupId>org.htmlparser</groupId>
-	      <artifactId>htmlparser</artifactId>
-	      <version>1.6</version>
-	      <type>jar</type>
-	      <scope>compile</scope>
-	    </dependency>
+        <dependency>
+            <groupId>org.htmlparser</groupId>
+            <artifactId>htmlparser</artifactId>
+            <version>1.6</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <repositories>

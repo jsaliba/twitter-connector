@@ -23,6 +23,7 @@ import org.mule.twitter.UserEvent.EventType;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -1276,7 +1277,19 @@ public class TwitterConnector implements MuleContextAware
                 throw new UnhandledException(e);
             }
         }
-        
+
+        public Object process(Object payload, Map<String, Object> properties) throws Exception {
+            try
+            {
+                return callback.process(payload);
+            }
+            catch (Exception e)
+            {
+                throw new UnhandledException(e);
+            }
+        }
+
+
     }
 
 }
