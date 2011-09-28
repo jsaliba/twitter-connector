@@ -564,7 +564,7 @@ public class TwitterConnector implements MuleContextAware
      * @return the retweets of a given tweet
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/retweets/:id">Tweets
-     *      Resources › statuses/retweets/:id</a>
+     *      Resources > statuses/retweets/:id</a>
      * @since Twitter4J 2.0.10
      */
     @Processor
