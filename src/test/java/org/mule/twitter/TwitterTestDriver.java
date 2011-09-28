@@ -14,18 +14,12 @@
 
 package org.mule.twitter;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.junit.Assert.assertThat;
-
-import org.mule.api.annotations.callback.SourceCallback;
+import org.mule.api.callback.SourceCallback;
 import org.mule.tck.AbstractMuleTestCase;
 
 import java.util.Arrays;
-import java.util.Date;
+import java.util.Map;
 
-import edu.emory.mathcs.backport.java.util.concurrent.TimeUnit;
-
-import twitter4j.Status;
 public class TwitterTestDriver extends AbstractMuleTestCase
 {
 
@@ -92,6 +86,11 @@ public class TwitterTestDriver extends AbstractMuleTestCase
                 assertNotNull(payload);
                 assertThat(payload, instanceOf(Status.class));
                 System.out.println("Sample: " + payload);
+                return null;
+            }
+
+            public Object process(Object payload, Map<String, Object> properties) throws Exception {
+                System.out.println(payload);
                 return null;
             }
         });
