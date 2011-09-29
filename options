@@ -13,7 +13,7 @@
 '/opt/j2ee/domains/mulesource.com/bamboo/webapps/atlassian-bamboo/data/atlassian-bamboo-3.0.3/xml-data/build-dir/MULECONTRIB-TWITTER-JOB1/src/main/java:/opt/j2ee/domains/mulesource.com/bamboo/webapps/atlassian-bamboo/data/atlassian-bamboo-3.0.3/xml-data/build-dir/MULECONTRIB-TWITTER-JOB1/target/generated-sources/mule'
 -hdf project.artifactId "mule-module-twitter"
                         -hdf project.groupId "org.mule.modules"
-                        -hdf project.version "2.1-SNAPSHOT"
+                        -hdf project.version "2.3-SNAPSHOT"
                         -hdf project.name "Mule Twitter Connector"
                         -d /opt/j2ee/domains/mulesource.com/bamboo/webapps/atlassian-bamboo/data/atlassian-bamboo-3.0.3/xml-data/build-dir/MULECONTRIB-TWITTER-JOB1/target/apidocs
                         -htmldir /opt/j2ee/domains/mulesource.com/bamboo/webapps/atlassian-bamboo/data/atlassian-bamboo-3.0.3/xml-data/build-dir/MULECONTRIB-TWITTER-JOB1/doc
