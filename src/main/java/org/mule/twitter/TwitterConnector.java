@@ -64,8 +64,8 @@ import twitter4j.internal.http.alternative.MuleHttpClient;
  */
 @Module(name = "twitter",
         namespace = "http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter",
-        schemaLocation = "http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter/2.1/mule-twitter.xsd",
-        version = "2.1")
+        schemaLocation = "http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter/2.3/mule-twitter.xsd",
+        version = "2.3")
 public class TwitterConnector implements MuleContextAware
 {
     protected transient Log logger = LogFactory.getLog(getClass());
