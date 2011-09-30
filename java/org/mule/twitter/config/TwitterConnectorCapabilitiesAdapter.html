@@ -222,6 +222,8 @@
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SampleStreamMessageSource.html">SampleStreamMessageSource</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SearchMessageProcessor.html">SearchMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SearchPlacesMessageProcessor.html">SearchPlacesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SendDirectMessageByScreenNameMessageProcessor.html">SendDirectMessageByScreenNameMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SendDirectMessageByUserIdMessageProcessor.html">SendDirectMessageByUserIdMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SetOauthVerifierMessageProcessor.html">SetOauthVerifierMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/ShowStatusMessageProcessor.html">ShowStatusMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/ShowUserMessageProcessor.html">ShowUserMessageProcessor</a></li>
@@ -1379,6 +1381,42 @@ From class
             
             
             
+            DirectMessage</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#sendDirectMessageByScreenName(java.lang.String, java.lang.String)">sendDirectMessageByScreenName</a></span>(String screenName, String message)</nobr>
+        
+        <div class="jd-descrdiv">Sends a new direct message to the specified user from the authenticating user.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            DirectMessage</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#sendDirectMessageByUserId(long, java.lang.String)">sendDirectMessageByUserId</a></span>(long userId, String message)</nobr>
+        
+        <div class="jd-descrdiv">Sends a new direct message to the specified user from the authenticating user.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1516,7 +1554,7 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#showUser()">showUser</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Answers user information for the authenticated user </div>
+        <div class="jd-descrdiv">Answers user information for the authenticated user</div>
   
   </td></tr>
 
@@ -1581,9 +1619,9 @@ From class
  - List subscription/unsubscription <br/>
  - List updates <br/>
  - Profile updates <br/>
- 
+
  Such notifications are represented as org.mule.twitter.UserEvent objects
- 
+
  Only one Twitter stream can be consumed using the same credentials.</div>
   
   </td></tr>

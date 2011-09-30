@@ -1250,6 +1250,42 @@ Summary:
             
             
             
+            DirectMessage</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#sendDirectMessageByScreenName(java.lang.String, java.lang.String)">sendDirectMessageByScreenName</a></span>(String screenName, String message)</nobr>
+        
+        <div class="jd-descrdiv">Sends a new direct message to the specified user from the authenticating user.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            DirectMessage</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#sendDirectMessageByUserId(long, java.lang.String)">sendDirectMessageByUserId</a></span>(long userId, String message)</nobr>
+        
+        <div class="jd-descrdiv">Sends a new direct message to the specified user from the authenticating user.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1387,7 +1423,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#showUser()">showUser</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Answers user information for the authenticated user </div>
+        <div class="jd-descrdiv">Answers user information for the authenticated user</div>
   
   </td></tr>
 
@@ -1452,9 +1488,9 @@ Summary:
  - List subscription/unsubscription <br/>
  - List updates <br/>
  - Profile updates <br/>
- 
+
  Such notifications are represented as org.mule.twitter.UserEvent objects
- 
+
  Only one Twitter stream can be consumed using the same credentials.</div>
   
   </td></tr>
@@ -2096,14 +2132,14 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a new place at the given latitude and longitude.
- 
+
  <code>&lt;create-place
       token="#[header:token]"
-      containedWithin="#[header:containedWithin]" 
+      containedWithin="#[header:containedWithin]"
       name="#[header:placeName]"
       latitude="#[header:latitude]"
       longitude="#[header:longitude]"
-      streetAddress="[header:address]"/&gt;</code>   </p></div>
+      streetAddress="[header:address]"/&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2245,17 +2281,17 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves public statuses that match one or more filter predicates.
- 
- At least a keyword or userId must be specified. Multiple parameters may be 
- specified. 
- 
+
+ At least a keyword or userId must be specified. Multiple parameters may be
+ specified.
+
  Placing long parameters in the URL may cause the request to be rejected for excessive URL length.
- 
+
  The default access level allows up to 200 track keywords and 400 follow userids.
- 
- Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+
+ Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
-  
+
  <code>&lt;filtered-stream count="5"&gt;
       &lt;keywords&gt;
           &lt;keyword&gt;enterprise&lt;/keyword&gt;
@@ -2316,8 +2352,8 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves all public statuses. This stream is not generally
  available - it requires special permissions and its usage is discouraged by
  Twitter
- 
- Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+
+ Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -2364,8 +2400,8 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the current top 10 trending topics on Twitter. The response includes
  the time of the request, the name of each trending topic, and query used on
- Twitter Search results page for that topic. 
- 
+ Twitter Search results page for that topic.
+
  <code>&lt;get-current-trends excludeHashtags="true" /&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -2419,8 +2455,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 20 trending topics for each hour in a given day. 
- 
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 20 trending topics for each hour in a given day.
+
  <code>&lt;get-daily-trends /&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -2481,7 +2517,7 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Find out more details of a place that was returned from the reverseGeoCode
  operation.
- 
+
  <code>&lt;get-geo-details id="#[header:geocodeId]"/&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3460,8 +3496,8 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the top ten topics that are currently trending on Twitter. The
  response includes the time of the request, the name of each trend, and the url
- to the Twitter Search results page for that topic. 
- 
+ to the Twitter Search results page for that topic.
+
  <code>&lt;get-trends/&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3806,8 +3842,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 30 trending topics for each day in a given week. 
- 
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 30 trending topics for each day in a given week.
+
  <code>&lt;get-weekly-trends/&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3899,8 +3935,8 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves all statuses containing 'http:' and 'https:'. Like
  Firehorse, its is not a generally available stream
- 
- Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+
+ Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -4066,9 +4102,9 @@ From interface
  ID of this location up with a call to statuses/update.<br>
  There are multiple granularities of places that can be returned --
  "neighborhoods", "cities", etc. At this time, only United States data is
- available through this method. 
- 
- 
+ available through this method.
+
+
  <code>&lt;reverse-geo-code ip="#[header:ip]" /&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -4079,7 +4115,7 @@ From interface
         </tr>
         <tr>
           <th>longitude</td>
-          <td>longitude coordinate. </td>
+          <td>longitude coordinate.</td>
         </tr>
         <tr>
           <th>ip</td>
@@ -4132,15 +4168,15 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves a random sample of all public statuses. The sample
  size and quality varies depending on the account permissions
- 
+
  The default access level provides a small proportion of the Firehose. The "Gardenhose"
  access level provides a proportion more suitable for data mining
  and research applications that desire a larger proportion to be
- statistically significant sample.  
- 
- Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+ statistically significant sample.
+
+ Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
- 
+
  <code>&lt;sample-stream/&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -4235,7 +4271,7 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Search for places that can be attached to a statuses/update. Given a latitude
  and a longitude pair, or and IP address, this request will return a list of
  all the valid places that can be used as the place_id when updating a status.
- 
+
  <code>&lt;search-places latitude="#[header:latitude]" longitude="#[header:longitude]" /&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -4246,7 +4282,7 @@ From interface
         </tr>
         <tr>
           <th>longitude</td>
-          <td>longitude coordinate. </td>
+          <td>longitude coordinate.</td>
         </tr>
         <tr>
           <th>ip</td>
@@ -4257,6 +4293,116 @@ From interface
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>a ResponseList of Place</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>TwitterException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="sendDirectMessageByScreenName(java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        DirectMessage
+      </span>
+      <span class="sympad">sendDirectMessageByScreenName</span>
+      <span class="normal">(String screenName, String message)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sends a new direct message to the specified user from the authenticating user.
+ Requires both the user and text parameters below. The text will be trimmed if
+ the length of the text is exceeding 140 characters.@return</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>screenName</td>
+          <td>The screen name of the user to whom send the direct message</td>
+        </tr>
+        <tr>
+          <th>message</td>
+          <td>The text of your direct message</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>TwitterException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="sendDirectMessageByUserId(long, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        DirectMessage
+      </span>
+      <span class="sympad">sendDirectMessageByUserId</span>
+      <span class="normal">(long userId, String message)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sends a new direct message to the specified user from the authenticating user.
+ Requires both the user and text parameters below. The text will be trimmed if
+ the length of the text is exceeding 140 characters.@return</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>userId</td>
+          <td>The user ID of the user to whom send the direct message</td>
+        </tr>
+        <tr>
+          <th>message</td>
+          <td>The text of your direct message</td>
+        </tr>
+      </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -4650,7 +4796,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Answers user information for the authenticated user </p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Answers user information for the authenticated user</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>a User object</li></ul>
@@ -4694,10 +4840,10 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves statutes for a set of supplied user's ids. 
+  <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves statutes for a set of supplied user's ids.
  Site Streams are a beta service, so refer always to latest twitter documentation about them.
- 
- Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+
+ Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -4827,12 +4973,12 @@ From interface
  - List subscription/unsubscription <br/>
  - List updates <br/>
  - Profile updates <br/>
- 
+
  Such notifications are represented as org.mule.twitter.UserEvent objects
- 
- Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+
+ Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
- 
+
  <code>&lt;user-stream&gt;
       &lt;keywords&gt;
           &lt;keyword&gt;enterprise&lt;/keyword&gt;

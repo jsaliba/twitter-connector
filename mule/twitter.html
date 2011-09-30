@@ -558,6 +558,26 @@ Summary:
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/twitter.html#send-direct-message-by-screen-name">&lt;twitter:send-direct-message-by-screen-name&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Sends a new direct message to the specified user from the authenticating user.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/twitter.html#send-direct-message-by-user-id">&lt;twitter:send-direct-message-by-user-id&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Sends a new direct message to the specified user from the authenticating user.<br/></div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#set-oauth-verifier">&lt;twitter:set-oauth-verifier&gt;</a></nobr>
         
         <div class="jd-descrdiv">Set the OAuth verifier after it has been retrieved via requestAuthorization.<br/></div>
@@ -580,7 +600,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#show-user">&lt;twitter:show-user&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Answers user information for the authenticated user <br/></div>
+        <div class="jd-descrdiv">Answers user information for the authenticated user<br/></div>
         
   </td></tr>
 
@@ -672,9 +692,9 @@ Summary:
  - List subscription/unsubscription <br/>
  - List updates <br/>
  - Profile updates <br/>
- 
+
  Such notifications are represented as org.mule.twitter.UserEvent objects
- 
+
  Only one Twitter stream can be consumed using the same credentials.<br/></div>
         
   </td></tr>
@@ -799,14 +819,14 @@ specify which configuration to use.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a new place at the given latitude and longitude.
- 
+
  <br/><code>&lt;create-place
       token="#[header:token]"
-      containedWithin="#[header:containedWithin]" 
+      containedWithin="#[header:containedWithin]"
       name="#[header:placeName]"
       latitude="#[header:latitude]"
       longitude="#[header:longitude]"
-      streetAddress="[header:address]"/&gt;</code>   <br/></p></div>
+      streetAddress="[header:address]"/&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1018,8 +1038,8 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the current top 10 trending topics on Twitter. The response includes
  the time of the request, the name of each trending topic, and query used on
- Twitter Search results page for that topic. 
- 
+ Twitter Search results page for that topic.
+
  <br/><code>&lt;get-current-trends excludeHashtags="true" /&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -1085,8 +1105,8 @@ specify which configuration to use.</p>
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 20 trending topics for each hour in a given day. 
- 
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 20 trending topics for each hour in a given day.
+
  <br/><code>&lt;get-daily-trends /&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -1168,7 +1188,7 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Find out more details of a place that was returned from the reverseGeoCode
  operation.
- 
+
  <br/><code>&lt;get-geo-details id="#[header:geocodeId]"/&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -2563,8 +2583,8 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the top ten topics that are currently trending on Twitter. The
  response includes the time of the request, the name of each trend, and the url
- to the Twitter Search results page for that topic. 
- 
+ to the Twitter Search results page for that topic.
+
  <br/><code>&lt;get-trends/&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -2963,8 +2983,8 @@ specify which configuration to use.</p>
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 30 trending topics for each day in a given week. 
- 
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 30 trending topics for each day in a given week.
+
  <br/><code>&lt;get-weekly-trends/&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -3189,9 +3209,9 @@ specify which configuration to use.</p>
  ID of this location up with a call to statuses/update.<br>
  There are multiple granularities of places that can be returned --
  "neighborhoods", "cities", etc. At this time, only United States data is
- available through this method. 
- 
- 
+ available through this method.
+
+
  <br/><code>&lt;reverse-geo-code ip="#[header:ip]" /&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -3218,7 +3238,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>longitude</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>longitude coordinate. <br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>longitude coordinate.<br/></td>
                 </tr>
                 
                 
@@ -3349,7 +3369,7 @@ specify which configuration to use.</p>
   <div class="jd-tagdata jd-tagdescr"><p>Search for places that can be attached to a statuses/update. Given a latitude
  and a longitude pair, or and IP address, this request will return a list of
  all the valid places that can be used as the place_id when updating a status.
- 
+
  <br/><code>&lt;search-places latitude="#[header:latitude]" longitude="#[header:longitude]" /&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -3376,7 +3396,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>longitude</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>longitude coordinate. <br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>longitude coordinate.<br/></td>
                 </tr>
                 
                 
@@ -3414,6 +3434,158 @@ specify which configuration to use.</p>
       <h5 class="jd-tagtitle">Return Payload</h5>
       <ul class="nolist"><li>a ResponseList of Place<br/></li></ul>
   </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>TwitterException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="send-direct-message-by-screen-name"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;twitter:send-direct-message-by-screen-name&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sends a new direct message to the specified user from the authenticating user.
+ Requires both the user and text parameters below. The text will be trimmed if
+ the length of the text is exceeding 140 characters.<br/>@return<br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>screenName</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">The screen name of the user to whom send the direct message<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>message</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">The text of your direct message<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+            
+          
+      </table>
+  </div>
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payload</h5>
+      <table class="jd-tagtable">
+        <tr>
+            <th>TwitterException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="send-direct-message-by-user-id"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;twitter:send-direct-message-by-user-id&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sends a new direct message to the specified user from the authenticating user.
+ Requires both the user and text parameters below. The text will be trimmed if
+ the length of the text is exceeding 140 characters.<br/>@return<br/></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+      <table class="jd-tagtable">
+      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+      <td class="jd-descrcol"></td>
+      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+          
+          
+            
+                
+                <tr class=" api apilevel-" >
+                    <td class="jd-linkcol"><nobr>userId</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">The user ID of the user to whom send the direct message<br/></td>
+                </tr>
+                
+                
+            
+          
+            
+                
+                <tr class="alt-color api apilevel-" >
+                    <td class="jd-linkcol"><nobr>message</nobr></td>
+                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol" width="100%">The text of your direct message<br/></td>
+                </tr>
+                
+                
+            
+          
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Child Elements</h5>
+
+      <table class="jd-tagtable">
+          
+          
+            
+          
+            
+          
+      </table>
+  </div>
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -3578,7 +3750,7 @@ specify which configuration to use.</p>
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Answers user information for the authenticated user <br/></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Answers user information for the authenticated user<br/></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3741,17 +3913,17 @@ specify which configuration to use.</p>
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves public statuses that match one or more filter predicates.
- 
- At least a keyword or userId must be specified. Multiple parameters may be 
- specified. 
- 
+
+ At least a keyword or userId must be specified. Multiple parameters may be
+ specified.
+
  Placing long parameters in the URL may cause the request to be rejected for excessive URL length.
- 
+
  The default access level allows up to 200 track keywords and 400 follow userids.
- 
- Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+
+ Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
-  
+
  <br/><code>&lt;filtered-stream count="5"&gt;
       &lt;keywords&gt;
           &lt;keyword&gt;enterprise&lt;/keyword&gt;
@@ -3851,8 +4023,8 @@ specify which configuration to use.</p>
   <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves all public statuses. This stream is not generally
  available - it requires special permissions and its usage is discouraged by
  Twitter
- 
- Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+
+ Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.<br/></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -3920,8 +4092,8 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves all statuses containing 'http:' and 'https:'. Like
  Firehorse, its is not a generally available stream
- 
- Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+
+ Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.<br/></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -3989,15 +4161,15 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves a random sample of all public statuses. The sample
  size and quality varies depending on the account permissions
- 
+
  The default access level provides a small proportion of the Firehose. The "Gardenhose"
  access level provides a proportion more suitable for data mining
  and research applications that desire a larger proportion to be
- statistically significant sample.  
- 
- Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+ statistically significant sample.
+
+ Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
- 
+
  <br/><code>&lt;sample-stream/&gt;</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -4050,10 +4222,10 @@ specify which configuration to use.</p>
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves statutes for a set of supplied user's ids. 
+  <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves statutes for a set of supplied user's ids.
  Site Streams are a beta service, so refer always to latest twitter documentation about them.
- 
- Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+
+ Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.<br/></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
@@ -4143,12 +4315,12 @@ specify which configuration to use.</p>
  - List subscription/unsubscription <br/>
  - List updates <br/>
  - Profile updates <br/>
- 
+
  Such notifications are represented as org.mule.twitter.UserEvent objects
- 
- Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+
+ Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
- 
+
  <br/><code>&lt;user-stream&gt;
       &lt;keywords&gt;
           &lt;keyword&gt;enterprise&lt;/keyword&gt;
