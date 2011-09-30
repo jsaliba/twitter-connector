@@ -10,6 +10,9 @@
 
 package org.mule.twitter;
 
+import org.apache.commons.lang.UnhandledException;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.mule.api.MuleContext;
 import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Module;
@@ -20,17 +23,7 @@ import org.mule.api.annotations.param.Optional;
 import org.mule.api.callback.SourceCallback;
 import org.mule.api.context.MuleContextAware;
 import org.mule.twitter.UserEvent.EventType;
-
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.PostConstruct;
-
-import org.apache.commons.lang.UnhandledException;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
+import twitter4j.DirectMessage;
 import twitter4j.FilterQuery;
 import twitter4j.GeoLocation;
 import twitter4j.GeoQuery;
@@ -59,6 +52,11 @@ import twitter4j.conf.ConfigurationBuilder;
 import twitter4j.internal.http.alternative.HttpClientHiddenConstructionArgument;
 import twitter4j.internal.http.alternative.MuleHttpClient;
 
+import javax.annotation.PostConstruct;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
 /**
  * A Connector for Twitter which uses twitter4j.
  */
@@ -71,7 +69,7 @@ public class TwitterConnector implements MuleContextAware
     protected transient Log logger = LogFactory.getLog(getClass());
 
     private Twitter twitter;
-    
+
     private TwitterStream stream;
 
     @Configurable
@@ -113,7 +111,7 @@ public class TwitterConnector implements MuleContextAware
      * Returns tweets that match a specified query.
      * <p>
      * This method calls http://search.twitter.com/search.json
-     * 
+     *
      * @param query The search query.
      * @return
      * @throws TwitterException
@@ -129,7 +127,7 @@ public class TwitterConnector implements MuleContextAware
      * custom user icon. The public timeline is cached for 60 seconds and requesting
      * it more often than that is unproductive and a waste of resources. <br>
      * This method calls http://api.twitter.com/1/statuses/public_timeline
-     * 
+     *
      * @return list of statuses of the Public Timeline
      * @throws twitter4j.TwitterException when Twitter service or network is
      *             unavailable
@@ -152,7 +150,7 @@ public class TwitterConnector implements MuleContextAware
      * future version of the API, statuses/friends_timeline will be deprected and
      * replaced by home_timeline. <br>
      * This method calls http://api.twitter.com/1/statuses/home_timeline
-     * 
+     *
      * @param page controls pagination. Supports since_id, max_id, count and page
      *            parameters.
      * @return list of the home Timeline
@@ -180,7 +178,7 @@ public class TwitterConnector implements MuleContextAware
      * retweeted_by_me.<br>
      * <br>
      * This method calls http://api.twitter.com/1/statuses/user_timeline.json
-     * 
+     *
      * @param screenName specifies the screen name of the user for whom to return the
      *            user_timeline
      * @return list of the user Timeline
@@ -209,7 +207,7 @@ public class TwitterConnector implements MuleContextAware
      * retweeted_by_me.<br>
      * <br>
      * This method calls http://api.twitter.com/1/statuses/user_timeline.json
-     * 
+     *
      * @param userId specifies the ID of the user for whom to return the
      *            user_timeline
      * @param paging controls pagination. Supports since_id, max_id, count and page
@@ -250,7 +248,7 @@ public class TwitterConnector implements MuleContextAware
      * retweeted_by_me.<br>
      * <br>
      * This method calls http://api.twitter.com/1/statuses/user_timeline.json
-     * 
+     *
      * @param page
      * @param count
      * @param sinceId
@@ -272,7 +270,7 @@ public class TwitterConnector implements MuleContextAware
      * Returns the 20 most recent mentions (status containing @username) for the
      * authenticating user. <br>
      * This method calls http://api.twitter.com/1/statuses/mentions
-     * 
+     *
      * @param page
      * @param count
      * @param sinceId
@@ -295,7 +293,7 @@ public class TwitterConnector implements MuleContextAware
     /**
      * Returns the 20 most recent retweets posted by the authenticating user. <br>
      * This method calls http://api.twitter.com/1/statuses/retweeted_by_me
-     * 
+     *
      * @return the 20 most recent retweets posted by the authenticating user
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/retweeted_by_me">GET
@@ -314,7 +312,7 @@ public class TwitterConnector implements MuleContextAware
      * Returns the 20 most recent retweets posted by the authenticating user's
      * friends. <br>
      * This method calls http://api.twitter.com/1/statuses/retweeted_to_me
-     * 
+     *
      * @param paging controls pagination. Supports since_id, max_id, count and page
      *            parameters.
      * @return the 20 most recent retweets posted by the authenticating user's
@@ -336,7 +334,7 @@ public class TwitterConnector implements MuleContextAware
      * Returns the 20 most recent tweets of the authenticated user that have been
      * retweeted by others. <br>
      * This method calls http://api.twitter.com/1/statuses/retweets_of_me
-     * 
+     *
      * @param paging controls pagination. Supports since_id, max_id, count and page
      *            parameters.
      * @return the 20 most recent tweets of the authenticated user that have been
@@ -361,7 +359,7 @@ public class TwitterConnector implements MuleContextAware
      * This method has not been finalized and the interface is subject to change in
      * incompatible ways. <br>
      * This method calls http://api.twitter.com/1/statuses/retweeted_to_user
-     * 
+     *
      * @param screenName the user to view
      * @param paging controls pagination. Supports since_id, max_id, count and page
      *            parameters.
@@ -389,7 +387,7 @@ public class TwitterConnector implements MuleContextAware
      * This method has not been finalized and the interface is subject to change in
      * incompatible ways. <br>
      * This method calls http://api.twitter.com/1/statuses/retweeted_to_user
-     * 
+     *
      * @param userId the user to view
      * @param paging controls pagination. Supports since_id, max_id, count and page
      *            parameters.
@@ -417,7 +415,7 @@ public class TwitterConnector implements MuleContextAware
      * This method has not been finalized and the interface is subject to change in
      * incompatible ways. <br>
      * This method calls http://api.twitter.com/1/statuses/retweeted_by_user
-     * 
+     *
      * @param screenName the user to view
      * @param paging controls pagination. Supports since_id, max_id, count and page
      *            parameters.
@@ -444,7 +442,7 @@ public class TwitterConnector implements MuleContextAware
      * This method has not been finalized and the interface is subject to change in
      * incompatible ways. <br>
      * This method calls http://api.twitter.com/1/statuses/retweeted_by_user
-     * 
+     *
      * @param userId the user to view
      * @param paging controls pagination. Supports since_id, max_id, count and page
      *            parameters.
@@ -468,7 +466,7 @@ public class TwitterConnector implements MuleContextAware
      * Returns a single status, specified by the id parameter below. The status's
      * author will be returned inline. <br>
      * This method calls http://api.twitter.com/1/statuses/show
-     * 
+     *
      * @param id the numerical ID of the status you're trying to retrieve
      * @return a single status
      * @throws twitter4j.TwitterException when Twitter service or network is
@@ -481,10 +479,10 @@ public class TwitterConnector implements MuleContextAware
     {
         return twitter.showStatus(id);
     }
-    
+
     /**
-     * Answers user information for the authenticated user 
-     * 
+     * Answers user information for the authenticated user
+     *
      * @return a User object
      * @throws TwitterException
      */
@@ -498,7 +496,7 @@ public class TwitterConnector implements MuleContextAware
      * to the authenticating user's text identical to the authenticating user's
      * current status will be ignored to prevent duplicates. <br>
      * This method calls http://api.twitter.com/1/statuses/update
-     * 
+     *
      * @param status the text of your status update
      * @return the latest status
      * @throws TwitterException when Twitter service or network is unavailable
@@ -528,7 +526,7 @@ public class TwitterConnector implements MuleContextAware
      * Usage note: The authenticating user must be the author of the specified
      * status. <br>
      * This method calls http://api.twitter.com/1/statuses/destroy
-     * 
+     *
      * @param statusId The ID of the status to destroy.
      * @return the deleted status
      * @throws TwitterException when Twitter service or network is unavailable
@@ -544,7 +542,7 @@ public class TwitterConnector implements MuleContextAware
     /**
      * Retweets a tweet. Returns the original tweet with retweet details embedded. <br>
      * This method calls http://api.twitter.com/1/statuses/retweet
-     * 
+     *
      * @param statusId The ID of the status to retweet.
      * @return the retweeted status
      * @throws TwitterException when Twitter service or network is unavailable
@@ -560,7 +558,7 @@ public class TwitterConnector implements MuleContextAware
     /**
      * Returns up to 100 of the first retweets of a given tweet. <br>
      * This method calls http://api.twitter.com/1/statuses/retweets
-     * 
+     *
      * @param statusId The numerical ID of the tweet you want the retweets of.
      * @return the retweets of a given tweet
      * @throws TwitterException when Twitter service or network is unavailable
@@ -577,7 +575,7 @@ public class TwitterConnector implements MuleContextAware
     /**
      * Show user objects of up to 100 members who retweeted the status. <br>
      * This method calls http://api.twitter.com/1/statuses/:id/retweeted_by
-     * 
+     *
      * @param statusId The ID of the status you want to get retweeters of
      * @param paging controls pagination. Supports count and page parameters.
      * @return the list of users who retweeted your status
@@ -600,7 +598,7 @@ public class TwitterConnector implements MuleContextAware
      * Show user ids of up to 100 users who retweeted the status represented by id <br />
      * This method calls
      * http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
-     * 
+     *
      * @param statusId The ID of the status you want to get retweeters of
      * @return IDs of users who retweeted the stats
      * @param paging controls pagination. Supports count and page parameters.
@@ -622,7 +620,7 @@ public class TwitterConnector implements MuleContextAware
      * Set the OAuth verifier after it has been retrieved via requestAuthorization.
      * The resulting access tokens will be logged to the INFO level so the user can
      * reuse them as part of the configuration in the future if desired.
-     * 
+     *
      * @param oauthVerifier The OAuth verifier code from Twitter.
      * @throws TwitterException
      */
@@ -636,7 +634,7 @@ public class TwitterConnector implements MuleContextAware
 
     /**
      * Start the OAuth request authorization process.
-     * 
+     *
      * @param callbackUrl
      * @return The user authorization URL.
      * @throws TwitterException
@@ -658,13 +656,13 @@ public class TwitterConnector implements MuleContextAware
      * ID of this location up with a call to statuses/update.<br>
      * There are multiple granularities of places that can be returned --
      * "neighborhoods", "cities", etc. At this time, only United States data is
-     * available through this method. 
-     * 
-     * 
+     * available through this method.
+     *
+     *
      * {@code <reverse-geo-code ip="#[header:ip]" />}
-     * 
+     *
      * @param latitude latitude coordinate. Mandatory if ip is not specified
-     * @param longitude longitude coordinate. 
+     * @param longitude longitude coordinate.
      * @param ip the ip. Mandatory if coordinates are not specified
      * @return a ResponseList of Place
      * @throws TwitterException
@@ -681,11 +679,11 @@ public class TwitterConnector implements MuleContextAware
      * Search for places that can be attached to a statuses/update. Given a latitude
      * and a longitude pair, or and IP address, this request will return a list of
      * all the valid places that can be used as the place_id when updating a status.
-     * 
+     *
      * {@code <search-places latitude="#[header:latitude]" longitude="#[header:longitude]" />}
-     * 
+     *
      * @param latitude latitude coordinate. Mandatory if ip is not specified
-     * @param longitude longitude coordinate. 
+     * @param longitude longitude coordinate.
      * @param ip the ip. Mandatory if coordinates are not specified
      * @return a ResponseList of Place
      * @throws TwitterException
@@ -710,9 +708,9 @@ public class TwitterConnector implements MuleContextAware
     /**
      * Find out more details of a place that was returned from the reverseGeoCode
      * operation.
-     * 
+     *
      * {@code <get-geo-details id="#[header:geocodeId]"/>}
-     * 
+     *
      * @param id The ID of the location to query about.
      * @return a Place
      * @throws TwitterException
@@ -725,15 +723,15 @@ public class TwitterConnector implements MuleContextAware
 
     /**
      * Creates a new place at the given latitude and longitude.
-     * 
+     *
      * {@code <create-place
      *      token="#[header:token]"
-     *      containedWithin="#[header:containedWithin]" 
+     *      containedWithin="#[header:containedWithin]"
      *      name="#[header:placeName]"
      *      latitude="#[header:latitude]"
      *      longitude="#[header:longitude]"
-     *      streetAddress="[header:address]"/>}   
-     * 
+     *      streetAddress="[header:address]"/>}
+     *
      * @param name The name a place is known as.
      * @param containedWithin The place_id within which the new place can be found.
      *            Try and be as close as possible with the containing place. For
@@ -753,7 +751,7 @@ public class TwitterConnector implements MuleContextAware
     public Place createPlace(String name,
                              String containedWithin,
                              String token,
-                             Double latitude, 
+                             Double latitude,
                              Double longitude,
                              @Optional String streetAddress) throws TwitterException
     {
@@ -764,10 +762,10 @@ public class TwitterConnector implements MuleContextAware
     /**
      * Returns the current top 10 trending topics on Twitter. The response includes
      * the time of the request, the name of each trending topic, and query used on
-     * Twitter Search results page for that topic. 
-     * 
+     * Twitter Search results page for that topic.
+     *
      * {@code <get-current-trends excludeHashtags="true" />}
-     * 
+     *
      * @param excludeHashtags whether all hashtags shoudl be removed from the trends list.
      * @return a Trends object
      * @throws TwitterException
@@ -780,10 +778,10 @@ public class TwitterConnector implements MuleContextAware
     }
 
     /**
-     * Returns the top 20 trending topics for each hour in a given day. 
-     * 
+     * Returns the top 20 trending topics for each hour in a given day.
+     *
      * {@code <get-daily-trends />}
-     * 
+     *
      * @param date starting date of daily trends. If no date is specified, current
      *            date is used
      * @param excludeHashTags whether hashtags should be excluded
@@ -801,10 +799,10 @@ public class TwitterConnector implements MuleContextAware
     /**
      * Returns the top ten topics that are currently trending on Twitter. The
      * response includes the time of the request, the name of each trend, and the url
-     * to the Twitter Search results page for that topic. 
-     * 
+     * to the Twitter Search results page for that topic.
+     *
      * {@code <get-trends/>}
-     * 
+     *
      * @return a Trends object
      * @throws TwitterException
      */
@@ -815,10 +813,10 @@ public class TwitterConnector implements MuleContextAware
     }
 
     /**
-     * Returns the top 30 trending topics for each day in a given week. 
-     * 
+     * Returns the top 30 trending topics for each day in a given week.
+     *
      * {@code  <get-weekly-trends/>}
-     * 
+     *
      * @param date starting date of daily trends. If no date is specified, current
      *            date is used
      * @param excludeHashTags if all hashtags should be removed from the trends list.
@@ -833,28 +831,28 @@ public class TwitterConnector implements MuleContextAware
         return twitter.getWeeklyTrends(date, excludeHashTags);
     }
 
-    
-    
+
+
     /**
      * Asynchronously retrieves public statuses that match one or more filter predicates.
-     * 
-     * At least a keyword or userId must be specified. Multiple parameters may be 
-     * specified. 
-     * 
+     *
+     * At least a keyword or userId must be specified. Multiple parameters may be
+     * specified.
+     *
      * Placing long parameters in the URL may cause the request to be rejected for excessive URL length.
-     * 
+     *
      * The default access level allows up to 200 track keywords and 400 follow userids.
-     * 
-     * Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+     *
+     * Only one Twitter stream can be consumed using the same credentials. As a consequence,
      * only one twitter stream can be consumed per connector instance.
-     *  
+     *
      * {@code <filtered-stream count="5">
      *      <keywords>
      *          <keyword>enterprise</keyword>
      *          <keyword>integration</keyword>
      *      </keywords>
      *      </filtered-stream>}
-     * 
+     *
      * @param count the number of previous statuses to stream before transitioning to the live stream.
      * @param userIds the user ids to follow
      * @param keywords the keywords to track
@@ -872,17 +870,17 @@ public class TwitterConnector implements MuleContextAware
     /**
      * Asynchronously retrieves a random sample of all public statuses. The sample
      * size and quality varies depending on the account permissions
-     * 
+     *
      * The default access level provides a small proportion of the Firehose. The "Gardenhose"
      * access level provides a proportion more suitable for data mining
      * and research applications that desire a larger proportion to be
-     * statistically significant sample.  
-     * 
-     * Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+     * statistically significant sample.
+     *
+     * Only one Twitter stream can be consumed using the same credentials. As a consequence,
      * only one twitter stream can be consumed per connector instance.
-     * 
+     *
      * {@code <sample-stream/>}
-     * 
+     *
      * @param callback
      */
     @Source
@@ -895,10 +893,10 @@ public class TwitterConnector implements MuleContextAware
      * Asynchronously retrieves all public statuses. This stream is not generally
      * available - it requires special permissions and its usage is discouraged by
      * Twitter
-     * 
-     * Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+     *
+     * Only one Twitter stream can be consumed using the same credentials. As a consequence,
      * only one twitter stream can be consumed per connector instance.
-     * 
+     *
      * @param count
      * @param callback
      */
@@ -911,10 +909,10 @@ public class TwitterConnector implements MuleContextAware
     /**
      * Asynchronously retrieves all statuses containing 'http:' and 'https:'. Like
      * Firehorse, its is not a generally available stream
-     * 
-     * Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+     *
+     * Only one Twitter stream can be consumed using the same credentials. As a consequence,
      * only one twitter stream can be consumed per connector instance.
-     * 
+     *
      * @param count
      * @param callback
      */
@@ -936,19 +934,19 @@ public class TwitterConnector implements MuleContextAware
      * - List subscription/unsubscription <br/>
      * - List updates <br/>
      * - Profile updates <br/>
-     * 
+     *
      * Such notifications are represented as org.mule.twitter.UserEvent objects
-     * 
-     * Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+     *
+     * Only one Twitter stream can be consumed using the same credentials. As a consequence,
      * only one twitter stream can be consumed per connector instance.
-     * 
+     *
      * {@code <user-stream>
      *      <keywords>
      *          <keyword>enterprise</keyword>
      *          <keyword>integration</keyword>
      *      </keywords>
      *      </user-stream>}
-     * 
+     *
      * @param keywords the keywords to track for new statuses
      * @param callback
      */
@@ -1101,12 +1099,12 @@ public class TwitterConnector implements MuleContextAware
 
 
     /**
-     * Asynchronously retrieves statutes for a set of supplied user's ids. 
+     * Asynchronously retrieves statutes for a set of supplied user's ids.
      * Site Streams are a beta service, so refer always to latest twitter documentation about them.
-     * 
-     * Only one Twitter stream can be consumed using the same credentials. As a consequence, 
+     *
+     * Only one Twitter stream can be consumed using the same credentials. As a consequence,
      * only one twitter stream can be consumed per connector instance.
-     * 
+     *
      * @param userIds ids of users to include in the stream
      * @param withFollowings withFollowings whether to receive status updates from people following
      * @param callback
@@ -1140,7 +1138,36 @@ public class TwitterConnector implements MuleContextAware
         });
         stream.site(withFollowings, toLongArray(userIds));
     }
-    
+    /**
+     * Sends a new direct message to the specified user from the authenticating user.
+     * Requires both the user and text parameters below. The text will be trimmed if
+     * the length of the text is exceeding 140 characters.
+     * @param screenName The screen name of the user to whom send the direct message
+     * @param message The text of your direct message
+     * @return
+     * @throws TwitterException
+     */
+    @Processor
+    public DirectMessage sendDirectMessageByScreenName(String screenName, String message) throws TwitterException
+    {
+        return twitter.sendDirectMessage(screenName, message);
+    }
+
+    /**
+     * Sends a new direct message to the specified user from the authenticating user.
+     * Requires both the user and text parameters below. The text will be trimmed if
+     * the length of the text is exceeding 140 characters.
+     * @param userId The user ID of the user to whom send the direct message
+     * @param message The text of your direct message
+     * @return
+     * @throws TwitterException
+     */
+    @Processor
+    public DirectMessage sendDirectMessageByUserId(long userId, String message) throws TwitterException
+    {
+        return twitter.sendDirectMessage(userId, message);
+    }
+
     private void initStream()
     {
         if (stream != null)
@@ -1149,7 +1176,7 @@ public class TwitterConnector implements MuleContextAware
         }
         this.stream = newStream();
     }
-    
+
     private String[] toStringArray(List<String> list)
     {
         if (list == null)
@@ -1183,7 +1210,7 @@ public class TwitterConnector implements MuleContextAware
         });
         return stream;
     }
-    
+
     private TwitterStream newStream()
     {
         ConfigurationBuilder cb = new ConfigurationBuilder()
@@ -1192,7 +1219,7 @@ public class TwitterConnector implements MuleContextAware
             .setOAuthConsumerSecret(consumerSecret)
             .setStreamBaseURL("https://stream.twitter.com/1/")
             .setSiteStreamBaseURL("https://sitestream.twitter.com/2b/");
-        
+
         if (accessKey != null)
         {
             cb.setOAuthAccessToken(accessKey).setOAuthAccessTokenSecret(accessSecret);
@@ -1257,10 +1284,10 @@ public class TwitterConnector implements MuleContextAware
     {
         MuleHttpClient.setMuleContext(context);
     }
-    
+
     static final class SoftCallback implements SourceCallback {
         private final SourceCallback callback;
-        
+
         public SoftCallback(SourceCallback callback)
         {
             this.callback = callback;
