@@ -829,7 +829,13 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a new place at the given latitude and longitude.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:create-place
+     token="#[header:token]"
+     containedWithin="#[header:containedWithin]"
+     name="#[header:placeName]"
+     latitude="#[header:latitude]"
+     longitude="#[header:longitude]"
+     streetAddress="[header:address]"/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -970,7 +976,7 @@ specify which configuration to use.</p>
  status. <br>
  This method calls http://api.twitter.com/1/statuses/destroy
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:destroy-status statusId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1045,7 +1051,7 @@ specify which configuration to use.</p>
  the time of the request, the name of each trending topic, and query used on
  Twitter Search results page for that topic.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-current-trends excludeHashtags="true" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1112,7 +1118,7 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the top 20 trending topics for each hour in a given day.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-daily-trends /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1195,7 +1201,7 @@ specify which configuration to use.</p>
  operation.
  <p/>
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-geo-details id="#[header:geocodeId]"/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1270,7 +1276,7 @@ specify which configuration to use.</p>
  replaced by home_timeline. <br>
  This method calls http://api.twitter.com/1/statuses/home_timeline
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-home-timeline/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1374,7 +1380,7 @@ specify which configuration to use.</p>
  authenticating user. <br>
  This method calls http://api.twitter.com/1/statuses/mentions
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-mentions /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1480,7 +1486,7 @@ specify which configuration to use.</p>
  it more often than that is unproductive and a waste of resources. <br>
  This method calls http://api.twitter.com/1/statuses/public_timeline
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-public-timeline/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1542,7 +1548,7 @@ specify which configuration to use.</p>
   <div class="jd-tagdata jd-tagdescr"><p>Show user objects of up to 100 members who retweeted the status. <br>
  This method calls http://api.twitter.com/1/statuses/:id/retweeted_by
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-me /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1660,7 +1666,7 @@ specify which configuration to use.</p>
  This method calls
  http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-i-ds statusId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1778,7 +1784,7 @@ specify which configuration to use.</p>
   <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by the authenticating user. <br>
  This method calls http://api.twitter.com/1/statuses/retweeted_by_me
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-me /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1886,7 +1892,7 @@ specify which configuration to use.</p>
  incompatible ways. <br>
  This method calls http://api.twitter.com/1/statuses/retweeted_by_user
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-user-by-screen-name screenName="someScreenName" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2008,7 +2014,7 @@ specify which configuration to use.</p>
  incompatible ways. <br>
  This method calls http://api.twitter.com/1/statuses/retweeted_by_user
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-user-by-user-id userId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2127,7 +2133,7 @@ specify which configuration to use.</p>
  friends. <br>
  This method calls http://api.twitter.com/1/statuses/retweeted_to_me
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-to-me /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2236,7 +2242,7 @@ specify which configuration to use.</p>
  incompatible ways. <br>
  This method calls http://api.twitter.com/1/statuses/retweeted_to_user
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-to-user-by-screen-name screenName="someScreenName" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2358,7 +2364,7 @@ specify which configuration to use.</p>
  incompatible ways. <br>
  This method calls http://api.twitter.com/1/statuses/retweeted_to_user
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-to-user-by-user-id userId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2476,7 +2482,7 @@ specify which configuration to use.</p>
   <div class="jd-tagdata jd-tagdescr"><p>Returns up to 100 of the first retweets of a given tweet. <br>
  This method calls http://api.twitter.com/1/statuses/retweets
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweets statusId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2551,7 +2557,7 @@ specify which configuration to use.</p>
  retweeted by others. <br>
  This method calls http://api.twitter.com/1/statuses/retweets_of_me
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweets-of-me /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2656,7 +2662,7 @@ specify which configuration to use.</p>
  response includes the time of the request, the name of each trend, and the url
  to the Twitter Search results page for that topic.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-trends/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2719,7 +2725,7 @@ specify which configuration to use.</p>
  <br>
  This method calls http://api.twitter.com/1/statuses/user_timeline.json
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-user-timeline /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2831,7 +2837,7 @@ specify which configuration to use.</p>
  <br>
  This method calls http://api.twitter.com/1/statuses/user_timeline.json
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-user-timeline-by-screen-name screenName="someScreenName" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2956,7 +2962,7 @@ specify which configuration to use.</p>
  <br>
  This method calls http://api.twitter.com/1/statuses/user_timeline.json
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-user-timeline-by-user-id userId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3072,7 +3078,7 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the top 30 trending topics for each day in a given week.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-weekly-trends/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3153,7 +3159,7 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Start the OAuth request authorization process.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:request-authorization /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3221,7 +3227,7 @@ specify which configuration to use.</p>
   <div class="jd-tagdata jd-tagdescr"><p>Retweets a tweet. Returns the original tweet with retweet details embedded. <br>
  This method calls http://api.twitter.com/1/statuses/retweet
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:retweet-status statusId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3302,7 +3308,7 @@ specify which configuration to use.</p>
  "neighborhoods", "cities", etc. At this time, only United States data is
  available through this method.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:reverse-geo-code latitude="11.22" longitude="33.11" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3397,7 +3403,7 @@ specify which configuration to use.</p>
  <p/>
  This method calls http://search.twitter.com/search.json
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:search query="#[payload]"/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3466,7 +3472,7 @@ specify which configuration to use.</p>
  and a longitude pair, or and IP address, this request will return a list of
  all the valid places that can be used as the place_id when updating a status.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:search-places latitude="#[header:latitude]" longitude="#[header:longitude]" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3561,7 +3567,7 @@ specify which configuration to use.</p>
  Requires both the user and text parameters below. The text will be trimmed if
  the length of the text is exceeding 140 characters.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:send-direct-message-by-screen-name screenName="someScreenName" message="bla bla" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3643,7 +3649,7 @@ specify which configuration to use.</p>
  Requires both the user and text parameters below. The text will be trimmed if
  the length of the text is exceeding 140 characters.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:send-direct-message-by-user-id userId="321" message="bla bla" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3725,7 +3731,7 @@ specify which configuration to use.</p>
  The resulting access tokens will be logged to the INFO level so the user can
  reuse them as part of the configuration in the future if desired.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:set-oauth-verifier oauthVerifier="444" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3790,7 +3796,7 @@ specify which configuration to use.</p>
  author will be returned inline. <br>
  This method calls http://api.twitter.com/1/statuses/show
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:show-status id="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3863,7 +3869,7 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Answers user information for the authenticated user
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:show-user /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3920,7 +3926,7 @@ specify which configuration to use.</p>
  current status will be ignored to prevent duplicates. <br>
  This method calls http://api.twitter.com/1/statuses/update
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre></pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -4055,7 +4061,12 @@ specify which configuration to use.</p>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:filtered-stream&gt;
+    &lt;twitter:keywords&gt;
+        &lt;twitter:keyword&gt;muleesb&lt;/twitter:keyword&gt;
+        &lt;twitter:keyword&gt;mulesoft&lt;/twitter:keyword&gt;
+    &lt;/twitter:keywords&gt;
+&lt;/twitter:filtered-stream&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -4227,7 +4238,7 @@ specify which configuration to use.</p>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:link-stream count="100" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -4305,7 +4316,7 @@ specify which configuration to use.</p>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:sample-stream /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -4364,7 +4375,12 @@ specify which configuration to use.</p>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:site-stream&gt;
+    &lt;twitter:user-ids&gt;
+        &lt;twitter:user-id&gt;321&lt;/twitter:user-id&gt;
+        &lt;twitter:user-id&gt;123&lt;/twitter:user-id&gt;
+    &lt;/twitter:user-ids&gt;
+&lt;/twitter:site-stream&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -4460,7 +4476,12 @@ specify which configuration to use.</p>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>INCLUDE_ERROR</pre></div></p></div>
+ <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:user-stream&gt;
+    &lt;twitter:keywords&gt;
+        &lt;twitter:keyword&gt;enterprise&lt;/twitter:keyword&gt;
+        &lt;twitter:keyword&gt;integration&lt;/twitter:keyword&gt;
+    &lt;/twitter:keywords&gt;
+&lt;/twitter:user-stream&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
