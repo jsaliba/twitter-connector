@@ -426,8 +426,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>A Connector for Twitter which uses twitter4j.
-</p>
+<p>A Connector for Twitter which uses twitter4j.</p>
 
 
 
@@ -484,7 +483,8 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../org/mule/twitter/TwitterConnector.html#accessKey">accessKey</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">The access key provided by Twitter
+</td>
       </tr>
       
     
@@ -495,7 +495,8 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../org/mule/twitter/TwitterConnector.html#accessSecret">accessSecret</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">The access secret provided by Twitter
+</td>
       </tr>
       
     
@@ -506,7 +507,8 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../org/mule/twitter/TwitterConnector.html#consumerKey">consumerKey</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">The consumer key used by this application
+</td>
       </tr>
       
     
@@ -517,7 +519,8 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../org/mule/twitter/TwitterConnector.html#consumerSecret">consumerSecret</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">The consumer key secret by this application
+</td>
       </tr>
       
     
@@ -561,7 +564,8 @@ Summary:
           
           boolean</nobr></td>
           <td class="jd-linkcol"><a href="../../../../org/mule/twitter/TwitterConnector.html#useSSL">useSSL</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">Whether to use SSL in API calls to Twitter
+</td>
       </tr>
       
     
@@ -673,7 +677,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#fireshorseStream(int, org.mule.api.callback.SourceCallback)">fireshorseStream</a></span>(int count, SourceCallback callback)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#firehoseStream(int, org.mule.api.callback.SourceCallback)">firehoseStream</a></span>(int count, SourceCallback callback)</nobr>
         
         <div class="jd-descrdiv">Asynchronously retrieves all public statuses.</div>
   
@@ -825,7 +829,9 @@ Summary:
         
         <div class="jd-descrdiv">Show user ids of up to 100 users who retweeted the status represented by id <br />
  This method calls
- http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format</div>
+ http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
+ <p/>
+ </div>
   
   </td></tr>
 
@@ -1424,7 +1430,9 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#showUser()">showUser</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Answers user information for the authenticated user</div>
+        <div class="jd-descrdiv">Answers user information for the authenticated user
+ <p/>
+ </div>
   
   </td></tr>
 
@@ -1458,7 +1466,7 @@ Summary:
             Status</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#updateStatus(java.lang.String, long, twitter4j.GeoLocation)">updateStatus</a></span>(String status, long inReplyTo, GeoLocation geoLocation)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#updateStatus(java.lang.String, long, java.lang.Double, java.lang.Double)">updateStatus</a></span>(String status, long inReplyTo, Double latitude, Double longitude)</nobr>
         
         <div class="jd-descrdiv">Updates the authenticating user's status.</div>
   
@@ -1489,9 +1497,9 @@ Summary:
  - List subscription/unsubscription <br/>
  - List updates <br/>
  - Profile updates <br/>
-
+ <p/>
  Such notifications are represented as org.mule.twitter.UserEvent objects
-
+ <p/>
  Only one Twitter stream can be consumed using the same credentials.</div>
   
   </td></tr>
@@ -1834,7 +1842,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>The access key provided by Twitter
+</p></div>
 
     
     </div>
@@ -1864,7 +1873,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>The access secret provided by Twitter
+</p></div>
 
     
     </div>
@@ -1894,7 +1904,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>The consumer key used by this application
+</p></div>
 
     
     </div>
@@ -1924,7 +1935,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>The consumer key secret by this application
+</p></div>
 
     
     </div>
@@ -2044,7 +2056,8 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Whether to use SSL in API calls to Twitter
+</p></div>
 
     
     </div>
@@ -2133,14 +2146,8 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a new place at the given latitude and longitude.
-
- <code>&lt;create-place
-      token="#[header:token]"
-      containedWithin="#[header:containedWithin]"
-      name="#[header:placeName]"
-      latitude="#[header:latitude]"
-      longitude="#[header:longitude]"
-      streetAddress="[header:address]"/&gt;</code></p></div>
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2151,9 +2158,9 @@ From interface
         <tr>
           <th>containedWithin</td>
           <td>The place_id within which the new place can be found.
-            Try and be as close as possible with the containing place. For
-            example, for a room in a building, set the contained_within as the
-            building place_id.</td>
+                        Try and be as close as possible with the containing place. For
+                        example, for a room in a building, set the contained_within as the
+                        building place_id.</td>
         </tr>
         <tr>
           <th>token</td>
@@ -2170,9 +2177,9 @@ From interface
         <tr>
           <th>streetAddress</td>
           <td>optional: This parameter searches for places which have
-            this given street address. There are other well-known, and
-            application specific attributes available. Custom attributes are
-            also permitted. Learn more about Place Attributes.</td>
+                        this given street address. There are other well-known, and
+                        application specific attributes available. Custom attributes are
+                        also permitted. Learn more about Place Attributes.</td>
         </tr>
       </table>
   </div>
@@ -2222,7 +2229,9 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Destroys the status specified by the required ID parameter.<br>
  Usage note: The authenticating user must be the author of the specified
  status. <br>
- This method calls http://api.twitter.com/1/statuses/destroy</p></div>
+ This method calls http://api.twitter.com/1/statuses/destroy
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2234,7 +2243,7 @@ From interface
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the deleted status</li></ul>
+      <ul class="nolist"><li>the deleted Status</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -2282,23 +2291,18 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves public statuses that match one or more filter predicates.
-
+ <p/>
  At least a keyword or userId must be specified. Multiple parameters may be
  specified.
-
+ <p/>
  Placing long parameters in the URL may cause the request to be rejected for excessive URL length.
-
+ <p/>
  The default access level allows up to 200 track keywords and 400 follow userids.
-
+ <p/>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
-
- <code>&lt;filtered-stream count="5"&gt;
-      &lt;keywords&gt;
-          &lt;keyword&gt;enterprise&lt;/keyword&gt;
-          &lt;keyword&gt;integration&lt;/keyword&gt;
-      &lt;/keywords&gt;
-      &lt;/filtered-stream&gt;</code></p></div>
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2316,7 +2320,8 @@ From interface
         </tr>
         <tr>
           <th>callback</td>
-          <td></td>
+          <td>the SourceCallback used to dispatch messages when a response is received
+</td>
         </tr>
       </table>
   </div>
@@ -2325,7 +2330,7 @@ From interface
 </div>
 
 
-<A NAME="fireshorseStream(int, org.mule.api.callback.SourceCallback)"></A>
+<A NAME="firehoseStream(int, org.mule.api.callback.SourceCallback)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2337,7 +2342,7 @@ From interface
          
         void
       </span>
-      <span class="sympad">fireshorseStream</span>
+      <span class="sympad">firehoseStream</span>
       <span class="normal">(int count, SourceCallback callback)</span>
     </h4>
       <div class="api-level">
@@ -2353,19 +2358,23 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves all public statuses. This stream is not generally
  available - it requires special permissions and its usage is discouraged by
  Twitter
-
+ <p/>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
- only one twitter stream can be consumed per connector instance.</p></div>
+ only one twitter stream can be consumed per connector instance.
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Indicates the number of previous statuses to consider for delivery before transitioning to live
+                 stream delivery.</td>
         </tr>
         <tr>
           <th>callback</td>
-          <td></td>
+          <td>the SourceCallback used to dispatch messageswhen a response is received
+</td>
         </tr>
       </table>
   </div>
@@ -2402,8 +2411,8 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Returns the current top 10 trending topics on Twitter. The response includes
  the time of the request, the name of each trending topic, and query used on
  Twitter Search results page for that topic.
-
- <code>&lt;get-current-trends excludeHashtags="true" /&gt;</code></p></div>
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2457,15 +2466,15 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the top 20 trending topics for each hour in a given day.
-
- <code>&lt;get-daily-trends /&gt;</code></p></div>
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>date</td>
           <td>starting date of daily trends. If no date is specified, current
-            date is used</td>
+                        date is used</td>
         </tr>
         <tr>
           <th>excludeHashTags</td>
@@ -2518,8 +2527,9 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Find out more details of a place that was returned from the reverseGeoCode
  operation.
-
- <code>&lt;get-geo-details id="#[header:geocodeId]"/&gt;</code></p></div>
+ <p/>
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2580,28 +2590,32 @@ From interface
  statuses/friends_timeline does not for backwards compatibility reasons. In a
  future version of the API, statuses/friends_timeline will be deprected and
  replaced by home_timeline. <br>
- This method calls http://api.twitter.com/1/statuses/home_timeline</p></div>
+ This method calls http://api.twitter.com/1/statuses/home_timeline
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>page</td>
-          <td>controls pagination. Supports since_id, max_id, count and page
-            parameters.</td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of records to retrieve. Must be less than or equal to 200.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID.
+                There are limits to the number of Tweets which can be accessed through the API. If the
+                limit of Tweets has occured since the since_id, the since_id will be forced to the
+                oldest ID available.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>list of the home Timeline</li></ul>
+      <ul class="nolist"><li>list of Status of the home Timeline</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -2650,27 +2664,33 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent mentions (status containing @username) for the
  authenticating user. <br>
- This method calls http://api.twitter.com/1/statuses/mentions</p></div>
+ This method calls http://api.twitter.com/1/statuses/mentions
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>page</td>
-          <td></td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                after the count has been applied.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                the since_id, the since_id will be forced to the oldest ID available.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent replies</li></ul>
+      <ul class="nolist"><li>the 20 most recent mentions (Status containing @username) for the authenticating user.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -2720,10 +2740,12 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent statuses from non-protected users who have set a
  custom user icon. The public timeline is cached for 60 seconds and requesting
  it more often than that is unproductive and a waste of resources. <br>
- This method calls http://api.twitter.com/1/statuses/public_timeline</p></div>
+ This method calls http://api.twitter.com/1/statuses/public_timeline
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>list of statuses of the Public Timeline</li></ul>
+      <ul class="nolist"><li>list of Status of the Public Timeline</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -2731,7 +2753,7 @@ From interface
         <tr>
             <th>TwitterException</td>
             <td>when Twitter service or network is
-             unavailable</td>
+                                    unavailable</td>
         </tr>
       </table>
   </div>
@@ -2772,7 +2794,9 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Show user objects of up to 100 members who retweeted the status. <br>
- This method calls http://api.twitter.com/1/statuses/:id/retweeted_by</p></div>
+ This method calls http://api.twitter.com/1/statuses/:id/retweeted_by
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2782,21 +2806,25 @@ From interface
         </tr>
         <tr>
           <th>page</td>
-          <td></td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                 after the count has been applied.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                 the since_id, the since_id will be forced to the oldest ID available.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the list of users who retweeted your status</li></ul>
+      <ul class="nolist"><li>the list of User who retweeted your status</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -2845,7 +2873,9 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Show user ids of up to 100 users who retweeted the status represented by id <br />
  This method calls
- http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format</p></div>
+ http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2855,15 +2885,19 @@ From interface
         </tr>
         <tr>
           <th>page</td>
-          <td></td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                 after the count has been applied.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                 the since_id, the since_id will be forced to the oldest ID available.</td>
         </tr>
       </table>
   </div>
@@ -2918,27 +2952,33 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by the authenticating user. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_by_me</p></div>
+ This method calls http://api.twitter.com/1/statuses/retweeted_by_me
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>page</td>
-          <td></td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                after the count has been applied.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                the since_id, the since_id will be forced to the oldest ID available.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent retweets posted by the authenticating user</li></ul>
+      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -2990,7 +3030,9 @@ From interface
  view. <br>
  This method has not been finalized and the interface is subject to change in
  incompatible ways. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_by_user</p></div>
+ This method calls http://api.twitter.com/1/statuses/retweeted_by_user
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -3000,21 +3042,25 @@ From interface
         </tr>
         <tr>
           <th>page</td>
-          <td></td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                   best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                   after the count has been applied.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                   limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                   the since_id, the since_id will be forced to the oldest ID available.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent retweets posted by the authenticating user</li></ul>
+      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -3067,7 +3113,9 @@ From interface
  view. <br>
  This method has not been finalized and the interface is subject to change in
  incompatible ways. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_by_user</p></div>
+ This method calls http://api.twitter.com/1/statuses/retweeted_by_user
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -3077,21 +3125,25 @@ From interface
         </tr>
         <tr>
           <th>page</td>
-          <td></td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                after the count has been applied.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                the since_id, the since_id will be forced to the oldest ID available.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent retweets posted by the authenticating user</li></ul>
+      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -3141,27 +3193,33 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by the authenticating user's
  friends. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_to_me</p></div>
+ This method calls http://api.twitter.com/1/statuses/retweeted_to_me
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>page</td>
-          <td></td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                after the count has been applied.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                the since_id, the since_id will be forced to the oldest ID available.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent retweets posted by the authenticating user's
+      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user's
          friends.</li></ul>
   </div>
   <div class="jd-tagdata">
@@ -3214,7 +3272,9 @@ From interface
  choose the user to view. <br>
  This method has not been finalized and the interface is subject to change in
  incompatible ways. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_to_user</p></div>
+ This method calls http://api.twitter.com/1/statuses/retweeted_to_user
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -3224,22 +3284,25 @@ From interface
         </tr>
         <tr>
           <th>page</td>
-          <td></td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                   best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                   after the count has been applied.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                   limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                   the since_id, the since_id will be forced to the oldest ID available.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent retweets posted by the authenticating user's
-         friends.</li></ul>
+      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user's friends.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -3292,7 +3355,9 @@ From interface
  choose the user to view. <br>
  This method has not been finalized and the interface is subject to change in
  incompatible ways. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_to_user</p></div>
+ This method calls http://api.twitter.com/1/statuses/retweeted_to_user
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -3302,22 +3367,25 @@ From interface
         </tr>
         <tr>
           <th>page</td>
-          <td></td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                after the count has been applied.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                the since_id, the since_id will be forced to the oldest ID available.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent retweets posted by the authenticating user's
-         friends.</li></ul>
+      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user's friends.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -3366,7 +3434,9 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns up to 100 of the first retweets of a given tweet. <br>
- This method calls http://api.twitter.com/1/statuses/retweets</p></div>
+ This method calls http://api.twitter.com/1/statuses/retweets
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -3378,7 +3448,7 @@ From interface
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the retweets of a given tweet</li></ul>
+      <ul class="nolist"><li>the retweets (Status) of a given tweet</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -3427,28 +3497,33 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent tweets of the authenticated user that have been
  retweeted by others. <br>
- This method calls http://api.twitter.com/1/statuses/retweets_of_me</p></div>
+ This method calls http://api.twitter.com/1/statuses/retweets_of_me
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>page</td>
-          <td></td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                after the count has been applied.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                the since_id, the since_id will be forced to the oldest ID available.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent tweets of the authenticated user that have been
-         retweeted by others.</li></ul>
+      <ul class="nolist"><li>the 20 most recent tweets (Status)of the authenticated user that have been retweeted by others.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -3498,8 +3573,8 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Returns the top ten topics that are currently trending on Twitter. The
  response includes the time of the request, the name of each trend, and the url
  to the Twitter Search results page for that topic.
-
- <code>&lt;get-trends/&gt;</code></p></div>
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>a Trends object</li></ul>
@@ -3614,27 +3689,33 @@ From interface
  Atom). If you'd like them included, you can merge them in from statuses
  retweeted_by_me.<br>
  <br>
- This method calls http://api.twitter.com/1/statuses/user_timeline.json</p></div>
+ This method calls http://api.twitter.com/1/statuses/user_timeline.json
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>page</td>
-          <td></td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                after the count has been applied.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                the since_id, the since_id will be forced to the oldest ID available.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>list of the user Timeline</li></ul>
+      <ul class="nolist"><li>list of Status the user Timeline</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -3690,32 +3771,37 @@ From interface
  Atom). If you'd like them included, you can merge them in from statuses
  retweeted_by_me.<br>
  <br>
- This method calls http://api.twitter.com/1/statuses/user_timeline.json</p></div>
+ This method calls http://api.twitter.com/1/statuses/user_timeline.json
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>screenName</td>
-          <td>specifies the screen name of the user for whom to return the
-            user_timeline</td>
+          <td>The screen name of the user for whom to return results for</td>
         </tr>
         <tr>
           <th>page</td>
-          <td></td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                   best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                   after the count has been applied.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                   limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                   the since_id, the since_id will be forced to the oldest ID available.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>list of the user Timeline</li></ul>
+      <ul class="nolist"><li>list of Status of the user Timeline</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -3771,32 +3857,37 @@ From interface
  Atom). If you'd like them included, you can merge them in from statuses
  retweeted_by_me.<br>
  <br>
- This method calls http://api.twitter.com/1/statuses/user_timeline.json</p></div>
+ This method calls http://api.twitter.com/1/statuses/user_timeline.json
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>userId</td>
-          <td>specifies the ID of the user for whom to return the
-            user_timeline</td>
+          <td>specifies the ID of the user for whom to return the user_timeline</td>
         </tr>
         <tr>
           <th>page</td>
-          <td></td>
+          <td>Specifies the page of results to retrieve.</td>
         </tr>
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                after the count has been applied.</td>
         </tr>
         <tr>
           <th>sinceId</td>
-          <td></td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                the since_id, the since_id will be forced to the oldest ID available.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>list of the user Timeline</li></ul>
+      <ul class="nolist"><li>list of Status of the user Timeline</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -3844,15 +3935,15 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the top 30 trending topics for each day in a given week.
-
- <code>&lt;get-weekly-trends/&gt;</code></p></div>
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>date</td>
           <td>starting date of daily trends. If no date is specified, current
-            date is used</td>
+                        date is used</td>
         </tr>
         <tr>
           <th>excludeHashTags</td>
@@ -3936,19 +4027,23 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves all statuses containing 'http:' and 'https:'. Like
  Firehorse, its is not a generally available stream
-
+ <p/>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
- only one twitter stream can be consumed per connector instance.</p></div>
+ only one twitter stream can be consumed per connector instance.
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>count</td>
-          <td></td>
+          <td>Indicates the number of previous statuses to consider for delivery before transitioning to live
+                 stream delivery.</td>
         </tr>
         <tr>
           <th>callback</td>
-          <td></td>
+          <td>the SourceCallback used to dispatch messages when a response is received
+</td>
         </tr>
       </table>
   </div>
@@ -3982,13 +4077,15 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Start the OAuth request authorization process.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Start the OAuth request authorization process.
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>callbackUrl</td>
-          <td></td>
+          <td>the url to be requested when the user authorizes this app</td>
         </tr>
       </table>
   </div>
@@ -4036,7 +4133,9 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Retweets a tweet. Returns the original tweet with retweet details embedded. <br>
- This method calls http://api.twitter.com/1/statuses/retweet</p></div>
+ This method calls http://api.twitter.com/1/statuses/retweet
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -4048,7 +4147,7 @@ From interface
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the retweeted status</li></ul>
+      <ul class="nolist"><li>the retweeted Status</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -4104,9 +4203,8 @@ From interface
  There are multiple granularities of places that can be returned --
  "neighborhoods", "cities", etc. At this time, only United States data is
  available through this method.
-
-
- <code>&lt;reverse-geo-code ip="#[header:ip]" /&gt;</code></p></div>
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -4169,22 +4267,23 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves a random sample of all public statuses. The sample
  size and quality varies depending on the account permissions
-
+ <p/>
  The default access level provides a small proportion of the Firehose. The "Gardenhose"
  access level provides a proportion more suitable for data mining
  and research applications that desire a larger proportion to be
  statistically significant sample.
-
+ <p/>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
-
- <code>&lt;sample-stream/&gt;</code></p></div>
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>callback</td>
-          <td></td>
+          <td>the SourceCallback used to dispatch messages when a response is received
+</td>
         </tr>
       </table>
   </div>
@@ -4219,8 +4318,10 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns tweets that match a specified query.
- <p>
- This method calls http://search.twitter.com/search.json@return</p></div>
+ <p/>
+ This method calls http://search.twitter.com/search.json
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -4229,6 +4330,10 @@ From interface
           <td>The search query.</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the QueryResult</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -4272,8 +4377,8 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Search for places that can be attached to a statuses/update. Given a latitude
  and a longitude pair, or and IP address, this request will return a list of
  all the valid places that can be used as the place_id when updating a status.
-
- <code>&lt;search-places latitude="#[header:latitude]" longitude="#[header:longitude]" /&gt;</code></p></div>
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -4336,7 +4441,9 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Sends a new direct message to the specified user from the authenticating user.
  Requires both the user and text parameters below. The text will be trimmed if
- the length of the text is exceeding 140 characters.@return</p></div>
+ the length of the text is exceeding 140 characters.
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -4349,6 +4456,10 @@ From interface
           <td>The text of your direct message</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the DirectMessage</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -4391,7 +4502,9 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Sends a new direct message to the specified user from the authenticating user.
  Requires both the user and text parameters below. The text will be trimmed if
- the length of the text is exceeding 140 characters.@return</p></div>
+ the length of the text is exceeding 140 characters.
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -4404,6 +4517,10 @@ From interface
           <td>The text of your direct message</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the DirectMessage</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -4646,7 +4763,9 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Set the OAuth verifier after it has been retrieved via requestAuthorization.
  The resulting access tokens will be logged to the INFO level so the user can
- reuse them as part of the configuration in the future if desired.</p></div>
+ reuse them as part of the configuration in the future if desired.
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -4737,7 +4856,9 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a single status, specified by the id parameter below. The status's
  author will be returned inline. <br>
- This method calls http://api.twitter.com/1/statuses/show</p></div>
+ This method calls http://api.twitter.com/1/statuses/show
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -4749,15 +4870,14 @@ From interface
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>a single status</li></ul>
+      <ul class="nolist"><li>a single Status</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is
-             unavailable</td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -4797,7 +4917,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Answers user information for the authenticated user</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Answers user information for the authenticated user
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>a User object</li></ul>
@@ -4843,9 +4965,11 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Asynchronously retrieves statutes for a set of supplied user's ids.
  Site Streams are a beta service, so refer always to latest twitter documentation about them.
-
+ <p/>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
- only one twitter stream can be consumed per connector instance.</p></div>
+ only one twitter stream can be consumed per connector instance.
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -4859,7 +4983,8 @@ From interface
         </tr>
         <tr>
           <th>callback_</td>
-          <td></td>
+          <td>the SourceCallback used to dispatch messages when a response is received
+</td>
         </tr>
       </table>
   </div>
@@ -4868,7 +4993,7 @@ From interface
 </div>
 
 
-<A NAME="updateStatus(java.lang.String, long, twitter4j.GeoLocation)"></A>
+<A NAME="updateStatus(java.lang.String, long, java.lang.Double, java.lang.Double)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4881,7 +5006,7 @@ From interface
         Status
       </span>
       <span class="sympad">updateStatus</span>
-      <span class="normal">(String status, long inReplyTo, GeoLocation geoLocation)</span>
+      <span class="normal">(String status, long inReplyTo, Double latitude, Double longitude)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4896,7 +5021,9 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Updates the authenticating user's status. A status update with text identical
  to the authenticating user's text identical to the authenticating user's
  current status will be ignored to prevent duplicates. <br>
- This method calls http://api.twitter.com/1/statuses/update</p></div>
+ This method calls http://api.twitter.com/1/statuses/update
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -4906,17 +5033,24 @@ From interface
         </tr>
         <tr>
           <th>inReplyTo</td>
-          <td></td>
+          <td>The ID of an existing status that the update is in reply to.</td>
         </tr>
         <tr>
-          <th>geoLocation</td>
-          <td></td>
+          <th>latitude</td>
+          <td>The latitude of the location this tweet refers to. This parameter will be ignored unless it is
+                  inside the range -90.0 to +90.0 (North is positive) inclusive.</td>
+        </tr>
+        <tr>
+          <th>longitude</td>
+          <td>he longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to
+                  +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range or if there not a
+                  corresponding lat parameter.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the latest status</li></ul>
+      <ul class="nolist"><li>the latest Status</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -4974,18 +5108,13 @@ From interface
  - List subscription/unsubscription <br/>
  - List updates <br/>
  - Profile updates <br/>
-
+ <p/>
  Such notifications are represented as org.mule.twitter.UserEvent objects
-
+ <p/>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
-
- <code>&lt;user-stream&gt;
-      &lt;keywords&gt;
-          &lt;keyword&gt;enterprise&lt;/keyword&gt;
-          &lt;keyword&gt;integration&lt;/keyword&gt;
-      &lt;/keywords&gt;
-      &lt;/user-stream&gt;</code></p></div>
+ <p/>
+ </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -4995,7 +5124,8 @@ From interface
         </tr>
         <tr>
           <th>callback_</td>
-          <td></td>
+          <td>the SourceCallback used to dispatch messages when a response is received
+</td>
         </tr>
       </table>
   </div>

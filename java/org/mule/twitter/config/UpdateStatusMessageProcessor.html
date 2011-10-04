@@ -194,7 +194,7 @@
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/CreatePlaceMessageProcessor.html">CreatePlaceMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/DestroyStatusMessageProcessor.html">DestroyStatusMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/FilteredStreamMessageSource.html">FilteredStreamMessageSource</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/FireshorseStreamMessageSource.html">FireshorseStreamMessageSource</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/FirehoseStreamMessageSource.html">FirehoseStreamMessageSource</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetCurrentTrendsMessageProcessor.html">GetCurrentTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetDailyTrendsMessageProcessor.html">GetDailyTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetGeoDetailsMessageProcessor.html">GetGeoDetailsMessageProcessor</a></li>
@@ -461,7 +461,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>UpdateStatusMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#updateStatus(java.lang.String, long, twitter4j.GeoLocation)">updateStatus(java.lang.String, long, twitter4j.GeoLocation)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+<p>UpdateStatusMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#updateStatus(java.lang.String, long, java.lang.Double, java.lang.Double)">updateStatus(java.lang.String, long, java.lang.Double, java.lang.Double)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -658,8 +658,8 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          GeoLocation</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#_geoLocationType">_geoLocationType</a></td>
+          long</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#_inReplyToType">_inReplyToType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -669,13 +669,24 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          long</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#_inReplyToType">_inReplyToType</a></td>
+          Double</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#_latitudeType">_latitudeType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
       <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          Double</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#_longitudeType">_longitudeType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -686,7 +697,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -699,7 +710,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -712,13 +723,24 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#inReplyTo">inReplyTo</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
       <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#geoLocation">geoLocation</a></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#latitude">latitude</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -729,7 +751,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#inReplyTo">inReplyTo</a></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#longitude">longitude</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -908,9 +930,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#setGeoLocation(java.lang.Object)">setGeoLocation</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#setInReplyTo(java.lang.Object)">setInReplyTo</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Sets geoLocation</div>
+        <div class="jd-descrdiv">Sets inReplyTo</div>
   
   </td></tr>
 
@@ -926,15 +948,33 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#setInReplyTo(java.lang.Object)">setInReplyTo</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#setLatitude(java.lang.Object)">setLatitude</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Sets inReplyTo</div>
+        <div class="jd-descrdiv">Sets latitude</div>
   
   </td></tr>
 
 
 	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/config/UpdateStatusMessageProcessor.html#setLongitude(java.lang.Object)">setLongitude</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets longitude</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -952,7 +992,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -970,7 +1010,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -988,7 +1028,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1004,7 +1044,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1561,7 +1601,7 @@ From interface
 
 
 
-<A NAME="_geoLocationType"></A>
+<A NAME="_inReplyToType"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1569,9 +1609,9 @@ From interface
         private 
          
          
-        GeoLocation
+        long
       </span>
-        _geoLocationType
+        _inReplyToType
     </h4>
       <div class="api-level">
         
@@ -1591,7 +1631,7 @@ From interface
 
 
 
-<A NAME="_inReplyToType"></A>
+<A NAME="_latitudeType"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1599,9 +1639,39 @@ From interface
         private 
          
          
-        long
+        Double
       </span>
-        _inReplyToType
+        _latitudeType
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="_longitudeType"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        Double
+      </span>
+        _longitudeType
     </h4>
       <div class="api-level">
         
@@ -1715,7 +1785,7 @@ From interface
 
 
 
-<A NAME="geoLocation"></A>
+<A NAME="inReplyTo"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1725,7 +1795,7 @@ From interface
          
         Object
       </span>
-        geoLocation
+        inReplyTo
     </h4>
       <div class="api-level">
         
@@ -1745,7 +1815,7 @@ From interface
 
 
 
-<A NAME="inReplyTo"></A>
+<A NAME="latitude"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1755,7 +1825,37 @@ From interface
          
         Object
       </span>
-        inReplyTo
+        latitude
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="longitude"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        Object
+      </span>
+        longitude
     </h4>
       <div class="api-level">
         
@@ -2117,47 +2217,6 @@ From interface
 </div>
 
 
-<A NAME="setGeoLocation(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setGeoLocation</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets geoLocation</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
 <A NAME="setInReplyTo(java.lang.Object)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2184,6 +2243,88 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets inReplyTo</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setLatitude(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setLatitude</span>
+      <span class="normal">(Object value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets latitude</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setLongitude(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setLongitude</span>
+      <span class="normal">(Object value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets longitude</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">

@@ -194,7 +194,7 @@
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/CreatePlaceMessageProcessor.html">CreatePlaceMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/DestroyStatusMessageProcessor.html">DestroyStatusMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/FilteredStreamMessageSource.html">FilteredStreamMessageSource</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/FireshorseStreamMessageSource.html">FireshorseStreamMessageSource</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/FirehoseStreamMessageSource.html">FirehoseStreamMessageSource</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetCurrentTrendsMessageProcessor.html">GetCurrentTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetDailyTrendsMessageProcessor.html">GetDailyTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetGeoDetailsMessageProcessor.html">GetGeoDetailsMessageProcessor</a></li>
@@ -537,7 +537,8 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/TwitterConnector.html#accessKey">accessKey</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">The access key provided by Twitter
+</td>
       </tr>
       
     
@@ -548,7 +549,8 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/TwitterConnector.html#accessSecret">accessSecret</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">The access secret provided by Twitter
+</td>
       </tr>
       
     
@@ -559,7 +561,8 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/TwitterConnector.html#consumerKey">consumerKey</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">The consumer key used by this application
+</td>
       </tr>
       
     
@@ -570,7 +573,8 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/TwitterConnector.html#consumerSecret">consumerSecret</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">The consumer key secret by this application
+</td>
       </tr>
       
     
@@ -614,7 +618,8 @@ Summary:
           
           boolean</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/TwitterConnector.html#useSSL">useSSL</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">Whether to use SSL in API calls to Twitter
+</td>
       </tr>
       
     
@@ -788,7 +793,7 @@ From class
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#fireshorseStream(int, org.mule.api.callback.SourceCallback)">fireshorseStream</a></span>(int count, SourceCallback callback)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#firehoseStream(int, org.mule.api.callback.SourceCallback)">firehoseStream</a></span>(int count, SourceCallback callback)</nobr>
         
         <div class="jd-descrdiv">Asynchronously retrieves all public statuses.</div>
   
@@ -956,7 +961,9 @@ From class
         
         <div class="jd-descrdiv">Show user ids of up to 100 users who retweeted the status represented by id <br />
  This method calls
- http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format</div>
+ http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
+ <p/>
+ </div>
   
   </td></tr>
 
@@ -1555,7 +1562,9 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#showUser()">showUser</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Answers user information for the authenticated user</div>
+        <div class="jd-descrdiv">Answers user information for the authenticated user
+ <p/>
+ </div>
   
   </td></tr>
 
@@ -1589,7 +1598,7 @@ From class
             Status</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#updateStatus(java.lang.String, long, twitter4j.GeoLocation)">updateStatus</a></span>(String status, long inReplyTo, GeoLocation geoLocation)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#updateStatus(java.lang.String, long, java.lang.Double, java.lang.Double)">updateStatus</a></span>(String status, long inReplyTo, Double latitude, Double longitude)</nobr>
         
         <div class="jd-descrdiv">Updates the authenticating user's status.</div>
   
@@ -1620,9 +1629,9 @@ From class
  - List subscription/unsubscription <br/>
  - List updates <br/>
  - Profile updates <br/>
-
+ <p/>
  Such notifications are represented as org.mule.twitter.UserEvent objects
-
+ <p/>
  Only one Twitter stream can be consumed using the same credentials.</div>
   
   </td></tr>
