@@ -73,7 +73,7 @@ public class TwitterTestDriver extends AbstractMuleTestCase
     
     public void testUpdateStatus() throws Exception
     {
-        long id = connector.updateStatus("Foo bar baz " + new Date(), -1, null).getId();
+        long id = connector.updateStatus("Foo bar baz " + new Date(), -1, null, null).getId();
         assertTrue(connector.showStatus(id).getText().contains("Foo bar baz"));
     }
     
@@ -114,7 +114,7 @@ public class TwitterTestDriver extends AbstractMuleTestCase
             }
 
             public Object process(Object payload, Map<String, Object> properties) throws Exception {
-                return null;  //To change body of implemented methods use File | Settings | File Templates.
+                return null;
             }
         });
         Thread.sleep(20000);
@@ -135,23 +135,20 @@ public class TwitterTestDriver extends AbstractMuleTestCase
             }
 
             public Object process(Object payload, Map<String, Object> properties) throws Exception {
-                return null;  //To change body of implemented methods use File | Settings | File Templates.
+                return null;
             }
         });
         
-        connector.updateStatus("Foobar " + new Date(), -1, null);
+        connector.updateStatus("Foobar " + new Date(), -1, null, null);
         Thread.sleep(1000);
         
-        connector.updateStatus("Foobar " + new Date(), -1, null);
+        connector.updateStatus("Foobar " + new Date(), -1, null, null);
         Thread.sleep(1000);
         
-        connector.updateStatus("Foobar " + new Date(), -1, null);
+        connector.updateStatus("Foobar " + new Date(), -1, null, null);
         Thread.sleep(1000);
         
-        connector.updateStatus("Foobar " + new Date(), -1, null);
+        connector.updateStatus("Foobar " + new Date(), -1, null, null);
         Thread.sleep(10000);
     }
-    
-    
-
 }

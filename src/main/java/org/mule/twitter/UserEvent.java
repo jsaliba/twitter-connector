@@ -12,23 +12,20 @@ package org.mule.twitter;
 
 import org.apache.commons.lang.Validate;
 import org.apache.commons.lang.builder.ToStringBuilder;
-
 import twitter4j.User;
 
 /**
  * {@link UserEvent} represent an event on an user stream
- * 
+ *
  * @author flbulgarelli
  */
-public class UserEvent
-{
+public class UserEvent {
     private final EventType eventType;
     private final User sourceUser;
     private final User targetUser;
     private final Object payload;
 
-    public UserEvent(EventType eventType, User sourceUser, User targetUser, Object payload)
-    {
+    public UserEvent(EventType eventType, User sourceUser, User targetUser, Object payload) {
         Validate.notNull(eventType);
         this.eventType = eventType;
         this.sourceUser = sourceUser;
@@ -40,50 +37,44 @@ public class UserEvent
      * @return The user who generated the event, ie, the user that blocked another
      *         one
      */
-    public User getSourceUser()
-    {
+    public User getSourceUser() {
         return sourceUser;
     }
 
     /**
      * @return The user that was target of this event, ie, the user was was blocked
      */
-    public User getTargetUser()
-    {
+    public User getTargetUser() {
         return targetUser;
     }
 
     /**
      * @return The type of event
      */
-    public EventType getEventType()
-    {
+    public EventType getEventType() {
         return eventType;
     }
 
-    /**@return The paylaod of the event*/
-    public Object getPayload()
-    {
+    /**
+     * @return The paylaod of the event
+     */
+    public Object getPayload() {
         return payload;
     }
 
-    public static UserEvent fromPayload(EventType eventType, User user, Object payload)
-    {
+    public static UserEvent fromPayload(EventType eventType, User user, Object payload) {
         return from(eventType, user, user, payload);
     }
 
-    public static UserEvent fromTarget(EventType eventType, User user, User targetUser)
-    {
+    public static UserEvent fromTarget(EventType eventType, User user, User targetUser) {
         return from(eventType, user, targetUser, null);
     }
 
-    public static UserEvent from(EventType eventType, User sourceUser, User targetUser, Object payload)
-    {
+    public static UserEvent from(EventType eventType, User sourceUser, User targetUser, Object payload) {
         return new UserEvent(eventType, sourceUser, targetUser, payload);
     }
 
-    public enum EventType
-    {
+    public enum EventType {
         NEW_STATUS, // 
         BLOCK, //
         UNBLOCK, //
@@ -98,10 +89,9 @@ public class UserEvent
         LIST_SUBSCRIPTION, // 
         LIST_UNSUBSCRIPTION
     }
-    
+
     @Override
-    public String toString()
-    {
+    public String toString() {
         return ToStringBuilder.reflectionToString(this);
     }
 
