@@ -942,7 +942,7 @@ public class TwitterConnector implements MuleContextAware {
      * @param count    the number of previous statuses to stream before transitioning to the live stream.
      * @param userIds  the user ids to follow
      * @param keywords the keywords to track
-     * @param callback the SourceCallback used to dispatch messages when a response is received
+     * @param callback the {@link SourceCallback} used to dispatch messages when a response is received
      */
     @Source
     public void filteredStream(@Optional @Default("0") int count,
@@ -966,7 +966,7 @@ public class TwitterConnector implements MuleContextAware {
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:sampleStream}
      *
-     * @param callback the SourceCallback used to dispatch messages when a response is received
+     * @param callback the {@link SourceCallback} used to dispatch messages when a response is received
      */
     @Source
     public void sampleStream(final SourceCallback callback) {
@@ -985,7 +985,7 @@ public class TwitterConnector implements MuleContextAware {
      *
      * @param count    Indicates the number of previous statuses to consider for delivery before transitioning to live
      *                 stream delivery.
-     * @param callback the SourceCallback used to dispatch messageswhen a response is received
+     * @param callback the {@link SourceCallback} used to dispatch messageswhen a response is received
      */
     @Source
     public void firehoseStream(int count, final SourceCallback callback) {
@@ -1003,7 +1003,7 @@ public class TwitterConnector implements MuleContextAware {
      *
      * @param count    Indicates the number of previous statuses to consider for delivery before transitioning to live
      *                 stream delivery.
-     * @param callback the SourceCallback used to dispatch messages when a response is received
+     * @param callback the {@link SourceCallback} used to dispatch messages when a response is received
      */
     @Source
     public void linkStream(int count, final SourceCallback callback) {
@@ -1031,7 +1031,7 @@ public class TwitterConnector implements MuleContextAware {
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:userStream}
      *
      * @param keywords  the keywords to track for new statuses
-     * @param callback_ the SourceCallback used to dispatch messages when a response is received
+     * @param callback_ the {@link SourceCallback} used to dispatch messages when a response is received
      */
     @Source
     public void userStream(List<String> keywords, final SourceCallback callback_) {
@@ -1176,7 +1176,7 @@ public class TwitterConnector implements MuleContextAware {
      *
      * @param userIds        ids of users to include in the stream
      * @param withFollowings withFollowings whether to receive status updates from people following
-     * @param callback_      the SourceCallback used to dispatch messages when a response is received
+     * @param callback_      the {@link SourceCallback} used to dispatch messages when a response is received
      */
     @Source
     public void siteStream(List<Long> userIds,
