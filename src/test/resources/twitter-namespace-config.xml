@@ -13,10 +13,10 @@
 
 <mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns:spring="http://www.springframework.org/schema/beans"
-      xmlns:twitter="http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter"
+      xmlns:twitter="http://www.mulesoft.org/schema/mule/twitter"
       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                           http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.2/mule.xsd
-                          http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter http://repository.mulesoft.org/releases/org/mule/modules/mule-module-twitter/2.3/mule-twitter.xsd">
+                          http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/2.3/mule-twitter.xsd">
 
     <twitter:config consumerKey="${twitter.consumer.key}" consumerSecret="${twitter.consumer.secret}"/>
 
