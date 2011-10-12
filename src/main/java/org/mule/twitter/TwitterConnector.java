@@ -978,7 +978,7 @@ public class TwitterConnector implements MuleContextAware {
      * Only one Twitter stream can be consumed using the same credentials. As a consequence,
      * only one twitter stream can be consumed per connector instance.
      * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:fireshorseStream}
+     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:firehoseStream}
      *
      * @param count    Indicates the number of previous statuses to consider for delivery before transitioning to live
      *                 stream delivery.
