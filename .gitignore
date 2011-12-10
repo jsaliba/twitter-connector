@@ -6,3 +6,6 @@ target
 .springBeans
 velocity.log
 .DS_Store
+*.iml
+*.ipr
+*.iws
