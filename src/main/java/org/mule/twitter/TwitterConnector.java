@@ -64,6 +64,10 @@ import java.util.Map;
  */
 @Module(name = "twitter", schemaVersion = "2.3")
 public class TwitterConnector implements MuleContextAware {
+
+    private static final String STREAM_BASE_URL = "https://stream.twitter.com/1/";
+    private static final String SITE_STREAM_BASE_URL = "https://sitestream.twitter.com/2b/";
+
     protected transient Log logger = LogFactory.getLog(getClass());
 
     private Twitter twitter;
@@ -104,10 +108,44 @@ public class TwitterConnector implements MuleContextAware {
     @Default("true")
     private boolean useSSL;
 
+    /**
+     * Proxy host
+     */
+    @Configurable
+    @Optional
+    private String proxyHost;
+
+    /**
+     * Proxy port
+     */
+    @Configurable
+    @Optional
+    @Default("-1")
+    private int proxyPort;
+
+    /**
+     *
+     * Proxy username
+     */
+    @Configurable
+    @Optional
+    private String proxyUsername;
+
+    /**
+     * Proxy password
+     */
+    @Configurable
+    @Optional
+    private String proxyPassword;
+
     @PostConstruct
     public void initialise() {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setUseSSL(useSSL);
+        cb.setHttpProxyHost(proxyHost);
+        cb.setHttpProxyPort(proxyPort);
+        cb.setHttpProxyUser(proxyUsername);
+        cb.setHttpProxyPassword(proxyPassword);
 
         HttpClientHiddenConstructionArgument.setUseMule(true);
         twitter = new TwitterFactory(cb.build()).getInstance();
@@ -313,8 +351,6 @@ public class TwitterConnector implements MuleContextAware {
      * @param sinceId Returns results with an ID greater than (that is, more recent than) the specified ID. There are
      *                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
      *                the since_id, the since_id will be forced to the oldest ID available.
-     * @param paging  controls pagination. Supports since_id, max_id, count and page
-     *                parameters.
      * @return the 20 most recent mentions ({@link Status} containing @username) for the authenticating user.
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="http://dev.twitter.com/doc/get/statuses/mentions">GET
@@ -1275,8 +1311,12 @@ public class TwitterConnector implements MuleContextAware {
                 .setUseSSL(useSSL)
                 .setOAuthConsumerKey(consumerKey)
                 .setOAuthConsumerSecret(consumerSecret)
-                .setStreamBaseURL("https://stream.twitter.com/1/")
-                .setSiteStreamBaseURL("https://sitestream.twitter.com/2b/");
+                .setStreamBaseURL(STREAM_BASE_URL)
+                .setSiteStreamBaseURL(SITE_STREAM_BASE_URL)
+                .setHttpProxyHost(proxyHost)
+                .setHttpProxyPort(proxyPort)
+                .setHttpProxyUser(proxyUsername)
+                .setHttpProxyPassword(proxyPassword);
 
         if (accessKey != null) {
             cb.setOAuthAccessToken(accessKey).setOAuthAccessTokenSecret(accessSecret);
@@ -1328,6 +1368,22 @@ public class TwitterConnector implements MuleContextAware {
     @Override
     public void setMuleContext(MuleContext context) {
         MuleHttpClient.setMuleContext(context);
+    }
+
+    public void setProxyHost(String proxyHost) {
+        this.proxyHost = proxyHost;
+    }
+
+    public void setProxyPort(int proxyPort) {
+        this.proxyPort = proxyPort;
+    }
+
+    public void setProxyUsername(String proxyUsername) {
+        this.proxyUsername = proxyUsername;
+    }
+
+    public void setProxyPassword(String proxyPassword) {
+        this.proxyPassword = proxyPassword;
     }
 
     static final class SoftCallback implements SourceCallback {
