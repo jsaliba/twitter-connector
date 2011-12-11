@@ -1,5 +1,5 @@
 /**
- * Mule Twitter Connector
+ * Mule Twitter Cloud Connector
  *
  * Copyright (c) MuleSoft, Inc.  All rights reserved.  http://www.mulesoft.com
  *
@@ -7,7 +7,6 @@
  * license, a copy of which has been included with this distribution in the
  * LICENSE.txt file.
  */
-
 package org.mule.twitter;
 
 import org.apache.commons.lang.UnhandledException;
@@ -1391,6 +1390,15 @@ public class TwitterConnector implements MuleContextAware {
 
         public SoftCallback(SourceCallback callback) {
             this.callback = callback;
+        }
+
+        @Override
+        public Object process() throws Exception {
+            try {
+                return callback.process();
+            } catch (Exception e) {
+                throw new UnhandledException(e);
+            }
         }
 
         @Override
