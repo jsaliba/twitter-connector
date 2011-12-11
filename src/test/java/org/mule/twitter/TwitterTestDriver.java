@@ -110,11 +110,6 @@ public class TwitterTestDriver extends AbstractMuleTestCase
         connector.filteredStream(0, null, Arrays.asList("mulesoft"), new SourceCallback()
         {
             @Override
-            public Object process() throws Exception {
-                return null;
-            }
-
-            @Override
             public Void process(Object payload)
             {
                 assertNotNull(payload);
@@ -135,11 +130,6 @@ public class TwitterTestDriver extends AbstractMuleTestCase
     {
         connector.userStream(null, new SourceCallback()
         {
-            @Override
-            public Object process() throws Exception {
-                return null;
-            }
-
             @Override
             public Void process(Object payload)
             {
