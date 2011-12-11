@@ -83,11 +83,6 @@ public class TwitterTestDriver extends AbstractMuleTestCase
         connector.sampleStream(new SourceCallback()
         {
             @Override
-            public Object process() throws Exception {
-                return null;
-            }
-
-            @Override
             public Void process(Object payload)
             {
                 assertNotNull(payload);
