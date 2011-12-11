@@ -63,6 +63,7 @@
 <!-- END_INCLUDE(twitter:showUser) -->
 
 <!-- BEGIN_INCLUDE(twitter:updateStatus) -->
+        <twitter:update-status status="hello world"/>
 <!-- END_INCLUDE(twitter:updateStatus) -->
 
 <!-- BEGIN_INCLUDE(twitter:destroyStatus) -->
