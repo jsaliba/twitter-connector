@@ -1393,6 +1393,15 @@ public class TwitterConnector implements MuleContextAware {
         }
 
         @Override
+        public Object process() throws Exception {
+            try {
+                return callback.process();
+            } catch (Exception e) {
+                throw new UnhandledException(e);
+            }
+        }
+
+        @Override
         public Object process(Object payload) {
             try {
                 return callback.process(payload);
