@@ -111,15 +111,19 @@
       <span id="masthead-title">Mule Twitter Connector</span>
     
     <ul id="header-tabs" class="mule">
+    
     	<li id="guide"><a href="../guide/install.html">
 	    	<span class="en">Install Guide</span>
     	</a></li>
+    
     	<li id="java"><a href="../java/packages.html">
-	    	<span class="en">Java API</span>
+	    	<span class="en">Java API Reference</span>
     	</a></li>
+    
     	<li id="mule"><a href="../mule/modules.html">
-	    	<span class="en">Mule API</span>
+	    	<span class="en">Mule API Reference</span>
     	</a></li>
+    
     </ul>
     </div>
     <div id="headerRight">
@@ -223,7 +227,7 @@ Summary:
 
 
 <h2>Module Overview</h2>
-<p>A Connector for Twitter which uses twitter4j.<br/></p>
+<p>A Connector for Twitter which uses twitter4j.</p>
 
 
 </div><!-- jd-descr -->
@@ -847,6 +851,8 @@ specify which configuration to use.</p>
 
 
 
+
+
 <!-- ========= MESSAGE PROCESSOR DETAIL ======== -->
 <!-- Message Processors -->
 
@@ -869,7 +875,7 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a new place at the given latitude and longitude.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:create-place
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:create-place
      token="#[header:token]"
      containedWithin="#[header:containedWithin]"
      name="#[header:placeName]"
@@ -879,17 +885,19 @@ specify which configuration to use.</p>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>name</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The name a place is known as.<br/></td>
+                    <td class="jd-descrcol" width="100%">The name a place is known as.</td>
                 </tr>
                 
                 
@@ -901,7 +909,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol" width="100%">The place_id within which the new place can be found.
                         Try and be as close as possible with the containing place. For
                         example, for a room in a building, set the contained_within as the
-                        building place_id.<br/></td>
+                        building place_id.</td>
                 </tr>
                 
                 
@@ -910,7 +918,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>token</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The token found in the response from geo/similar_places.<br/></td>
+                    <td class="jd-descrcol" width="100%">The token found in the response from geo/similar_places.</td>
                 </tr>
                 
                 
@@ -919,7 +927,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>latitude</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The latitude the place is located at.<br/></td>
+                    <td class="jd-descrcol" width="100%">The latitude the place is located at.</td>
                 </tr>
                 
                 
@@ -928,7 +936,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>longitude</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The longitude the place is located at.<br/></td>
+                    <td class="jd-descrcol" width="100%">The longitude the place is located at.</td>
                 </tr>
                 
                 
@@ -940,26 +948,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Optional: This parameter searches for places which have
                         this given street address. There are other well-known, and
                         application specific attributes available. Custom attributes are
-                        also permitted. Learn more about Place Attributes.<br/></td>
+                        also permitted. Learn more about Place Attributes.</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -979,8 +979,10 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>a new <br/>Place</li></ul>
+      <ul class="nolist"><li>a new Place</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -1013,40 +1015,34 @@ specify which configuration to use.</p>
  status. <br>
  This method calls http://api.twitter.com/1/statuses/destroy
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:destroy-status statusId="321" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:destroy-status statusId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>statusId</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The ID of the status to destroy.<br/></td>
+                    <td class="jd-descrcol" width="100%">The ID of the status to destroy.</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1056,14 +1052,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the deleted <br/>Status</li></ul>
+      <ul class="nolist"><li>the deleted Status</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -1095,40 +1093,34 @@ specify which configuration to use.</p>
  the time of the request, the name of each trending topic, and query used on
  Twitter Search results page for that topic.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-current-trends excludeHashtags="true" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-current-trends excludeHashtags="true" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>excludeHashtags</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Whether all hashtags shoudl be removed from the trends list.<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Whether all hashtags shoudl be removed from the trends list.</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1138,8 +1130,10 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>a <br/>Trends object<br/></li></ul>
+      <ul class="nolist"><li>a Trends object</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -1169,14 +1163,16 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the top 20 trending topics for each hour in a given day.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-daily-trends /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-daily-trends /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
@@ -1184,7 +1180,7 @@ specify which configuration to use.</p>
                     <td class="jd-linkcol"><nobr>date</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Starting date of daily trends. If no date is specified, current
-                        date is used<br/></td>
+                        date is used</td>
                 </tr>
                 
                 
@@ -1193,26 +1189,18 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>excludeHashTags</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Whether hashtags should be excluded<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Whether hashtags should be excluded</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1224,8 +1212,10 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>a list of <br/>Trends objects<br/></li></ul>
+      <ul class="nolist"><li>a list of Trends objects</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -1257,40 +1247,34 @@ specify which configuration to use.</p>
  operation.
  <p/>
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-geo-details id="#[header:geocodeId]"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-geo-details id="#[header:geocodeId]"/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>id</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The ID of the location to query about.<br/></td>
+                    <td class="jd-descrcol" width="100%">The ID of the location to query about.</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1300,8 +1284,10 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>a <br/>Place</li></ul>
+      <ul class="nolist"><li>a Place</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -1339,21 +1325,23 @@ specify which configuration to use.</p>
  replaced by home_timeline. <br>
  This method calls http://api.twitter.com/1/statuses/home_timeline
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-home-timeline/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-home-timeline/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -1362,7 +1350,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of records to retrieve. Must be less than or equal to 200.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the number of records to retrieve. Must be less than or equal to 200.</td>
                 </tr>
                 
                 
@@ -1374,26 +1362,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID.
                 There are limits to the number of Tweets which can be accessed through the API. If the
                 limit of Tweets has occured since the since_id, the since_id will be forced to the
-                oldest ID available.<br/></td>
+                oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1407,14 +1387,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>list of <br/>Status of the home Timeline<br/></li></ul>
+      <ul class="nolist"><li>list of Status of the home Timeline</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -1446,21 +1428,23 @@ specify which configuration to use.</p>
  authenticating user. <br>
  This method calls http://api.twitter.com/1/statuses/mentions
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-mentions /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-mentions /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -1471,7 +1455,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">100</td>
                     <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.<br/></td>
+                after the count has been applied.</td>
                 </tr>
                 
                 
@@ -1482,26 +1466,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">-1</td>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.<br/></td>
+                the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1515,14 +1491,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the 20 most recent mentions (<br/>Status containing @username) for the authenticating user.<br/></li></ul>
+      <ul class="nolist"><li>the 20 most recent mentions (Status containing @username) for the authenticating user.</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -1555,31 +1533,25 @@ specify which configuration to use.</p>
  it more often than that is unproductive and a waste of resources. <br>
  This method calls http://api.twitter.com/1/statuses/public_timeline
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-public-timeline/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-public-timeline/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
       </table>
@@ -1587,15 +1559,17 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>list of <br/>Status of the Public Timeline<br/></li></ul>
+      <ul class="nolist"><li>list of Status of the Public Timeline</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
             <td>when Twitter service or network is
-                                    unavailable<br/></td>
+                                    unavailable</td>
         </tr>
       </table>
   </div>
@@ -1626,21 +1600,23 @@ specify which configuration to use.</p>
   <div class="jd-tagdata jd-tagdescr"><p>Show user objects of up to 100 members who retweeted the status. <br>
  This method calls http://api.twitter.com/1/statuses/:id/retweeted_by
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-me /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-me /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>statusId</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The ID of the status you want to get retweeters of<br/></td>
+                    <td class="jd-descrcol" width="100%">The ID of the status you want to get retweeters of</td>
                 </tr>
                 
                 
@@ -1649,7 +1625,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -1660,7 +1636,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">100</td>
                     <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                  best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                 after the count has been applied.<br/></td>
+                 after the count has been applied.</td>
                 </tr>
                 
                 
@@ -1671,26 +1647,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">-1</td>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                  limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                 the since_id, the since_id will be forced to the oldest ID available.<br/></td>
+                 the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1706,14 +1674,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the list of <br/>User who retweeted your status<br/></li></ul>
+      <ul class="nolist"><li>the list of User who retweeted your status</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -1745,21 +1715,23 @@ specify which configuration to use.</p>
  This method calls
  http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-i-ds statusId="321" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-i-ds statusId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>statusId</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The ID of the status you want to get retweeters of<br/></td>
+                    <td class="jd-descrcol" width="100%">The ID of the status you want to get retweeters of</td>
                 </tr>
                 
                 
@@ -1768,7 +1740,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -1779,7 +1751,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">100</td>
                     <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                  best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                 after the count has been applied.<br/></td>
+                 after the count has been applied.</td>
                 </tr>
                 
                 
@@ -1790,26 +1762,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">-1</td>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                  limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                 the since_id, the since_id will be forced to the oldest ID available.<br/></td>
+                 the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1825,14 +1789,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li><br/>IDs of users who retweeted the stats<br/></li></ul>
+      <ul class="nolist"><li>IDs of users who retweeted the stats</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -1864,21 +1830,23 @@ specify which configuration to use.</p>
   <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by the authenticating user. <br>
  This method calls http://api.twitter.com/1/statuses/retweeted_by_me
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-me /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-me /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -1889,7 +1857,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">100</td>
                     <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.<br/></td>
+                after the count has been applied.</td>
                 </tr>
                 
                 
@@ -1900,26 +1868,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">-1</td>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.<br/></td>
+                the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -1933,14 +1893,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the 20 most recent retweets (<br/>Status) posted by the authenticating user<br/></li></ul>
+      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -1975,21 +1937,23 @@ specify which configuration to use.</p>
  incompatible ways. <br>
  This method calls http://api.twitter.com/1/statuses/retweeted_by_user
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-user-by-screen-name screenName="someScreenName" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-user-by-screen-name screenName="someScreenName" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>screenName</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The user to view<br/></td>
+                    <td class="jd-descrcol" width="100%">The user to view</td>
                 </tr>
                 
                 
@@ -1998,7 +1962,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2009,7 +1973,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">100</td>
                     <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                    best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                   after the count has been applied.<br/></td>
+                   after the count has been applied.</td>
                 </tr>
                 
                 
@@ -2020,26 +1984,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">-1</td>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                    limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                   the since_id, the since_id will be forced to the oldest ID available.<br/></td>
+                   the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -2055,14 +2011,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the 20 most recent retweets (<br/>Status) posted by the authenticating user<br/></li></ul>
+      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -2098,21 +2056,23 @@ specify which configuration to use.</p>
  incompatible ways. <br>
  This method calls http://api.twitter.com/1/statuses/retweeted_by_user
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-user-by-user-id userId="321" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-user-by-user-id userId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>userId</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The user to view<br/></td>
+                    <td class="jd-descrcol" width="100%">The user to view</td>
                 </tr>
                 
                 
@@ -2121,7 +2081,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2132,7 +2092,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">100</td>
                     <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.<br/></td>
+                after the count has been applied.</td>
                 </tr>
                 
                 
@@ -2143,26 +2103,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">-1</td>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.<br/></td>
+                the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -2178,14 +2130,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the 20 most recent retweets (<br/>Status) posted by the authenticating user<br/></li></ul>
+      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -2218,21 +2172,23 @@ specify which configuration to use.</p>
  friends. <br>
  This method calls http://api.twitter.com/1/statuses/retweeted_to_me
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-to-me /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-to-me /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2243,7 +2199,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">100</td>
                     <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.<br/></td>
+                after the count has been applied.</td>
                 </tr>
                 
                 
@@ -2254,26 +2210,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">-1</td>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.<br/></td>
+                the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -2287,15 +2235,17 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the 20 most recent retweets (<br/>Status) posted by the authenticating user's
-         friends.<br/></li></ul>
+      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user's
+         friends.</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -2330,21 +2280,23 @@ specify which configuration to use.</p>
  incompatible ways. <br>
  This method calls http://api.twitter.com/1/statuses/retweeted_to_user
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-to-user-by-screen-name screenName="someScreenName" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-to-user-by-screen-name screenName="someScreenName" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>screenName</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The user to view<br/></td>
+                    <td class="jd-descrcol" width="100%">The user to view</td>
                 </tr>
                 
                 
@@ -2353,7 +2305,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2364,7 +2316,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">100</td>
                     <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                    best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                   after the count has been applied.<br/></td>
+                   after the count has been applied.</td>
                 </tr>
                 
                 
@@ -2375,26 +2327,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">-1</td>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                    limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                   the since_id, the since_id will be forced to the oldest ID available.<br/></td>
+                   the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -2410,14 +2354,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the 20 most recent retweets (<br/>Status) posted by the authenticating user's friends.<br/></li></ul>
+      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user's friends.</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -2453,21 +2399,23 @@ specify which configuration to use.</p>
  incompatible ways. <br>
  This method calls http://api.twitter.com/1/statuses/retweeted_to_user
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-to-user-by-user-id userId="321" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-to-user-by-user-id userId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>userId</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The user to view<br/></td>
+                    <td class="jd-descrcol" width="100%">The user to view</td>
                 </tr>
                 
                 
@@ -2476,7 +2424,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2487,7 +2435,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">100</td>
                     <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.<br/></td>
+                after the count has been applied.</td>
                 </tr>
                 
                 
@@ -2498,26 +2446,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">-1</td>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.<br/></td>
+                the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -2533,14 +2473,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the 20 most recent retweets (<br/>Status) posted by the authenticating user's friends.<br/></li></ul>
+      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user's friends.</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -2572,40 +2514,34 @@ specify which configuration to use.</p>
   <div class="jd-tagdata jd-tagdescr"><p>Returns up to 100 of the first retweets of a given tweet. <br>
  This method calls http://api.twitter.com/1/statuses/retweets
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweets statusId="321" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweets statusId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>statusId</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The numerical ID of the tweet you want the retweets of.<br/></td>
+                    <td class="jd-descrcol" width="100%">The numerical ID of the tweet you want the retweets of.</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -2615,14 +2551,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the retweets (<br/>Status) of a given tweet<br/></li></ul>
+      <ul class="nolist"><li>the retweets (Status) of a given tweet</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -2654,21 +2592,23 @@ specify which configuration to use.</p>
  retweeted by others. <br>
  This method calls http://api.twitter.com/1/statuses/retweets_of_me
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweets-of-me /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweets-of-me /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2679,7 +2619,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">100</td>
                     <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.<br/></td>
+                after the count has been applied.</td>
                 </tr>
                 
                 
@@ -2690,26 +2630,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">-1</td>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.<br/></td>
+                the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -2723,14 +2655,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the 20 most recent tweets (<br/>Status)of the authenticated user that have been retweeted by others.<br/></li></ul>
+      <ul class="nolist"><li>the 20 most recent tweets (Status)of the authenticated user that have been retweeted by others.</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -2762,31 +2696,25 @@ specify which configuration to use.</p>
  response includes the time of the request, the name of each trend, and the url
  to the Twitter Search results page for that topic.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-trends/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-trends/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
       </table>
@@ -2794,8 +2722,10 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>a <br/>Trends object<br/></li></ul>
+      <ul class="nolist"><li>a Trends object</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -2834,21 +2764,23 @@ specify which configuration to use.</p>
  <br>
  This method calls http://api.twitter.com/1/statuses/user_timeline.json
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-user-timeline /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-user-timeline /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2859,7 +2791,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">100</td>
                     <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.<br/></td>
+                after the count has been applied.</td>
                 </tr>
                 
                 
@@ -2870,26 +2802,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">-1</td>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.<br/></td>
+                the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -2903,14 +2827,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>list of <br/>Status the user Timeline<br/></li></ul>
+      <ul class="nolist"><li>list of Status the user Timeline</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -2949,21 +2875,23 @@ specify which configuration to use.</p>
  <br>
  This method calls http://api.twitter.com/1/statuses/user_timeline.json
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-user-timeline-by-screen-name screenName="someScreenName" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-user-timeline-by-screen-name screenName="someScreenName" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>screenName</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The screen name of the user for whom to return results for<br/></td>
+                    <td class="jd-descrcol" width="100%">The screen name of the user for whom to return results for</td>
                 </tr>
                 
                 
@@ -2972,7 +2900,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2983,7 +2911,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">100</td>
                     <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                    best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                   after the count has been applied.<br/></td>
+                   after the count has been applied.</td>
                 </tr>
                 
                 
@@ -2994,26 +2922,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">-1</td>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                    limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                   the since_id, the since_id will be forced to the oldest ID available.<br/></td>
+                   the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -3029,14 +2949,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>list of <br/>Status of the user Timeline<br/></li></ul>
+      <ul class="nolist"><li>list of Status of the user Timeline</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -3075,21 +2997,23 @@ specify which configuration to use.</p>
  <br>
  This method calls http://api.twitter.com/1/statuses/user_timeline.json
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-user-timeline-by-user-id userId="321" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-user-timeline-by-user-id userId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>userId</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">Specifies the ID of the user for whom to return the user_timeline<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the ID of the user for whom to return the user_timeline</td>
                 </tr>
                 
                 
@@ -3098,7 +3022,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.<br/></td>
+                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -3109,7 +3033,7 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">100</td>
                     <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.<br/></td>
+                after the count has been applied.</td>
                 </tr>
                 
                 
@@ -3120,26 +3044,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol">-1</td>
                     <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.<br/></td>
+                the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -3155,14 +3071,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>list of <br/>Status of the user Timeline<br/></li></ul>
+      <ul class="nolist"><li>list of Status of the user Timeline</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -3192,14 +3110,16 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the top 30 trending topics for each day in a given week.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-weekly-trends/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-weekly-trends/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
@@ -3207,7 +3127,7 @@ specify which configuration to use.</p>
                     <td class="jd-linkcol"><nobr>date</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Starting date of daily trends. If no date is specified, current
-                        date is used<br/></td>
+                        date is used</td>
                 </tr>
                 
                 
@@ -3216,26 +3136,18 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>excludeHashTags</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>If all hashtags should be removed from the trends list.<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>If all hashtags should be removed from the trends list.</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -3247,8 +3159,10 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>a list of <br/>Trends objects<br/></li></ul>
+      <ul class="nolist"><li>a list of Trends objects</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -3278,40 +3192,34 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Start the OAuth request authorization process.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:request-authorization /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:request-authorization /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>callbackUrl</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The url to be requested when the user authorizes this app<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The url to be requested when the user authorizes this app</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -3321,8 +3229,10 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>The user authorization URL.<br/></li></ul>
+      <ul class="nolist"><li>The user authorization URL.</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -3353,40 +3263,34 @@ specify which configuration to use.</p>
   <div class="jd-tagdata jd-tagdescr"><p>Retweets a tweet. Returns the original tweet with retweet details embedded. <br>
  This method calls http://api.twitter.com/1/statuses/retweet
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:retweet-status statusId="321" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:retweet-status statusId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>statusId</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The ID of the status to retweet.<br/></td>
+                    <td class="jd-descrcol" width="100%">The ID of the status to retweet.</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -3396,14 +3300,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the retweeted <br/>Status</li></ul>
+      <ul class="nolist"><li>the retweeted Status</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -3441,21 +3347,23 @@ specify which configuration to use.</p>
  "neighborhoods", "cities", etc. At this time, only United States data is
  available through this method.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:reverse-geo-code latitude="11.22" longitude="33.11" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:reverse-geo-code latitude="11.22" longitude="33.11" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>latitude</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Latitude coordinate. Mandatory if ip is not specified<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Latitude coordinate. Mandatory if ip is not specified</td>
                 </tr>
                 
                 
@@ -3464,7 +3372,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>longitude</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Longitude coordinate.<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Longitude coordinate.</td>
                 </tr>
                 
                 
@@ -3473,26 +3381,18 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>ip</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The ip. Mandatory if coordinates are not specified<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The ip. Mandatory if coordinates are not specified</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -3506,8 +3406,10 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>a <br/>ResponseList of <br/>Place</li></ul>
+      <ul class="nolist"><li>a ResponseList of Place</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -3539,40 +3441,34 @@ specify which configuration to use.</p>
  <p/>
  This method calls http://search.twitter.com/search.json
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:search query="#[payload]"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:search query="#[payload]"/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>query</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The search query.<br/></td>
+                    <td class="jd-descrcol" width="100%">The search query.</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -3582,8 +3478,10 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the <br/>QueryResult</li></ul>
+      <ul class="nolist"><li>the QueryResult</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -3615,21 +3513,23 @@ specify which configuration to use.</p>
  and a longitude pair, or and IP address, this request will return a list of
  all the valid places that can be used as the place_id when updating a status.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:search-places latitude="#[header:latitude]" longitude="#[header:longitude]" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:search-places latitude="#[header:latitude]" longitude="#[header:longitude]" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>latitude</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Latitude coordinate. Mandatory if ip is not specified<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Latitude coordinate. Mandatory if ip is not specified</td>
                 </tr>
                 
                 
@@ -3638,7 +3538,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>longitude</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Longitude coordinate.<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Longitude coordinate.</td>
                 </tr>
                 
                 
@@ -3647,26 +3547,18 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>ip</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The ip. Mandatory if coordinates are not specified<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The ip. Mandatory if coordinates are not specified</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -3680,8 +3572,10 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>a <br/>ResponseList of <br/>Place</li></ul>
+      <ul class="nolist"><li>a ResponseList of Place</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -3713,21 +3607,23 @@ specify which configuration to use.</p>
  Requires both the user and text parameters below. The text will be trimmed if
  the length of the text is exceeding 140 characters.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:send-direct-message-by-screen-name screenName="someScreenName" message="bla bla" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:send-direct-message-by-screen-name screenName="someScreenName" message="bla bla" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>screenName</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The screen name of the user to whom send the direct message<br/></td>
+                    <td class="jd-descrcol" width="100%">The screen name of the user to whom send the direct message</td>
                 </tr>
                 
                 
@@ -3736,26 +3632,18 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>message</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The text of your direct message<br/></td>
+                    <td class="jd-descrcol" width="100%">The text of your direct message</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -3767,8 +3655,10 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the <br/>DirectMessage</li></ul>
+      <ul class="nolist"><li>the DirectMessage</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -3800,21 +3690,23 @@ specify which configuration to use.</p>
  Requires both the user and text parameters below. The text will be trimmed if
  the length of the text is exceeding 140 characters.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:send-direct-message-by-user-id userId="321" message="bla bla" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:send-direct-message-by-user-id userId="321" message="bla bla" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>userId</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The user ID of the user to whom send the direct message<br/></td>
+                    <td class="jd-descrcol" width="100%">The user ID of the user to whom send the direct message</td>
                 </tr>
                 
                 
@@ -3823,26 +3715,18 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>message</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The text of your direct message<br/></td>
+                    <td class="jd-descrcol" width="100%">The text of your direct message</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -3854,8 +3738,10 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the <br/>DirectMessage</li></ul>
+      <ul class="nolist"><li>the DirectMessage</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -3887,46 +3773,42 @@ specify which configuration to use.</p>
  The resulting access tokens will be logged to the INFO level so the user can
  reuse them as part of the configuration in the future if desired.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:set-oauth-verifier oauthVerifier="444" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:set-oauth-verifier oauthVerifier="444" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>oauthVerifier</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The OAuth verifier code from Twitter.<br/></td>
+                    <td class="jd-descrcol" width="100%">The OAuth verifier code from Twitter.</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
           
       </table>
   </div>
+  
+    
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
@@ -3959,40 +3841,34 @@ specify which configuration to use.</p>
  author will be returned inline. <br>
  This method calls http://api.twitter.com/1/statuses/show
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:show-status id="321" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:show-status id="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>id</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The numerical ID of the status you're trying to retrieve<br/></td>
+                    <td class="jd-descrcol" width="100%">The numerical ID of the status you're trying to retrieve</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -4002,14 +3878,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>a single <br/>Status</li></ul>
+      <ul class="nolist"><li>a single Status</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -4039,31 +3917,25 @@ specify which configuration to use.</p>
       
   <div class="jd-tagdata jd-tagdescr"><p>Answers user information for the authenticated user
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:show-user /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:show-user /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
       </table>
@@ -4071,8 +3943,10 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>a <br/>User object<br/></li></ul>
+      <ul class="nolist"><li>a User object</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
@@ -4105,21 +3979,23 @@ specify which configuration to use.</p>
  current status will be ignored to prevent duplicates. <br>
  This method calls http://api.twitter.com/1/statuses/update
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:update-status status="hello world"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:update-status status="hello world"/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>status</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The text of your status update<br/></td>
+                    <td class="jd-descrcol" width="100%">The text of your status update</td>
                 </tr>
                 
                 
@@ -4128,7 +4004,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>inReplyTo</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The ID of an existing status that the update is in reply to.<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The ID of an existing status that the update is in reply to.</td>
                 </tr>
                 
                 
@@ -4138,7 +4014,7 @@ specify which configuration to use.</p>
                     <td class="jd-linkcol"><nobr>latitude</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The latitude of the location this tweet refers to. This parameter will be ignored unless it is
-                  inside the range -90.0 to +90.0 (North is positive) inclusive.<br/></td>
+                  inside the range -90.0 to +90.0 (North is positive) inclusive.</td>
                 </tr>
                 
                 
@@ -4149,26 +4025,18 @@ specify which configuration to use.</p>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>He longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to
                   +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range or if there not a
-                  corresponding lat parameter.<br/></td>
+                  corresponding lat parameter.</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -4184,14 +4052,16 @@ specify which configuration to use.</p>
   
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Return Payload</h5>
-      <ul class="nolist"><li>the latest <br/>Status</li></ul>
+      <ul class="nolist"><li>the latest Status</li></ul>
   </div>
+    
+  
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Exception Payload</h5>
       <table class="jd-tagtable">
         <tr>
             <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable<br/></td>
+            <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
   </div>
@@ -4241,7 +4111,7 @@ specify which configuration to use.</p>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:filtered-stream&gt;
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:filtered-stream&gt;
     &lt;twitter:keywords&gt;
         &lt;twitter:keyword&gt;muleesb&lt;/twitter:keyword&gt;
         &lt;twitter:keyword&gt;mulesoft&lt;/twitter:keyword&gt;
@@ -4250,76 +4120,64 @@ specify which configuration to use.</p>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The number of previous statuses to stream before transitioning to the live stream.<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The number of previous statuses to stream before transitioning to the live stream.</td>
                 </tr>
                 
                 
           
                 
-                <tr class="alt-color api apilevel-" >
-                    <td class="jd-linkcol"><nobr>userIds</nobr></td>
-                    <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The user ids to follow<br/></td>
-                </tr>
-                
-                
           
-                
-                <tr class=" api apilevel-" >
-                    <td class="jd-linkcol"><nobr>keywords</nobr></td>
-                    <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The keywords to track<br/></td>
-                </tr>
-                
                 
           
                 
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>callback</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The <br/>SourceCallback used to dispatch messages when a response is received
-<br/></td>
+                    <td class="jd-descrcol" width="100%">The SourceCallback used to dispatch messages when a response is received
+</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
           
             
+            <tr><th colspan="12"><nobr>&lt;twitter:userIds&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The user ids to follow</span></th></tr>
+            
+            
           
+            
+            <tr><th colspan="12"><nobr>&lt;twitter:keywords&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The keywords to track</span></th></tr>
+            
             
           
             
           
       </table>
   </div>
+  
+    
   
 
     </div>
@@ -4346,14 +4204,16 @@ specify which configuration to use.</p>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:firehose-stream count="100" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:firehose-stream count="100" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
@@ -4361,7 +4221,7 @@ specify which configuration to use.</p>
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Indicates the number of previous statuses to consider for delivery before transitioning to live
-                 stream delivery.<br/></td>
+                 stream delivery.</td>
                 </tr>
                 
                 
@@ -4370,27 +4230,19 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>callback</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The <br/>SourceCallback used to dispatch messageswhen a response is received
-<br/></td>
+                    <td class="jd-descrcol" width="100%">The SourceCallback used to dispatch messageswhen a response is received
+</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -4399,6 +4251,8 @@ specify which configuration to use.</p>
           
       </table>
   </div>
+  
+    
   
 
     </div>
@@ -4424,14 +4278,16 @@ specify which configuration to use.</p>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:link-stream count="100" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:link-stream count="100" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
@@ -4439,7 +4295,7 @@ specify which configuration to use.</p>
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol"></td>
                     <td class="jd-descrcol" width="100%">Indicates the number of previous statuses to consider for delivery before transitioning to live
-                 stream delivery.<br/></td>
+                 stream delivery.</td>
                 </tr>
                 
                 
@@ -4448,27 +4304,19 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>callback</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The <br/>SourceCallback used to dispatch messages when a response is received
-<br/></td>
+                    <td class="jd-descrcol" width="100%">The SourceCallback used to dispatch messages when a response is received
+</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
@@ -4477,6 +4325,8 @@ specify which configuration to use.</p>
           
       </table>
   </div>
+  
+    
   
 
     </div>
@@ -4507,47 +4357,43 @@ specify which configuration to use.</p>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:sample-stream /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:sample-stream /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>callback</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The <br/>SourceCallback used to dispatch messages when a response is received
-<br/></td>
+                    <td class="jd-descrcol" width="100%">The SourceCallback used to dispatch messages when a response is received
+</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
             
           
       </table>
   </div>
+  
+    
   
 
     </div>
@@ -4573,7 +4419,7 @@ specify which configuration to use.</p>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:site-stream&gt;
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:site-stream&gt;
     &lt;twitter:user-ids&gt;
         &lt;twitter:user-id&gt;321&lt;/twitter:user-id&gt;
         &lt;twitter:user-id&gt;123&lt;/twitter:user-id&gt;
@@ -4582,57 +4428,47 @@ specify which configuration to use.</p>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
           
                 
+          
+                
                 <tr class=" api apilevel-" >
-                    <td class="jd-linkcol"><nobr>userIds</nobr></td>
+                    <td class="jd-linkcol"><nobr>withFollowings</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">Ids of users to include in the stream<br/></td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>WithFollowings whether to receive status updates from people following</td>
                 </tr>
                 
                 
           
                 
                 <tr class="alt-color api apilevel-" >
-                    <td class="jd-linkcol"><nobr>withFollowings</nobr></td>
-                    <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>WithFollowings whether to receive status updates from people following<br/></td>
-                </tr>
-                
-                
-          
-                
-                <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>callback_</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The <br/>SourceCallback used to dispatch messages when a response is received
-<br/></td>
+                    <td class="jd-descrcol" width="100%">The SourceCallback used to dispatch messages when a response is received
+</td>
                 </tr>
                 
                 
           
           
-            <tr class="alt-color api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
+            
+            <tr><th colspan="12"><nobr>&lt;twitter:userIds&gt;</nobr></br><span style="font-weight: normal;">Ids of users to include in the stream</span></th></tr>
+            
             
           
             
@@ -4641,6 +4477,8 @@ specify which configuration to use.</p>
           
       </table>
   </div>
+  
+    
   
 
     </div>
@@ -4677,7 +4515,7 @@ specify which configuration to use.</p>
  Only one Twitter stream can be consumed using the same credentials. As a consequence,
  only one twitter stream can be consumed per connector instance.
  <p/>
- <br/><div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:user-stream&gt;
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:user-stream&gt;
     &lt;twitter:keywords&gt;
         &lt;twitter:keyword&gt;enterprise&lt;/twitter:keyword&gt;
         &lt;twitter:keyword&gt;integration&lt;/twitter:keyword&gt;
@@ -4686,54 +4524,46 @@ specify which configuration to use.</p>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
-      <table class="jd-tagtable">
-      <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-      <td class="jd-descrcol"></td>
-      <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td></tr>
           
+          
+                
           
                 
                 <tr class=" api apilevel-" >
-                    <td class="jd-linkcol"><nobr>keywords</nobr></td>
-                    <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The keywords to track for new statuses<br/></td>
-                </tr>
-                
-                
-          
-                
-                <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>callback_</nobr></td>
                     <td class="jd-descrcol"></td>
-                    <td class="jd-descrcol" width="100%">The <br/>SourceCallback used to dispatch messages when a response is received
-<br/></td>
+                    <td class="jd-descrcol" width="100%">The SourceCallback used to dispatch messages when a response is received
+</td>
                 </tr>
                 
                 
           
           
-            <tr class=" api apilevel-" >
-                <td class="jd-linkcol"><nobr>retryMax</nobr></td>
-                <td class="jd-descrcol">1</td>
-                <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify how many times this operation can be retried automatically</td>
-            </tr>
-            
           
-        
-      </table>
+        </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Child Elements</h5>
-
-      <table class="jd-tagtable">
+        <table id="lconfig" class="jd-sumtable">
           
           
+            
+            <tr><th colspan="12"><nobr>&lt;twitter:keywords&gt;</nobr></br><span style="font-weight: normal;">The keywords to track for new statuses</span></th></tr>
+            
             
           
             
           
       </table>
   </div>
+  
+    
   
 
     </div>
