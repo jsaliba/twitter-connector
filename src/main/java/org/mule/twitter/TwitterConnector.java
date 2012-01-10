@@ -17,9 +17,10 @@ import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Module;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.Source;
+import org.mule.api.annotations.display.FriendlyName;
+import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
-import org.mule.api.annotations.studio.Display;
 import org.mule.api.callback.SourceCallback;
 import org.mule.api.context.MuleContextAware;
 import org.mule.twitter.UserEvent.EventType;
@@ -62,8 +63,7 @@ import java.util.Map;
  *
  * @author MuleSoft, Inc.
  */
-@Module(name = "twitter", schemaVersion = "2.3")
-@Display(description = "Twitter Integration")
+@Module(name = "twitter", schemaVersion = "2.3", description = "Twitter Integration")
 public class TwitterConnector implements MuleContextAware {
 
     private static final String STREAM_BASE_URL = "https://stream.twitter.com/1/";
@@ -79,14 +79,12 @@ public class TwitterConnector implements MuleContextAware {
      * The consumer key used by this application
      */
     @Configurable
-    @Display(type = Display.Type.PASSWORD)
     private String consumerKey;
 
     /**
      * The consumer key secret by this application
      */
     @Configurable
-    @Display(type = Display.Type.PASSWORD)
     private String consumerSecret;
 
     /**
@@ -94,7 +92,6 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Optional
     @Configurable
-    @Display(type = Display.Type.PASSWORD)
     private String accessKey;
 
     /**
@@ -102,7 +99,6 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Optional
     @Configurable
-    @Display(type = Display.Type.PASSWORD)
     private String accessSecret;
 
     /**
@@ -111,7 +107,7 @@ public class TwitterConnector implements MuleContextAware {
     @Optional
     @Configurable
     @Default("true")
-    @Display(caption = "Use SSL")
+    @FriendlyName("Use SSL")
     private boolean useSSL;
 
     /**
@@ -119,7 +115,7 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Configurable
     @Optional
-    @Display(inputGroup = "Proxy settings", tab = "Proxy")
+    @Placement(group = "Proxy settings", tab = "Proxy")
     private String proxyHost;
 
     /**
@@ -128,7 +124,7 @@ public class TwitterConnector implements MuleContextAware {
     @Configurable
     @Optional
     @Default("-1")
-    @Display(inputGroup = "Proxy settings", tab = "Proxy")
+    @Placement(group = "Proxy settings", tab = "Proxy")
     private int proxyPort;
 
     /**
@@ -137,7 +133,7 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Configurable
     @Optional
-    @Display(inputGroup = "Proxy settings", tab = "Proxy")
+    @Placement(group = "Proxy settings", tab = "Proxy")
     private String proxyUsername;
 
     /**
@@ -145,7 +141,7 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Configurable
     @Optional
-    @Display(inputGroup = "Proxy settings", tab = "Proxy")
+    @Placement(group = "Proxy settings", tab = "Proxy")
     private String proxyPassword;
 
     @PostConstruct
@@ -226,9 +222,9 @@ public class TwitterConnector implements MuleContextAware {
      *      statuses/home_timeline | dev.twitter.com</a>
      */
     @Processor
-    public ResponseList<Status> getHomeTimeline(@Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                                @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                                @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId)
+    public ResponseList<Status> getHomeTimeline(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                                @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                                @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId)
             throws TwitterException {
         return twitter.getHomeTimeline(getPaging(page, count, sinceId));
     }
@@ -262,9 +258,9 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Processor
     public ResponseList<Status> getUserTimelineByScreenName(String screenName,
-                                                            @Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                                            @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                                            @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId)
+                                                            @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                                            @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                                            @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId)
             throws TwitterException {
         return twitter.getUserTimeline(screenName, getPaging(page, count, sinceId));
     }
@@ -298,9 +294,9 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Processor
     public ResponseList<Status> getUserTimelineByUserId(long userId,
-                                                        @Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                                        @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                                        @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId)
+                                                        @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                                        @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                                        @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId)
             throws TwitterException {
         return twitter.getUserTimeline(userId, getPaging(page, count, sinceId));
     }
@@ -340,9 +336,9 @@ public class TwitterConnector implements MuleContextAware {
      *      statuses/user_timeline | dev.twitter.com</a>
      */
     @Processor
-    public ResponseList<Status> getUserTimeline(@Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                                @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                                @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId)
+    public ResponseList<Status> getUserTimeline(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                                @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                                @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId)
             throws TwitterException {
         return twitter.getUserTimeline(getPaging(page, count, sinceId));
     }
@@ -367,9 +363,9 @@ public class TwitterConnector implements MuleContextAware {
      *      statuses/mentions | dev.twitter.com</a>
      */
     @Processor
-    public ResponseList<Status> getMentions(@Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                            @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                            @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId)
+    public ResponseList<Status> getMentions(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                            @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                            @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId)
             throws TwitterException {
         return twitter.getMentions(getPaging(page, count, sinceId));
     }
@@ -393,9 +389,9 @@ public class TwitterConnector implements MuleContextAware {
      *      statuses/retweeted_by_me | dev.twitter.com</a>
      */
     @Processor
-    public ResponseList<Status> getRetweetedByMe(@Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                                 @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                                 @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId)
+    public ResponseList<Status> getRetweetedByMe(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                                 @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                                 @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId)
             throws TwitterException {
         return twitter.getRetweetedByMe(getPaging(page, count, sinceId));
     }
@@ -421,9 +417,9 @@ public class TwitterConnector implements MuleContextAware {
      *      statuses/retweeted_to_me | dev.twitter.com</a>
      */
     @Processor
-    public ResponseList<Status> getRetweetedToMe(@Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                                 @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                                 @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId)
+    public ResponseList<Status> getRetweetedToMe(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                                 @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                                 @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId)
             throws TwitterException {
         return twitter.getRetweetedToMe(getPaging(page, count, sinceId));
     }
@@ -448,9 +444,9 @@ public class TwitterConnector implements MuleContextAware {
      *      statuses/retweets_of_me | dev.twitter.com</a>
      */
     @Processor
-    public ResponseList<Status> getRetweetsOfMe(@Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                                @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                                @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId)
+    public ResponseList<Status> getRetweetsOfMe(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                                @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                                @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId)
             throws TwitterException {
         return twitter.getRetweetsOfMe(getPaging(page, count, sinceId));
     }
@@ -481,9 +477,9 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Processor
     public ResponseList<Status> getRetweetedToUserByScreenName(String screenName,
-                                                               @Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                                               @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                                               @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId)
+                                                               @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                                               @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                                               @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId)
             throws TwitterException {
         return twitter.getRetweetedToUser(screenName, getPaging(page, count, sinceId));
     }
@@ -514,9 +510,9 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Processor
     public ResponseList<Status> getRetweetedToUserByUserId(long userId,
-                                                           @Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                                           @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                                           @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId)
+                                                           @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                                           @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                                           @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId)
             throws TwitterException {
         return twitter.getRetweetedToUser(userId, getPaging(page, count, sinceId));
     }
@@ -547,9 +543,9 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Processor
     public ResponseList<Status> getRetweetedByUserByScreenName(String screenName,
-                                                               @Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                                               @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                                               @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId)
+                                                               @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                                               @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                                               @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId)
             throws TwitterException {
         return twitter.getRetweetedByUser(screenName, getPaging(page, count, sinceId));
     }
@@ -580,9 +576,9 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Processor
     public ResponseList<Status> getRetweetedByUserByUserId(long userId,
-                                                           @Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                                           @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                                           @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId)
+                                                           @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                                           @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                                           @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId)
             throws TwitterException {
         return twitter.getRetweetedByUser(userId, getPaging(page, count, sinceId));
     }
@@ -640,9 +636,9 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Processor
     public Status updateStatus(String status,
-                               @Default(value = "-1") long inReplyTo,
-                               @Display(inputGroup = "Coordinates") @Optional Double latitude,
-                               @Display(inputGroup = "Coordinates") @Optional Double longitude) throws TwitterException {
+                               @Default(value = "-1") @Optional long inReplyTo,
+                               @Placement(group = "Coordinates") @Optional Double latitude,
+                               @Placement(group = "Coordinates") @Optional Double longitude) throws TwitterException {
         StatusUpdate update = new StatusUpdate(status);
         if (inReplyTo > 0) {
             update.setInReplyToStatusId(inReplyTo);
@@ -729,9 +725,9 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Processor
     public ResponseList<User> getRetweetedBy(long statusId,
-                                             @Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                             @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                             @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId)
+                                             @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                             @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                             @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId)
             throws TwitterException {
         return twitter.getRetweetedBy(statusId, getPaging(page, count, sinceId));
     }
@@ -758,11 +754,11 @@ public class TwitterConnector implements MuleContextAware {
      *      statuses/:id/retweeted_by/ids | dev.twitter.com</a>
      */
     @Processor
-    @Display(caption = "Get retweeted by IDs")
+    @FriendlyName("Get retweeted by IDs")
     public IDs getRetweetedByIDs(long statusId,
-                                 @Display(inputGroup = "Pagination") @Default(value = "1") @Optional int page,
-                                 @Display(inputGroup = "Pagination") @Default(value = "100") @Optional int count,
-                                 @Display(inputGroup = "Pagination") @Default(value = "-1") @Optional int sinceId) throws TwitterException {
+                                 @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+                                 @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
+                                 @Placement(group = "Pagination") @Default(value = "-1") @Optional int sinceId) throws TwitterException {
         return twitter.getRetweetedByIDs(statusId, getPaging(page, count, sinceId));
     }
 
@@ -817,8 +813,8 @@ public class TwitterConnector implements MuleContextAware {
      * @throws TwitterException
      */
     @Processor
-    public ResponseList<Place> reverseGeoCode(@Display(inputGroup = "Coordinates") @Optional Double latitude,
-                                              @Display(inputGroup = "Coordinates") @Optional Double longitude,
+    public ResponseList<Place> reverseGeoCode(@Placement(group = "Coordinates") @Optional Double latitude,
+                                              @Placement(group = "Coordinates") @Optional Double longitude,
                                               @Optional String ip) throws TwitterException {
         return twitter.reverseGeoCode(createQuery(latitude, longitude, ip));
     }
@@ -837,8 +833,8 @@ public class TwitterConnector implements MuleContextAware {
      * @throws TwitterException
      */
     @Processor
-    public ResponseList<Place> searchPlaces(@Display(inputGroup = "Coordinates") @Optional Double latitude,
-                                            @Display(inputGroup = "Coordinates") @Optional Double longitude,
+    public ResponseList<Place> searchPlaces(@Placement(group = "Coordinates") @Optional Double latitude,
+                                            @Placement(group = "Coordinates") @Optional Double longitude,
                                             @Optional String ip) throws TwitterException {
         return twitter.searchPlaces(createQuery(latitude, longitude, ip));
     }
@@ -890,8 +886,8 @@ public class TwitterConnector implements MuleContextAware {
     public Place createPlace(String name,
                              String containedWithin,
                              String token,
-                             @Display(inputGroup = "Coordinates") Double latitude,
-                             @Display(inputGroup = "Coordinates") Double longitude,
+                             @Placement(group = "Coordinates") Double latitude,
+                             @Placement(group = "Coordinates") Double longitude,
                              @Optional String streetAddress) throws TwitterException {
         return twitter.createPlace(name, containedWithin, token, new GeoLocation(latitude, longitude),
                 streetAddress);
@@ -988,8 +984,8 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Source
     public void filteredStream(@Optional @Default("0") int count,
-                               @Display(inputGroup = "User Ids to Follow") @Optional List<Long> userIds,
-                               @Display(inputGroup = "Keywords to Track") @Optional List<String> keywords,
+                               @Placement(group = "User Ids to Follow") @Optional List<Long> userIds,
+                               @Placement(group = "Keywords to Track") @Optional List<String> keywords,
                                final SourceCallback callback) {
         listenToStatues(callback).filter(new FilterQuery(count, toLongArray(userIds), toStringArray(keywords)));
     }
@@ -1076,7 +1072,7 @@ public class TwitterConnector implements MuleContextAware {
      * @param callback_ the {@link SourceCallback} used to dispatch messages when a response is received
      */
     @Source
-    public void userStream(@Display(inputGroup = "Keywords to Track") List<String> keywords, final SourceCallback callback_) {
+    public void userStream(@Placement(group = "Keywords to Track") List<String> keywords, final SourceCallback callback_) {
         initStream();
         final SoftCallback callback = new SoftCallback(callback_);
         stream.addListener(new UserStreamAdapter() {
@@ -1221,7 +1217,7 @@ public class TwitterConnector implements MuleContextAware {
      * @param callback_      the {@link SourceCallback} used to dispatch messages when a response is received
      */
     @Source
-    public void siteStream(@Display(inputGroup = "User Ids to Follow") List<Long> userIds,
+    public void siteStream(@Placement(group = "User Ids to Follow") List<Long> userIds,
                            @Optional @Default("false") boolean withFollowings,
                            final SourceCallback callback_) {
         initStream();
