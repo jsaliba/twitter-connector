@@ -59,7 +59,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * A Connector for Twitter which uses twitter4j.
+ * Twitter is an online social networking service and microblogging service that enables its users to send and read
+ * text-based posts of up to 140 characters, known as "tweets".
  *
  * @author MuleSoft, Inc.
  */
