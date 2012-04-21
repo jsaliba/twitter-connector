@@ -63,6 +63,8 @@
 
 
 
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -84,6 +86,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
 <script src="../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
 <script src="../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../assets/jquery-toc.js" type="text/javascript"></script>
 <script src="../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
 <script src="../../../../../assets/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -102,6 +105,27 @@
     #resize-packages-nav{border-bottom:3px solid #666;}
   </style>
 </noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Twitter Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
 </head>
 
 <body class="">
@@ -180,10 +204,18 @@
                 
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/package-summary.html">org.mule.twitter</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/adapters/package-summary.html">org.mule.twitter.adapters</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../../java/org/mule/twitter/config/package-summary.html">org.mule.twitter.config</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/config/spring/package-summary.html">org.mule.twitter.config.spring</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/processors/package-summary.html">org.mule.twitter.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/sources/package-summary.html">org.mule.twitter.sources</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/transformers/package-summary.html">org.mule.twitter.transformers</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/twitter4j/internal/http/alternative/package-summary.html">twitter4j.internal.http.alternative</a></li>
               </ul><br/>
@@ -195,48 +227,90 @@
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/CreatePlaceDefinitionParser.html">CreatePlaceDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/CreatePlaceMessageProcessor.html">CreatePlaceMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/DestroyStatusDefinitionParser.html">DestroyStatusDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/DestroyStatusMessageProcessor.html">DestroyStatusMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/FilteredStreamDefinitionParser.html">FilteredStreamDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/FilteredStreamMessageSource.html">FilteredStreamMessageSource</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/FirehoseStreamDefinitionParser.html">FirehoseStreamDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/FirehoseStreamMessageSource.html">FirehoseStreamMessageSource</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetCurrentTrendsDefinitionParser.html">GetCurrentTrendsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetCurrentTrendsMessageProcessor.html">GetCurrentTrendsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetDailyTrendsDefinitionParser.html">GetDailyTrendsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetDailyTrendsMessageProcessor.html">GetDailyTrendsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetGeoDetailsDefinitionParser.html">GetGeoDetailsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetGeoDetailsMessageProcessor.html">GetGeoDetailsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetHomeTimelineDefinitionParser.html">GetHomeTimelineDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetHomeTimelineMessageProcessor.html">GetHomeTimelineMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetMentionsDefinitionParser.html">GetMentionsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetMentionsMessageProcessor.html">GetMentionsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetPublicTimelineDefinitionParser.html">GetPublicTimelineDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetPublicTimelineMessageProcessor.html">GetPublicTimelineMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedByDefinitionParser.html">GetRetweetedByDefinitionParser</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedByIDsDefinitionParser.html">GetRetweetedByIDsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedByIDsMessageProcessor.html">GetRetweetedByIDsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedByMeDefinitionParser.html">GetRetweetedByMeDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedByMeMessageProcessor.html">GetRetweetedByMeMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedByMessageProcessor.html">GetRetweetedByMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedByUserByScreenNameDefinitionParser.html">GetRetweetedByUserByScreenNameDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedByUserByScreenNameMessageProcessor.html">GetRetweetedByUserByScreenNameMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedByUserByUserIdDefinitionParser.html">GetRetweetedByUserByUserIdDefinitionParser</a></li>
           <li class="selected api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedByUserByUserIdMessageProcessor.html">GetRetweetedByUserByUserIdMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedToMeDefinitionParser.html">GetRetweetedToMeDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedToMeMessageProcessor.html">GetRetweetedToMeMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedToUserByScreenNameDefinitionParser.html">GetRetweetedToUserByScreenNameDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedToUserByScreenNameMessageProcessor.html">GetRetweetedToUserByScreenNameMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedToUserByUserIdDefinitionParser.html">GetRetweetedToUserByUserIdDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetedToUserByUserIdMessageProcessor.html">GetRetweetedToUserByUserIdMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetsDefinitionParser.html">GetRetweetsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetsMessageProcessor.html">GetRetweetsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetsOfMeDefinitionParser.html">GetRetweetsOfMeDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetsOfMeMessageProcessor.html">GetRetweetsOfMeMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetTrendsDefinitionParser.html">GetTrendsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetTrendsMessageProcessor.html">GetTrendsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetUserTimelineByScreenNameDefinitionParser.html">GetUserTimelineByScreenNameDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetUserTimelineByScreenNameMessageProcessor.html">GetUserTimelineByScreenNameMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetUserTimelineByUserIdDefinitionParser.html">GetUserTimelineByUserIdDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetUserTimelineByUserIdMessageProcessor.html">GetUserTimelineByUserIdMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetUserTimelineDefinitionParser.html">GetUserTimelineDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetUserTimelineMessageProcessor.html">GetUserTimelineMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetWeeklyTrendsDefinitionParser.html">GetWeeklyTrendsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetWeeklyTrendsMessageProcessor.html">GetWeeklyTrendsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/LinkStreamDefinitionParser.html">LinkStreamDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/LinkStreamMessageSource.html">LinkStreamMessageSource</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/RequestAuthorizationDefinitionParser.html">RequestAuthorizationDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/RequestAuthorizationMessageProcessor.html">RequestAuthorizationMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/RetweetStatusDefinitionParser.html">RetweetStatusDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/RetweetStatusMessageProcessor.html">RetweetStatusMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/ReverseGeoCodeDefinitionParser.html">ReverseGeoCodeDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/ReverseGeoCodeMessageProcessor.html">ReverseGeoCodeMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SampleStreamDefinitionParser.html">SampleStreamDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SampleStreamMessageSource.html">SampleStreamMessageSource</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SearchDefinitionParser.html">SearchDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SearchMessageProcessor.html">SearchMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SearchPlacesDefinitionParser.html">SearchPlacesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SearchPlacesMessageProcessor.html">SearchPlacesMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SendDirectMessageByScreenNameDefinitionParser.html">SendDirectMessageByScreenNameDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SendDirectMessageByScreenNameMessageProcessor.html">SendDirectMessageByScreenNameMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SendDirectMessageByUserIdDefinitionParser.html">SendDirectMessageByUserIdDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SendDirectMessageByUserIdMessageProcessor.html">SendDirectMessageByUserIdMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SetOauthVerifierDefinitionParser.html">SetOauthVerifierDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SetOauthVerifierMessageProcessor.html">SetOauthVerifierMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/ShowStatusDefinitionParser.html">ShowStatusDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/ShowStatusMessageProcessor.html">ShowStatusMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/ShowUserDefinitionParser.html">ShowUserDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/ShowUserMessageProcessor.html">ShowUserMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SiteStreamDefinitionParser.html">SiteStreamDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/SiteStreamMessageSource.html">SiteStreamMessageSource</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/StringToDateTransformer.html">StringToDateTransformer</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/TwitterConnectorCapabilitiesAdapter.html">TwitterConnectorCapabilitiesAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/TwitterConnectorConfigDefinitionParser.html">TwitterConnectorConfigDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/TwitterConnectorLifecycleAdapter.html">TwitterConnectorLifecycleAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/TwitterConnectorNamespaceHandler.html">TwitterConnectorNamespaceHandler</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/UpdateStatusDefinitionParser.html">UpdateStatusDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/UpdateStatusMessageProcessor.html">UpdateStatusMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/UserStreamDefinitionParser.html">UserStreamDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/UserStreamMessageSource.html">UserStreamMessageSource</a></li>
       </ul>
     </li>

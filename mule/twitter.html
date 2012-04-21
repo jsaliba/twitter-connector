@@ -64,6 +64,8 @@
 
 
 
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -85,6 +87,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
 <script src="../assets/search_autocomplete.js" type="text/javascript"></script>
 <script src="../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../assets/jquery-toc.js" type="text/javascript"></script>
 <script src="../assets/mule-developer-docs.js" type="text/javascript"></script>
 <script src="../assets/prettify.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -101,6 +104,27 @@
     #resize-packages-nav{border-bottom:3px solid #666;}
   </style>
 </noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Twitter Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
 </head>
 
 <body class="">
@@ -198,7 +222,6 @@ Summary:
 <div id="jd-header">
     org.mule.modules
 <h1>mule-module-twitter</h1>
-    2.5-SNAPSHOT
 
 </div><!-- end header -->
 
@@ -207,15 +230,17 @@ Summary:
 <div id="jd-content" class="api apilevel-">
 
 
+<br/>
+
 <div class="jd-tagdata">
       <table class="jd-tagtable">
         <tbody><tr>
           <th>Namespace</th><td>http://www.mulesoft.org/schema/mule/twitter</td>
         </tr><tr>
-          <th>Schema Location</th><td>http://www.mulesoft.org/schema/mule/twitter/2.3/mule-twitter.xsd</td>
+          <th>Schema Location</th><td>http://www.mulesoft.org/schema/mule/twitter/current/mule-twitter.xsd&nbsp;&nbsp;(<a href="twitter-schema.html">View Schema</a>)</td>
         </tr>
 <tr>
-          <th>Version</th><td>2.3</td>
+          <th>Schema Version</th><td>2.3</td>
         </tr>
 <tr>
           <th>Minimum Mule Version</th><td>3.2</td>
@@ -274,7 +299,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#create-place">&lt;twitter:create-place&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Creates a new place at the given latitude and longitude.<br/></div>
+        <div class="jd-descrdiv">Creates a new place at the given latitude and longitude.</div>
         
   </td></tr>
 
@@ -284,7 +309,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#destroy-status">&lt;twitter:destroy-status&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Destroys the status specified by the required ID parameter.<br/></div>
+        <div class="jd-descrdiv">Destroys the status specified by the required ID parameter.</div>
         
   </td></tr>
 
@@ -294,7 +319,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#get-current-trends">&lt;twitter:get-current-trends&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns the current top 10 trending topics on Twitter.<br/></div>
+        <div class="jd-descrdiv">Returns the current top 10 trending topics on Twitter.</div>
         
   </td></tr>
 
@@ -304,7 +329,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#get-daily-trends">&lt;twitter:get-daily-trends&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns the top 20 trending topics for each hour in a given day.<br/></div>
+        <div class="jd-descrdiv">Returns the top 20 trending topics for each hour in a given day.</div>
         
   </td></tr>
 
@@ -315,7 +340,7 @@ Summary:
         <span class="sympad"><a href="../mule/twitter.html#get-geo-details">&lt;twitter:get-geo-details&gt;</a></nobr>
         
         <div class="jd-descrdiv">Find out more details of a place that was returned from the reverseGeoCode
- operation.<br/></div>
+ operation.</div>
         
   </td></tr>
 
@@ -326,7 +351,7 @@ Summary:
         <span class="sympad"><a href="../mule/twitter.html#get-home-timeline">&lt;twitter:get-home-timeline&gt;</a></nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent statuses, including retweets, posted by the
- authenticating user and that user's friends.<br/></div>
+ authenticating user and that user's friends.</div>
         
   </td></tr>
 
@@ -337,7 +362,7 @@ Summary:
         <span class="sympad"><a href="../mule/twitter.html#get-mentions">&lt;twitter:get-mentions&gt;</a></nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent mentions (status containing @username) for the
- authenticating user.<br/></div>
+ authenticating user.</div>
         
   </td></tr>
 
@@ -348,7 +373,7 @@ Summary:
         <span class="sympad"><a href="../mule/twitter.html#get-public-timeline">&lt;twitter:get-public-timeline&gt;</a></nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent statuses from non-protected users who have set a
- custom user icon.<br/></div>
+ custom user icon.</div>
         
   </td></tr>
 
@@ -358,7 +383,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#get-retweeted-by">&lt;twitter:get-retweeted-by&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Show user objects of up to 100 members who retweeted the status.<br/></div>
+        <div class="jd-descrdiv">Show user objects of up to 100 members who retweeted the status.</div>
         
   </td></tr>
 
@@ -372,7 +397,7 @@ Summary:
  This method calls
  http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -382,7 +407,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#get-retweeted-by-me">&lt;twitter:get-retweeted-by-me&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the authenticating user.<br/></div>
+        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the authenticating user.</div>
         
   </td></tr>
 
@@ -392,7 +417,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#get-retweeted-by-user-by-screen-name">&lt;twitter:get-retweeted-by-user-by-screen-name&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the specified user.<br/></div>
+        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the specified user.</div>
         
   </td></tr>
 
@@ -402,7 +427,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#get-retweeted-by-user-by-user-id">&lt;twitter:get-retweeted-by-user-by-user-id&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the specified user.<br/></div>
+        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the specified user.</div>
         
   </td></tr>
 
@@ -413,7 +438,7 @@ Summary:
         <span class="sympad"><a href="../mule/twitter.html#get-retweeted-to-me">&lt;twitter:get-retweeted-to-me&gt;</a></nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the authenticating user's
- friends.<br/></div>
+ friends.</div>
         
   </td></tr>
 
@@ -424,7 +449,7 @@ Summary:
         <span class="sympad"><a href="../mule/twitter.html#get-retweeted-to-user-by-screen-name">&lt;twitter:get-retweeted-to-user-by-screen-name&gt;</a></nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent retweets posted by users the specified user
- follows.<br/></div>
+ follows.</div>
         
   </td></tr>
 
@@ -435,7 +460,7 @@ Summary:
         <span class="sympad"><a href="../mule/twitter.html#get-retweeted-to-user-by-user-id">&lt;twitter:get-retweeted-to-user-by-user-id&gt;</a></nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent retweets posted by users the specified user
- follows.<br/></div>
+ follows.</div>
         
   </td></tr>
 
@@ -445,7 +470,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#get-retweets">&lt;twitter:get-retweets&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns up to 100 of the first retweets of a given tweet.<br/></div>
+        <div class="jd-descrdiv">Returns up to 100 of the first retweets of a given tweet.</div>
         
   </td></tr>
 
@@ -456,7 +481,7 @@ Summary:
         <span class="sympad"><a href="../mule/twitter.html#get-retweets-of-me">&lt;twitter:get-retweets-of-me&gt;</a></nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent tweets of the authenticated user that have been
- retweeted by others.<br/></div>
+ retweeted by others.</div>
         
   </td></tr>
 
@@ -466,7 +491,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#get-trends">&lt;twitter:get-trends&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns the top ten topics that are currently trending on Twitter.<br/></div>
+        <div class="jd-descrdiv">Returns the top ten topics that are currently trending on Twitter.</div>
         
   </td></tr>
 
@@ -476,7 +501,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#get-user-timeline">&lt;twitter:get-user-timeline&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.<br/></div>
+        <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.</div>
         
   </td></tr>
 
@@ -486,7 +511,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#get-user-timeline-by-screen-name">&lt;twitter:get-user-timeline-by-screen-name&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.<br/></div>
+        <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.</div>
         
   </td></tr>
 
@@ -496,7 +521,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#get-user-timeline-by-user-id">&lt;twitter:get-user-timeline-by-user-id&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.<br/></div>
+        <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.</div>
         
   </td></tr>
 
@@ -506,7 +531,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#get-weekly-trends">&lt;twitter:get-weekly-trends&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns the top 30 trending topics for each day in a given week.<br/></div>
+        <div class="jd-descrdiv">Returns the top 30 trending topics for each day in a given week.</div>
         
   </td></tr>
 
@@ -516,7 +541,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#request-authorization">&lt;twitter:request-authorization&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Start the OAuth request authorization process.<br/></div>
+        <div class="jd-descrdiv">Start the OAuth request authorization process.</div>
         
   </td></tr>
 
@@ -526,7 +551,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#retweet-status">&lt;twitter:retweet-status&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Retweets a tweet.<br/></div>
+        <div class="jd-descrdiv">Retweets a tweet.</div>
         
   </td></tr>
 
@@ -537,7 +562,7 @@ Summary:
         <span class="sympad"><a href="../mule/twitter.html#reverse-geo-code">&lt;twitter:reverse-geo-code&gt;</a></nobr>
         
         <div class="jd-descrdiv">Search for places (cities and neighborhoods) that can be attached to a
- statuses/update.<br/></div>
+ statuses/update.</div>
         
   </td></tr>
 
@@ -547,7 +572,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#search">&lt;twitter:search&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns tweets that match a specified query.<br/></div>
+        <div class="jd-descrdiv">Returns tweets that match a specified query.</div>
         
   </td></tr>
 
@@ -557,7 +582,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#search-places">&lt;twitter:search-places&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Search for places that can be attached to a statuses/update.<br/></div>
+        <div class="jd-descrdiv">Search for places that can be attached to a statuses/update.</div>
         
   </td></tr>
 
@@ -567,7 +592,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#send-direct-message-by-screen-name">&lt;twitter:send-direct-message-by-screen-name&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Sends a new direct message to the specified user from the authenticating user.<br/></div>
+        <div class="jd-descrdiv">Sends a new direct message to the specified user from the authenticating user.</div>
         
   </td></tr>
 
@@ -577,7 +602,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#send-direct-message-by-user-id">&lt;twitter:send-direct-message-by-user-id&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Sends a new direct message to the specified user from the authenticating user.<br/></div>
+        <div class="jd-descrdiv">Sends a new direct message to the specified user from the authenticating user.</div>
         
   </td></tr>
 
@@ -587,7 +612,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#set-oauth-verifier">&lt;twitter:set-oauth-verifier&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Set the OAuth verifier after it has been retrieved via requestAuthorization.<br/></div>
+        <div class="jd-descrdiv">Set the OAuth verifier after it has been retrieved via requestAuthorization.</div>
         
   </td></tr>
 
@@ -597,7 +622,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#show-status">&lt;twitter:show-status&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns a single status, specified by the id parameter below.<br/></div>
+        <div class="jd-descrdiv">Returns a single status, specified by the id parameter below.</div>
         
   </td></tr>
 
@@ -609,7 +634,7 @@ Summary:
         
         <div class="jd-descrdiv">Answers user information for the authenticated user
  <p/>
- <br/></div>
+ </div>
         
   </td></tr>
 
@@ -619,7 +644,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#update-status">&lt;twitter:update-status&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Updates the authenticating user's status.<br/></div>
+        <div class="jd-descrdiv">Updates the authenticating user's status.</div>
         
   </td></tr>
 
@@ -640,7 +665,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#filtered-stream">&lt;twitter:filtered-stream&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Asynchronously retrieves public statuses that match one or more filter predicates.<br/></div>
+        <div class="jd-descrdiv">Asynchronously retrieves public statuses that match one or more filter predicates.</div>
         
   </td></tr>
 
@@ -650,7 +675,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#firehose-stream">&lt;twitter:firehose-stream&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Asynchronously retrieves all public statuses.<br/></div>
+        <div class="jd-descrdiv">Asynchronously retrieves all public statuses.</div>
         
   </td></tr>
 
@@ -660,7 +685,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#link-stream">&lt;twitter:link-stream&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Asynchronously retrieves all statuses containing 'http:' and 'https:'.<br/></div>
+        <div class="jd-descrdiv">Asynchronously retrieves all statuses containing 'http:' and 'https:'.</div>
         
   </td></tr>
 
@@ -670,7 +695,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#sample-stream">&lt;twitter:sample-stream&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Asynchronously retrieves a random sample of all public statuses.<br/></div>
+        <div class="jd-descrdiv">Asynchronously retrieves a random sample of all public statuses.</div>
         
   </td></tr>
 
@@ -680,7 +705,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter.html#site-stream">&lt;twitter:site-stream&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Asynchronously retrieves statutes for a set of supplied user's ids.<br/></div>
+        <div class="jd-descrdiv">Asynchronously retrieves statutes for a set of supplied user's ids.</div>
         
   </td></tr>
 
@@ -704,7 +729,7 @@ Summary:
  <p/>
  Such notifications are represented as org.mule.twitter.UserEvent objects
  <p/>
- Only one Twitter stream can be consumed using the same credentials.<br/></div>
+ Only one Twitter stream can be consumed using the same credentials.</div>
         
   </td></tr>
 
@@ -720,7 +745,6 @@ Summary:
 </div><!-- jd-descr (summary) -->
 
 
-
 <!-- ========= CONFIGURATION DETAIL ======== -->
 <A NAME="config"></A>
 <h2>Configuration</h2>
@@ -734,14 +758,15 @@ similar to the following:</p>
                http://www.mulesoft.org/schema/mule/core
                http://www.mulesoft.org/schema/mule/core/current/mule.xsd
                http://www.mulesoft.org/schema/mule/twitter
-               http://www.mulesoft.org/schema/mule/twitter/2.3/mule-twitter.xsd"&gt;
+               http://www.mulesoft.org/schema/mule/twitter/current/mule-twitter.xsd"&gt;
 
       &lt;!-- here goes your flows and configuration elements --&gt;
 
 &lt;/mule&gt;
 </pre>
+
 <p>This module is configured using the <i>config</i> element. This element must be placed outside of your flows and at
-the root of your Mule application. You can create as many configurations as you deem necesary as long as each carries
+the root of your Mule application. You can create as many configurations as you deem necessary as long as each carries
 its own name.</p>
 <p>Each message processor, message source or transformer carries a <i>config-ref</i> attribute that allows the invoker to
 specify which configuration to use.</p>
@@ -845,6 +870,7 @@ specify which configuration to use.</p>
       
     
 </table>
+
 
 
 
@@ -985,10 +1011,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -1058,10 +1086,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -1109,7 +1139,7 @@ specify which configuration to use.</p>
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>excludeHashtags</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Whether all hashtags shoudl be removed from the trends list.</td>
                 </tr>
                 
@@ -1136,10 +1166,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -1189,7 +1221,7 @@ specify which configuration to use.</p>
                 
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>excludeHashTags</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Whether hashtags should be excluded</td>
                 </tr>
                 
@@ -1218,10 +1250,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -1290,10 +1324,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -1342,7 +1378,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -1351,7 +1387,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of records to retrieve. Must be less than or equal to 200.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of records to retrieve. Must be less than or equal to 200.</td>
                 </tr>
                 
                 
@@ -1360,7 +1396,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID.
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID.
                 There are limits to the number of Tweets which can be accessed through the API. If the
                 limit of Tweets has occured since the since_id, the since_id will be forced to the
                 oldest ID available.</td>
@@ -1393,10 +1429,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -1445,7 +1483,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -1454,7 +1492,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
                 after the count has been applied.</td>
                 </tr>
@@ -1465,7 +1503,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
                 the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
@@ -1497,10 +1535,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -1565,10 +1605,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is
                                     unavailable</td>
         </tr>
@@ -1626,7 +1668,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -1635,7 +1677,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                  best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
                  after the count has been applied.</td>
                 </tr>
@@ -1646,7 +1688,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                  limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
                  the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
@@ -1680,10 +1722,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -1741,7 +1785,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -1750,7 +1794,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                  best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
                  after the count has been applied.</td>
                 </tr>
@@ -1761,7 +1805,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                  limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
                  the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
@@ -1795,10 +1839,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -1847,7 +1893,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -1856,7 +1902,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
                 after the count has been applied.</td>
                 </tr>
@@ -1867,7 +1913,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
                 the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
@@ -1899,10 +1945,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -1963,7 +2011,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -1972,7 +2020,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                    best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
                    after the count has been applied.</td>
                 </tr>
@@ -1983,7 +2031,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                    limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
                    the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
@@ -2017,10 +2065,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -2082,7 +2132,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2091,7 +2141,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
                 after the count has been applied.</td>
                 </tr>
@@ -2102,7 +2152,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
                 the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
@@ -2136,10 +2186,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -2189,7 +2241,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2198,7 +2250,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
                 after the count has been applied.</td>
                 </tr>
@@ -2209,7 +2261,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
                 the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
@@ -2242,10 +2294,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -2306,7 +2360,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2315,7 +2369,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                    best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
                    after the count has been applied.</td>
                 </tr>
@@ -2326,7 +2380,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                    limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
                    the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
@@ -2360,10 +2414,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -2425,7 +2481,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2434,7 +2490,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
                 after the count has been applied.</td>
                 </tr>
@@ -2445,7 +2501,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
                 the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
@@ -2479,10 +2535,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -2557,10 +2615,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -2609,7 +2669,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2618,7 +2678,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
                 after the count has been applied.</td>
                 </tr>
@@ -2629,7 +2689,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
                 the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
@@ -2661,10 +2721,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -2728,10 +2790,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -2781,7 +2845,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2790,7 +2854,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
                 after the count has been applied.</td>
                 </tr>
@@ -2801,7 +2865,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
                 the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
@@ -2833,10 +2897,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -2901,7 +2967,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -2910,7 +2976,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                    best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
                    after the count has been applied.</td>
                 </tr>
@@ -2921,7 +2987,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                    limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
                    the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
@@ -2955,10 +3021,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -3023,7 +3091,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>page</nobr></td>
                     <td class="jd-descrcol">1</td>
-                    <td class="jd-descrcol" width="100%">Specifies the page of results to retrieve.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
                 </tr>
                 
                 
@@ -3032,7 +3100,7 @@ specify which configuration to use.</p>
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
                     <td class="jd-descrcol">100</td>
-                    <td class="jd-descrcol" width="100%">Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
                 after the count has been applied.</td>
                 </tr>
@@ -3043,7 +3111,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>sinceId</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
                 the since_id, the since_id will be forced to the oldest ID available.</td>
                 </tr>
@@ -3077,10 +3145,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -3136,7 +3206,7 @@ specify which configuration to use.</p>
                 
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>excludeHashTags</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>If all hashtags should be removed from the trends list.</td>
                 </tr>
                 
@@ -3165,10 +3235,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -3224,10 +3296,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -3295,10 +3369,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -3401,10 +3477,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -3473,10 +3551,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -3567,10 +3647,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -3650,10 +3732,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -3733,10 +3817,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -3801,10 +3887,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -3873,10 +3961,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -3938,10 +4028,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td></td>
         </tr>
       </table>
@@ -3994,7 +4086,7 @@ specify which configuration to use.</p>
                 <tr class="alt-color api apilevel-" >
                     <td class="jd-linkcol"><nobr>inReplyTo</nobr></td>
                     <td class="jd-descrcol">-1</td>
-                    <td class="jd-descrcol" width="100%">The ID of an existing status that the update is in reply to.</td>
+                    <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The ID of an existing status that the update is in reply to.</td>
                 </tr>
                 
                 
@@ -4047,10 +4139,12 @@ specify which configuration to use.</p>
     
   
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payload</h5>
-      <table class="jd-tagtable">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
         <tr>
-            <th>TwitterException</td>
+            <td>TwitterException</td>
             <td>when Twitter service or network is unavailable</td>
         </tr>
       </table>
@@ -4121,7 +4215,7 @@ specify which configuration to use.</p>
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>count</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">0</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The number of previous statuses to stream before transitioning to the live stream.</td>
                 </tr>
                 
@@ -4153,7 +4247,7 @@ specify which configuration to use.</p>
             
           
             
-            <tr><th colspan="12"><nobr>&lt;twitter:userIds&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The user ids to follow</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;twitter:user-ids&gt;</nobr></br><span style="font-weight: normal;"><i>Optional.&nbsp;</i>The user ids to follow</span></th></tr>
             
             
           
@@ -4431,7 +4525,7 @@ specify which configuration to use.</p>
                 
                 <tr class=" api apilevel-" >
                     <td class="jd-linkcol"><nobr>withFollowings</nobr></td>
-                    <td class="jd-descrcol"></td>
+                    <td class="jd-descrcol">false</td>
                     <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>WithFollowings whether to receive status updates from people following</td>
                 </tr>
                 
@@ -4457,7 +4551,7 @@ specify which configuration to use.</p>
           
           
             
-            <tr><th colspan="12"><nobr>&lt;twitter:userIds&gt;</nobr></br><span style="font-weight: normal;">Ids of users to include in the stream</span></th></tr>
+            <tr><th colspan="12"><nobr>&lt;twitter:user-ids&gt;</nobr></br><span style="font-weight: normal;">Ids of users to include in the stream</span></th></tr>
             
             
           

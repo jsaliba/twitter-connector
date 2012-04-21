@@ -1,0 +1,501 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule Twitter Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
+<title>
+
+  org.mule.twitter.processors
+
+
+| Mule Twitter Connector
+
+</title>
+<link href="../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../assets/jquery-toc.js" type="text/javascript"></script>
+<script src="../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../", "../../../../../assets/");
+</script>
+<script src="../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Twitter Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule Twitter Connector</span>
+    
+    <ul id="header-tabs" class="java">
+    
+    	<li id="guide"><a href="../../../../../guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    
+    	<li id="java"><a href="../../../../../java/packages.html">
+	    	<span class="en">Java API Reference</span>
+    	</a></li>
+    
+    	<li id="mule"><a href="../../../../../mule/modules.html">
+	    	<span class="en">Mule API Reference</span>
+    	</a></li>
+    
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="../../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../../java/classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/package-summary.html">org.mule.twitter</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/adapters/package-summary.html">org.mule.twitter.adapters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/config/package-summary.html">org.mule.twitter.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/config/spring/package-summary.html">org.mule.twitter.config.spring</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/processors/package-summary.html">org.mule.twitter.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/sources/package-summary.html">org.mule.twitter.sources</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/transformers/package-summary.html">org.mule.twitter.transformers</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../java/twitter4j/internal/http/alternative/package-summary.html">twitter4j.internal.http.alternative</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+              
+    <li><h2>Classes</h2>
+      <ul>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/CreatePlaceMessageProcessor.html">CreatePlaceMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/DestroyStatusMessageProcessor.html">DestroyStatusMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetCurrentTrendsMessageProcessor.html">GetCurrentTrendsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetDailyTrendsMessageProcessor.html">GetDailyTrendsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetGeoDetailsMessageProcessor.html">GetGeoDetailsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetHomeTimelineMessageProcessor.html">GetHomeTimelineMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetMentionsMessageProcessor.html">GetMentionsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetPublicTimelineMessageProcessor.html">GetPublicTimelineMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html">GetRetweetedByIDsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByMeMessageProcessor.html">GetRetweetedByMeMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByMessageProcessor.html">GetRetweetedByMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByUserByScreenNameMessageProcessor.html">GetRetweetedByUserByScreenNameMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByUserByUserIdMessageProcessor.html">GetRetweetedByUserByUserIdMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedToMeMessageProcessor.html">GetRetweetedToMeMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedToUserByScreenNameMessageProcessor.html">GetRetweetedToUserByScreenNameMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedToUserByUserIdMessageProcessor.html">GetRetweetedToUserByUserIdMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetsMessageProcessor.html">GetRetweetsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetsOfMeMessageProcessor.html">GetRetweetsOfMeMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetTrendsMessageProcessor.html">GetTrendsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetUserTimelineByScreenNameMessageProcessor.html">GetUserTimelineByScreenNameMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetUserTimelineByUserIdMessageProcessor.html">GetUserTimelineByUserIdMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetUserTimelineMessageProcessor.html">GetUserTimelineMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetWeeklyTrendsMessageProcessor.html">GetWeeklyTrendsMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/RequestAuthorizationMessageProcessor.html">RequestAuthorizationMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/RetweetStatusMessageProcessor.html">RetweetStatusMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html">ReverseGeoCodeMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/SearchMessageProcessor.html">SearchMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/SearchPlacesMessageProcessor.html">SearchPlacesMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/SendDirectMessageByScreenNameMessageProcessor.html">SendDirectMessageByScreenNameMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/SendDirectMessageByUserIdMessageProcessor.html">SendDirectMessageByUserIdMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/SetOauthVerifierMessageProcessor.html">SetOauthVerifierMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/ShowStatusMessageProcessor.html">ShowStatusMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/ShowUserMessageProcessor.html">ShowUserMessageProcessor</a></li>
+        <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/UpdateStatusMessageProcessor.html">UpdateStatusMessageProcessor</a></li>
+      </ul>
+    </li>
+              
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="../../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../../classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div>
+
+<div id="jd-header">
+  package
+  <h1>org.mule.twitter.processors</h1>
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+
+
+
+
+
+
+  
+
+
+  
+    <h2>Classes</h2>
+    <div class="jd-sumtable">
+    
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/CreatePlaceMessageProcessor.html">CreatePlaceMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">CreatePlaceMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#createPlace(java.lang.String, java.lang.String, java.lang.String, java.lang.Double, java.lang.Double, java.lang.String)">createPlace(java.lang.String, java.lang.String, java.lang.String, java.lang.Double, java.lang.Double, java.lang.String)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/DestroyStatusMessageProcessor.html">DestroyStatusMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">DestroyStatusMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#destroyStatus(long)">destroyStatus(long)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetCurrentTrendsMessageProcessor.html">GetCurrentTrendsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetCurrentTrendsMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getCurrentTrends(boolean)">getCurrentTrends(boolean)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetDailyTrendsMessageProcessor.html">GetDailyTrendsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetDailyTrendsMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getDailyTrends(java.util.Date, boolean)">getDailyTrends(java.util.Date, boolean)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetGeoDetailsMessageProcessor.html">GetGeoDetailsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetGeoDetailsMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getGeoDetails(java.lang.String)">getGeoDetails(java.lang.String)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetHomeTimelineMessageProcessor.html">GetHomeTimelineMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetHomeTimelineMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getHomeTimeline(int, int, int)">getHomeTimeline(int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetMentionsMessageProcessor.html">GetMentionsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetMentionsMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getMentions(int, int, int)">getMentions(int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetPublicTimelineMessageProcessor.html">GetPublicTimelineMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetPublicTimelineMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getPublicTimeline()">getPublicTimeline()</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html">GetRetweetedByIDsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetRetweetedByIDsMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getRetweetedByIDs(long, int, int, int)">getRetweetedByIDs(long, int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByMeMessageProcessor.html">GetRetweetedByMeMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetRetweetedByMeMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getRetweetedByMe(int, int, int)">getRetweetedByMe(int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByMessageProcessor.html">GetRetweetedByMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetRetweetedByMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getRetweetedBy(long, int, int, int)">getRetweetedBy(long, int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByUserByScreenNameMessageProcessor.html">GetRetweetedByUserByScreenNameMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetRetweetedByUserByScreenNameMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getRetweetedByUserByScreenName(java.lang.String, int, int, int)">getRetweetedByUserByScreenName(java.lang.String, int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByUserByUserIdMessageProcessor.html">GetRetweetedByUserByUserIdMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetRetweetedByUserByUserIdMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getRetweetedByUserByUserId(long, int, int, int)">getRetweetedByUserByUserId(long, int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedToMeMessageProcessor.html">GetRetweetedToMeMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetRetweetedToMeMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getRetweetedToMe(int, int, int)">getRetweetedToMe(int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedToUserByScreenNameMessageProcessor.html">GetRetweetedToUserByScreenNameMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetRetweetedToUserByScreenNameMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getRetweetedToUserByScreenName(java.lang.String, int, int, int)">getRetweetedToUserByScreenName(java.lang.String, int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedToUserByUserIdMessageProcessor.html">GetRetweetedToUserByUserIdMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetRetweetedToUserByUserIdMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getRetweetedToUserByUserId(long, int, int, int)">getRetweetedToUserByUserId(long, int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetsMessageProcessor.html">GetRetweetsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetRetweetsMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getRetweets(long)">getRetweets(long)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetsOfMeMessageProcessor.html">GetRetweetsOfMeMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetRetweetsOfMeMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getRetweetsOfMe(int, int, int)">getRetweetsOfMe(int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetTrendsMessageProcessor.html">GetTrendsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetTrendsMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getTrends()">getTrends()</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetUserTimelineByScreenNameMessageProcessor.html">GetUserTimelineByScreenNameMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetUserTimelineByScreenNameMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getUserTimelineByScreenName(java.lang.String, int, int, int)">getUserTimelineByScreenName(java.lang.String, int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetUserTimelineByUserIdMessageProcessor.html">GetUserTimelineByUserIdMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetUserTimelineByUserIdMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getUserTimelineByUserId(long, int, int, int)">getUserTimelineByUserId(long, int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetUserTimelineMessageProcessor.html">GetUserTimelineMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetUserTimelineMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getUserTimeline(int, int, int)">getUserTimeline(int, int, int)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/GetWeeklyTrendsMessageProcessor.html">GetWeeklyTrendsMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">GetWeeklyTrendsMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getWeeklyTrends(java.util.Date, boolean)">getWeeklyTrends(java.util.Date, boolean)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/RequestAuthorizationMessageProcessor.html">RequestAuthorizationMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">RequestAuthorizationMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#requestAuthorization()">requestAuthorization()</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/RetweetStatusMessageProcessor.html">RetweetStatusMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">RetweetStatusMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#retweetStatus(long)">retweetStatus(long)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html">ReverseGeoCodeMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">ReverseGeoCodeMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#reverseGeoCode(java.lang.Double, java.lang.Double, java.lang.String)">reverseGeoCode(java.lang.Double, java.lang.Double, java.lang.String)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/SearchMessageProcessor.html">SearchMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">SearchMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#search(java.lang.String)">search(java.lang.String)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/SearchPlacesMessageProcessor.html">SearchPlacesMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">SearchPlacesMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#searchPlaces(java.lang.Double, java.lang.Double, java.lang.String)">searchPlaces(java.lang.Double, java.lang.Double, java.lang.String)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/SendDirectMessageByScreenNameMessageProcessor.html">SendDirectMessageByScreenNameMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">SendDirectMessageByScreenNameMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#sendDirectMessageByScreenName(java.lang.String, java.lang.String)">sendDirectMessageByScreenName(java.lang.String, java.lang.String)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/SendDirectMessageByUserIdMessageProcessor.html">SendDirectMessageByUserIdMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">SendDirectMessageByUserIdMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#sendDirectMessageByUserId(long, java.lang.String)">sendDirectMessageByUserId(long, java.lang.String)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/SetOauthVerifierMessageProcessor.html">SetOauthVerifierMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">SetOauthVerifierMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#setOauthVerifier(java.lang.String)">setOauthVerifier(java.lang.String)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/ShowStatusMessageProcessor.html">ShowStatusMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">ShowStatusMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#showStatus(long)">showStatus(long)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/ShowUserMessageProcessor.html">ShowUserMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">ShowUserMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#showUser()">showUser()</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/processors/UpdateStatusMessageProcessor.html">UpdateStatusMessageProcessor</a></td>
+              <td class="jd-descrcol" width="100%">UpdateStatusMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#updateStatus(java.lang.String, long, java.lang.Double, java.lang.Double)">updateStatus(java.lang.String, long, java.lang.Double, java.lang.Double)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
+          </tr>
+  </table>
+    </div>
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div><!-- end jd-content -->
+</div><!-- doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>
