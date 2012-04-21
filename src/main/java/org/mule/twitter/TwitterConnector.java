@@ -18,6 +18,7 @@ import org.mule.api.annotations.Module;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.Source;
 import org.mule.api.annotations.display.FriendlyName;
+import org.mule.api.annotations.display.Password;
 import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
@@ -143,6 +144,7 @@ public class TwitterConnector implements MuleContextAware {
     @Configurable
     @Optional
     @Placement(group = "Proxy settings", tab = "Proxy")
+    @Password
     private String proxyPassword;
 
     @PostConstruct
