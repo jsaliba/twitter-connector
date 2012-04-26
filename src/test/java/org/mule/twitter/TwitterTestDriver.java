@@ -14,13 +14,14 @@
 
 package org.mule.twitter;
 
-import org.mule.api.callback.SourceCallback;
-import org.mule.tck.AbstractMuleTestCase;
-import twitter4j.Status;
-
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
+
+import org.mule.api.callback.SourceCallback;
+import org.mule.tck.AbstractMuleTestCase;
+
+import twitter4j.Status;
 
 public class TwitterTestDriver extends AbstractMuleTestCase
 {
@@ -32,7 +33,7 @@ public class TwitterTestDriver extends AbstractMuleTestCase
         super();
         setStartContext(true);
     }
-    
+
     @Override
     protected void doSetUp() throws Exception
     {
@@ -45,7 +46,13 @@ public class TwitterTestDriver extends AbstractMuleTestCase
         connector.setUseSSL(true);
         connector.initialise();
     }
-    
+
+    public void testSearch() throws Exception
+    {
+        assertNotNull(connector.search("world", null, null, 0, 0, 0, "2012-04-23", 0,
+            "37.781157,-122.398720", "25", "mi", null, "mixed"));
+    }
+
     public void testGetTrends() throws Exception
     {
         assertNotNull(connector.getTrends());
@@ -55,35 +62,36 @@ public class TwitterTestDriver extends AbstractMuleTestCase
     {
         assertNotNull(connector.getCurrentTrends(true));
     }
-    
+
     public void testPublicTimeline() throws Exception
     {
         assertNotNull(connector.getPublicTimeline());
     }
-    
+
     public void testSearchPlaces() throws Exception
     {
         assertNotNull(connector.searchPlaces(50.0, 50.0, null));
     }
-    
+
     public void testGetUserInfo() throws Exception
     {
         System.out.println(connector.showUser());
     }
-    
+
     public void testUpdateStatus() throws Exception
     {
         long id = connector.updateStatus("Foo bar baz " + new Date(), -1, null, null).getId();
         assertTrue(connector.showStatus(id).getText().contains("Foo bar baz"));
     }
-    
-    /**Run only one of those tests per connector instance*/
+
+    /** Run only one of those tests per connector instance */
     public void testSampleStream() throws Exception
     {
         connector.sampleStream(new SourceCallback()
         {
             @Override
-            public Object process() throws Exception {
+            public Object process() throws Exception
+            {
                 return null;
             }
 
@@ -96,21 +104,23 @@ public class TwitterTestDriver extends AbstractMuleTestCase
                 return null;
             }
 
-            public Object process(Object payload, Map<String, Object> properties) throws Exception {
+            public Object process(Object payload, Map<String, Object> properties) throws Exception
+            {
                 System.out.println(payload);
                 return null;
             }
         });
         Thread.sleep(10000);
     }
-    
-    /**Run only one of those tests per connector instance*/
+
+    /** Run only one of those tests per connector instance */
     public void ignoreTestFilteredStream() throws Exception
     {
         connector.filteredStream(0, null, Arrays.asList("mulesoft"), new SourceCallback()
         {
             @Override
-            public Object process() throws Exception {
+            public Object process() throws Exception
+            {
                 return null;
             }
 
@@ -123,20 +133,22 @@ public class TwitterTestDriver extends AbstractMuleTestCase
                 return null;
             }
 
-            public Object process(Object payload, Map<String, Object> properties) throws Exception {
+            public Object process(Object payload, Map<String, Object> properties) throws Exception
+            {
                 return null;
             }
         });
         Thread.sleep(20000);
     }
-    
-    /**Run only one of those tests per connector instance*/
+
+    /** Run only one of those tests per connector instance */
     public void ignoreTestUserStream() throws Exception
     {
         connector.userStream(null, new SourceCallback()
         {
             @Override
-            public Object process() throws Exception {
+            public Object process() throws Exception
+            {
                 return null;
             }
 
@@ -149,20 +161,21 @@ public class TwitterTestDriver extends AbstractMuleTestCase
                 return null;
             }
 
-            public Object process(Object payload, Map<String, Object> properties) throws Exception {
+            public Object process(Object payload, Map<String, Object> properties) throws Exception
+            {
                 return null;
             }
         });
-        
+
         connector.updateStatus("Foobar " + new Date(), -1, null, null);
         Thread.sleep(1000);
-        
+
         connector.updateStatus("Foobar " + new Date(), -1, null, null);
         Thread.sleep(1000);
-        
+
         connector.updateStatus("Foobar " + new Date(), -1, null, null);
         Thread.sleep(1000);
-        
+
         connector.updateStatus("Foobar " + new Date(), -1, null, null);
         Thread.sleep(10000);
     }

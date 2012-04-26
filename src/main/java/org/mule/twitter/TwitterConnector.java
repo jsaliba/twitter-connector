@@ -9,6 +9,13 @@
  */
 package org.mule.twitter;
 
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.PostConstruct;
+
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.UnhandledException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -25,6 +32,7 @@ import org.mule.api.annotations.param.Optional;
 import org.mule.api.callback.SourceCallback;
 import org.mule.api.context.MuleContextAware;
 import org.mule.twitter.UserEvent.EventType;
+
 import twitter4j.DirectMessage;
 import twitter4j.FilterQuery;
 import twitter4j.GeoLocation;
@@ -53,11 +61,6 @@ import twitter4j.auth.RequestToken;
 import twitter4j.conf.ConfigurationBuilder;
 import twitter4j.internal.http.alternative.HttpClientHiddenConstructionArgument;
 import twitter4j.internal.http.alternative.MuleHttpClient;
-
-import javax.annotation.PostConstruct;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Twitter is an online social networking service and microblogging service that enables its users to send and read
@@ -173,12 +176,81 @@ public class TwitterConnector implements MuleContextAware {
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:search}
      *
      * @param query The search query.
+     * @param lang Restricts tweets to the given language, given by an <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1 code</a>
+     * @param locale Specify the language of the query you are sending (only ja is currently effective). This is intended for language-specific clients and the default should work in the majority of cases.
+     * @param maxId If specified, returns tweets with status ids less than the given id
+     * @param rpp Sets the number of tweets to return per page, up to a max of 100
+     * @param page Sets the page number (starting at 1) to return, up to a max of roughly 1500 results
+     * @param since If specified, returns tweets since the given date. Date should be formatted as YYYY-MM-DD
+     * @param sinceId Returns tweets with status ids greater than the given id.
+     * @param geocode A {@link String} containing the latitude and longitude separated by ','. Used to get the tweets by users located within a given radius of the given latitude/longitude, where the user's location is taken from their Twitter profile
+     * @param radius The radius to be used in the geocode -ONLY VALID IF A GEOCODE IS GIVEN-
+     * @param unit The unit of measurement of the given radius. Can be 'mi' or 'km'. Miles by default.
+     * @param until If specified, returns tweets with generated before the given date. Date should be formatted as YYYY-MM-DD
+     * @param resultType If specified, returns tweets included popular or real time or both in the responce. Both by default. Can be 'mixed', 'popular' or 'recent'.
      * @return the {@link QueryResult}
      * @throws TwitterException
      */
     @Processor
-    public QueryResult search(String query) throws TwitterException {
-        return twitter.search(new Query(query));
+    public QueryResult search(String query,
+                              @Optional String lang,
+                              @Optional String locale,
+                              @Optional long maxId,
+                              @Optional int rpp,
+                              @Optional int page,
+                              @Optional String since,
+                              @Optional long sinceId,
+                              @Optional String geocode,
+                              @Optional String radius,
+                              @Default (value = Query.MILES) @Optional String unit,
+                              @Optional String until,
+                              @Optional String resultType) throws TwitterException {
+        final Query q = new Query(query);
+        
+        if (lang != null)
+        {
+            q.setLang(lang);
+        }
+        if (locale != null)
+        {
+            q.setLocale(locale);
+        }
+        if (maxId != 0)
+        {
+            q.setMaxId(maxId);
+        }
+        if (rpp != 0)
+        {
+            q.setRpp(rpp);
+        }
+        if (page != 0)
+        {
+            q.setPage(page);
+        }
+        if (since != null)
+        {
+            q.setSince(since);
+        }
+        if (sinceId != 0)
+        {
+            q.setSinceId(sinceId);
+        }
+        if (geocode != null)
+        {
+            final String[] geocodeSplit = StringUtils.split(geocode, ',');
+            final double latitude = Double.parseDouble(StringUtils.replace(geocodeSplit[0], " ", ""));
+            final double longitude = Double.parseDouble(StringUtils.replace(geocodeSplit[1], " ", ""));
+            q.setGeoCode(new GeoLocation(latitude, longitude), Double.parseDouble(radius), unit);
+        }
+        if (until != null)
+        {
+            q.setUntil(until);
+        }
+        if (resultType != null)
+        {
+            q.setResultType(resultType);
+        }
+        return twitter.search(q);
     }
 
     /**
