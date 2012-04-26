@@ -1335,7 +1335,7 @@ Summary:
             QueryResult</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#search(java.lang.String)">search</a></span>(String query)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#search(java.lang.String, java.lang.String, java.lang.String, long, int, int, java.lang.String, long, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">search</a></span>(String query, String lang, String locale, long maxId, int rpp, int page, String since, long sinceId, String geocode, String radius, String unit, String until, String resultType)</nobr>
         
         <div class="jd-descrdiv">Returns tweets that match a specified query.</div>
   
@@ -4667,7 +4667,7 @@ From interface
 </div>
 
 
-<A NAME="search(java.lang.String)"></A>
+<A NAME="search(java.lang.String, java.lang.String, java.lang.String, long, int, int, java.lang.String, long, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4680,7 +4680,7 @@ From interface
         QueryResult
       </span>
       <span class="sympad">search</span>
-      <span class="normal">(String query)</span>
+      <span class="normal">(String query, String lang, String locale, long maxId, int rpp, int page, String since, long sinceId, String geocode, String radius, String unit, String until, String resultType)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4703,6 +4703,54 @@ From interface
         <tr>
           <th>query</td>
           <td>The search query.</td>
+        </tr>
+        <tr>
+          <th>lang</td>
+          <td>Restricts tweets to the given language, given by an <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1 code</a></td>
+        </tr>
+        <tr>
+          <th>locale</td>
+          <td>Specify the language of the query you are sending (only ja is currently effective). This is intended for language-specific clients and the default should work in the majority of cases.</td>
+        </tr>
+        <tr>
+          <th>maxId</td>
+          <td>If specified, returns tweets with status ids less than the given id</td>
+        </tr>
+        <tr>
+          <th>rpp</td>
+          <td>Sets the number of tweets to return per page, up to a max of 100</td>
+        </tr>
+        <tr>
+          <th>page</td>
+          <td>Sets the page number (starting at 1) to return, up to a max of roughly 1500 results</td>
+        </tr>
+        <tr>
+          <th>since</td>
+          <td>If specified, returns tweets since the given date. Date should be formatted as YYYY-MM-DD</td>
+        </tr>
+        <tr>
+          <th>sinceId</td>
+          <td>Returns tweets with status ids greater than the given id.</td>
+        </tr>
+        <tr>
+          <th>geocode</td>
+          <td>A String containing the latitude and longitude separated by ','. Used to get the tweets by users located within a given radius of the given latitude/longitude, where the user's location is taken from their Twitter profile</td>
+        </tr>
+        <tr>
+          <th>radius</td>
+          <td>The radius to be used in the geocode -ONLY VALID IF A GEOCODE IS GIVEN-</td>
+        </tr>
+        <tr>
+          <th>unit</td>
+          <td>The unit of measurement of the given radius. Can be 'mi' or 'km'. Miles by default.</td>
+        </tr>
+        <tr>
+          <th>until</td>
+          <td>If specified, returns tweets with generated before the given date. Date should be formatted as YYYY-MM-DD</td>
+        </tr>
+        <tr>
+          <th>resultType</td>
+          <td>If specified, returns tweets included popular or real time or both in the responce. Both by default. Can be 'mixed', 'popular' or 'recent'.</td>
         </tr>
       </table>
   </div>
