@@ -229,10 +229,12 @@
       <ul>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/CreatePlaceMessageProcessor.html">CreatePlaceMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/DestroyStatusMessageProcessor.html">DestroyStatusMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetAvailableTrendsMessageProcessor.html">GetAvailableTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetCurrentTrendsMessageProcessor.html">GetCurrentTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetDailyTrendsMessageProcessor.html">GetDailyTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetGeoDetailsMessageProcessor.html">GetGeoDetailsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetHomeTimelineMessageProcessor.html">GetHomeTimelineMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetLocationTrendsMessageProcessor.html">GetLocationTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetMentionsMessageProcessor.html">GetMentionsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetPublicTimelineMessageProcessor.html">GetPublicTimelineMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html">GetRetweetedByIDsMessageProcessor</a></li>
@@ -488,7 +490,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>RequestAuthorizationMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#requestAuthorization()">requestAuthorization()</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+<p>RequestAuthorizationMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#requestAuthorization(java.lang.String)">requestAuthorization(java.lang.String)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -679,6 +681,28 @@ org.mule.api.lifecycle.Stoppable
 <table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
 
 
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/RequestAuthorizationMessageProcessor.html#_callbackUrlType">_callbackUrlType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/RequestAuthorizationMessageProcessor.html#callbackUrl">callbackUrl</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
     
       <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
@@ -886,6 +910,24 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/RequestAuthorizationMessageProcessor.html#setCallbackUrl(java.lang.Object)">setCallbackUrl</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets callbackUrl</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/twitter/processors/RequestAuthorizationMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
         
         <div class="jd-descrdiv">Sets flow construct</div>
@@ -894,7 +936,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -912,7 +954,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -930,7 +972,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -948,7 +990,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -964,7 +1006,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1521,6 +1563,66 @@ From interface
 
 
 
+<A NAME="_callbackUrlType"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        _callbackUrlType
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="callbackUrl"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        Object
+      </span>
+        callbackUrl
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
 <A NAME="expressionManager"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1942,6 +2044,47 @@ From interface
         <tr>
             <th>MuleException</td>
             <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setCallbackUrl(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setCallbackUrl</span>
+      <span class="normal">(Object value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets callbackUrl</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
         </tr>
       </table>
   </div>

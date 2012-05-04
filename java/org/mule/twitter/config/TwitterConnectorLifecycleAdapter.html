@@ -235,6 +235,7 @@
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/FilteredStreamMessageSource.html">FilteredStreamMessageSource</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/FirehoseStreamDefinitionParser.html">FirehoseStreamDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/FirehoseStreamMessageSource.html">FirehoseStreamMessageSource</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetAvailableTrendsDefinitionParser.html">GetAvailableTrendsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetCurrentTrendsDefinitionParser.html">GetCurrentTrendsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetCurrentTrendsMessageProcessor.html">GetCurrentTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetDailyTrendsDefinitionParser.html">GetDailyTrendsDefinitionParser</a></li>
@@ -243,6 +244,7 @@
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetGeoDetailsMessageProcessor.html">GetGeoDetailsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetHomeTimelineDefinitionParser.html">GetHomeTimelineDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetHomeTimelineMessageProcessor.html">GetHomeTimelineMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetLocationTrendsDefinitionParser.html">GetLocationTrendsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetMentionsDefinitionParser.html">GetMentionsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetMentionsMessageProcessor.html">GetMentionsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetPublicTimelineDefinitionParser.html">GetPublicTimelineDefinitionParser</a></li>
@@ -1251,12 +1253,12 @@ From class
             
             
             
-            Trends</nobr>
+            ResponseList&lt;Location&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getCurrentTrends(boolean)">getCurrentTrends</a></span>(boolean excludeHashtags)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getAvailableTrends(java.lang.Double, java.lang.Double)">getAvailableTrends</a></span>(Double latitude, Double longitude)</nobr>
         
-        <div class="jd-descrdiv">Returns the current top 10 trending topics on Twitter.</div>
+        <div class="jd-descrdiv">Returns the sorted locations that Twitter has trending topic information for.</div>
   
   </td></tr>
 
@@ -1325,6 +1327,25 @@ From class
             
             
             
+            Trends</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getLocationTrends(int)">getLocationTrends</a></span>(int woeid)</nobr>
+        
+        <div class="jd-descrdiv">Returns the top 10 trending topics for a specific location Twitter has trending 
+ topic information for.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1337,7 +1358,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1353,7 +1374,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1372,7 +1393,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1390,7 +1411,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1412,7 +1433,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1430,7 +1451,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1448,7 +1469,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1466,7 +1487,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1485,7 +1506,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1504,7 +1525,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1523,7 +1544,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1541,7 +1562,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1555,24 +1576,6 @@ From class
         
         <div class="jd-descrdiv">Returns the 20 most recent tweets of the authenticated user that have been
  retweeted by others.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            Trends</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getTrends()">getTrends</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Returns the top ten topics that are currently trending on Twitter.</div>
   
   </td></tr>
 
@@ -1726,7 +1729,7 @@ From class
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#requestAuthorization()">requestAuthorization</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#requestAuthorization(java.lang.String)">requestAuthorization</a></span>(String callbackUrl)</nobr>
         
         <div class="jd-descrdiv">Start the OAuth request authorization process.</div>
   

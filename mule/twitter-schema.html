@@ -1284,6 +1284,11 @@ reuse them as part of the configuration in the future if desired.
             &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;callbackUrl&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;the url to be requested when the user authorizes this app&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
       &lt;/xs:extension&gt;
     &lt;/xs:complexContent&gt;
   &lt;/xs:complexType&gt;
@@ -1432,15 +1437,18 @@ operation.
       &lt;/xs:extension&gt;
     &lt;/xs:complexContent&gt;
   &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-current-trends&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetCurrentTrendsType&quot;&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-available-trends&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetAvailableTrendsType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Returns the current top 10 trending topics on Twitter. The response includes
-the time of the request, the name of each trending topic, and query used on
-Twitter Search results page for that topic.
-&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+      &lt;xs:documentation&gt;Returns the sorted locations that Twitter has trending topic information for.
+The response is an array of &amp;amp;quot;locations&amp;amp;quot; that encode the location's WOEID
+(a &amp;lt;a href=&quot;http://developer.yahoo.com/geo/geoplanet/&quot;&amp;gt;Yahoo! Where On Earth ID&amp;lt;/a&amp;gt;)
+and some other human-readable information such as a canonical name and country the
+location belongs in.
+&amp;lt;br&amp;gt;The available trend locations will be sorted by distance to the lat
+and long passed in. The sort is nearest to furthest.&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetCurrentTrendsType&quot;&gt;
+  &lt;xs:complexType name=&quot;GetAvailableTrendsType&quot;&gt;
     &lt;xs:complexContent&gt;
       &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
         &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
@@ -1448,9 +1456,41 @@ Twitter Search results page for that topic.
             &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;excludeHashtags&quot; default=&quot;false&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;latitude&quot; use=&quot;optional&quot; type=&quot;doubleType&quot;&gt;
           &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;whether all hashtags shoudl be removed from the trends list.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;the latitude&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;longitude&quot; use=&quot;optional&quot; type=&quot;doubleType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;the longitude&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-location-trends&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetLocationTrendsType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Returns the top 10 trending topics for a specific location Twitter has trending
+topic information for. The response is an array of &quot;trend&quot; objects that encode
+the name of the trending topic, the query parameter that can be used to search
+for the topic on Search, and the direct URL that can be issued against Search.
+This information is cached for five minutes, and therefore users are discouraged
+from querying these endpoints faster than once every five minutes.
+Global trends information is also available from this API by using a WOEID of 1.&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;GetLocationTrendsType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;woeid&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The WOEID of the location to be querying for&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
       &lt;/xs:extension&gt;
@@ -1478,25 +1518,6 @@ Twitter Search results page for that topic.
         &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;excludeHashTags&quot; default=&quot;false&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;whether hashtags should be excluded&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-      &lt;/xs:extension&gt;
-    &lt;/xs:complexContent&gt;
-  &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-trends&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetTrendsType&quot;&gt;
-    &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Returns the top ten topics that are currently trending on Twitter. The
-response includes the time of the request, the name of each trend, and the url
-to the Twitter Search results page for that topic.
-&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
-    &lt;/xs:annotation&gt;
-  &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetTrendsType&quot;&gt;
-    &lt;xs:complexContent&gt;
-      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
-        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
       &lt;/xs:extension&gt;

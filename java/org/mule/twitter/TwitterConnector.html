@@ -803,12 +803,12 @@ Summary:
             
             
             
-            Trends</nobr>
+            ResponseList&lt;Location&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getCurrentTrends(boolean)">getCurrentTrends</a></span>(boolean excludeHashtags)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getAvailableTrends(java.lang.Double, java.lang.Double)">getAvailableTrends</a></span>(Double latitude, Double longitude)</nobr>
         
-        <div class="jd-descrdiv">Returns the current top 10 trending topics on Twitter.</div>
+        <div class="jd-descrdiv">Returns the sorted locations that Twitter has trending topic information for.</div>
   
   </td></tr>
 
@@ -877,6 +877,25 @@ Summary:
             
             
             
+            Trends</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getLocationTrends(int)">getLocationTrends</a></span>(int woeid)</nobr>
+        
+        <div class="jd-descrdiv">Returns the top 10 trending topics for a specific location Twitter has trending 
+ topic information for.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -889,7 +908,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -908,7 +927,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -926,7 +945,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -948,7 +967,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -966,7 +985,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -984,7 +1003,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1002,7 +1021,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1021,7 +1040,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1040,7 +1059,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1059,7 +1078,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1077,7 +1096,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1091,24 +1110,6 @@ Summary:
         
         <div class="jd-descrdiv">Returns the 20 most recent tweets of the authenticated user that have been
  retweeted by others.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            Trends</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getTrends()">getTrends</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Returns the top ten topics that are currently trending on Twitter.</div>
   
   </td></tr>
 
@@ -1262,7 +1263,7 @@ Summary:
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#requestAuthorization()">requestAuthorization</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#requestAuthorization(java.lang.String)">requestAuthorization</a></span>(String callbackUrl)</nobr>
         
         <div class="jd-descrdiv">Start the OAuth request authorization process.</div>
   
@@ -2767,7 +2768,7 @@ From interface
 </div>
 
 
-<A NAME="getCurrentTrends(boolean)"></A>
+<A NAME="getAvailableTrends(java.lang.Double, java.lang.Double)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2777,10 +2778,10 @@ From interface
          
          
          
-        Trends
+        ResponseList&lt;Location&gt;
       </span>
-      <span class="sympad">getCurrentTrends</span>
-      <span class="normal">(boolean excludeHashtags)</span>
+      <span class="sympad">getAvailableTrends</span>
+      <span class="normal">(Double latitude, Double longitude)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2792,23 +2793,31 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the current top 10 trending topics on Twitter. The response includes
- the time of the request, the name of each trending topic, and query used on
- Twitter Search results page for that topic.
- <p/>
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the sorted locations that Twitter has trending topic information for. 
+ The response is an array of &quot;locations&quot; that encode the location's WOEID 
+ (a <a href="http://developer.yahoo.com/geo/geoplanet/">Yahoo! Where On Earth ID</a>) 
+ and some other human-readable information such as a canonical name and country the 
+ location belongs in.
+ <br>The available trend locations will be sorted by distance to the lat 
+ and long passed in. The sort is nearest to furthest.
+
  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>excludeHashtags</td>
-          <td>Whether all hashtags shoudl be removed from the trends list.</td>
+          <th>latitude</td>
+          <td>The latitude</td>
+        </tr>
+        <tr>
+          <th>longitude</td>
+          <td>The longitude</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>a Trends object</li></ul>
+      <ul class="nolist"><li>the Locations</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -3015,6 +3024,67 @@ From interface
       <ul class="nolist"><li><a href="http://dev.twitter.com/doc/get/statuses/home_timeline">GET
       statuses/home_timeline | dev.twitter.com</a></li>
       </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLocationTrends(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Trends
+      </span>
+      <span class="sympad">getLocationTrends</span>
+      <span class="normal">(int woeid)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 10 trending topics for a specific location Twitter has trending 
+ topic information for. The response is an array of "trend" objects that encode 
+ the name of the trending topic, the query parameter that can be used to search 
+ for the topic on Search, and the direct URL that can be issued against Search. 
+ This information is cached for five minutes, and therefore users are discouraged 
+ from querying these endpoints faster than once every five minutes.  
+ Global trends information is also available from this API by using a WOEID of 1.
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>woeid</td>
+          <td>The WOEID of the location to be querying for</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>trends</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>TwitterException</td>
+            <td></td>
+        </tr>
+      </table>
   </div>
 
     </div>
@@ -3929,54 +3999,6 @@ From interface
 </div>
 
 
-<A NAME="getTrends()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        Trends
-      </span>
-      <span class="sympad">getTrends</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the top ten topics that are currently trending on Twitter. The
- response includes the time of the request, the name of each trend, and the url
- to the Twitter Search results page for that topic.
- <p/>
- </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>a Trends object</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>TwitterException</td>
-            <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
 <A NAME="getTwitterClient()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -4436,7 +4458,7 @@ From interface
 </div>
 
 
-<A NAME="requestAuthorization()"></A>
+<A NAME="requestAuthorization(java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4449,7 +4471,7 @@ From interface
         String
       </span>
       <span class="sympad">requestAuthorization</span>
-      <span class="normal">()</span>
+      <span class="normal">(String callbackUrl)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4464,6 +4486,15 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Start the OAuth request authorization process.
  <p/>
  </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>callbackUrl</td>
+          <td>The url to be requested when the user authorizes this app</td>
+        </tr>
+      </table>
+  </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>The user authorization URL.</li></ul>
