@@ -116,17 +116,18 @@
            streetAddress="[header:address]"/>
 <!-- END_INCLUDE(twitter:createPlace) -->
 
-<!-- BEGIN_INCLUDE(twitter:getCurrentTrends) -->
-      <twitter:get-current-trends excludeHashtags="true" />
-<!-- END_INCLUDE(twitter:getCurrentTrends) -->
+<!-- BEGIN_INCLUDE(twitter:getAvailableTrends) -->
+      <twitter:get-available-trends latitude="#[header:latitude]"
+                                    longitude="#[header:longitude]" />
+<!-- END_INCLUDE(twitter:getAvailableTrends) -->
+
+<!-- BEGIN_INCLUDE(twitter:getLocationTrends) -->
+      <twitter:get-location-trends woeid="1" />
+<!-- END_INCLUDE(twitter:getLocationTrends) -->
 
 <!-- BEGIN_INCLUDE(twitter:getDailyTrends) -->
       <twitter:get-daily-trends />
 <!-- END_INCLUDE(twitter:getDailyTrends) -->
-
-<!-- BEGIN_INCLUDE(twitter:getTrends) -->
-      <twitter:get-trends/>
-<!-- END_INCLUDE(twitter:getTrends) -->
 
 <!-- BEGIN_INCLUDE(twitter:getWeeklyTrends) -->
       <twitter:get-weekly-trends/>

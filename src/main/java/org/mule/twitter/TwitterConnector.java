@@ -38,6 +38,7 @@ import twitter4j.FilterQuery;
 import twitter4j.GeoLocation;
 import twitter4j.GeoQuery;
 import twitter4j.IDs;
+import twitter4j.Location;
 import twitter4j.Paging;
 import twitter4j.Place;
 import twitter4j.Query;
@@ -859,12 +860,13 @@ public class TwitterConnector implements MuleContextAware {
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:requestAuthorization}
      *
+     * @param callbackUrl the url to be requested when the user authorizes this app
      * @return The user authorization URL.
      * @throws TwitterException
      */
     @Processor
-    public String requestAuthorization() throws TwitterException {
-        RequestToken token = twitter.getOAuthRequestToken();
+    public String requestAuthorization(@Optional String callbackUrl) throws TwitterException {
+        RequestToken token = twitter.getOAuthRequestToken(callbackUrl);
         return token.getAuthorizationURL();
     }
 
@@ -969,22 +971,53 @@ public class TwitterConnector implements MuleContextAware {
     }
 
     /**
-     * Returns the current top 10 trending topics on Twitter. The response includes
-     * the time of the request, the name of each trending topic, and query used on
-     * Twitter Search results page for that topic.
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getCurrentTrends}
+     * Returns the sorted locations that Twitter has trending topic information for. 
+     * The response is an array of &quot;locations&quot; that encode the location's WOEID 
+     * (a <a href="http://developer.yahoo.com/geo/geoplanet/">Yahoo! Where On Earth ID</a>) 
+     * and some other human-readable information such as a canonical name and country the 
+     * location belongs in.
+     * <br>The available trend locations will be sorted by distance to the lat 
+     * and long passed in. The sort is nearest to furthest.
      *
-     * @param excludeHashtags whether all hashtags shoudl be removed from the trends list.
-     * @return a {@link Trends} object
+     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getAvailableTrends}
+     * 
+     * @param latitude the latitude
+     * @param longitude the longitude
+     * @return the {@link Location}s
      * @throws TwitterException
      */
     @Processor
-    public Trends getCurrentTrends(@Optional @Default("false") boolean excludeHashtags)
+    public ResponseList<Location> getAvailableTrends(@Optional Double latitude, 
+                                                     @Optional Double longitude) 
             throws TwitterException {
-        return twitter.getCurrentTrends(excludeHashtags);
+        
+        if(latitude != null && longitude != null) {
+            return twitter.getAvailableTrends(new GeoLocation(latitude, longitude));
+        }
+        
+        return twitter.getAvailableTrends();
     }
 
+    /**
+     * Returns the top 10 trending topics for a specific location Twitter has trending 
+     * topic information for. The response is an array of "trend" objects that encode 
+     * the name of the trending topic, the query parameter that can be used to search 
+     * for the topic on Search, and the direct URL that can be issued against Search. 
+     * This information is cached for five minutes, and therefore users are discouraged 
+     * from querying these endpoints faster than once every five minutes.  
+     * Global trends information is also available from this API by using a WOEID of 1.
+     *
+     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getLocationTrends}
+     * 
+     * @param woeid The WOEID of the location to be querying for
+     * @return trends
+     * @throws TwitterException
+     */
+    @Processor
+    public Trends getLocationTrends(@Optional @Default(value = "1") int woeid) 
+            throws TwitterException {
+        return twitter.getLocationTrends(woeid);
+    }
     /**
      * Returns the top 20 trending topics for each hour in a given day.
      * <p/>
@@ -1001,21 +1034,6 @@ public class TwitterConnector implements MuleContextAware {
                                        @Optional @Default("false") boolean excludeHashTags)
             throws TwitterException {
         return twitter.getDailyTrends(date, excludeHashTags);
-    }
-
-    /**
-     * Returns the top ten topics that are currently trending on Twitter. The
-     * response includes the time of the request, the name of each trend, and the url
-     * to the Twitter Search results page for that topic.
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getTrends}
-     *
-     * @return a {@link Trends} object
-     * @throws TwitterException
-     */
-    @Processor
-    public Trends getTrends() throws TwitterException {
-        return twitter.getTrends();
     }
 
     /**

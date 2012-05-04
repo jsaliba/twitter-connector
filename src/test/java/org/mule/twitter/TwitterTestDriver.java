@@ -55,12 +55,7 @@ public class TwitterTestDriver extends AbstractMuleTestCase
 
     public void testGetTrends() throws Exception
     {
-        assertNotNull(connector.getTrends());
-    }
-
-    public void testGetMessages() throws Exception
-    {
-        assertNotNull(connector.getCurrentTrends(true));
+        assertNotNull(connector.getLocationTrends(1));
     }
 
     public void testPublicTimeline() throws Exception
@@ -83,7 +78,7 @@ public class TwitterTestDriver extends AbstractMuleTestCase
         long id = connector.updateStatus("Foo bar baz " + new Date(), -1, null, null).getId();
         assertTrue(connector.showStatus(id).getText().contains("Foo bar baz"));
     }
-
+    
     /** Run only one of those tests per connector instance */
     public void testSampleStream() throws Exception
     {

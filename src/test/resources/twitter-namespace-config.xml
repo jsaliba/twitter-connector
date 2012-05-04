@@ -124,16 +124,17 @@
         <twitter:reverse-geo-code latitude="#[header:latitud]" longitude="#[header:longitude]"/>
     </flow>
 
-    <flow name="CurrentTrends">
-        <twitter:get-current-trends excludeHashtags="true"/>
+    <flow name="AvailableTrends">
+        <twitter:get-available-trends latitude="#[header:latitude]"
+                                      longitude="#[header:longitude]" />
     </flow>
 
+    <flow name="LocationTrends">
+        <twitter:get-location-trends woeid="#[header:woeid]" />
+    </flow>  
+    
     <flow name="DailyTrends">
         <twitter:get-daily-trends/>
-    </flow>
-
-    <flow name="GetTrends">
-        <twitter:get-trends/>
     </flow>
 
     <flow name="WeeklyTrends">
