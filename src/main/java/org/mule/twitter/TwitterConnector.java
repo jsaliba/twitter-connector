@@ -196,11 +196,11 @@ public class TwitterConnector implements MuleContextAware {
     public QueryResult search(String query,
                               @Optional String lang,
                               @Optional String locale,
-                              @Optional long maxId,
-                              @Optional int rpp,
-                              @Optional int page,
+                              @Optional Long maxId,
+                              @Optional Integer rpp,
+                              @Optional Integer page,
                               @Optional String since,
-                              @Optional long sinceId,
+                              @Optional Long sinceId,
                               @Optional String geocode,
                               @Optional String radius,
                               @Default (value = Query.MILES) @Optional String unit,
@@ -216,25 +216,25 @@ public class TwitterConnector implements MuleContextAware {
         {
             q.setLocale(locale);
         }
-        if (maxId != 0)
+        if (maxId != null && maxId.longValue() != 0 )
         {
-            q.setMaxId(maxId);
+            q.setMaxId(maxId.longValue());
         }
-        if (rpp != 0)
+        if (rpp != null && rpp.intValue() != 0 )
         {
-            q.setRpp(rpp);
+            q.setRpp(rpp.intValue());
         }
-        if (page != 0)
+        if (page != null && page.intValue() != 0)
         {
-            q.setPage(page);
+            q.setPage(page.intValue());
         }
         if (since != null)
         {
             q.setSince(since);
         }
-        if (sinceId != 0)
+        if (sinceId != null && sinceId.longValue() != 0)
         {
-            q.setSinceId(sinceId);
+            q.setSinceId(sinceId.longValue());
         }
         if (geocode != null)
         {

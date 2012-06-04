@@ -49,7 +49,7 @@ public class TwitterTestDriver extends AbstractMuleTestCase
 
     public void testSearch() throws Exception
     {
-        assertNotNull(connector.search("world", null, null, 0, 0, 0, "2012-04-23", 0,
+        assertNotNull(connector.search("world", null, null, 0L, 0, 0, "2012-04-23", 0L,
             "37.781157,-122.398720", "25", "mi", null, "mixed"));
     }
 
