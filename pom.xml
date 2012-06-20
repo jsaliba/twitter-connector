@@ -10,7 +10,7 @@
      <parent>
         <groupId>org.mule.tools.devkit</groupId>
         <artifactId>mule-devkit-parent</artifactId>
-        <version>3.3-RC3</version>
+        <version>3.3.0</version>
     </parent>
 
     <dependencies>
@@ -49,12 +49,6 @@
             <version>${mule.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-module-ibeans</artifactId>
-			<version>${mule.version}</version>
-			<scope>test</scope>
-	    </dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
