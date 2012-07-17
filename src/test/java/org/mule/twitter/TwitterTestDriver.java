@@ -14,14 +14,13 @@
 
 package org.mule.twitter;
 
+import org.mule.api.callback.SourceCallback;
+import org.mule.tck.AbstractMuleTestCase;
+import twitter4j.Status;
+
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
-
-import org.mule.api.callback.SourceCallback;
-import org.mule.tck.AbstractMuleTestCase;
-
-import twitter4j.Status;
 
 public class TwitterTestDriver extends AbstractMuleTestCase
 {
@@ -44,7 +43,7 @@ public class TwitterTestDriver extends AbstractMuleTestCase
         connector.setAccessKey(System.getenv("accessKey"));
         connector.setAccessSecret(System.getenv("accessSecret"));
         connector.setUseSSL(true);
-        connector.initialise();
+        connector.init();
     }
 
     public void testSearch() throws Exception

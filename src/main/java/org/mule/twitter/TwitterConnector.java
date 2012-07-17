@@ -9,12 +9,6 @@
  */
 package org.mule.twitter;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.PostConstruct;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.UnhandledException;
 import org.apache.commons.logging.Log;
@@ -32,7 +26,6 @@ import org.mule.api.annotations.param.Optional;
 import org.mule.api.callback.SourceCallback;
 import org.mule.api.context.MuleContextAware;
 import org.mule.twitter.UserEvent.EventType;
-
 import twitter4j.DirectMessage;
 import twitter4j.FilterQuery;
 import twitter4j.GeoLocation;
@@ -62,6 +55,11 @@ import twitter4j.auth.RequestToken;
 import twitter4j.conf.ConfigurationBuilder;
 import twitter4j.internal.http.alternative.HttpClientHiddenConstructionArgument;
 import twitter4j.internal.http.alternative.MuleHttpClient;
+
+import javax.annotation.PostConstruct;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Twitter is an online social networking service and microblogging service that enables its users to send and read
@@ -152,7 +150,7 @@ public class TwitterConnector implements MuleContextAware {
     private String proxyPassword;
 
     @PostConstruct
-    public void initialise() {
+    public void init() {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setUseSSL(useSSL);
         cb.setHttpProxyHost(proxyHost);
@@ -836,8 +834,7 @@ public class TwitterConnector implements MuleContextAware {
      *      href="http://dev.twitter.com/doc/get/statuses/:id/retweeted_by/ids">GET
      *      statuses/:id/retweeted_by/ids | dev.twitter.com</a>
      */
-    @Processor
-    @FriendlyName("Get retweeted by IDs")
+    @Processor(friendlyName = "Get retweeted by IDs")
     public IDs getRetweetedByIDs(long statusId,
                                  @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
                                  @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
@@ -951,7 +948,7 @@ public class TwitterConnector implements MuleContextAware {
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:createPlace}
      *
-     * @param name            The name a place is known as.
+     * @param placeName            The placeName a place is known as.
      * @param containedWithin The place_id within which the new place can be found.
      *                        Try and be as close as possible with the containing place. For
      *                        example, for a room in a building, set the contained_within as the
@@ -967,13 +964,13 @@ public class TwitterConnector implements MuleContextAware {
      * @throws TwitterException
      */
     @Processor
-    public Place createPlace(String name,
+    public Place createPlace(String placeName,
                              String containedWithin,
                              String token,
                              @Placement(group = "Coordinates") Double latitude,
                              @Placement(group = "Coordinates") Double longitude,
                              @Optional String streetAddress) throws TwitterException {
-        return twitter.createPlace(name, containedWithin, token, new GeoLocation(latitude, longitude),
+        return twitter.createPlace(placeName, containedWithin, token, new GeoLocation(latitude, longitude),
                 streetAddress);
     }
 
