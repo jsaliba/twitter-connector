@@ -16,7 +16,7 @@
       xmlns:twitter="http://www.mulesoft.org/schema/mule/twitter"
       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                           http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.2/mule.xsd
-                          http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/2.3/mule-twitter.xsd">
+                          http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/2.4/mule-twitter.xsd">
 
     <twitter:config consumerKey="${twitter.consumer.key}" consumerSecret="${twitter.consumer.secret}"/>
 
@@ -149,7 +149,7 @@
         <twitter:create-place
                 token="#[header:token]"
                 containedWithin="#[header:containedWithin]"
-                name="#[header:placeName]"
+                placeName="#[header:placeName]"
                 latitude="#[header:latitude]"
                 longitude="#[header:longitude]"
                 streetAddress="[header:address]"/>
