@@ -734,7 +734,7 @@ Summary:
             Place</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#createPlace(java.lang.String, java.lang.String, java.lang.String, java.lang.Double, java.lang.Double, java.lang.String)">createPlace</a></span>(String name, String containedWithin, String token, Double latitude, Double longitude, String streetAddress)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#createPlace(java.lang.String, java.lang.String, java.lang.String, java.lang.Double, java.lang.Double, java.lang.String)">createPlace</a></span>(String placeName, String containedWithin, String token, Double latitude, Double longitude, String streetAddress)</nobr>
         
         <div class="jd-descrdiv">Creates a new place at the given latitude and longitude.</div>
   
@@ -1229,7 +1229,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#initialise()">initialise</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#init()">init</a></span>()</nobr>
         
   </td></tr>
 
@@ -2518,7 +2518,7 @@ From interface
         Place
       </span>
       <span class="sympad">createPlace</span>
-      <span class="normal">(String name, String containedWithin, String token, Double latitude, Double longitude, String streetAddress)</span>
+      <span class="normal">(String placeName, String containedWithin, String token, Double latitude, Double longitude, String streetAddress)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2537,8 +2537,8 @@ From interface
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>name</td>
-          <td>The name a place is known as.</td>
+          <th>placeName</td>
+          <td>The placeName a place is known as.</td>
         </tr>
         <tr>
           <th>containedWithin</td>
@@ -4375,7 +4375,7 @@ From interface
 </div>
 
 
-<A NAME="initialise()"></A>
+<A NAME="init()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4387,7 +4387,7 @@ From interface
          
         void
       </span>
-      <span class="sympad">initialise</span>
+      <span class="sympad">init</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">

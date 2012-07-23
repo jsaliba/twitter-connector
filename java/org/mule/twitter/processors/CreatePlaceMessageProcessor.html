@@ -721,7 +721,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/CreatePlaceMessageProcessor.html#_nameType">_nameType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/CreatePlaceMessageProcessor.html#_placeNameType">_placeNameType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -849,9 +849,11 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/CreatePlaceMessageProcessor.html#name">name</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          TemplateParser.PatternInfo</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/CreatePlaceMessageProcessor.html#patternInfo">patternInfo</a></td>
+          <td class="jd-descrcol" width="100%">Mule Pattern Info
+ 
+</td>
       </tr>
       
     
@@ -860,11 +862,9 @@ org.mule.api.lifecycle.Stoppable
           private
           
           
-          TemplateParser.PatternInfo</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/CreatePlaceMessageProcessor.html#patternInfo">patternInfo</a></td>
-          <td class="jd-descrcol" width="100%">Mule Pattern Info
- 
-</td>
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/CreatePlaceMessageProcessor.html#placeName">placeName</a></td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -1128,9 +1128,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/CreatePlaceMessageProcessor.html#setName(java.lang.Object)">setName</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/CreatePlaceMessageProcessor.html#setPlaceName(java.lang.Object)">setPlaceName</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Sets name</div>
+        <div class="jd-descrdiv">Sets placeName</div>
   
   </td></tr>
 
@@ -1853,7 +1853,7 @@ From interface
 
 
 
-<A NAME="_nameType"></A>
+<A NAME="_placeNameType"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1863,7 +1863,7 @@ From interface
          
         String
       </span>
-        _nameType
+        _placeNameType
     </h4>
       <div class="api-level">
         
@@ -2191,36 +2191,6 @@ From interface
 
 
 
-<A NAME="name"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-         
-         
-        Object
-      </span>
-        name
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
 <A NAME="patternInfo"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2246,6 +2216,36 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Mule Pattern Info
  
 </p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="placeName"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        Object
+      </span>
+        placeName
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -2798,7 +2798,7 @@ From interface
 </div>
 
 
-<A NAME="setName(java.lang.Object)"></A>
+<A NAME="setPlaceName(java.lang.Object)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2810,7 +2810,7 @@ From interface
          
         void
       </span>
-      <span class="sympad">setName</span>
+      <span class="sympad">setPlaceName</span>
       <span class="normal">(Object value)</span>
     </h4>
       <div class="api-level">
@@ -2823,7 +2823,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets name</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets placeName</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
