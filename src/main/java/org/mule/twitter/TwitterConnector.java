@@ -720,7 +720,7 @@ public class TwitterConnector implements MuleContextAware {
         if (latitude != null && longitude != null) {
             update.setLocation(new GeoLocation(latitude, longitude));
         }
-        Status response = twitter.updateStatus(status);
+        Status response = twitter.updateStatus(update);
         
         //Twitter4j doesn't throw exception when json reponse has 'error: Could not authenticate with OAuth'
         if (response.getId() == -1)
