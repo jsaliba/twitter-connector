@@ -13,6 +13,12 @@
         <version>3.3.0</version>
     </parent>
 
+    <properties>
+        <category>category*</category>
+        <licensePath>LICENSE.md</licensePath>
+        <devkit.studio.package.skip>false</devkit.studio.package.skip>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.mule.transports</groupId>
