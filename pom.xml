@@ -14,7 +14,7 @@
     </parent>
 
     <properties>
-        <category>category*</category>
+        <category>Community</category>
         <licensePath>LICENSE.md</licensePath>
         <devkit.studio.package.skip>false</devkit.studio.package.skip>
     </properties>
