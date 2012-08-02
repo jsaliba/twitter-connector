@@ -861,7 +861,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getHomeTimeline(int, int, int)">getHomeTimeline</a></span>(int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getHomeTimeline(int, int, long)">getHomeTimeline</a></span>(int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent statuses, including retweets, posted by the
  authenticating user and that user's friends.</div>
@@ -899,7 +899,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getMentions(int, int, int)">getMentions</a></span>(int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getMentions(int, int, long)">getMentions</a></span>(int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent mentions (status containing @username) for the
  authenticating user.</div>
@@ -937,7 +937,7 @@ Summary:
             ResponseList&lt;User&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedBy(long, int, int, int)">getRetweetedBy</a></span>(long statusId, int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedBy(long, int, int, long)">getRetweetedBy</a></span>(long statusId, int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Show user objects of up to 100 members who retweeted the status.</div>
   
@@ -955,7 +955,7 @@ Summary:
             IDs</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByIDs(long, int, int, int)">getRetweetedByIDs</a></span>(long statusId, int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByIDs(long, int, int, long)">getRetweetedByIDs</a></span>(long statusId, int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Show user ids of up to 100 users who retweeted the status represented by id <br />
  This method calls
@@ -977,7 +977,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByMe(int, int, int)">getRetweetedByMe</a></span>(int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByMe(int, int, long)">getRetweetedByMe</a></span>(int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the authenticating user.</div>
   
@@ -995,7 +995,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByUserByScreenName(java.lang.String, int, int, int)">getRetweetedByUserByScreenName</a></span>(String screenName, int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByUserByScreenName(java.lang.String, int, int, long)">getRetweetedByUserByScreenName</a></span>(String screenName, int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the specified user.</div>
   
@@ -1013,7 +1013,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByUserByUserId(long, int, int, int)">getRetweetedByUserByUserId</a></span>(long userId, int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByUserByUserId(long, int, int, long)">getRetweetedByUserByUserId</a></span>(long userId, int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the specified user.</div>
   
@@ -1031,7 +1031,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedToMe(int, int, int)">getRetweetedToMe</a></span>(int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedToMe(int, int, long)">getRetweetedToMe</a></span>(int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the authenticating user's
  friends.</div>
@@ -1050,7 +1050,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedToUserByScreenName(java.lang.String, int, int, int)">getRetweetedToUserByScreenName</a></span>(String screenName, int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedToUserByScreenName(java.lang.String, int, int, long)">getRetweetedToUserByScreenName</a></span>(String screenName, int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent retweets posted by users the specified user
  follows.</div>
@@ -1069,7 +1069,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedToUserByUserId(long, int, int, int)">getRetweetedToUserByUserId</a></span>(long userId, int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedToUserByUserId(long, int, int, long)">getRetweetedToUserByUserId</a></span>(long userId, int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent retweets posted by users the specified user
  follows.</div>
@@ -1106,7 +1106,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetsOfMe(int, int, int)">getRetweetsOfMe</a></span>(int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetsOfMe(int, int, long)">getRetweetsOfMe</a></span>(int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent tweets of the authenticated user that have been
  retweeted by others.</div>
@@ -1157,7 +1157,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getUserTimeline(int, int, int)">getUserTimeline</a></span>(int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getUserTimeline(int, int, long)">getUserTimeline</a></span>(int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.</div>
   
@@ -1175,7 +1175,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getUserTimelineByScreenName(java.lang.String, int, int, int)">getUserTimelineByScreenName</a></span>(String screenName, int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getUserTimelineByScreenName(java.lang.String, int, int, long)">getUserTimelineByScreenName</a></span>(String screenName, int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.</div>
   
@@ -1193,7 +1193,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getUserTimelineByUserId(long, int, int, int)">getUserTimelineByUserId</a></span>(long userId, int page, int count, int sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getUserTimelineByUserId(long, int, int, long)">getUserTimelineByUserId</a></span>(long userId, int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.</div>
   
@@ -2950,7 +2950,7 @@ From interface
 </div>
 
 
-<A NAME="getHomeTimeline(int, int, int)"></A>
+<A NAME="getHomeTimeline(int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2963,7 +2963,7 @@ From interface
         ResponseList&lt;Status&gt;
       </span>
       <span class="sympad">getHomeTimeline</span>
-      <span class="normal">(int page, int count, int sinceId)</span>
+      <span class="normal">(int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3091,7 +3091,7 @@ From interface
 </div>
 
 
-<A NAME="getMentions(int, int, int)"></A>
+<A NAME="getMentions(int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3104,7 +3104,7 @@ From interface
         ResponseList&lt;Status&gt;
       </span>
       <span class="sympad">getMentions</span>
-      <span class="normal">(int page, int count, int sinceId)</span>
+      <span class="normal">(int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3222,7 +3222,7 @@ From interface
 </div>
 
 
-<A NAME="getRetweetedBy(long, int, int, int)"></A>
+<A NAME="getRetweetedBy(long, int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3235,7 +3235,7 @@ From interface
         ResponseList&lt;User&gt;
       </span>
       <span class="sympad">getRetweetedBy</span>
-      <span class="normal">(long statusId, int page, int count, int sinceId)</span>
+      <span class="normal">(long statusId, int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3300,7 +3300,7 @@ From interface
 </div>
 
 
-<A NAME="getRetweetedByIDs(long, int, int, int)"></A>
+<A NAME="getRetweetedByIDs(long, int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3313,7 +3313,7 @@ From interface
         IDs
       </span>
       <span class="sympad">getRetweetedByIDs</span>
-      <span class="normal">(long statusId, int page, int count, int sinceId)</span>
+      <span class="normal">(long statusId, int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3380,7 +3380,7 @@ From interface
 </div>
 
 
-<A NAME="getRetweetedByMe(int, int, int)"></A>
+<A NAME="getRetweetedByMe(int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3393,7 +3393,7 @@ From interface
         ResponseList&lt;Status&gt;
       </span>
       <span class="sympad">getRetweetedByMe</span>
-      <span class="normal">(int page, int count, int sinceId)</span>
+      <span class="normal">(int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3454,7 +3454,7 @@ From interface
 </div>
 
 
-<A NAME="getRetweetedByUserByScreenName(java.lang.String, int, int, int)"></A>
+<A NAME="getRetweetedByUserByScreenName(java.lang.String, int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3467,7 +3467,7 @@ From interface
         ResponseList&lt;Status&gt;
       </span>
       <span class="sympad">getRetweetedByUserByScreenName</span>
-      <span class="normal">(String screenName, int page, int count, int sinceId)</span>
+      <span class="normal">(String screenName, int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3537,7 +3537,7 @@ From interface
 </div>
 
 
-<A NAME="getRetweetedByUserByUserId(long, int, int, int)"></A>
+<A NAME="getRetweetedByUserByUserId(long, int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3550,7 +3550,7 @@ From interface
         ResponseList&lt;Status&gt;
       </span>
       <span class="sympad">getRetweetedByUserByUserId</span>
-      <span class="normal">(long userId, int page, int count, int sinceId)</span>
+      <span class="normal">(long userId, int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3620,7 +3620,7 @@ From interface
 </div>
 
 
-<A NAME="getRetweetedToMe(int, int, int)"></A>
+<A NAME="getRetweetedToMe(int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3633,7 +3633,7 @@ From interface
         ResponseList&lt;Status&gt;
       </span>
       <span class="sympad">getRetweetedToMe</span>
-      <span class="normal">(int page, int count, int sinceId)</span>
+      <span class="normal">(int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3696,7 +3696,7 @@ From interface
 </div>
 
 
-<A NAME="getRetweetedToUserByScreenName(java.lang.String, int, int, int)"></A>
+<A NAME="getRetweetedToUserByScreenName(java.lang.String, int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3709,7 +3709,7 @@ From interface
         ResponseList&lt;Status&gt;
       </span>
       <span class="sympad">getRetweetedToUserByScreenName</span>
-      <span class="normal">(String screenName, int page, int count, int sinceId)</span>
+      <span class="normal">(String screenName, int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3779,7 +3779,7 @@ From interface
 </div>
 
 
-<A NAME="getRetweetedToUserByUserId(long, int, int, int)"></A>
+<A NAME="getRetweetedToUserByUserId(long, int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3792,7 +3792,7 @@ From interface
         ResponseList&lt;Status&gt;
       </span>
       <span class="sympad">getRetweetedToUserByUserId</span>
-      <span class="normal">(long userId, int page, int count, int sinceId)</span>
+      <span class="normal">(long userId, int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3924,7 +3924,7 @@ From interface
 </div>
 
 
-<A NAME="getRetweetsOfMe(int, int, int)"></A>
+<A NAME="getRetweetsOfMe(int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3937,7 +3937,7 @@ From interface
         ResponseList&lt;Status&gt;
       </span>
       <span class="sympad">getRetweetsOfMe</span>
-      <span class="normal">(int page, int count, int sinceId)</span>
+      <span class="normal">(int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4061,7 +4061,7 @@ From interface
 </div>
 
 
-<A NAME="getUserTimeline(int, int, int)"></A>
+<A NAME="getUserTimeline(int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4074,7 +4074,7 @@ From interface
         ResponseList&lt;Status&gt;
       </span>
       <span class="sympad">getUserTimeline</span>
-      <span class="normal">(int page, int count, int sinceId)</span>
+      <span class="normal">(int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4143,7 +4143,7 @@ From interface
 </div>
 
 
-<A NAME="getUserTimelineByScreenName(java.lang.String, int, int, int)"></A>
+<A NAME="getUserTimelineByScreenName(java.lang.String, int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4156,7 +4156,7 @@ From interface
         ResponseList&lt;Status&gt;
       </span>
       <span class="sympad">getUserTimelineByScreenName</span>
-      <span class="normal">(String screenName, int page, int count, int sinceId)</span>
+      <span class="normal">(String screenName, int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4229,7 +4229,7 @@ From interface
 </div>
 
 
-<A NAME="getUserTimelineByUserId(long, int, int, int)"></A>
+<A NAME="getUserTimelineByUserId(long, int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -4242,7 +4242,7 @@ From interface
         ResponseList&lt;Status&gt;
       </span>
       <span class="sympad">getUserTimelineByUserId</span>
-      <span class="normal">(long userId, int page, int count, int sinceId)</span>
+      <span class="normal">(long userId, int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
         <div>
