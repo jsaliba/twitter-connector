@@ -1,7 +1,9 @@
 org.mule.twitter
 org.mule.twitter.adapters
+org.mule.twitter.agents
 org.mule.twitter.config
 org.mule.twitter.config.spring
+org.mule.twitter.process
 org.mule.twitter.processors
 org.mule.twitter.sources
 org.mule.twitter.transformers
