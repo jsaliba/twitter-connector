@@ -110,7 +110,7 @@
       <twitter:create-place
            token="#[header:token]"
            containedWithin="#[header:containedWithin]"
-           name="#[header:placeName]"
+           placeName="#[header:placeName]"
            latitude="#[header:latitude]"
            longitude="#[header:longitude]"
            streetAddress="[header:address]"/>

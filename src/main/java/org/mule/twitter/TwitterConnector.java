@@ -1487,6 +1487,42 @@ public class TwitterConnector implements MuleContextAware {
         this.proxyPassword = proxyPassword;
     }
 
+    public String getConsumerKey() {
+        return consumerKey;
+    }
+
+    public String getConsumerSecret() {
+        return consumerSecret;
+    }
+
+    public String getAccessKey() {
+        return accessKey;
+    }
+
+    public String getAccessSecret() {
+        return accessSecret;
+    }
+
+    public boolean isUseSSL() {
+        return useSSL;
+    }
+
+    public String getProxyHost() {
+        return proxyHost;
+    }
+
+    public int getProxyPort() {
+        return proxyPort;
+    }
+
+    public String getProxyUsername() {
+        return proxyUsername;
+    }
+
+    public String getProxyPassword() {
+        return proxyPassword;
+    }
+
     static final class SoftCallback implements SourceCallback {
         private final SourceCallback callback;
 
