@@ -187,7 +187,7 @@ public class TwitterConnector implements MuleContextAware {
      * @param until If specified, returns tweets with generated before the given date. Date should be formatted as YYYY-MM-DD
      * @param resultType If specified, returns tweets included popular or real time or both in the responce. Both by default. Can be 'mixed', 'popular' or 'recent'.
      * @return the {@link QueryResult}
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public QueryResult search(String query,
@@ -680,7 +680,7 @@ public class TwitterConnector implements MuleContextAware {
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:showUser}
      *
      * @return a {@link User} object
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public User showUser() throws TwitterException {
@@ -849,7 +849,7 @@ public class TwitterConnector implements MuleContextAware {
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:setOauthVerifier}
      *
      * @param oauthVerifier The OAuth verifier code from Twitter.
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public void setOauthVerifier(String oauthVerifier) throws TwitterException {
@@ -865,7 +865,7 @@ public class TwitterConnector implements MuleContextAware {
      *
      * @param callbackUrl the url to be requested when the user authorizes this app
      * @return The user authorization URL.
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public String requestAuthorization(@Optional String callbackUrl) throws TwitterException {
@@ -890,7 +890,7 @@ public class TwitterConnector implements MuleContextAware {
      * @param longitude longitude coordinate.
      * @param ip        the ip. Mandatory if coordinates are not specified
      * @return a {@link ResponseList} of {@link Place}
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public ResponseList<Place> reverseGeoCode(@Placement(group = "Coordinates") @Optional Double latitude,
@@ -910,7 +910,7 @@ public class TwitterConnector implements MuleContextAware {
      * @param longitude longitude coordinate.
      * @param ip        the ip. Mandatory if coordinates are not specified
      * @return a {@link ResponseList} of {@link Place}
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public ResponseList<Place> searchPlaces(@Placement(group = "Coordinates") @Optional Double latitude,
@@ -935,7 +935,7 @@ public class TwitterConnector implements MuleContextAware {
      *
      * @param id The ID of the location to query about.
      * @return a {@link Place}
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public Place getGeoDetails(String id) throws TwitterException {
@@ -960,7 +960,7 @@ public class TwitterConnector implements MuleContextAware {
      *                        application specific attributes available. Custom attributes are
      *                        also permitted. Learn more about Place Attributes.
      * @return a new {@link Place}
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public Place createPlace(String placeName,
@@ -987,7 +987,7 @@ public class TwitterConnector implements MuleContextAware {
      * @param latitude the latitude
      * @param longitude the longitude
      * @return the {@link Location}s
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public ResponseList<Location> getAvailableTrends(@Optional Double latitude, 
@@ -1014,7 +1014,7 @@ public class TwitterConnector implements MuleContextAware {
      * 
      * @param woeid The WOEID of the location to be querying for
      * @return trends
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public Trends getLocationTrends(@Optional @Default(value = "1") int woeid) 
@@ -1030,7 +1030,7 @@ public class TwitterConnector implements MuleContextAware {
      *                        date is used
      * @param excludeHashTags whether hashtags should be excluded
      * @return a list of {@link Trends} objects
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public List<Trends> getDailyTrends(@Optional Date date,
@@ -1048,7 +1048,7 @@ public class TwitterConnector implements MuleContextAware {
      *                        date is used
      * @param excludeHashTags if all hashtags should be removed from the trends list.
      * @return a list of {@link Trends} objects
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public List<Trends> getWeeklyTrends(@Optional Date date,
@@ -1348,7 +1348,7 @@ public class TwitterConnector implements MuleContextAware {
      * @param screenName The screen name of the user to whom send the direct message
      * @param message    The text of your direct message
      * @return the {@link DirectMessage}
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public DirectMessage sendDirectMessageByScreenName(String screenName, String message) throws TwitterException {
@@ -1365,7 +1365,7 @@ public class TwitterConnector implements MuleContextAware {
      * @param userId  The user ID of the user to whom send the direct message
      * @param message The text of your direct message
      * @return the {@link DirectMessage}
-     * @throws TwitterException
+     * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public DirectMessage sendDirectMessageByUserId(long userId, String message) throws TwitterException {
