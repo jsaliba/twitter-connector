@@ -66,7 +66,7 @@ import java.util.Map;
  *
  * @author MuleSoft, Inc.
  */
-@Module(name = "twitter", schemaVersion = "2.4", description = "Twitter Integration")
+@Module(name = "twitter", schemaVersion = "2.4", description = "Twitter Integration", friendlyName = "Twitter")
 public class TwitterConnector implements MuleContextAware {
 
     private static final String STREAM_BASE_URL = "https://stream.twitter.com/1/";
