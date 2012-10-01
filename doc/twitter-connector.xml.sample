@@ -82,9 +82,9 @@
         <twitter:get-retweeted-by-me />
 <!-- END_INCLUDE(twitter:getRetweetedBy) -->
 
-<!-- BEGIN_INCLUDE(twitter:getRetweetedByIDs) -->
-        <twitter:get-retweeted-by-i-ds statusId="321" />
-<!-- END_INCLUDE(twitter:getRetweetedByIDs) -->
+<!-- BEGIN_INCLUDE(twitter:getRetweetedByIds) -->
+        <twitter:get-retweeted-by-ids statusId="321" />
+<!-- END_INCLUDE(twitter:getRetweetedByIds) -->
 
 <!-- BEGIN_INCLUDE(twitter:setOauthVerifier) -->
         <twitter:set-oauth-verifier oauthVerifier="444" />

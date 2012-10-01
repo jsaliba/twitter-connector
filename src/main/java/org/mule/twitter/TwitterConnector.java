@@ -817,7 +817,7 @@ public class TwitterConnector implements MuleContextAware {
      * This method calls
      * http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
      * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getRetweetedByIDs}
+     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getRetweetedByIds}
      *
      * @param statusId The ID of the status you want to get retweeters of
      * @param page     Specifies the page of results to retrieve.
@@ -834,7 +834,7 @@ public class TwitterConnector implements MuleContextAware {
      *      statuses/:id/retweeted_by/ids | dev.twitter.com</a>
      */
     @Processor(friendlyName = "Get retweeted by IDs")
-    public IDs getRetweetedByIDs(long statusId,
+    public IDs getRetweetedByIds(long statusId,
                                  @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
                                  @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
                                  @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId) throws TwitterException {

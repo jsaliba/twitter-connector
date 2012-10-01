@@ -101,7 +101,7 @@
     </flow>
 
     <flow name="getRetweetedByIDs">
-        <twitter:get-retweeted-by-i-ds statusId="321"/>
+        <twitter:get-retweeted-by-ids statusId="321"/>
     </flow>
 
     <flow name="setOauthVerifier">
