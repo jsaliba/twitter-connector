@@ -434,7 +434,7 @@ This method calls http://api.twitter.com/1/statuses/home_timeline
             &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Specifies the number of records to retrieve. Must be less than or equal to 200.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -480,7 +480,7 @@ This method calls http://api.twitter.com/1/statuses/user_timeline.json
             &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -526,7 +526,7 @@ This method calls http://api.twitter.com/1/statuses/user_timeline.json
             &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -567,7 +567,7 @@ This method calls http://api.twitter.com/1/statuses/user_timeline.json
             &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -601,7 +601,7 @@ This method calls http://api.twitter.com/1/statuses/mentions
             &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -634,7 +634,7 @@ This method calls http://api.twitter.com/1/statuses/retweeted_by_me
             &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -668,7 +668,7 @@ This method calls http://api.twitter.com/1/statuses/retweeted_to_me
             &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -702,7 +702,7 @@ This method calls http://api.twitter.com/1/statuses/retweets_of_me
             &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -744,7 +744,7 @@ This method calls http://api.twitter.com/1/statuses/retweeted_to_user
             &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -786,7 +786,7 @@ This method calls http://api.twitter.com/1/statuses/retweeted_to_user
             &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -828,7 +828,7 @@ This method calls http://api.twitter.com/1/statuses/retweeted_by_user
             &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -870,7 +870,7 @@ This method calls http://api.twitter.com/1/statuses/retweeted_by_user
             &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
