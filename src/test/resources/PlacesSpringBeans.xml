@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="placeByIp" class="org.mule.twitter.automation.TestPlace">
+		<property name="ip" value="74.125.19.104" />
+	</bean>
+	
+	<bean id="placeByCoordinates" class="org.mule.twitter.automation.TestPlace">
+		<property name="latitude" value="-33.9769" />
+		<property name="longitude" value="18.5080" />
+	</bean>		
+	
+	<bean id="placeById" class="org.mule.twitter.automation.TestPlace">
+		<property name="id" value="8b9ec16fdc0d7e55" />
+	</bean>
+	
+	<bean id="placeByWOEID" class="org.mule.twitter.automation.TestPlace">
+		<property name="woeid" value="23424775" />
+	</bean>
+
+	<bean id="newPlace" class="org.mule.twitter.automation.TestPlace">
+		<property name="name" value="placeName" />
+		<property name="containedWithin" value="fbd6d2f5a4e4a15e" />
+		<property name="token" value="-33.9769" />
+		<property name="latitude" value="18.5080" />
+		<property name="longitude" value="-33.9769" />
+	</bean>
+
+</beans>
