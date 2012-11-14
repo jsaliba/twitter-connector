@@ -252,25 +252,6 @@ public class TwitterConnector implements MuleContextAware {
     }
 
     /**
-     * Returns the 20 most recent statuses from non-protected users who have set a
-     * custom user icon. The public timeline is cached for 60 seconds and requesting
-     * it more often than that is unproductive and a waste of resources. <br>
-     * This method calls http://api.twitter.com/1/statuses/public_timeline
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getPublicTimeline}
-     *
-     * @return list of {@link Status} of the Public Timeline
-     * @throws twitter4j.TwitterException when Twitter service or network is
-     *                                    unavailable
-     * @see <a href="http://dev.twitter.com/doc/get/statuses/public_timeline">GET
-     *      statuses/public_timeline | dev.twitter.com</a>
-     */
-    @Processor
-    public ResponseList<Status> getPublicTimeline() throws TwitterException {
-        return twitter.getPublicTimeline();
-    }
-
-    /**
      * Returns the 20 most recent statuses, including retweets, posted by the
      * authenticating user and that user's friends. This is the equivalent of
      * /timeline/home on the Web.<br>
