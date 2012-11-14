@@ -20,7 +20,7 @@ import org.mule.twitter.automation.testcases.*;
 		GetAvailableTrendsTestCases.class, GetDailyTrendsTestCases.class,
 		GetGeoDetailsTestCases.class, GetHomeTimelineTestCases.class,
 		GetLocationTrendsTestCases.class, GetMentionsTestCases.class,
-		GetPublicTimelineTestCases.class, GetRetweetedByIdsTestCases.class,
+		GetRetweetedByIdsTestCases.class,
 		GetRetweetedByMeTestCases.class, GetRetweetedByTestCases.class,
 		GetRetweetedByUserByScreenNameTestCases.class,
 		GetRetweetedByUserByUserIdTestCases.class,
