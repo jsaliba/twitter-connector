@@ -55,11 +55,6 @@ public class TwitterTestDriver extends AbstractMuleTestCase
         assertNotNull(connector.getLocationTrends(1));
     }
 
-    public void testPublicTimeline() throws Exception
-    {
-        assertNotNull(connector.getPublicTimeline());
-    }
-
     public void testSearchPlaces() throws Exception
     {
         assertNotNull(connector.searchPlaces(50.0, 50.0, null));
