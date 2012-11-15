@@ -24,10 +24,6 @@
         <twitter:search query="#[payload]"/>
     </flow>
 
-    <flow name="getPublicTimeline">
-        <twitter:get-public-timeline/>
-    </flow>
-
     <flow name="HomeTimeline">
         <twitter:get-home-timeline/>
     </flow>
