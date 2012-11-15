@@ -31,7 +31,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import twitter4j.Status;
 
 
-public class UpdateStatusTestCases extends TwitterTestCase {
+public class UpdateStatusTestCases extends TwitterTestParent {
 	
     @After
     public void tearDown() {

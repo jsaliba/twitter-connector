@@ -29,7 +29,7 @@ import twitter4j.Status;
 
 
 
-public class GetRetweetedToMeTestCases extends TwitterTestCase {
+public class GetRetweetedToMeTestCases extends TwitterTestParent {
     
     @Before
     public void setUp() {

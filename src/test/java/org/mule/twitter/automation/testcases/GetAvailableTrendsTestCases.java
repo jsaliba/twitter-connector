@@ -23,7 +23,7 @@ import twitter4j.ResponseList;
 
 
 
-public class GetAvailableTrendsTestCases extends TwitterTestCase {
+public class GetAvailableTrendsTestCases extends TwitterTestParent {
 	
     @Category({SanityTests.class, RegressionTests.class})
 	@Test

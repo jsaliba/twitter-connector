@@ -21,7 +21,7 @@ import org.mule.twitter.automation.TestPlace;
 import twitter4j.Place;
 import twitter4j.ResponseList;
 
-public class SearchPlacesTestCases extends TwitterTestCase {
+public class SearchPlacesTestCases extends TwitterTestParent {
     
     @Category({SanityTests.class, RegressionTests.class})
 	@Test

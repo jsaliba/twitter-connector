@@ -33,7 +33,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import twitter4j.ResponseList;
 import twitter4j.Status;
 
-public class GetHomeTimelineTestCases extends TwitterTestCase {
+public class GetHomeTimelineTestCases extends TwitterTestParent {
 	
     @Before
     public void setUp() {

@@ -19,7 +19,7 @@ import twitter4j.User;
 
 
 
-public class ShowUserTestCases extends TwitterTestCase {
+public class ShowUserTestCases extends TwitterTestParent {
      
     @Category({SmokeTests.class, SanityTests.class, RegressionTests.class})
 	@Test

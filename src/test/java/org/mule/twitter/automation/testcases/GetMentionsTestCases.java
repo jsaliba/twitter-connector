@@ -29,7 +29,7 @@ import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.User;
 
-public class GetMentionsTestCases extends TwitterTestCase {
+public class GetMentionsTestCases extends TwitterTestParent {
 		
     @Before
     public void setUp() {

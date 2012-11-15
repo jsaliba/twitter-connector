@@ -32,7 +32,7 @@ import twitter4j.Trends;
 
 
 
-public class GetWeeklyTrendsTestCases extends TwitterTestCase {
+public class GetWeeklyTrendsTestCases extends TwitterTestParent {
 	
     @Category({SanityTests.class, RegressionTests.class})
 	@Test

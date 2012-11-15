@@ -25,7 +25,7 @@ import twitter4j.Status;
 
 
 
-public class RetweetStatusTestCases extends TwitterTestCase {
+public class RetweetStatusTestCases extends TwitterTestParent {
 	
 	private TwitterSandbox sandbox;
     

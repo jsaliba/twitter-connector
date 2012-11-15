@@ -36,7 +36,7 @@ import twitter4j.Status;
 
 
 
-public class GetUserTimelineByUserIdTestCases extends TwitterTestCase {
+public class GetUserTimelineByUserIdTestCases extends TwitterTestParent {
 
 	private TwitterSandbox sandbox;
 

@@ -26,7 +26,7 @@ import twitter4j.Place;
 import twitter4j.ResponseList;
 import twitter4j.Trends;
 
-public class GetGeoDetailsTestCases extends TwitterTestCase {
+public class GetGeoDetailsTestCases extends TwitterTestParent {
     
     @Category({SanityTests.class, RegressionTests.class})
 	@Test

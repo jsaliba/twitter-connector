@@ -27,7 +27,7 @@ import org.mule.twitter.automation.TwitterTestUtils;
 import twitter4j.ResponseList;
 import twitter4j.Status;
 
-public class GetUserTimelineByScreenNameTestCases extends TwitterTestCase {
+public class GetUserTimelineByScreenNameTestCases extends TwitterTestParent {
 	
 	private TwitterSandbox sandbox;
 	

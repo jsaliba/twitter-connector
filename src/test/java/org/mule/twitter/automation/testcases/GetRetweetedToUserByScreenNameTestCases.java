@@ -28,7 +28,7 @@ import twitter4j.Status;
 
 
 
-public class GetRetweetedToUserByScreenNameTestCases extends TwitterTestCase {
+public class GetRetweetedToUserByScreenNameTestCases extends TwitterTestParent {
 	
 	private TwitterSandbox followerSandbox;
     

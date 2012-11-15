@@ -20,7 +20,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 
-public class TwitterTestCase extends FunctionalTestCase {
+public class TwitterTestParent extends FunctionalTestCase {
 	
 	protected static final String[] SPRING_CONFIG_FILES = new String[] {"SandboxesSpringBeans.xml","TweetsSpringBeans.xml", "PlacesSpringBeans.xml"};
 	protected static ApplicationContext context;

@@ -26,7 +26,7 @@ import twitter4j.Tweet;
 
 
 
-public class SearchTestCases extends TwitterTestCase {
+public class SearchTestCases extends TwitterTestParent {
 	
     @Before
     public void setUp() {

@@ -28,7 +28,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import twitter4j.Place;
 import twitter4j.ResponseList;
 
-public class CreatePlaceTestCases extends TwitterTestCase {
+public class CreatePlaceTestCases extends TwitterTestParent {
 	    
     @Category({SanityTests.class, RegressionTests.class})
 	@Test

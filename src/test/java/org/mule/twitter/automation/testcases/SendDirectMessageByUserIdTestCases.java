@@ -21,7 +21,7 @@ import org.mule.twitter.automation.TwitterSandbox;
 
 import twitter4j.DirectMessage;
 
-public class SendDirectMessageByUserIdTestCases extends TwitterTestCase {
+public class SendDirectMessageByUserIdTestCases extends TwitterTestParent {
 	
     @Category({SanityTests.class, RegressionTests.class})
 	@Test

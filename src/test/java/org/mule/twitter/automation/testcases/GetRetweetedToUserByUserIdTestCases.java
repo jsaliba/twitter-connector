@@ -29,7 +29,7 @@ import twitter4j.Status;
 
 
 
-public class GetRetweetedToUserByUserIdTestCases extends TwitterTestCase {
+public class GetRetweetedToUserByUserIdTestCases extends TwitterTestParent {
 	
 	private TwitterSandbox followerSandbox;
     

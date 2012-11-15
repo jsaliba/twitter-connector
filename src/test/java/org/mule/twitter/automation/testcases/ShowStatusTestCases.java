@@ -27,7 +27,7 @@ import twitter4j.Status;
 
 
 
-public class ShowStatusTestCases extends TwitterTestCase {
+public class ShowStatusTestCases extends TwitterTestParent {
     
 	@Before
     public void setUp() {
