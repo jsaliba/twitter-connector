@@ -869,15 +869,14 @@ public class TwitterConnector implements MuleContextAware {
      *
      * @param latitude  latitude coordinate. Mandatory if ip is not specified
      * @param longitude longitude coordinate.
-     * @param ip        the ip. Mandatory if coordinates are not specified
      * @return a {@link ResponseList} of {@link Place}
      * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
     public ResponseList<Place> reverseGeoCode(@Placement(group = "Coordinates") @Optional Double latitude,
-                                              @Placement(group = "Coordinates") @Optional Double longitude,
-                                              @Optional String ip) throws TwitterException {
-        return twitter.reverseGeoCode(createQuery(latitude, longitude, ip));
+                                              @Placement(group = "Coordinates") @Optional Double longitude)
+            throws TwitterException {
+        return twitter.reverseGeoCode(createQuery(latitude, longitude, null));
     }
 
     /**
