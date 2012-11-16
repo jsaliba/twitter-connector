@@ -467,17 +467,6 @@ Summary:
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/twitter-config.html#get-public-timeline">&lt;twitter:get-public-timeline&gt;</a></nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent statuses from non-protected users who have set a
- custom user icon.</div>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-by">&lt;twitter:get-retweeted-by&gt;</a></nobr>
         
         <div class="jd-descrdiv">Show user objects of up to 100 members who retweeted the status.</div>
@@ -486,7 +475,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-by-ids">&lt;twitter:get-retweeted-by-ids&gt;</a></nobr>
         
@@ -500,7 +489,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-by-me">&lt;twitter:get-retweeted-by-me&gt;</a></nobr>
         
@@ -510,7 +499,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-by-user-by-screen-name">&lt;twitter:get-retweeted-by-user-by-screen-name&gt;</a></nobr>
         
@@ -520,7 +509,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-by-user-by-user-id">&lt;twitter:get-retweeted-by-user-by-user-id&gt;</a></nobr>
         
@@ -530,7 +519,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-to-me">&lt;twitter:get-retweeted-to-me&gt;</a></nobr>
         
@@ -541,7 +530,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-to-user-by-screen-name">&lt;twitter:get-retweeted-to-user-by-screen-name&gt;</a></nobr>
         
@@ -552,7 +541,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-to-user-by-user-id">&lt;twitter:get-retweeted-to-user-by-user-id&gt;</a></nobr>
         
@@ -563,7 +552,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#get-retweets">&lt;twitter:get-retweets&gt;</a></nobr>
         
@@ -573,12 +562,22 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#get-retweets-of-me">&lt;twitter:get-retweets-of-me&gt;</a></nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent tweets of the authenticated user that have been
  retweeted by others.</div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/twitter-config.html#get-similar-places">&lt;twitter:get-similar-places&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Locates places near the given coordinates which are similar in name.</div>
         
   </td></tr>
 
@@ -1770,84 +1769,6 @@ specify which configuration to use.</p>
       <h5 class="jd-tagtitle">See Also</h5>
       <ul class="nolist"><li><a href="http://dev.twitter.com/doc/get/statuses/mentions">GET
       statuses/mentions | dev.twitter.com</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="get-public-timeline"></A>
-
-<div class="jd-details api apilevel-">
-    <h4 class="jd-details-title">
-      <span class="sympad">&lt;twitter:get-public-timeline&gt;</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent statuses from non-protected users who have set a
- custom user icon. The public timeline is cached for 60 seconds and requesting
- it more often than that is unproductive and a waste of resources. <br>
- This method calls http://api.twitter.com/1/statuses/public_timeline
- <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-public-timeline/&gt;</pre></div></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Attributes</h5>
-
-        <table id="lconfig" class="jd-sumtable">
-        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
-        <tr>
-          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-        </tr>
-          
-          
-          
-          
-        </table>
-  </div>
-  
-  
-      <div class="jd-tagdata">
-         <h5 class="jd-tagtitle">Returns</h5>
-         <table id="lconfig" class="jd-sumtable">
-             <tr>
-                <th>Return Type</th>
-                <th>Description</th>
-             </tr>
-             <tr>
-                <td class="jd-descrcol">ResponseList&lt;Status&gt;</td>
-                <td class="jd-descrcol">list of Status of the Public Timeline</td>
-             </tr>
-         </table>
-  </div>
-    
-  
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payloads</h5>
-      <table class="jd-sumtable">
-        <tr><th>Payload Class</th><th>Description</th></tr>
-        
-        <tr>
-            <td>TwitterException</td>
-            <td>when Twitter service or network is
-                                    unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a href="http://dev.twitter.com/doc/get/statuses/public_timeline">GET
-      statuses/public_timeline | dev.twitter.com</a></li>
       </ul>
   </div>
 
@@ -3074,6 +2995,146 @@ specify which configuration to use.</p>
 </div>
 
 
+<A NAME="get-similar-places"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;twitter:get-similar-places&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Locates places near the given coordinates which are similar in name.
+ Conceptually you would use this method to get a list of known places to choose from first.
+ Then, if the desired place doesn't exist, make a request to POST geo/place to create a new one.
+ The token contained in the response is the token needed to be able to create a new place.
+ <p/>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-similar-places latitude="11.22" longitude="33.11" placeName="city" /&gt;</pre></div></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+        </tr>
+          
+          
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>latitude</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol">The latitude to search around. This parameter will be ignored unless it is inside the range
+                 -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there
+                 isn't a corresponding long parameter.</td>
+                        <td class="jd-descrcol">Double</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol"></td>
+                    </tr>
+                
+                
+          
+                
+                    <tr class="alt-color api apilevel-" >
+                        <td class="jd-linkcol"><nobr>longitude</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol">The longitude to search around. The valid ranges for longitude is -180.0 to +180.0
+                  (East is positive) inclusive. This parameter will be ignored if outside that range,
+                  if it is not a number, if geo_enabled is disabled, or if there not
+                  a corresponding lat parameter.</td>
+                        <td class="jd-descrcol">Double</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol"></td>
+                    </tr>
+                
+                
+          
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>placeName</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol">The name a place is known as.</td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                
+                
+          
+                
+                    <tr class="alt-color api apilevel-" >
+                        <td class="jd-linkcol"><nobr>containedWithin</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>This is the place_id which you would like to restrict the search results to.
+                        Setting this value means only places within the given place_id will be found.</td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                
+                
+          
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>streetAddress</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>This parameter searches for places which have this given street address.
+                      There are other well-known, and application specific attributes available.
+                      Custom attributes are also permitted.</td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                
+                
+          
+          
+          
+        </table>
+  </div>
+  
+  
+      <div class="jd-tagdata">
+         <h5 class="jd-tagtitle">Returns</h5>
+         <table id="lconfig" class="jd-sumtable">
+             <tr>
+                <th>Return Type</th>
+                <th>Description</th>
+             </tr>
+             <tr>
+                <td class="jd-descrcol">SimilarPlaces</td>
+                <td class="jd-descrcol">places</td>
+             </tr>
+         </table>
+  </div>
+    
+  
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Exception Payloads</h5>
+      <table class="jd-sumtable">
+        <tr><th>Payload Class</th><th>Description</th></tr>
+        
+        <tr>
+            <td>TwitterException</td>
+            <td>when Twitter service or network is unavailable
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="get-user-timeline"></A>
 
 <div class="jd-details api apilevel-">
@@ -3788,18 +3849,6 @@ specify which configuration to use.</p>
                         <td class="jd-descrcol">Double</td>
                         <td class="jd-descrcol">*/*</td>
                         <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>ip</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The ip. Mandatory if coordinates are not specified</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
                     </tr>
                 
                 

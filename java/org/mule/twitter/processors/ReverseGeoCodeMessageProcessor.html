@@ -255,6 +255,7 @@
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedToUserByUserIdMessageProcessor.html">GetRetweetedToUserByUserIdMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetsMessageProcessor.html">GetRetweetsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetsOfMeMessageProcessor.html">GetRetweetsOfMeMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetSimilarPlacesMessageProcessor.html">GetSimilarPlacesMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetTrendsMessageProcessor.html">GetTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetUserTimelineByScreenNameMessageProcessor.html">GetUserTimelineByScreenNameMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetUserTimelineByUserIdMessageProcessor.html">GetUserTimelineByUserIdMessageProcessor</a></li>
@@ -543,7 +544,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>ReverseGeoCodeMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#reverseGeoCode(java.lang.Double, java.lang.Double, java.lang.String)">reverseGeoCode(java.lang.Double, java.lang.Double, java.lang.String)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+<p>ReverseGeoCodeMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#reverseGeoCode(java.lang.Double, java.lang.Double)">reverseGeoCode(java.lang.Double, java.lang.Double)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -744,41 +745,19 @@ org.mule.api.lifecycle.Stoppable
           protected
           
           
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#_ipType">_ipType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          protected
-          
-          
           Double</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#_latitudeType">_latitudeType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           protected
           
           
           Double</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#_longitudeType">_longitudeType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          protected
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#ip">ip</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -1018,24 +997,6 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#setIp(java.lang.Object)">setIp</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets ip</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#setLatitude(java.lang.Object)">setLatitude</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets latitude</div>
@@ -1044,7 +1005,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1062,7 +1023,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1080,7 +1041,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1096,7 +1057,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2023,36 +1984,6 @@ From interface
 
 
 
-<A NAME="_ipType"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-        String
-      </span>
-        _ipType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
 <A NAME="_latitudeType"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2094,36 +2025,6 @@ From interface
         Double
       </span>
         _longitudeType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="ip"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-        Object
-      </span>
-        ip
     </h4>
       <div class="api-level">
         
@@ -2410,47 +2311,6 @@ From interface
         <tr>
           <th>flowConstruct</td>
           <td>Flow construct to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setIp(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setIp</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets ip</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
 </td>
         </tr>
       </table>

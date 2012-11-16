@@ -1059,25 +1059,6 @@ Summary:
             
             
             
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getPublicTimeline()">getPublicTimeline</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent statuses from non-protected users who have set a
- custom user icon.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
             ResponseList&lt;User&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1089,7 +1070,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1111,7 +1092,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1129,7 +1110,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1147,7 +1128,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1165,7 +1146,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1184,7 +1165,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1203,7 +1184,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1222,7 +1203,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1240,7 +1221,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1254,6 +1235,24 @@ Summary:
         
         <div class="jd-descrdiv">Returns the 20 most recent tweets of the authenticated user that have been
  retweeted by others.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            SimilarPlaces</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getSimilarPlaces(java.lang.Double, java.lang.Double, java.lang.String, java.lang.String, java.lang.String)">getSimilarPlaces</a></span>(Double latitude, Double longitude, String placeName, String containedWithin, String streetAddress)</nobr>
+        
+        <div class="jd-descrdiv">Locates places near the given coordinates which are similar in name.</div>
   
   </td></tr>
 
@@ -1459,7 +1458,7 @@ Summary:
             ResponseList&lt;Place&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#reverseGeoCode(java.lang.Double, java.lang.Double, java.lang.String)">reverseGeoCode</a></span>(Double latitude, Double longitude, String ip)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#reverseGeoCode(java.lang.Double, java.lang.Double)">reverseGeoCode</a></span>(Double latitude, Double longitude)</nobr>
         
         <div class="jd-descrdiv">Search for places (cities and neighborhoods) that can be attached to a
  statuses/update.</div>
@@ -3579,62 +3578,6 @@ From interface
 </div>
 
 
-<A NAME="getPublicTimeline()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        ResponseList&lt;Status&gt;
-      </span>
-      <span class="sympad">getPublicTimeline</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent statuses from non-protected users who have set a
- custom user icon. The public timeline is cached for 60 seconds and requesting
- it more often than that is unproductive and a waste of resources. <br>
- This method calls http://api.twitter.com/1/statuses/public_timeline
- <p/>
- </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>list of Status of the Public Timeline</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>TwitterException</td>
-            <td>when Twitter service or network is
-                                    unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a href="http://dev.twitter.com/doc/get/statuses/public_timeline">GET
-      statuses/public_timeline | dev.twitter.com</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
 <A NAME="getRetweetedBy(long, int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -4412,6 +4355,89 @@ From interface
 </div>
 
 
+<A NAME="getSimilarPlaces(java.lang.Double, java.lang.Double, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        SimilarPlaces
+      </span>
+      <span class="sympad">getSimilarPlaces</span>
+      <span class="normal">(Double latitude, Double longitude, String placeName, String containedWithin, String streetAddress)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Locates places near the given coordinates which are similar in name.
+ Conceptually you would use this method to get a list of known places to choose from first.
+ Then, if the desired place doesn't exist, make a request to POST geo/place to create a new one.
+ The token contained in the response is the token needed to be able to create a new place.
+ <p/>
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>latitude</td>
+          <td>The latitude to search around. This parameter will be ignored unless it is inside the range
+                 -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there
+                 isn't a corresponding long parameter.</td>
+        </tr>
+        <tr>
+          <th>longitude</td>
+          <td>The longitude to search around. The valid ranges for longitude is -180.0 to +180.0
+                  (East is positive) inclusive. This parameter will be ignored if outside that range,
+                  if it is not a number, if geo_enabled is disabled, or if there not
+                  a corresponding lat parameter.</td>
+        </tr>
+        <tr>
+          <th>placeName</td>
+          <td>The name a place is known as.</td>
+        </tr>
+        <tr>
+          <th>containedWithin</td>
+          <td>This is the place_id which you would like to restrict the search results to.
+                        Setting this value means only places within the given place_id will be found.</td>
+        </tr>
+        <tr>
+          <th>streetAddress</td>
+          <td>This parameter searches for places which have this given street address.
+                      There are other well-known, and application specific attributes available.
+                      Custom attributes are also permitted.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>places</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>TwitterException</td>
+            <td>when Twitter service or network is unavailable
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="getTwitterClient()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -5021,7 +5047,7 @@ From interface
 </div>
 
 
-<A NAME="reverseGeoCode(java.lang.Double, java.lang.Double, java.lang.String)"></A>
+<A NAME="reverseGeoCode(java.lang.Double, java.lang.Double)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -5034,7 +5060,7 @@ From interface
         ResponseList&lt;Place&gt;
       </span>
       <span class="sympad">reverseGeoCode</span>
-      <span class="normal">(Double latitude, Double longitude, String ip)</span>
+      <span class="normal">(Double latitude, Double longitude)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -5067,10 +5093,6 @@ From interface
         <tr>
           <th>longitude</td>
           <td>Longitude coordinate.</td>
-        </tr>
-        <tr>
-          <th>ip</td>
-          <td>The ip. Mandatory if coordinates are not specified</td>
         </tr>
       </table>
   </div>

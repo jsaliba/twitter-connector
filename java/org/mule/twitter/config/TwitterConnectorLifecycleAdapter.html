@@ -280,6 +280,7 @@
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetsMessageProcessor.html">GetRetweetsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetsOfMeDefinitionParser.html">GetRetweetsOfMeDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetRetweetsOfMeMessageProcessor.html">GetRetweetsOfMeMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetSimilarPlacesDefinitionParser.html">GetSimilarPlacesDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetTrendsDefinitionParser.html">GetTrendsDefinitionParser</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetTrendsMessageProcessor.html">GetTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/config/GetUserTimelineByScreenNameDefinitionParser.html">GetUserTimelineByScreenNameDefinitionParser</a></li>
@@ -1521,25 +1522,6 @@ From class
             
             
             
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getPublicTimeline()">getPublicTimeline</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent statuses from non-protected users who have set a
- custom user icon.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
             ResponseList&lt;User&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1551,7 +1533,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1573,7 +1555,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1591,7 +1573,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1609,7 +1591,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1627,7 +1609,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1646,7 +1628,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1665,7 +1647,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1684,7 +1666,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1702,7 +1684,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1716,6 +1698,24 @@ From class
         
         <div class="jd-descrdiv">Returns the 20 most recent tweets of the authenticated user that have been
  retweeted by others.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            SimilarPlaces</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getSimilarPlaces(java.lang.Double, java.lang.Double, java.lang.String, java.lang.String, java.lang.String)">getSimilarPlaces</a></span>(Double latitude, Double longitude, String placeName, String containedWithin, String streetAddress)</nobr>
+        
+        <div class="jd-descrdiv">Locates places near the given coordinates which are similar in name.</div>
   
   </td></tr>
 
@@ -1921,7 +1921,7 @@ From class
             ResponseList&lt;Place&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#reverseGeoCode(java.lang.Double, java.lang.Double, java.lang.String)">reverseGeoCode</a></span>(Double latitude, Double longitude, String ip)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#reverseGeoCode(java.lang.Double, java.lang.Double)">reverseGeoCode</a></span>(Double latitude, Double longitude)</nobr>
         
         <div class="jd-descrdiv">Search for places (cities and neighborhoods) that can be attached to a
  statuses/update.</div>

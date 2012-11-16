@@ -387,26 +387,6 @@ This method calls http://search.twitter.com/search.json
       &lt;/xs:extension&gt;
     &lt;/xs:complexContent&gt;
   &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-public-timeline&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetPublicTimelineType&quot;&gt;
-    &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Returns the 20 most recent statuses from non-protected users who have set a
-custom user icon. The public timeline is cached for 60 seconds and requesting
-it more often than that is unproductive and a waste of resources. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/public_timeline
-&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
-    &lt;/xs:annotation&gt;
-  &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetPublicTimelineType&quot;&gt;
-    &lt;xs:complexContent&gt;
-      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
-        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-      &lt;/xs:extension&gt;
-    &lt;/xs:complexContent&gt;
-  &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-home-timeline&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetHomeTimelineType&quot;&gt;
     &lt;xs:annotation&gt;
       &lt;xs:documentation&gt;Returns the 20 most recent statuses, including retweets, posted by the
@@ -1190,11 +1170,6 @@ available through this method.
             &lt;xs:documentation&gt;longitude coordinate.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;ip&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;the ip. Mandatory if coordinates are not specified&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
       &lt;/xs:extension&gt;
     &lt;/xs:complexContent&gt;
   &lt;/xs:complexType&gt;
@@ -1298,6 +1273,51 @@ operation.
         &lt;xs:attribute name=&quot;streetAddress&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;optional: This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted. Learn more about Place Attributes.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-similar-places&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetSimilarPlacesType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Locates places near the given coordinates which are similar in name.
+Conceptually you would use this method to get a list of known places to choose from first.
+Then, if the desired place doesn't exist, make a request to POST geo/place to create a new one.
+The token contained in the response is the token needed to be able to create a new place.
+&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;GetSimilarPlacesType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;latitude&quot; use=&quot;required&quot; type=&quot;doubleType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The latitude to search around. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;longitude&quot; use=&quot;required&quot; type=&quot;doubleType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The longitude to search around. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;placeName&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The name a place is known as.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;containedWithin&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;This is the place_id which you would like to restrict the search results to. Setting this value means only places within the given place_id will be found.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;streetAddress&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
       &lt;/xs:extension&gt;
