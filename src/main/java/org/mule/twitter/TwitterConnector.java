@@ -25,30 +25,7 @@ import org.mule.api.annotations.param.Optional;
 import org.mule.api.callback.SourceCallback;
 import org.mule.api.context.MuleContextAware;
 import org.mule.twitter.UserEvent.EventType;
-import twitter4j.DirectMessage;
-import twitter4j.FilterQuery;
-import twitter4j.GeoLocation;
-import twitter4j.GeoQuery;
-import twitter4j.IDs;
-import twitter4j.Location;
-import twitter4j.Paging;
-import twitter4j.Place;
-import twitter4j.Query;
-import twitter4j.QueryResult;
-import twitter4j.ResponseList;
-import twitter4j.SiteStreamsAdapter;
-import twitter4j.Status;
-import twitter4j.StatusAdapter;
-import twitter4j.StatusUpdate;
-import twitter4j.Trends;
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
-import twitter4j.TwitterStream;
-import twitter4j.TwitterStreamFactory;
-import twitter4j.User;
-import twitter4j.UserList;
-import twitter4j.UserStreamAdapter;
+import twitter4j.*;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 import twitter4j.conf.ConfigurationBuilder;
@@ -951,6 +928,40 @@ public class TwitterConnector implements MuleContextAware {
                              @Optional String streetAddress) throws TwitterException {
         return twitter.createPlace(placeName, containedWithin, token, new GeoLocation(latitude, longitude),
                 streetAddress);
+    }
+
+    /**
+     * Locates places near the given coordinates which are similar in name.
+     * Conceptually you would use this method to get a list of known places to choose from first.
+     * Then, if the desired place doesn't exist, make a request to POST geo/place to create a new one.
+     * The token contained in the response is the token needed to be able to create a new place.
+     * <p/>
+     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getSimilarPlaces}
+     *
+     *
+     * @param latitude The latitude to search around. This parameter will be ignored unless it is inside the range
+     *                 -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there
+     *                 isn't a corresponding long parameter.
+     * @param longitude The longitude to search around. The valid ranges for longitude is -180.0 to +180.0
+     *                  (East is positive) inclusive. This parameter will be ignored if outside that range,
+     *                  if it is not a number, if geo_enabled is disabled, or if there not
+     *                  a corresponding lat parameter.
+     * @param placeName      The name a place is known as.
+     * @param containedWithin This is the place_id which you would like to restrict the search results to.
+     *                        Setting this value means only places within the given place_id will be found.
+     * @param streetAddress This parameter searches for places which have this given street address.
+     *                      There are other well-known, and application specific attributes available.
+     *                      Custom attributes are also permitted.
+     * @return places
+     * @throws TwitterException when Twitter service or network is unavailable
+     */
+    @Processor
+    public SimilarPlaces getSimilarPlaces(@Placement(group = "Coordinates") Double latitude,
+                                          @Placement(group = "Coordinates") Double longitude,
+                                          String placeName, @Optional String containedWithin,
+                                          @Optional String streetAddress) throws TwitterException {
+        return twitter.getSimilarPlaces(new GeoLocation(latitude, longitude),
+                placeName, containedWithin, streetAddress);
     }
 
     /**

@@ -94,6 +94,10 @@
         <twitter:reverse-geo-code latitude="11.22" longitude="33.11" />
 <!-- END_INCLUDE(twitter:reverseGeoCode) -->
 
+<!-- BEGIN_INCLUDE(twitter:getSimilarPlaces) -->
+        <twitter:get-similar-places latitude="11.22" longitude="33.11" placeName="city" />
+<!-- END_INCLUDE(twitter:getSimilarPlaces) -->
+
 <!-- BEGIN_INCLUDE(twitter:searchPlaces) -->
       <twitter:search-places latitude="#[header:latitude]" longitude="#[header:longitude]" />
 <!-- END_INCLUDE(twitter:searchPlaces) -->
