@@ -20,7 +20,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TestStatus;
+import org.mule.twitter.automation.TwitterTestStatus;
 import org.mule.twitter.automation.TwitterSandbox;
 import org.mule.twitter.automation.TwitterTestUtils;
 
@@ -38,11 +38,11 @@ public class GetRetweetedByUserByScreenNameTestCases extends TwitterTestParent {
     	
     	testObjects = new HashMap<String,Object>();
     			
-    	TestStatus firstTweet = (TestStatus) context.getBean("firstStatusToRetweet");
-    	TestStatus firstRetweet = new TestStatus();
+    	TwitterTestStatus firstTweet = (TwitterTestStatus) context.getBean("firstStatusToRetweet");
+    	TwitterTestStatus firstRetweet = new TwitterTestStatus();
     	
-    	TestStatus secondTweet = (TestStatus) context.getBean("secondStatusToRetweet");
-    	TestStatus secondRetweet = new TestStatus();
+    	TwitterTestStatus secondTweet = (TwitterTestStatus) context.getBean("secondStatusToRetweet");
+    	TwitterTestStatus secondRetweet = new TwitterTestStatus();
     	
     	sandbox = (TwitterSandbox) context.getBean("sandbox");
     	
@@ -87,8 +87,8 @@ public class GetRetweetedByUserByScreenNameTestCases extends TwitterTestParent {
     	
     	try {
     		
-    		TestStatus firstTweetedStatus = (TestStatus) testObjects.get("firstTweetedStatus");
-    		TestStatus secondTweetedStatus = (TestStatus) testObjects.get("secondTweetedStatus");
+    		TwitterTestStatus firstTweetedStatus = (TwitterTestStatus) testObjects.get("firstTweetedStatus");
+    		TwitterTestStatus secondTweetedStatus = (TwitterTestStatus) testObjects.get("secondTweetedStatus");
     		
         	flow = lookupFlowConstruct("destroy-status-aux-sandbox");
         	
@@ -107,7 +107,7 @@ public class GetRetweetedByUserByScreenNameTestCases extends TwitterTestParent {
 	@Test
 	public void testGetRetweetedByUserByScreenNameDefaultValues() {
 		
-		TestStatus aRetweetedStatus = (TestStatus) testObjects.get("firstRetweetedStatus");
+		TwitterTestStatus aRetweetedStatus = (TwitterTestStatus) testObjects.get("firstRetweetedStatus");
 		
 		try {
 			
@@ -138,8 +138,8 @@ public class GetRetweetedByUserByScreenNameTestCases extends TwitterTestParent {
 	
 		int count = new Integer(2);
 		
-		TestStatus firstRetweetedStatus = (TestStatus) testObjects.get("firstRetweetedStatus");
-		TestStatus secondRetweetedStatus = (TestStatus) testObjects.get("secondRetweetedStatus");
+		TwitterTestStatus firstRetweetedStatus = (TwitterTestStatus) testObjects.get("firstRetweetedStatus");
+		TwitterTestStatus secondRetweetedStatus = (TwitterTestStatus) testObjects.get("secondRetweetedStatus");
 		
 		Map<String,Object> operationParams = new HashMap<String,Object>();
 		operationParams.put("count", count);

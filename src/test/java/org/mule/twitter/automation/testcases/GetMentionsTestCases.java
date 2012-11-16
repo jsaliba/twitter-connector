@@ -16,13 +16,11 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import junit.framework.TestCase;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TestStatus;
+import org.mule.twitter.automation.TwitterTestStatus;
 import org.mule.twitter.automation.TwitterTestUtils;
 
 import twitter4j.ResponseList;
@@ -36,8 +34,8 @@ public class GetMentionsTestCases extends TwitterTestParent {
     	
     	testObjects = new HashMap<String,Object>();
     	
-    	TestStatus firstTweet = (TestStatus) context.getBean("firstMention");
-    	TestStatus secondTweet = (TestStatus) context.getBean("secondMention");
+    	TwitterTestStatus firstTweet = (TwitterTestStatus) context.getBean("firstMention");
+    	TwitterTestStatus secondTweet = (TwitterTestStatus) context.getBean("secondMention");
     	
     	try {
     		
@@ -74,8 +72,8 @@ public class GetMentionsTestCases extends TwitterTestParent {
     	
     	try {
     		
-    		TestStatus firstMention = (TestStatus) testObjects.get("firstMention");
-    		TestStatus secondMention = (TestStatus) testObjects.get("secondMention");
+    		TwitterTestStatus firstMention = (TwitterTestStatus) testObjects.get("firstMention");
+    		TwitterTestStatus secondMention = (TwitterTestStatus) testObjects.get("secondMention");
     		
         	flow = lookupFlowConstruct("destroy-status-aux-sandbox");
         	
@@ -94,7 +92,7 @@ public class GetMentionsTestCases extends TwitterTestParent {
 	@Test
 	public void testGetMentionsDefaultValues() {
 		
-		TestStatus testTweet = (TestStatus) testObjects.get("firstMention");
+		TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("firstMention");
 		
 		try {
 			
@@ -133,8 +131,8 @@ public class GetMentionsTestCases extends TwitterTestParent {
 	
 		int count = new Integer(2);
 		
-		TestStatus firstMention = (TestStatus) testObjects.get("firstMention");
-		TestStatus secondMention = (TestStatus) testObjects.get("secondMention");
+		TwitterTestStatus firstMention = (TwitterTestStatus) testObjects.get("firstMention");
+		TwitterTestStatus secondMention = (TwitterTestStatus) testObjects.get("secondMention");
 		
 		Map<String,Object> operationParams = new HashMap<String,Object>();
 		operationParams.put("count", count);

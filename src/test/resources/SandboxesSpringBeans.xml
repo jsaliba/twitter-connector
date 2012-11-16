@@ -7,7 +7,7 @@
 	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
-			<value>automation-credentials.properties</value>
+			<value>${TWITTER_AUTO_CREDENTIALS}</value>
 		</property>
 	</bean>
  

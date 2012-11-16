@@ -18,7 +18,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TestStatus;
+import org.mule.twitter.automation.TwitterTestStatus;
 import org.mule.twitter.automation.TwitterSandbox;
 import org.mule.twitter.automation.TwitterTestUtils;
 
@@ -39,8 +39,8 @@ public class GetRetweetedByTestCases extends TwitterTestParent {
     	
     	testObjects = new HashMap<String,Object>();
     			
-    	TestStatus firstTweet = (TestStatus) context.getBean("firstStatusToRetweet");
-    	TestStatus secondTweet = (TestStatus) context.getBean("secondStatusToRetweet");
+    	TwitterTestStatus firstTweet = (TwitterTestStatus) context.getBean("firstStatusToRetweet");
+    	TwitterTestStatus secondTweet = (TwitterTestStatus) context.getBean("secondStatusToRetweet");
 
     	try {
     		
@@ -75,8 +75,8 @@ public class GetRetweetedByTestCases extends TwitterTestParent {
     	
     	try {
     		
-    		TestStatus firstTweetedStatus = (TestStatus) testObjects.get("firstTweetedStatus");
-    		TestStatus secondTweetedStatus = (TestStatus) testObjects.get("secondTweetedStatus");
+    		TwitterTestStatus firstTweetedStatus = (TwitterTestStatus) testObjects.get("firstTweetedStatus");
+    		TwitterTestStatus secondTweetedStatus = (TwitterTestStatus) testObjects.get("secondTweetedStatus");
     		
         	flow = lookupFlowConstruct("destroy-status-aux-sandbox");
         	
@@ -95,7 +95,7 @@ public class GetRetweetedByTestCases extends TwitterTestParent {
 	@Test
 	public void testGetRetweetsByDefaultValues() {
 		
-		TestStatus aRetweetedStatus = (TestStatus) testObjects.get("firstTweetedStatus");
+		TwitterTestStatus aRetweetedStatus = (TwitterTestStatus) testObjects.get("firstTweetedStatus");
 
 		try {
 			

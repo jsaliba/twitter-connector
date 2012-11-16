@@ -13,19 +13,11 @@ import static org.junit.Assert.fail;
 
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.MuleException;
-import org.mule.api.processor.MessageProcessor;
-import org.mule.tck.junit4.FunctionalTestCase;
-import org.mule.twitter.automation.TestStatus;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.mule.twitter.automation.TwitterTestStatus;
 
 import twitter4j.Status;
 
@@ -38,7 +30,7 @@ public class DestroyStatusTestCases extends TwitterTestParent {
     	
     	testObjects = new HashMap<String,Object>();
     	
-    	TestStatus aTweet = (TestStatus) context.getBean("aStatus");
+    	TwitterTestStatus aTweet = (TwitterTestStatus) context.getBean("aStatus");
     	
     	try {
     		
@@ -61,7 +53,7 @@ public class DestroyStatusTestCases extends TwitterTestParent {
     	
     	try {
     		
-    		TestStatus testTweet = (TestStatus) testObjects.get("testTweet");
+    		TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("testTweet");
     		
         	flow = lookupFlowConstruct("destroy-status");
         	response = flow.process(getTestEvent(testTweet.getId()));

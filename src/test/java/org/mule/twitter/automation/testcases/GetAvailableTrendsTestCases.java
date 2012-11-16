@@ -16,7 +16,7 @@ import java.util.Map;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TestPlace;
+import org.mule.twitter.automation.TwitterTestPlace;
 
 import twitter4j.Location;
 import twitter4j.ResponseList;
@@ -49,7 +49,7 @@ public class GetAvailableTrendsTestCases extends TwitterTestParent {
 	@Test
     public void testGetAvailableTrendsParametrized() {
     	
-    	TestPlace aPlace = (TestPlace) context.getBean("placeByCoordinates");
+    	TwitterTestPlace aPlace = (TwitterTestPlace) context.getBean("placeByCoordinates");
     	
     	Map<String,Object> operationParams = new HashMap<String,Object>();
 		operationParams.put("latitude", aPlace.getLatitude());

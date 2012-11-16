@@ -10,7 +10,7 @@ package org.mule.twitter.automation;
 
 import java.util.Map;
 
-public class TestPlace {
+public class TwitterTestPlace {
 	
 	private String id;
 	private String name;

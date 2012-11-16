@@ -18,7 +18,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TestStatus;
+import org.mule.twitter.automation.TwitterTestStatus;
 import org.mule.twitter.automation.TwitterSandbox;
 
 import twitter4j.Status;
@@ -34,7 +34,7 @@ public class RetweetStatusTestCases extends TwitterTestParent {
     	
     	testObjects = new HashMap<String,Object>();
     			
-    	TestStatus aTweet = (TestStatus) context.getBean("aStatus");
+    	TwitterTestStatus aTweet = (TwitterTestStatus) context.getBean("aStatus");
     	sandbox = (TwitterSandbox) context.getBean("auxSandbox");
     	
     	try {
@@ -57,7 +57,7 @@ public class RetweetStatusTestCases extends TwitterTestParent {
     	
     	try {
     		
-    		TestStatus testTweet = (TestStatus) testObjects.get("testTweet");
+    		TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("testTweet");
     		
         	flow = lookupFlowConstruct("destroy-status-aux-sandbox");
         	flow.process(getTestEvent(testTweet.getId()));
@@ -74,7 +74,7 @@ public class RetweetStatusTestCases extends TwitterTestParent {
 	@Test
 	public void testRetweetStatus() {
     	
-    	TestStatus testTweet = (TestStatus) testObjects.get("testTweet");
+    	TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("testTweet");
 		
 		try {
 			

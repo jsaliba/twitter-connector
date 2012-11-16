@@ -16,7 +16,7 @@ import java.util.Map;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TestStatus;
+import org.mule.twitter.automation.TwitterTestStatus;
 import org.mule.twitter.automation.TwitterSandbox;
 
 import twitter4j.DirectMessage;
@@ -29,7 +29,7 @@ public class SendDirectMessageByScreenNameTestCases extends TwitterTestParent {
     	
     	TwitterSandbox senderSandbox = (TwitterSandbox) context.getBean("sandbox");
     	TwitterSandbox recipientSandbox = (TwitterSandbox) context.getBean("auxAuxSandbox");
-		TestStatus aDirectMessage = (TestStatus) context.getBean("directMessageByScreenName");
+		TwitterTestStatus aDirectMessage = (TwitterTestStatus) context.getBean("directMessageByScreenName");
 		
 		Map<String,Object> operationParams = new HashMap<String,Object>();
 		operationParams.put("screenName", recipientSandbox.getUserScreenName());

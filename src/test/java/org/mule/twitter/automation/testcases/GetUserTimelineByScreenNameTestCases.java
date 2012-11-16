@@ -20,7 +20,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TestStatus;
+import org.mule.twitter.automation.TwitterTestStatus;
 import org.mule.twitter.automation.TwitterSandbox;
 import org.mule.twitter.automation.TwitterTestUtils;
 
@@ -36,8 +36,8 @@ public class GetUserTimelineByScreenNameTestCases extends TwitterTestParent {
     	
     	sandbox = (TwitterSandbox) context.getBean("auxSandbox");
     	
-    	TestStatus firstTweet = (TestStatus) context.getBean("firstStatus");
-    	TestStatus secondTweet = (TestStatus) context.getBean("secondStatus");
+    	TwitterTestStatus firstTweet = (TwitterTestStatus) context.getBean("firstStatus");
+    	TwitterTestStatus secondTweet = (TwitterTestStatus) context.getBean("secondStatus");
     	
     	try {
     		
@@ -66,8 +66,8 @@ public class GetUserTimelineByScreenNameTestCases extends TwitterTestParent {
     	
     	try {
     		
-    		TestStatus firstTweet = (TestStatus) testObjects.get("firstTweet");
-    		TestStatus secondTweet = (TestStatus) testObjects.get("secondTweet");
+    		TwitterTestStatus firstTweet = (TwitterTestStatus) testObjects.get("firstTweet");
+    		TwitterTestStatus secondTweet = (TwitterTestStatus) testObjects.get("secondTweet");
     		
         	flow = lookupFlowConstruct("destroy-status-aux-sandbox");
         	flow.process(getTestEvent(firstTweet.getId()));
@@ -85,7 +85,7 @@ public class GetUserTimelineByScreenNameTestCases extends TwitterTestParent {
 	@Test
 	public void testGetUserTimelineByScreenNameDefaultValues() {
 		
-		TestStatus testTweet = (TestStatus) testObjects.get("firstTweet");
+		TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("firstTweet");
 		
 		try {
 			
@@ -124,8 +124,8 @@ public class GetUserTimelineByScreenNameTestCases extends TwitterTestParent {
 	
 		int count = new Integer(2);
 		
-		TestStatus firstTweet = (TestStatus) testObjects.get("firstTweet");
-		TestStatus secondTweet = (TestStatus) testObjects.get("secondTweet");
+		TwitterTestStatus firstTweet = (TwitterTestStatus) testObjects.get("firstTweet");
+		TwitterTestStatus secondTweet = (TwitterTestStatus) testObjects.get("secondTweet");
 		
 		Map<String,Object> operationParams = new HashMap<String,Object>();
 		operationParams.put("screenName", sandbox.getUserScreenName());

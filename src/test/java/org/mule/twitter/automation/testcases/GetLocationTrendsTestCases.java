@@ -11,19 +11,10 @@ package org.mule.twitter.automation.testcases;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.MuleException;
-import org.mule.api.processor.MessageProcessor;
-import org.mule.tck.junit4.FunctionalTestCase;
-import org.mule.twitter.automation.TestPlace;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.mule.twitter.automation.TwitterTestPlace;
 
-import twitter4j.Place;
-import twitter4j.ResponseList;
 import twitter4j.Trends;
 
 public class GetLocationTrendsTestCases extends TwitterTestParent {
@@ -52,7 +43,7 @@ public class GetLocationTrendsTestCases extends TwitterTestParent {
 	@Test
 	public void testGetLocationTrendsParametrized() {
 		
-    	TestPlace place = (TestPlace) context.getBean("placeByWOEID");
+    	TwitterTestPlace place = (TwitterTestPlace) context.getBean("placeByWOEID");
     	
 		try {
 

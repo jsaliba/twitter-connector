@@ -14,16 +14,9 @@ import static org.junit.Assert.fail;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.MuleException;
-import org.mule.api.processor.MessageProcessor;
-import org.mule.tck.junit4.FunctionalTestCase;
-import org.mule.twitter.automation.TestPlace;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.mule.twitter.automation.TwitterTestPlace;
 
 import twitter4j.Place;
 import twitter4j.ResponseList;
@@ -34,7 +27,7 @@ public class CreatePlaceTestCases extends TwitterTestParent {
 	@Test
 	public void testCreatePlace() {
 		
-    	TestPlace place = (TestPlace) context.getBean("newPlace");
+    	TwitterTestPlace place = (TwitterTestPlace) context.getBean("newPlace");
     	
 		try {
 
@@ -56,7 +49,7 @@ public class CreatePlaceTestCases extends TwitterTestParent {
 	@Test
 	public void testCreatePlacePassingCoordinates() {
     	
-    	TestPlace place = (TestPlace) context.getBean("placeByCoordinates");
+    	TwitterTestPlace place = (TwitterTestPlace) context.getBean("placeByCoordinates");
 		
 		try {
 			

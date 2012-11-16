@@ -17,7 +17,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TestStatus;
+import org.mule.twitter.automation.TwitterTestStatus;
 import org.mule.twitter.automation.TwitterTestUtils;
 
 import twitter4j.QueryResult;
@@ -33,7 +33,7 @@ public class SearchTestCases extends TwitterTestParent {
 
     	testObjects = new HashMap<String,Object>();
     			
-    	TestStatus aTweetToQueryFor = (TestStatus) context.getBean("aTweetToQueryFor");
+    	TwitterTestStatus aTweetToQueryFor = (TwitterTestStatus) context.getBean("aTweetToQueryFor");
     	
     	try {
     		
@@ -59,7 +59,7 @@ public class SearchTestCases extends TwitterTestParent {
     	
     	try {
     		
-    		TestStatus aTweetToQueryFor = (TestStatus) testObjects.get("aTweetToQueryFor");
+    		TwitterTestStatus aTweetToQueryFor = (TwitterTestStatus) testObjects.get("aTweetToQueryFor");
     		
         	flow = lookupFlowConstruct("destroy-status");       	
         	flow.process(getTestEvent(aTweetToQueryFor.getId()));
@@ -76,7 +76,7 @@ public class SearchTestCases extends TwitterTestParent {
 	@Test
 	public void testGetRetweetsByIdsDefaultValues() {
 		
-		TestStatus aTweetToQueryFor = (TestStatus) testObjects.get("aTweetToQueryFor");
+		TwitterTestStatus aTweetToQueryFor = (TwitterTestStatus) testObjects.get("aTweetToQueryFor");
 
 		try {
 			

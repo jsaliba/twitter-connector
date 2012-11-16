@@ -17,8 +17,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleException;
-import org.mule.twitter.automation.TestStatus;
+import org.mule.twitter.automation.TwitterTestStatus;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
@@ -34,7 +33,7 @@ public class ShowStatusTestCases extends TwitterTestParent {
     	
     	testObjects = new HashMap<String,Object>();
     			
-    	TestStatus aTweet = (TestStatus) context.getBean("aStatus");
+    	TwitterTestStatus aTweet = (TwitterTestStatus) context.getBean("aStatus");
     	
     	try {
     		
@@ -56,7 +55,7 @@ public class ShowStatusTestCases extends TwitterTestParent {
     	
     	try {
     		
-    		TestStatus testTweet = (TestStatus) testObjects.get("testTweet");
+    		TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("testTweet");
     		
         	flow = lookupFlowConstruct("destroy-status");
         	flow.process(getTestEvent(testTweet.getId()));
@@ -73,7 +72,7 @@ public class ShowStatusTestCases extends TwitterTestParent {
 	@Test
 	public void testShowStatus() {
     	
-    	TestStatus testTweet = (TestStatus) testObjects.get("testTweet");
+    	TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("testTweet");
 		
 		try {
 			

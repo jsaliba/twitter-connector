@@ -8,7 +8,7 @@
 
 package org.mule.twitter.automation;
 
-public class TestStatus {
+public class TwitterTestStatus {
 	
 	private long id;
 	private String text;

@@ -20,7 +20,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TestStatus;
+import org.mule.twitter.automation.TwitterTestStatus;
 import org.mule.twitter.automation.TwitterSandbox;
 import org.mule.twitter.automation.TwitterTestUtils;
 
@@ -38,8 +38,8 @@ public class GetRetweetedToUserByUserIdTestCases extends TwitterTestParent {
     	
     	testObjects = new HashMap<String,Object>();
     			
-    	TestStatus firstTweet = (TestStatus) context.getBean("firstStatusToRetweet");
-    	TestStatus secondTweet = (TestStatus) context.getBean("secondStatusToRetweet");
+    	TwitterTestStatus firstTweet = (TwitterTestStatus) context.getBean("firstStatusToRetweet");
+    	TwitterTestStatus secondTweet = (TwitterTestStatus) context.getBean("secondStatusToRetweet");
     	
     	try {
     		
@@ -74,8 +74,8 @@ public class GetRetweetedToUserByUserIdTestCases extends TwitterTestParent {
     	
     	try {
     		
-    		TestStatus firstRetweetedStatus = (TestStatus) testObjects.get("firstRetweetedStatus");
-    		TestStatus secondRetweetedStatus = (TestStatus) testObjects.get("secondRetweetedStatus");
+    		TwitterTestStatus firstRetweetedStatus = (TwitterTestStatus) testObjects.get("firstRetweetedStatus");
+    		TwitterTestStatus secondRetweetedStatus = (TwitterTestStatus) testObjects.get("secondRetweetedStatus");
     		
         	flow = lookupFlowConstruct("destroy-status-aux-sandbox");
         	
@@ -98,8 +98,8 @@ public class GetRetweetedToUserByUserIdTestCases extends TwitterTestParent {
     	ResponseList<Status> responseList;
     	String responseListLenghtErrorMessage;
     	
-		TestStatus firstRetweetedStatus = (TestStatus) testObjects.get("firstRetweetedStatus");
-		TestStatus secondRetweetedStatus = (TestStatus) testObjects.get("secondRetweetedStatus");
+		TwitterTestStatus firstRetweetedStatus = (TwitterTestStatus) testObjects.get("firstRetweetedStatus");
+		TwitterTestStatus secondRetweetedStatus = (TwitterTestStatus) testObjects.get("secondRetweetedStatus");
 		
 		long userId = followerSandbox.getUserId();
 		

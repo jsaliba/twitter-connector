@@ -14,14 +14,12 @@ import static org.junit.Assert.fail;
 
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TestStatus;
-import org.mule.twitter.automation.TwitterSandbox;
+import org.mule.twitter.automation.TwitterTestStatus;
 import org.mule.twitter.automation.TwitterTestUtils;
 
 import twitter4j.ResponseList;
@@ -36,7 +34,7 @@ public class GetRetweetsTestCases extends TwitterTestParent {
     	
     	testObjects = new HashMap<String,Object>();
     			
-    	TestStatus aStatus = (TestStatus) context.getBean("aStatusToRetweet");
+    	TwitterTestStatus aStatus = (TwitterTestStatus) context.getBean("aStatusToRetweet");
     	
     	try {
     		
@@ -64,7 +62,7 @@ public class GetRetweetsTestCases extends TwitterTestParent {
     	
     	try {
     		
-    		TestStatus aRetweetedStatus = (TestStatus) testObjects.get("aStatusToRetweet");
+    		TwitterTestStatus aRetweetedStatus = (TwitterTestStatus) testObjects.get("aStatusToRetweet");
     		
         	flow = lookupFlowConstruct("destroy-status-aux-sandbox");
         	
@@ -82,7 +80,7 @@ public class GetRetweetsTestCases extends TwitterTestParent {
 	@Test
 	public void testGetRetweets() {
 		
-		TestStatus aRetweet = (TestStatus) testObjects.get("aStatusToRetweet");
+		TwitterTestStatus aRetweet = (TwitterTestStatus) testObjects.get("aStatusToRetweet");
 		
 		try {
 			

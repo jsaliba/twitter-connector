@@ -11,7 +11,7 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
 http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/2.4/mule-twitter.xsd 
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd 
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd ">
-	<context:property-placeholder location="automation-credentials.properties"/>
+	<context:property-placeholder location="${TWITTER_AUTO_CREDENTIALS}"/>
 	
 	<twitter:config name="Twitter"
 		accessKey="${twitter.sandbox.accessKey}"
@@ -130,11 +130,6 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
         <logger level="INFO" message="### get-home-timeline-parameterized #[payload]" />
 	</flow>
 	
-	<flow name="get-public-timeline" doc:name="get-public-timeline">
-        <twitter:get-public-timeline config-ref="Twitter"  doc:name="Twitter"   />
-        <logger level="INFO" message="### get-public-timeline #[payload]" />
-	</flow>
-	
 	<flow name="get-user-timeline-default-values" doc:name="get-user-timeline-default-values">
         <twitter:get-user-timeline config-ref="Twitter"  doc:name="Twitter"   />
         <logger level="INFO" message="### get-user-timeline-default-values #[payload]" />
@@ -171,7 +166,7 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 	</flow>
 	
 	<flow name="get-retweeted-by-ids-default-values" doc:name="get-retweeted-by-ids-default-values">
-        <twitter:get-retweeted-by-i-ds config-ref="Twitter" statusId="#[payload]" doc:name="Twitter"/>
+        <twitter:get-retweeted-by-ids config-ref="Twitter" statusId="#[payload]" doc:name="Twitter"/>
         <logger level="INFO" message="### get-retweeted-by-ids-default-values #[payload]" />
 	</flow>
 	
@@ -266,7 +261,7 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 	</flow>
 	
 	<flow name="reverse-geo-code-by-ip" doc:name="reverse-geo-code-by-ip">
-        <twitter:reverse-geo-code config-ref="Twitter" doc:name="Twitter" ip="#[payload]" />
+        <twitter:reverse-geo-code config-ref="Twitter" doc:name="Twitter" />
         <logger level="INFO" message="### reverse-geo-code-by-ip #[payload]" />
 	</flow>
 	

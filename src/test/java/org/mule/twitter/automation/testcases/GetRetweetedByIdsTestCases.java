@@ -18,15 +18,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TestStatus;
+import org.mule.twitter.automation.TwitterTestStatus;
 import org.mule.twitter.automation.TwitterSandbox;
 import org.mule.twitter.automation.TwitterTestUtils;
 
 import twitter4j.IDs;
-import twitter4j.ResponseList;
 import twitter4j.Status;
-import twitter4j.User;
-
 
 
 public class GetRetweetedByIdsTestCases extends TwitterTestParent {
@@ -40,11 +37,11 @@ public class GetRetweetedByIdsTestCases extends TwitterTestParent {
     	
     	testObjects = new HashMap<String,Object>();
     			
-    	TestStatus firstTweet = (TestStatus) context.getBean("firstStatusToRetweet");
-    	TestStatus firstRetweet = new TestStatus();
+    	TwitterTestStatus firstTweet = (TwitterTestStatus) context.getBean("firstStatusToRetweet");
+    	TwitterTestStatus firstRetweet = new TwitterTestStatus();
     	
-    	TestStatus secondTweet = (TestStatus) context.getBean("secondStatusToRetweet");
-    	TestStatus secondRetweet = new TestStatus();
+    	TwitterTestStatus secondTweet = (TwitterTestStatus) context.getBean("secondStatusToRetweet");
+    	TwitterTestStatus secondRetweet = new TwitterTestStatus();
 
     	try {
     		
@@ -79,8 +76,8 @@ public class GetRetweetedByIdsTestCases extends TwitterTestParent {
     	
     	try {
     		
-    		TestStatus firstTweetedStatus = (TestStatus) testObjects.get("firstTweetedStatus");
-    		TestStatus secondTweetedStatus = (TestStatus) testObjects.get("secondTweetedStatus");
+    		TwitterTestStatus firstTweetedStatus = (TwitterTestStatus) testObjects.get("firstTweetedStatus");
+    		TwitterTestStatus secondTweetedStatus = (TwitterTestStatus) testObjects.get("secondTweetedStatus");
     		
         	flow = lookupFlowConstruct("destroy-status-aux-sandbox");
         	
@@ -99,7 +96,7 @@ public class GetRetweetedByIdsTestCases extends TwitterTestParent {
 	@Test
 	public void testGetRetweetsByIdsDefaultValues() {
 		
-		TestStatus aRetweetedStatus = (TestStatus) testObjects.get("firstTweetedStatus");
+		TwitterTestStatus aRetweetedStatus = (TwitterTestStatus) testObjects.get("firstTweetedStatus");
 
 		try {
 			

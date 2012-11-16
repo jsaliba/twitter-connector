@@ -16,7 +16,7 @@ import java.util.Map;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TestPlace;
+import org.mule.twitter.automation.TwitterTestPlace;
 
 import twitter4j.Place;
 import twitter4j.ResponseList;
@@ -27,7 +27,7 @@ public class SearchPlacesTestCases extends TwitterTestParent {
 	@Test
 	public void testSearchPlacesByIp() {
 		
-    	TestPlace place = (TestPlace) context.getBean("placeByIp");
+    	TwitterTestPlace place = (TwitterTestPlace) context.getBean("placeByIp");
     	
 		try {
 
@@ -48,7 +48,7 @@ public class SearchPlacesTestCases extends TwitterTestParent {
 	@Test
 	public void testSearchPlacesByCoordinates() {
     	
-    	TestPlace place = (TestPlace) context.getBean("placeByCoordinates");
+    	TwitterTestPlace place = (TwitterTestPlace) context.getBean("placeByCoordinates");
 		
 		try {
 			

@@ -5,47 +5,47 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  
-	<bean id="aStatus" class="org.mule.twitter.automation.TestStatus">
+	<bean id="aStatus" class="org.mule.twitter.automation.TwitterTestStatus">
 		<property name="text" value="aTweetText" />
 	</bean>
  
-    <bean id="firstStatus" class="org.mule.twitter.automation.TestStatus">
+    <bean id="firstStatus" class="org.mule.twitter.automation.TwitterTestStatus">
 		<property name="text" value="firstStatusText" />
 	</bean>
 	
-	<bean id="secondStatus" class="org.mule.twitter.automation.TestStatus">
+	<bean id="secondStatus" class="org.mule.twitter.automation.TwitterTestStatus">
 		<property name="text" value="secondStatusText" />
 	</bean>
 	
-	<bean id="firstMention" class="org.mule.twitter.automation.TestStatus">
+	<bean id="firstMention" class="org.mule.twitter.automation.TwitterTestStatus">
 		<property name="text" value="firstMentionText" />
 	</bean>
 	
-	<bean id="secondMention" class="org.mule.twitter.automation.TestStatus">
+	<bean id="secondMention" class="org.mule.twitter.automation.TwitterTestStatus">
 		<property name="text" value="secondMentionText" />
 	</bean>
 	
-	<bean id="directMessageByScreenName" class="org.mule.twitter.automation.TestStatus">
+	<bean id="directMessageByScreenName" class="org.mule.twitter.automation.TwitterTestStatus">
 		<property name="text" value="directMessageByUserScreenName" />
 	</bean>
 	
-	<bean id="directMessageByUserId" class="org.mule.twitter.automation.TestStatus">
+	<bean id="directMessageByUserId" class="org.mule.twitter.automation.TwitterTestStatus">
 		<property name="text" value="directMessageByUserIdText" />
 	</bean>
 	
-	<bean id="aStatusToRetweet" class="org.mule.twitter.automation.TestStatus">
+	<bean id="aStatusToRetweet" class="org.mule.twitter.automation.TwitterTestStatus">
 		<property name="text" value="aStatusToRetweetText" />
 	</bean>
 	
-	<bean id="firstStatusToRetweet" class="org.mule.twitter.automation.TestStatus">
+	<bean id="firstStatusToRetweet" class="org.mule.twitter.automation.TwitterTestStatus">
 		<property name="text" value="firstStatusToRetweetText" />
 	</bean>
 	
-	<bean id="secondStatusToRetweet" class="org.mule.twitter.automation.TestStatus">
+	<bean id="secondStatusToRetweet" class="org.mule.twitter.automation.TwitterTestStatus">
 		<property name="text" value="secondStatusToRetweetText" />
 	</bean>
 	
-	<bean id="aTweetToQueryFor" class="org.mule.twitter.automation.TestStatus">
+	<bean id="aTweetToQueryFor" class="org.mule.twitter.automation.TwitterTestStatus">
 		<property name="text" value="Reminder: Blue Angels practice today http://t.co/L9JXJ2ee" />
 	</bean>
 
