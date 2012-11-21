@@ -16,15 +16,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
 import org.mule.api.MuleException;
-import org.mule.api.processor.MessageProcessor;
-import org.mule.tck.junit4.FunctionalTestCase;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import twitter4j.Location;
 import twitter4j.ResponseList;

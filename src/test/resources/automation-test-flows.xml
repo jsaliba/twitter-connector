@@ -11,7 +11,8 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
 http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/2.4/mule-twitter.xsd 
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd 
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd ">
-	<context:property-placeholder location="${TWITTER_AUTO_CREDENTIALS}"/>
+	
+	<context:property-placeholder location="${TWITTER_CREDENTIALS}"/>
 	
 	<twitter:config name="Twitter"
 		accessKey="${twitter.sandbox.accessKey}"

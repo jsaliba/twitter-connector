@@ -8,8 +8,6 @@
 
 package org.mule.twitter.automation;
 
-import java.util.Map;
-
 public class TwitterTestPlace {
 	
 	private String id;
