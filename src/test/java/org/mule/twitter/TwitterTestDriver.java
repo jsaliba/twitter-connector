@@ -12,13 +12,16 @@
 
 package org.mule.twitter;
 
-import org.mule.api.callback.SourceCallback;
-import org.mule.tck.AbstractMuleTestCase;
-import twitter4j.Status;
-
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
+
+import org.mule.api.MuleEvent;
+import org.mule.api.MuleException;
+import org.mule.api.callback.SourceCallback;
+import org.mule.tck.AbstractMuleTestCase;
+
+import twitter4j.Status;
 
 public class TwitterTestDriver extends AbstractMuleTestCase
 {
@@ -96,6 +99,13 @@ public class TwitterTestDriver extends AbstractMuleTestCase
                 System.out.println(payload);
                 return null;
             }
+
+            @Override
+            public MuleEvent processEvent(MuleEvent event) throws MuleException
+            {
+                return null;
+            }
+            
         });
         Thread.sleep(10000);
     }
@@ -124,6 +134,12 @@ public class TwitterTestDriver extends AbstractMuleTestCase
             {
                 return null;
             }
+            
+            @Override
+            public MuleEvent processEvent(MuleEvent event) throws MuleException
+            {
+                return null;
+            }            
         });
         Thread.sleep(20000);
     }
@@ -152,6 +168,12 @@ public class TwitterTestDriver extends AbstractMuleTestCase
             {
                 return null;
             }
+            
+            @Override
+            public MuleEvent processEvent(MuleEvent event) throws MuleException
+            {
+                return null;
+            }            
         });
 
         connector.updateStatus("Foobar " + new Date(), -1, null, null);

@@ -13,6 +13,8 @@ import org.apache.commons.lang.UnhandledException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mule.api.MuleContext;
+import org.mule.api.MuleEvent;
+import org.mule.api.MuleException;
 import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Module;
 import org.mule.api.annotations.Processor;
@@ -1543,6 +1545,16 @@ public class TwitterConnector implements MuleContextAware {
         public Object process(Object payload, Map<String, Object> properties) throws Exception {
             try {
                 return callback.process(payload);
+            } catch (Exception e) {
+                throw new UnhandledException(e);
+            }
+        }
+
+        @Override
+        public MuleEvent processEvent(MuleEvent event) throws MuleException
+        {
+            try {
+                return callback.processEvent(event);
             } catch (Exception e) {
                 throw new UnhandledException(e);
             }
