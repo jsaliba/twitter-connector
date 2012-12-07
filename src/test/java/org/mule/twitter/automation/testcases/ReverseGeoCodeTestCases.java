@@ -23,27 +23,6 @@ import twitter4j.ResponseList;
 
 public class ReverseGeoCodeTestCases extends TwitterTestParent {
     
-    @Category({SanityTests.class, RegressionTests.class})
-	@Test
-	public void testReverseGeoCodesByIp() {
-		
-    	TwitterTestPlace place = (TwitterTestPlace) context.getBean("placeByIp");
-    	
-		try {
-
-			flow = lookupFlowConstruct("reverse-geo-code-by-ip");
-        	response = flow.process(getTestEvent(place.getIp()));
-        	ResponseList<Place> placesList = (ResponseList<Place>) response.getMessage().getPayload();
-        	
-        	assertNotNull(placesList);
-        	
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail(); 
-		}
-	}
-    
     @Category({RegressionTests.class})
 	@Test
 	public void testReverseGeoCodesByCoordinates() {

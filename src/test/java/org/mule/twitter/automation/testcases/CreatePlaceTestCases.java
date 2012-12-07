@@ -23,8 +23,7 @@ import twitter4j.ResponseList;
 
 public class CreatePlaceTestCases extends TwitterTestParent {
 	    
-    @Category({SanityTests.class, RegressionTests.class})
-	@Test
+
 	public void testCreatePlace() {
 		
     	TwitterTestPlace place = (TwitterTestPlace) context.getBean("newPlace");
@@ -45,8 +44,7 @@ public class CreatePlaceTestCases extends TwitterTestParent {
      
 	}
     
-    @Category({RegressionTests.class})
-	@Test
+
 	public void testCreatePlacePassingCoordinates() {
     	
     	TwitterTestPlace place = (TwitterTestPlace) context.getBean("placeByCoordinates");

@@ -35,6 +35,7 @@ public class GetUserTimelineByScreenNameTestCases extends TwitterTestParent {
     public void setUp() {
     	
     	sandbox = (TwitterSandbox) context.getBean("auxSandbox");
+    	testObjects = new HashMap<String,Object>();
     	
     	TwitterTestStatus firstTweet = (TwitterTestStatus) context.getBean("firstStatus");
     	TwitterTestStatus secondTweet = (TwitterTestStatus) context.getBean("secondStatus");
