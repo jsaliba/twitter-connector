@@ -54,7 +54,7 @@ public class GetDailyTrendsTestCases extends TwitterTestParent {
     public void testGetDailyTrendsParametrized() {
     	
     	Calendar calendar = new GregorianCalendar();
-    	calendar.add(Calendar.MONTH, -1);
+    	calendar.add(Calendar.DATE, -5);
         Date startingDate = calendar.getTime();
 	
     	try {
