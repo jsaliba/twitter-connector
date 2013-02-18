@@ -12,13 +12,8 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.UnhandledException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mule.api.MuleContext;
-import org.mule.api.MuleEvent;
-import org.mule.api.MuleException;
-import org.mule.api.annotations.Configurable;
-import org.mule.api.annotations.Module;
-import org.mule.api.annotations.Processor;
-import org.mule.api.annotations.Source;
+import org.mule.api.*;
+import org.mule.api.annotations.*;
 import org.mule.api.annotations.display.FriendlyName;
 import org.mule.api.annotations.display.Password;
 import org.mule.api.annotations.display.Placement;
@@ -26,6 +21,9 @@ import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.api.callback.SourceCallback;
 import org.mule.api.context.MuleContextAware;
+import org.mule.common.DefaultTestResult;
+import org.mule.common.TestResult;
+import org.mule.common.Testable;
 import org.mule.twitter.UserEvent.EventType;
 import twitter4j.*;
 import twitter4j.auth.AccessToken;
@@ -45,8 +43,9 @@ import java.util.Map;
  *
  * @author MuleSoft, Inc.
  */
-@Module(name = "twitter", schemaVersion = "2.4", description = "Twitter Integration", friendlyName = "Twitter")
-public class TwitterConnector implements MuleContextAware {
+@Module(name = "twitter", schemaVersion = "2.4", description = "Twitter Integration", friendlyName = "Twitter",
+connectivityTesting = ConnectivityTesting.ON)
+public class TwitterConnector implements MuleContextAware, Testable {
 
     private static final String STREAM_BASE_URL = "https://stream.twitter.com/1/";
     private static final String SITE_STREAM_BASE_URL = "https://sitestream.twitter.com/2b/";
@@ -1514,6 +1513,22 @@ public class TwitterConnector implements MuleContextAware {
 
     public String getProxyPassword() {
         return proxyPassword;
+    }
+
+    /**
+     * Method implemented for Mule Studio connectivity testing
+     * @return the connection test result
+     */
+    @Override
+    public TestResult test() {
+        init();
+        try {
+            getUserTimeline(1, 1, -1);
+        } catch (TwitterException te) {
+            return new DefaultTestResult(TestResult.Status.FAILURE, "Bad credentials");
+        }
+
+        return new DefaultTestResult(TestResult.Status.SUCCESS);
     }
 
     static final class SoftCallback implements SourceCallback {
