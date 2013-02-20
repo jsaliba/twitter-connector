@@ -17,13 +17,11 @@ import org.mule.api.annotations.*;
 import org.mule.api.annotations.display.FriendlyName;
 import org.mule.api.annotations.display.Password;
 import org.mule.api.annotations.display.Placement;
+import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.api.callback.SourceCallback;
 import org.mule.api.context.MuleContextAware;
-import org.mule.common.DefaultTestResult;
-import org.mule.common.TestResult;
-import org.mule.common.Testable;
 import org.mule.twitter.UserEvent.EventType;
 import twitter4j.*;
 import twitter4j.auth.AccessToken;
@@ -32,7 +30,6 @@ import twitter4j.conf.ConfigurationBuilder;
 import twitter4j.internal.http.alternative.HttpClientHiddenConstructionArgument;
 import twitter4j.internal.http.alternative.MuleHttpClient;
 
-import javax.annotation.PostConstruct;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -43,9 +40,9 @@ import java.util.Map;
  *
  * @author MuleSoft, Inc.
  */
-@Module(name = "twitter", schemaVersion = "2.4", description = "Twitter Integration", friendlyName = "Twitter",
-connectivityTesting = ConnectivityTesting.ON)
-public class TwitterConnector implements MuleContextAware, Testable {
+@Connector(name = "twitter", schemaVersion = "2.4", description = "Twitter Integration", friendlyName = "Twitter",
+minMuleVersion = "3.4")
+public class TwitterConnector implements MuleContextAware {
 
     private static final String STREAM_BASE_URL = "https://stream.twitter.com/1/";
     private static final String SITE_STREAM_BASE_URL = "https://sitestream.twitter.com/2b/";
@@ -67,20 +64,6 @@ public class TwitterConnector implements MuleContextAware, Testable {
      */
     @Configurable
     private String consumerSecret;
-
-    /**
-     * The access key provided by Twitter
-     */
-    @Optional
-    @Configurable
-    private String accessKey;
-
-    /**
-     * The access secret provided by Twitter
-     */
-    @Optional
-    @Configurable
-    private String accessSecret;
 
     /**
      * Whether to use SSL in API calls to Twitter
@@ -126,8 +109,18 @@ public class TwitterConnector implements MuleContextAware, Testable {
     @Password
     private String proxyPassword;
 
-    @PostConstruct
-    public void init() {
+    private String accessToken;
+
+    private String accessTokenSecret;
+
+    /**
+     * Connects to Twitter
+     * @param accessKey The access key provided by Twitter
+     * @param accessSecret The access secret provided by Twitter
+     * @throws ConnectionException when the connection fails
+     */
+    @Connect
+    public void connect(@ConnectionKey String accessKey, String accessSecret) throws ConnectionException{
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setUseSSL(useSSL);
         cb.setHttpProxyHost(proxyHost);
@@ -141,7 +134,31 @@ public class TwitterConnector implements MuleContextAware, Testable {
         twitter.setOAuthConsumer(consumerKey, consumerSecret);
         if (accessKey != null) {
             twitter.setOAuthAccessToken(new AccessToken(accessKey, accessSecret));
+            setAccessToken(accessKey);
+            setAccessTokenSecret(accessSecret);
         }
+
+        //for connectivity testing
+        try {
+            getUserTimeline(1, 1, -1);
+        } catch (TwitterException te) {
+            throw new ConnectionException(ConnectionExceptionCode.UNKNOWN, null, "Bad credentials");
+        }
+    }
+
+    @Disconnect
+    public void disconnect() {
+        twitter = null;
+    }
+
+    @ValidateConnection
+    public boolean validateConnection() {
+        return twitter != null;
+    }
+
+    @ConnectionIdentifier
+    public String getConnectionIdentifier() {
+        return getAccessToken() + "-" + getAccessTokenSecret();
     }
 
     /**
@@ -1411,8 +1428,8 @@ public class TwitterConnector implements MuleContextAware, Testable {
                 .setHttpProxyUser(proxyUsername)
                 .setHttpProxyPassword(proxyPassword);
 
-        if (accessKey != null) {
-            cb.setOAuthAccessToken(accessKey).setOAuthAccessTokenSecret(accessSecret);
+        if (getAccessToken() != null) {
+            cb.setOAuthAccessToken(accessToken).setOAuthAccessTokenSecret(accessTokenSecret);
         }
 
         HttpClientHiddenConstructionArgument.setUseMule(false);
@@ -1440,14 +1457,6 @@ public class TwitterConnector implements MuleContextAware, Testable {
 
     public void setUseSSL(boolean useSSL) {
         this.useSSL = useSSL;
-    }
-
-    public void setAccessKey(String accessToken) {
-        this.accessKey = accessToken;
-    }
-
-    public void setAccessSecret(String accessTokenSecret) {
-        this.accessSecret = accessTokenSecret;
     }
 
     public void setConsumerKey(String consumerKey) {
@@ -1487,14 +1496,6 @@ public class TwitterConnector implements MuleContextAware, Testable {
         return consumerSecret;
     }
 
-    public String getAccessKey() {
-        return accessKey;
-    }
-
-    public String getAccessSecret() {
-        return accessSecret;
-    }
-
     public boolean isUseSSL() {
         return useSSL;
     }
@@ -1513,22 +1514,6 @@ public class TwitterConnector implements MuleContextAware, Testable {
 
     public String getProxyPassword() {
         return proxyPassword;
-    }
-
-    /**
-     * Method implemented for Mule Studio connectivity testing
-     * @return the connection test result
-     */
-    @Override
-    public TestResult test() {
-        init();
-        try {
-            getUserTimeline(1, 1, -1);
-        } catch (TwitterException te) {
-            return new DefaultTestResult(TestResult.Status.FAILURE, "Bad credentials");
-        }
-
-        return new DefaultTestResult(TestResult.Status.SUCCESS);
     }
 
     static final class SoftCallback implements SourceCallback {
@@ -1574,5 +1559,21 @@ public class TwitterConnector implements MuleContextAware, Testable {
                 throw new UnhandledException(e);
             }
         }
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public String getAccessTokenSecret() {
+        return accessTokenSecret;
+    }
+
+    public void setAccessTokenSecret(String accessTokenSecret) {
+        this.accessTokenSecret = accessTokenSecret;
     }
 }
