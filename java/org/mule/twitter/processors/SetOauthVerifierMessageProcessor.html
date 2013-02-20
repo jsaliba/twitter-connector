@@ -213,6 +213,8 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/config/spring/package-summary.html">org.mule.twitter.config.spring</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/connectivity/package-summary.html">org.mule.twitter.connectivity</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/process/package-summary.html">org.mule.twitter.process</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../../java/org/mule/twitter/processors/package-summary.html">org.mule.twitter.processors</a></li>
@@ -231,6 +233,7 @@
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/AbstractConnectedProcessor.html">AbstractConnectedProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/AbstractExpressionEvaluator.html">AbstractExpressionEvaluator</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/AbstractListeningMessageProcessor.html">AbstractListeningMessageProcessor</a>&lt;O&gt;</li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/AbstractMessageProcessor.html">AbstractMessageProcessor</a>&lt;O&gt;</li>
@@ -329,6 +332,8 @@
   
   
   
+   
+  
   
 
   
@@ -356,17 +361,6 @@
    
   
   
-   
-  
-  
-  
-
-  
-   
-  
-  
-   
-  
   
   
 
@@ -390,6 +384,41 @@
 
   
    
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
   
   
   
@@ -465,6 +494,10 @@ Summary:
   
 
   
+  
+  
+
+  
     extends <a href="../../../../../java/org/mule/twitter/processors/AbstractMessageProcessor.html">AbstractMessageProcessor</a>&lt;O&gt;<br/>
   
   
@@ -484,6 +517,8 @@ Summary:
       
         MessageProcessor 
       
+        OperationMetaDataEnabled 
+      
   
   
 
@@ -498,7 +533,7 @@ Summary:
 
     <tr>
         
-        <td colspan="4" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="5" class="jd-inheritance-class-cell">java.lang.Object</td>
     </tr>
     
 
@@ -506,11 +541,23 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../../../java/org/mule/twitter/processors/AbstractExpressionEvaluator.html">org.mule.twitter.processors.AbstractExpressionEvaluator</a></td>
+        <td colspan="4" class="jd-inheritance-class-cell"><a href="../../../../../java/org/mule/twitter/processors/AbstractExpressionEvaluator.html">org.mule.twitter.processors.AbstractExpressionEvaluator</a></td>
     </tr>
     
 
     <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../../../java/org/mule/twitter/processors/AbstractConnectedProcessor.html">org.mule.twitter.processors.AbstractConnectedProcessor</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
         
             <td class="jd-inheritance-space">&nbsp;</td>
         
@@ -521,6 +568,8 @@ Summary:
     
 
     <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
         
             <td class="jd-inheritance-space">&nbsp;</td>
         
@@ -593,6 +642,8 @@ Summary:
 <table id="inhconstants" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Constants</div></th></tr>
+
+
 
 
 
@@ -730,6 +781,12 @@ org.mule.api.lifecycle.Stoppable
 
 
 
+
+
+
+
+
+
 </table>
 
 
@@ -838,6 +895,80 @@ org.mule.api.lifecycle.Stoppable
 
 
 
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-org.mule.twitter.processors.AbstractConnectedProcessor" class="jd-expando-trigger closed"
+          ><img id="inherited-fields-org.mule.twitter.processors.AbstractConnectedProcessor-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+<a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html">org.mule.twitter.processors.AbstractConnectedProcessor</a>
+<div id="inherited-fields-org.mule.twitter.processors.AbstractConnectedProcessor">
+  <div id="inherited-fields-org.mule.twitter.processors.AbstractConnectedProcessor-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-fields-org.mule.twitter.processors.AbstractConnectedProcessor-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#_accessKeyType">_accessKeyType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#_accessSecretType">_accessSecretType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#accessKey">accessKey</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#accessSecret">accessSecret</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -906,6 +1037,38 @@ org.mule.api.lifecycle.Stoppable
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/twitter/processors/SetOauthVerifierMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Result&lt;MetaData&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/SetOauthVerifierMessageProcessor.html#getInputMetaData()">getInputMetaData</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Result&lt;MetaData&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/SetOauthVerifierMessageProcessor.html#getOutputMetaData(org.mule.common.metadata.MetaData)">getOutputMetaData</a></span>(MetaData inputMetadata)</nobr>
         
   </td></tr>
 
@@ -1194,6 +1357,108 @@ From class
         <span class="sympad"><a href="../../../../../org/mule/twitter/processors/AbstractMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext value)</nobr>
         
         <div class="jd-descrdiv">Sets muleContext</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.twitter.processors.AbstractConnectedProcessor" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.twitter.processors.AbstractConnectedProcessor-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html">org.mule.twitter.processors.AbstractConnectedProcessor</a>
+
+<div id="inherited-methods-org.mule.twitter.processors.AbstractConnectedProcessor">
+  <div id="inherited-methods-org.mule.twitter.processors.AbstractConnectedProcessor-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.twitter.processors.AbstractConnectedProcessor-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#getAccessKey()">getAccessKey</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves accessKey
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#getAccessSecret()">getAccessSecret</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves accessSecret
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#setAccessKey(java.lang.Object)">setAccessKey</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets accessKey</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#setAccessSecret(java.lang.Object)">setAccessSecret</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets accessSecret</div>
   
   </td></tr>
 
@@ -1924,6 +2189,68 @@ From interface
 </td></tr>
 
 
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.common.metadata.MetaDataDescriptor
+
+<div id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor">
+  <div id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Result&lt;MetaData&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getInputMetaData</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Result&lt;MetaData&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getOutputMetaData</span>(MetaData arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
 </table>
 
 
@@ -2097,6 +2424,77 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getInputMetaData()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Result&lt;MetaData&gt;
+      </span>
+      <span class="sympad">getInputMetaData</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getOutputMetaData(org.mule.common.metadata.MetaData)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Result&lt;MetaData&gt;
+      </span>
+      <span class="sympad">getOutputMetaData</span>
+      <span class="normal">(MetaData inputMetadata)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>inputMetadata</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>

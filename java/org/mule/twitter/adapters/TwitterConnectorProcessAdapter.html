@@ -213,6 +213,8 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/config/spring/package-summary.html">org.mule.twitter.config.spring</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/connectivity/package-summary.html">org.mule.twitter.connectivity</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/process/package-summary.html">org.mule.twitter.process</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/processors/package-summary.html">org.mule.twitter.processors</a></li>
@@ -232,6 +234,7 @@
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorCapabilitiesAdapter.html">TwitterConnectorCapabilitiesAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorLifecycleAdapter.html">TwitterConnectorLifecycleAdapter</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorMetadataAdapater.html">TwitterConnectorMetadataAdapater</a></li>
           <li class="selected api apilevel-"><a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorProcessAdapter.html">TwitterConnectorProcessAdapter</a></li>
@@ -372,18 +375,6 @@
   
   
    
-  
-  
-  
-
-  
-   
-  
-  
-  
-  
-
-  
   
   
   
@@ -563,6 +554,37 @@ Summary:
 
 
 
+
+<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-direct" class="jd-expando-trigger closed"
+          ><img id="subclasses-direct-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>Known Direct Subclasses
+
+  <div id="subclasses-direct">
+      <div id="subclasses-direct-list"
+              class="jd-inheritedlinks"
+              
+              >
+          
+            
+              <a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a>
+            
+          
+      </div>
+      <div id="subclasses-direct-summary"
+              style="display: none;"
+              >
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a></td>
+              <td class="jd-descrcol" width="100%">A <code>TwitterConnectorConnectionIdentifierAdapter</code> is a wrapper around <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code> that implements org.mule.api.Connection interface.&nbsp;</td>
+          </tr>
+  </table>
+      </div>
+  </div>
+</td></tr></table>
 
 
 
@@ -849,10 +871,6 @@ org.mule.api.lifecycle.Stoppable
 
 
 
-
-
-
-
 </table>
 
 
@@ -896,9 +914,8 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/TwitterConnector.html#accessKey">accessKey</a></td>
-          <td class="jd-descrcol" width="100%">The access key provided by Twitter
-</td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/TwitterConnector.html#accessToken">accessToken</a></td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -908,9 +925,8 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/TwitterConnector.html#accessSecret">accessSecret</a></td>
-          <td class="jd-descrcol" width="100%">The access secret provided by Twitter
-</td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/TwitterConnector.html#accessTokenSecret">accessTokenSecret</a></td>
+          <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
@@ -1035,10 +1051,6 @@ org.mule.api.lifecycle.Stoppable
   </div>
 </div>
 </td></tr>
-
-
-
-
 
 
 
@@ -1382,6 +1394,24 @@ From class
             
             
             
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#connect(java.lang.String, java.lang.String)">connect</a></span>(String accessKey, String accessSecret)</nobr>
+        
+        <div class="jd-descrdiv">Connects to Twitter</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             Place</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1393,7 +1423,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1407,6 +1437,22 @@ From class
         
         <div class="jd-descrdiv">Destroys the status specified by the required ID parameter.</div>
   
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#disconnect()">disconnect</a></span>()</nobr>
+        
   </td></tr>
 
 
@@ -1457,7 +1503,7 @@ From class
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getAccessKey()">getAccessKey</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getAccessToken()">getAccessToken</a></span>()</nobr>
         
   </td></tr>
 
@@ -1473,7 +1519,7 @@ From class
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getAccessSecret()">getAccessSecret</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getAccessTokenSecret()">getAccessTokenSecret</a></span>()</nobr>
         
   </td></tr>
 
@@ -1507,7 +1553,7 @@ From class
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getConsumerKey()">getConsumerKey</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getConnectionIdentifier()">getConnectionIdentifier</a></span>()</nobr>
         
   </td></tr>
 
@@ -1523,13 +1569,29 @@ From class
             String</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getConsumerSecret()">getConsumerSecret</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getConsumerKey()">getConsumerKey</a></span>()</nobr>
         
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getConsumerSecret()">getConsumerSecret</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1547,7 +1609,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1566,7 +1628,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1585,7 +1647,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1604,7 +1666,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1623,7 +1685,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1639,7 +1701,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1655,7 +1717,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1671,7 +1733,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1687,7 +1749,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1703,7 +1765,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1721,7 +1783,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1743,7 +1805,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1761,7 +1823,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1779,7 +1841,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1797,7 +1859,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1816,7 +1878,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1835,7 +1897,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1854,7 +1916,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1872,7 +1934,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1891,7 +1953,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1909,7 +1971,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1925,7 +1987,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1941,7 +2003,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1959,7 +2021,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1977,7 +2039,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1995,7 +2057,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2009,22 +2071,6 @@ From class
         
         <div class="jd-descrdiv">Returns the top 30 trending topics for each day in a given week.</div>
   
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#init()">init</a></span>()</nobr>
-        
   </td></tr>
 
 
@@ -2218,7 +2264,7 @@ From class
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#setAccessKey(java.lang.String)">setAccessKey</a></span>(String accessToken)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#setAccessToken(java.lang.String)">setAccessToken</a></span>(String accessToken)</nobr>
         
   </td></tr>
 
@@ -2234,7 +2280,7 @@ From class
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#setAccessSecret(java.lang.String)">setAccessSecret</a></span>(String accessTokenSecret)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#setAccessTokenSecret(java.lang.String)">setAccessTokenSecret</a></span>(String accessTokenSecret)</nobr>
         
   </td></tr>
 
@@ -2449,24 +2495,6 @@ From class
             
             
             
-            TestResult</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#test()">test</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Method implemented for Mule Studio connectivity testing</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
             Status</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -2478,7 +2506,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2506,6 +2534,22 @@ From class
  <p/>
  Only one Twitter stream can be consumed using the same credentials.</div>
   
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#validateConnection()">validateConnection</a></span>()</nobr>
+        
   </td></tr>
 
 
@@ -3091,50 +3135,6 @@ From interface
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad">getProcessTemplate</span>()</nobr>
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.common.Testable" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.common.Testable-trigger"
-          src="../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From interface
-
-  org.mule.common.Testable
-
-<div id="inherited-methods-org.mule.common.Testable">
-  <div id="inherited-methods-org.mule.common.Testable-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-org.mule.common.Testable-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            TestResult</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">test</span>()</nobr>
         
   </td></tr>
 

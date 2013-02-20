@@ -213,6 +213,8 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/config/spring/package-summary.html">org.mule.twitter.config.spring</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../java/org/mule/twitter/connectivity/package-summary.html">org.mule.twitter.connectivity</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/process/package-summary.html">org.mule.twitter.process</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/processors/package-summary.html">org.mule.twitter.processors</a></li>
@@ -279,6 +281,15 @@
 <div id="api-info-block">
 
 
+
+  
+   
+  
+  
+  
+   
+  
+  
 
   
    
@@ -439,6 +450,10 @@ Summary:
   
 
   
+  
+  
+
+  
     extends <a href="../../../../../java/org/mule/twitter/processors/AbstractListeningMessageProcessor.html">AbstractListeningMessageProcessor</a>&lt;O&gt;<br/>
   
   
@@ -474,7 +489,7 @@ Summary:
 
     <tr>
         
-        <td colspan="5" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="6" class="jd-inheritance-class-cell">java.lang.Object</td>
     </tr>
     
 
@@ -482,11 +497,23 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="4" class="jd-inheritance-class-cell"><a href="../../../../../java/org/mule/twitter/processors/AbstractExpressionEvaluator.html">org.mule.twitter.processors.AbstractExpressionEvaluator</a></td>
+        <td colspan="5" class="jd-inheritance-class-cell"><a href="../../../../../java/org/mule/twitter/processors/AbstractExpressionEvaluator.html">org.mule.twitter.processors.AbstractExpressionEvaluator</a></td>
     </tr>
     
 
     <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="4" class="jd-inheritance-class-cell"><a href="../../../../../java/org/mule/twitter/processors/AbstractConnectedProcessor.html">org.mule.twitter.processors.AbstractConnectedProcessor</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
         
             <td class="jd-inheritance-space">&nbsp;</td>
         
@@ -502,6 +529,8 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;</td>
         
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
         <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../java/org/mule/twitter/processors/AbstractListeningMessageProcessor.html">org.mule.twitter.processors.AbstractListeningMessageProcessor</a>&lt;O&gt;</td>
@@ -509,6 +538,8 @@ Summary:
     
 
     <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
         
             <td class="jd-inheritance-space">&nbsp;</td>
         
@@ -583,6 +614,8 @@ Summary:
 <table id="inhconstants" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Constants</div></th></tr>
+
+
 
 
 
@@ -679,6 +712,28 @@ org.mule.api.lifecycle.Stoppable
           protected
           
           
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#_accessKeyType">_accessKeyType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#_accessSecretType">_accessSecretType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#_countType">_countType</a></td>
           <td class="jd-descrcol" width="100%"></td>
@@ -703,6 +758,28 @@ org.mule.api.lifecycle.Stoppable
           
           List&lt;Long&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#_userIdsType">_userIdsType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#accessKey">accessKey</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#accessSecret">accessSecret</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -866,6 +943,74 @@ org.mule.api.lifecycle.Stoppable
 
 
 
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-org.mule.twitter.processors.AbstractConnectedProcessor" class="jd-expando-trigger closed"
+          ><img id="inherited-fields-org.mule.twitter.processors.AbstractConnectedProcessor-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+<a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html">org.mule.twitter.processors.AbstractConnectedProcessor</a>
+<div id="inherited-fields-org.mule.twitter.processors.AbstractConnectedProcessor">
+  <div id="inherited-fields-org.mule.twitter.processors.AbstractConnectedProcessor-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-fields-org.mule.twitter.processors.AbstractConnectedProcessor-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#_accessKeyType">_accessKeyType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#_accessSecretType">_accessSecretType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#accessKey">accessKey</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#accessSecret">accessSecret</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
 
 
 
@@ -954,6 +1099,42 @@ org.mule.api.lifecycle.Stoppable
         <span class="sympad"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#run()">run</a></span>()</nobr>
         
         <div class="jd-descrdiv">Implementation <code><a href="null#run()">run()</a></code> that will invoke the method on the pojo that this message source wraps.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#setAccessKey(java.lang.Object)">setAccessKey</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets accessKey</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#setAccessSecret(java.lang.Object)">setAccessSecret</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets accessSecret</div>
   
   </td></tr>
 
@@ -1346,6 +1527,108 @@ From class
         <span class="sympad"><a href="../../../../../org/mule/twitter/processors/AbstractMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext value)</nobr>
         
         <div class="jd-descrdiv">Sets muleContext</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.twitter.processors.AbstractConnectedProcessor" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.twitter.processors.AbstractConnectedProcessor-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html">org.mule.twitter.processors.AbstractConnectedProcessor</a>
+
+<div id="inherited-methods-org.mule.twitter.processors.AbstractConnectedProcessor">
+  <div id="inherited-methods-org.mule.twitter.processors.AbstractConnectedProcessor-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.twitter.processors.AbstractConnectedProcessor-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#getAccessKey()">getAccessKey</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves accessKey
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#getAccessSecret()">getAccessSecret</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves accessSecret
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#setAccessKey(java.lang.Object)">setAccessKey</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets accessKey</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/AbstractConnectedProcessor.html#setAccessSecret(java.lang.Object)">setAccessSecret</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets accessSecret</div>
   
   </td></tr>
 
@@ -2156,6 +2439,66 @@ From interface
 
 
 
+<A NAME="_accessKeyType"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        String
+      </span>
+        _accessKeyType
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="_accessSecretType"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        String
+      </span>
+        _accessSecretType
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
 <A NAME="_countType"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2227,6 +2570,66 @@ From interface
         List&lt;Long&gt;
       </span>
         _userIdsType
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="accessKey"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        Object
+      </span>
+        accessKey
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="accessSecret"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        Object
+      </span>
+        accessSecret
     </h4>
       <div class="api-level">
         
@@ -2491,6 +2894,88 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Implementation <code><a href="null#run()">run()</a></code> that will invoke the method on the pojo that this message source wraps.
  
 </p></div>
+
+    </div>
+</div>
+
+
+<A NAME="setAccessKey(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setAccessKey</span>
+      <span class="normal">(Object value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets accessKey</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setAccessSecret(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setAccessSecret</span>
+      <span class="normal">(Object value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets accessSecret</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
