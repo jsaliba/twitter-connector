@@ -205,15 +205,27 @@
     <li class="api apilevel-">
   <a href="../java/org/mule/twitter/package-summary.html">org.mule.twitter</a></li>
     <li class="api apilevel-">
+  <a href="../java/org/mule/twitter/adapter/package-summary.html">org.mule.twitter.adapter</a></li>
+    <li class="api apilevel-">
   <a href="../java/org/mule/twitter/adapters/package-summary.html">org.mule.twitter.adapters</a></li>
     <li class="api apilevel-">
   <a href="../java/org/mule/twitter/agents/package-summary.html">org.mule.twitter.agents</a></li>
+    <li class="api apilevel-">
+  <a href="../java/org/mule/twitter/basic/package-summary.html">org.mule.twitter.basic</a></li>
+    <li class="api apilevel-">
+  <a href="../java/org/mule/twitter/callback/package-summary.html">org.mule.twitter.callback</a></li>
     <li class="api apilevel-">
   <a href="../java/org/mule/twitter/config/package-summary.html">org.mule.twitter.config</a></li>
     <li class="api apilevel-">
   <a href="../java/org/mule/twitter/config/spring/package-summary.html">org.mule.twitter.config.spring</a></li>
     <li class="api apilevel-">
+  <a href="../java/org/mule/twitter/connection/package-summary.html">org.mule.twitter.connection</a></li>
+    <li class="api apilevel-">
   <a href="../java/org/mule/twitter/connectivity/package-summary.html">org.mule.twitter.connectivity</a></li>
+    <li class="api apilevel-">
+  <a href="../java/org/mule/twitter/devkit/package-summary.html">org.mule.twitter.devkit</a></li>
+    <li class="api apilevel-">
+  <a href="../java/org/mule/twitter/oauth/package-summary.html">org.mule.twitter.oauth</a></li>
     <li class="api apilevel-">
   <a href="../java/org/mule/twitter/process/package-summary.html">org.mule.twitter.process</a></li>
     <li class="api apilevel-">
@@ -280,6 +292,7 @@
     <a href="#letter_L">L</a>
     <a href="#letter_M">M</a>
     <a href="#letter_N">N</a>
+    <a href="#letter_O">O</a>
     <a href="#letter_P">P</a>
     <a href="#letter_R">R</a>
     <a href="#letter_S">S</a>
@@ -334,6 +347,30 @@
 
 <h2 id="letter_C">C</h2>
 <table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/basic/Capabilities.html">Capabilities</a></td>
+            <td class="jd-descrcol" width="100%">This interface is implemented for every org.mule.api.annotations.Module annotated class, to dynamically query what its capabilities are.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/basic/Capability.html">Capability</a></td>
+            <td class="jd-descrcol" width="100%">Enumeration of possible capabilities of Mule modules.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/connection/Connection.html">Connection</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/connection/ConnectionManager.html">ConnectionManager</a>&lt;K,&nbsp;C&nbsp;extends&nbsp;<a href="../java/org/mule/twitter/connection/Connection.html">Connection</a>&gt;</td>
+            <td class="jd-descrcol" width="100%">Wrapper around org.mule.api.annotations.Connector annotated class that will infuse it with connection management capabilities.&nbsp;</td>
+        </tr>
     
     
         <tr class="alt-color api apilevel-" >
@@ -1021,6 +1058,18 @@
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/callback/HttpCallback.html">HttpCallback</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/adapter/HttpCallbackAdapter.html">HttpCallbackAdapter</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/twitter4j/internal/http/alternative/HttpClientHiddenConstructionArgument.html">HttpClientHiddenConstructionArgument</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
@@ -1083,12 +1132,18 @@
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/basic/MetadataAware.html">MetadataAware</a></td>
+            <td class="jd-descrcol" width="100%">This interface is implemented for every org.mule.api.annotations.Module and org.mule.api.annotations.Connector annotated class and its purpose is to define a contract to query the annotated class about its metadata.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/twitter4j/internal/http/alternative/MuleHttpClient.html">MuleHttpClient</a></td>
             <td class="jd-descrcol" width="100%">A version of the twitter4j client that uses Mule.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/MuleHttpResponse.html">MuleHttpResponse</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
@@ -1107,6 +1162,44 @@
         </tr>
     
     
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/oauth/NotAuthorizedException.html">NotAuthorizedException</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+</table>
+
+
+<h2 id="letter_O">O</h2>
+<table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/oauth/OAuth1Adapter.html">OAuth1Adapter</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/oauth/OAuth2Adapter.html">OAuth2Adapter</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/oauth/OAuthAdapter.html">OAuthAdapter</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/oauth/OAuthManager.html">OAuthManager</a>&lt;C&nbsp;extends&nbsp;<a href="../java/org/mule/twitter/oauth/OAuthAdapter.html">OAuthAdapter</a>&gt;</td>
+            <td class="jd-descrcol" width="100%">Wrapper around org.mule.api.annotations.oauth.OAuth annotated class that will infuse it with
+ access token management capabilities.&nbsp;</td>
+        </tr>
+    
+    
 </table>
 
 
@@ -1115,8 +1208,38 @@
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/adapter/PoolManager.html">PoolManager</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/process/ProcessAdapter.html">ProcessAdapter</a>&lt;O&gt;</td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/process/ProcessCallback.html">ProcessCallback</a>&lt;T,&nbsp;O&gt;</td>
+            <td class="jd-descrcol" width="100%">Callback with logic to execute within a controlled environment provided by <code><a href="../java/org/mule/twitter/process/ProcessTemplate.html">ProcessTemplate</a></code>&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/process/ProcessCallbackProcessInterceptor.html">ProcessCallbackProcessInterceptor</a>&lt;T,&nbsp;O&gt;</td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/process/ProcessInterceptor.html">ProcessInterceptor</a>&lt;T,&nbsp;O&gt;</td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/process/ProcessTemplate.html">ProcessTemplate</a>&lt;T,&nbsp;O&gt;</td>
+            <td class="jd-descrcol" width="100%">ProcessTemplate provides a processing context for message processing.&nbsp;</td>
         </tr>
     
     
@@ -1152,54 +1275,60 @@
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/oauth/RestoreAccessTokenCallback.html">RestoreAccessTokenCallback</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/process/RetryProcessInterceptor.html">RetryProcessInterceptor</a>&lt;T,&nbsp;O&gt;</td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/RetweetStatusDefinitionParser.html">RetweetStatusDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/spring/RetweetStatusDefinitionParser.html">RetweetStatusDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/RetweetStatusMessageProcessor.html">RetweetStatusMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">RetweetStatusMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#retweetStatus(long)">retweetStatus(long)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/processors/RetweetStatusMessageProcessor.html">RetweetStatusMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">RetweetStatusMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#retweetStatus(long)">retweetStatus(long)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/ReverseGeoCodeDefinitionParser.html">ReverseGeoCodeDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/spring/ReverseGeoCodeDefinitionParser.html">ReverseGeoCodeDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/ReverseGeoCodeMessageProcessor.html">ReverseGeoCodeMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">ReverseGeoCodeMessageProcessor invokes the org.mule.twitter.TwitterConnector#reverseGeoCode(java.lang.Double, java.lang.Double, java.lang.String) method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html">ReverseGeoCodeMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">ReverseGeoCodeMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#reverseGeoCode(java.lang.Double, java.lang.Double)">reverseGeoCode(java.lang.Double, java.lang.Double)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
@@ -1237,194 +1366,220 @@
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/oauth/SaveAccessTokenCallback.html">SaveAccessTokenCallback</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/SearchDefinitionParser.html">SearchDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/spring/SearchDefinitionParser.html">SearchDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/SearchMessageProcessor.html">SearchMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">SearchMessageProcessor invokes the org.mule.twitter.TwitterConnector#search(java.lang.String) method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/processors/SearchMessageProcessor.html">SearchMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">SearchMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#search(java.lang.String, java.lang.String, java.lang.String, java.lang.Long, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.Long, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">search(java.lang.String, java.lang.String, java.lang.String, java.lang.Long, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.Long, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/SearchPlacesDefinitionParser.html">SearchPlacesDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/spring/SearchPlacesDefinitionParser.html">SearchPlacesDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/SearchPlacesMessageProcessor.html">SearchPlacesMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">SearchPlacesMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#searchPlaces(java.lang.Double, java.lang.Double, java.lang.String)">searchPlaces(java.lang.Double, java.lang.Double, java.lang.String)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/processors/SearchPlacesMessageProcessor.html">SearchPlacesMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">SearchPlacesMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#searchPlaces(java.lang.Double, java.lang.Double, java.lang.String)">searchPlaces(java.lang.Double, java.lang.Double, java.lang.String)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/SendDirectMessageByScreenNameDefinitionParser.html">SendDirectMessageByScreenNameDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/spring/SendDirectMessageByScreenNameDefinitionParser.html">SendDirectMessageByScreenNameDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/SendDirectMessageByScreenNameMessageProcessor.html">SendDirectMessageByScreenNameMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">SendDirectMessageByScreenNameMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#sendDirectMessageByScreenName(java.lang.String, java.lang.String)">sendDirectMessageByScreenName(java.lang.String, java.lang.String)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/processors/SendDirectMessageByScreenNameMessageProcessor.html">SendDirectMessageByScreenNameMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">SendDirectMessageByScreenNameMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#sendDirectMessageByScreenName(java.lang.String, java.lang.String)">sendDirectMessageByScreenName(java.lang.String, java.lang.String)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/SendDirectMessageByUserIdDefinitionParser.html">SendDirectMessageByUserIdDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/spring/SendDirectMessageByUserIdDefinitionParser.html">SendDirectMessageByUserIdDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/SendDirectMessageByUserIdMessageProcessor.html">SendDirectMessageByUserIdMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">SendDirectMessageByUserIdMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#sendDirectMessageByUserId(long, java.lang.String)">sendDirectMessageByUserId(long, java.lang.String)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/processors/SendDirectMessageByUserIdMessageProcessor.html">SendDirectMessageByUserIdMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">SendDirectMessageByUserIdMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#sendDirectMessageByUserId(long, java.lang.String)">sendDirectMessageByUserId(long, java.lang.String)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/SetOauthVerifierDefinitionParser.html">SetOauthVerifierDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/spring/SetOauthVerifierDefinitionParser.html">SetOauthVerifierDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/SetOauthVerifierMessageProcessor.html">SetOauthVerifierMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">SetOauthVerifierMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#setOauthVerifier(java.lang.String)">setOauthVerifier(java.lang.String)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/processors/SetOauthVerifierMessageProcessor.html">SetOauthVerifierMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">SetOauthVerifierMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#setOauthVerifier(java.lang.String)">setOauthVerifier(java.lang.String)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/ShowStatusDefinitionParser.html">ShowStatusDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/spring/ShowStatusDefinitionParser.html">ShowStatusDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/ShowStatusMessageProcessor.html">ShowStatusMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">ShowStatusMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#showStatus(long)">showStatus(long)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/processors/ShowStatusMessageProcessor.html">ShowStatusMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">ShowStatusMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#showStatus(long)">showStatus(long)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/ShowUserDefinitionParser.html">ShowUserDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/spring/ShowUserDefinitionParser.html">ShowUserDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/ShowUserMessageProcessor.html">ShowUserMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">ShowUserMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#showUser()">showUser()</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/processors/ShowUserMessageProcessor.html">ShowUserMessageProcessor</a></td>
             <td class="jd-descrcol" width="100%">ShowUserMessageProcessor invokes the <code><a href="../java/org/mule/twitter/TwitterConnector.html#showUser()">showUser()</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>.&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/SiteStreamDefinitionParser.html">SiteStreamDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/spring/SiteStreamDefinitionParser.html">SiteStreamDefinitionParser</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
     
     
-        <tr class="alt-color api apilevel-" >
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/config/SiteStreamMessageSource.html">SiteStreamMessageSource</a></td>
             <td class="jd-descrcol" width="100%">SiteStreamMessageSource wraps <code><a href="../java/org/mule/twitter/TwitterConnector.html#siteStream(java.util.List<java.lang.Long>, boolean, org.mule.api.callback.SourceCallback)">siteStream(java.util.List, boolean, org.mule.api.callback.SourceCallback)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code> as a message source capable of generating Mule events.&nbsp;</td>
         </tr>
     
     
-        <tr class=" api apilevel-" >
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/sources/SiteStreamMessageSource.html">SiteStreamMessageSource</a></td>
             <td class="jd-descrcol" width="100%">SiteStreamMessageSource wraps <code><a href="../java/org/mule/twitter/TwitterConnector.html#siteStream(java.util.List<java.lang.Long>, boolean, org.mule.api.callback.SourceCallback)">siteStream(java.util.List, boolean, org.mule.api.callback.SourceCallback)</a></code> method in <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code> as a message source capable of generating Mule events.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/callback/SourceCallback.html">SourceCallback</a></td>
+            <td class="jd-descrcol" width="100%">Callback interface used by org.mule.api.annotations.Source annotated methods to dispatch messages.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/devkit/SplashScreenAgent.html">SplashScreenAgent</a></td>
+            <td class="jd-descrcol" width="100%">Marks DevKit org.mule.api.agent.Agent implementations to take care of logging information at Mule app level mainly for troubleshooting purposes.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/callback/StopSourceCallback.html">StopSourceCallback</a></td>
+            <td class="jd-descrcol" width="100%">Callback returned by methods that are annotated with @Source
+ <p/>
+ It will be executed when the MessageSource is being stopped.&nbsp;</td>
         </tr>
     
     
@@ -1492,7 +1647,7 @@
     
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a></td>
-            <td class="jd-descrcol" width="100%">A <code>TwitterConnectorConnectionIdentifierAdapter</code> is a wrapper around <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code> that implements org.mule.api.Connection interface.&nbsp;</td>
+            <td class="jd-descrcol" width="100%">A <code>TwitterConnectorConnectionIdentifierAdapter</code> is a wrapper around <code><a href="../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code> that implements org.mule.devkit.dynamic.api.helper.Connection interface.&nbsp;</td>
         </tr>
     
     
@@ -1557,6 +1712,36 @@
 
 <h2 id="letter_U">U</h2>
 <table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/oauth/UnableToAcquireAccessTokenException.html">UnableToAcquireAccessTokenException</a></td>
+            <td class="jd-descrcol" width="100%">Exception thrown when the access token needed for accessing a protected resource cannot be acquired
+ 
+&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/connection/UnableToAcquireConnectionException.html">UnableToAcquireConnectionException</a></td>
+            <td class="jd-descrcol" width="100%">Exception thrown when the connection needed for executing an
+  operation is null.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/oauth/UnableToAcquireRequestTokenException.html">UnableToAcquireRequestTokenException</a></td>
+            <td class="jd-descrcol" width="100%">Exception thrown when the request token needed for building the authorization URL cannot be acquired
+ 
+&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/twitter/connection/UnableToReleaseConnectionException.html">UnableToReleaseConnectionException</a></td>
+            <td class="jd-descrcol" width="100%">Exception thrown when the release connection operation of the
+  connection manager fails.&nbsp;</td>
+        </tr>
     
     
         <tr class="alt-color api apilevel-" >
