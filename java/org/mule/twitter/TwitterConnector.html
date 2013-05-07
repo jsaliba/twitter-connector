@@ -838,7 +838,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#filteredStream(int, java.util.List<java.lang.Long>, java.util.List<java.lang.String>, org.mule.api.callback.SourceCallback)">filteredStream</a></span>(int count, List&lt;Long&gt; userIds, List&lt;String&gt; keywords, SourceCallback callback)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#filteredStream(int, java.util.List<java.lang.String>, java.util.List<java.lang.String>, org.mule.api.callback.SourceCallback)">filteredStream</a></span>(int count, List&lt;String&gt; userIds, List&lt;String&gt; keywords, SourceCallback callback)</nobr>
         
         <div class="jd-descrdiv">Asynchronously retrieves public statuses that match one or more filter predicates.</div>
   
@@ -1835,7 +1835,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#siteStream(java.util.List<java.lang.Long>, boolean, org.mule.api.callback.SourceCallback)">siteStream</a></span>(List&lt;Long&gt; userIds, boolean withFollowings, SourceCallback callback_)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#siteStream(java.util.List<java.lang.String>, boolean, org.mule.api.callback.SourceCallback)">siteStream</a></span>(List&lt;String&gt; userIds, boolean withFollowings, SourceCallback callback_)</nobr>
         
         <div class="jd-descrdiv">Asynchronously retrieves statutes for a set of supplied user's ids.</div>
   
@@ -2961,7 +2961,7 @@ From interface
 </div>
 
 
-<A NAME="filteredStream(int, java.util.List<java.lang.Long>, java.util.List<java.lang.String>, org.mule.api.callback.SourceCallback)"></A>
+<A NAME="filteredStream(int, java.util.List<java.lang.String>, java.util.List<java.lang.String>, org.mule.api.callback.SourceCallback)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2974,7 +2974,7 @@ From interface
         void
       </span>
       <span class="sympad">filteredStream</span>
-      <span class="normal">(int count, List&lt;Long&gt; userIds, List&lt;String&gt; keywords, SourceCallback callback)</span>
+      <span class="normal">(int count, List&lt;String&gt; userIds, List&lt;String&gt; keywords, SourceCallback callback)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -6178,7 +6178,7 @@ From interface
 </div>
 
 
-<A NAME="siteStream(java.util.List<java.lang.Long>, boolean, org.mule.api.callback.SourceCallback)"></A>
+<A NAME="siteStream(java.util.List<java.lang.String>, boolean, org.mule.api.callback.SourceCallback)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -6191,7 +6191,7 @@ From interface
         void
       </span>
       <span class="sympad">siteStream</span>
-      <span class="normal">(List&lt;Long&gt; userIds, boolean withFollowings, SourceCallback callback_)</span>
+      <span class="normal">(List&lt;String&gt; userIds, boolean withFollowings, SourceCallback callback_)</span>
     </h4>
       <div class="api-level">
         <div>

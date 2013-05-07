@@ -1875,7 +1875,7 @@ only one twitter stream can be consumed per connector instance.
                 &lt;xs:element name=&quot;user-id&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
                   &lt;xs:complexType&gt;
                     &lt;xs:simpleContent&gt;
-                      &lt;xs:extension xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; base=&quot;longType&quot;&gt;
+                      &lt;xs:extension base=&quot;xs:string&quot;&gt;
                         &lt;xs:attribute name=&quot;value-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
                       &lt;/xs:extension&gt;
                     &lt;/xs:simpleContent&gt;
@@ -2085,7 +2085,7 @@ only one twitter stream can be consumed per connector instance.
                 &lt;xs:element name=&quot;user-id&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot;&gt;
                   &lt;xs:complexType&gt;
                     &lt;xs:simpleContent&gt;
-                      &lt;xs:extension xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; base=&quot;longType&quot;&gt;
+                      &lt;xs:extension base=&quot;xs:string&quot;&gt;
                         &lt;xs:attribute name=&quot;value-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;&lt;/xs:attribute&gt;
                       &lt;/xs:extension&gt;
                     &lt;/xs:simpleContent&gt;
