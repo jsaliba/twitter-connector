@@ -140,7 +140,10 @@ public class TwitterConnector implements MuleContextAware {
 
         //for connectivity testing
         try {
-            getUserTimeline(1, 1, -1);
+            if (accessKey != null)
+            {
+                getUserTimeline(1, 1, -1);
+            }
         } catch (TwitterException te) {
             throw new ConnectionException(ConnectionExceptionCode.UNKNOWN, null, "Bad credentials");
         }
@@ -824,14 +827,26 @@ public class TwitterConnector implements MuleContextAware {
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:setOauthVerifier}
      *
+     *
+     * @param requestToken request token from Twitter
      * @param oauthVerifier The OAuth verifier code from Twitter.
+     * @return Twitter AccessToken info.
      * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
-    public void setOauthVerifier(String oauthVerifier) throws TwitterException {
-        AccessToken accessToken = twitter.getOAuthAccessToken(oauthVerifier);
+    public AccessToken setOauthVerifier(@Optional RequestToken requestToken, String oauthVerifier) throws TwitterException {
+        AccessToken accessToken;
+        if (requestToken != null) {
+            accessToken = twitter.getOAuthAccessToken(requestToken, oauthVerifier);
+        }
+        else {
+            accessToken = twitter.getOAuthAccessToken(oauthVerifier);
+        }
+
         logger.info("Got OAuth access tokens. Access token:" + accessToken.getToken()
                 + " Access token secret:" + accessToken.getTokenSecret());
+
+        return accessToken;
     }
 
     /**
@@ -839,14 +854,15 @@ public class TwitterConnector implements MuleContextAware {
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:requestAuthorization}
      *
+     *
      * @param callbackUrl the url to be requested when the user authorizes this app
-     * @return The user authorization URL.
+     * @return The user request token. For retrieving the authorization URL please call requestToken.getAuthorizationURL()
      * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
-    public String requestAuthorization(@Optional String callbackUrl) throws TwitterException {
+    public RequestToken requestAuthorization(@Optional String callbackUrl) throws TwitterException {
         RequestToken token = twitter.getOAuthRequestToken(callbackUrl);
-        return token.getAuthorizationURL();
+        return token;
     }
 
     /**
