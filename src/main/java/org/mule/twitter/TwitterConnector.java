@@ -1105,7 +1105,7 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Source
     public void filteredStream(@Optional @Default("0") int count,
-                               @Placement(group = "User Ids to Follow") @Optional List<Long> userIds,
+                               @Placement(group = "User Ids to Follow") @Optional List<String> userIds,
                                @Placement(group = "Keywords to Track") @Optional List<String> keywords,
                                final SourceCallback callback) {
         listenToStatues(callback).filter(new FilterQuery(count, toLongArray(userIds), toStringArray(keywords)));
@@ -1338,7 +1338,7 @@ public class TwitterConnector implements MuleContextAware {
      * @param callback_      the {@link SourceCallback} used to dispatch messages when a response is received
      */
     @Source
-    public void siteStream(@Placement(group = "User Ids to Follow") List<Long> userIds,
+    public void siteStream(@Placement(group = "User Ids to Follow") List<String> userIds,
                            @Optional @Default("false") boolean withFollowings,
                            final SourceCallback callback_) {
         initStream();
@@ -1452,13 +1452,13 @@ public class TwitterConnector implements MuleContextAware {
         return new TwitterStreamFactory(cb.build()).getInstance();
     }
 
-    private long[] toLongArray(List<Long> longList) {
+    private long[] toLongArray(List<String> longList) {
         if (longList == null) {
             return null;
         }
         long[] ls = new long[longList.size()];
         for (int i = 0; i < longList.size(); i++) {
-            ls[i] = longList.get(i);
+            ls[i] = Long.parseLong(longList.get(i));
         }
         return ls;
     }
