@@ -4285,8 +4285,8 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">String</td>
-                <td class="jd-descrcol">The user authorization URL.</td>
+                <td class="jd-descrcol">RequestToken</td>
+                <td class="jd-descrcol">The user request token. For retrieving the authorization URL please call requestToken.getAuthorizationURL()</td>
              </tr>
          </table>
   </div>
@@ -5194,6 +5194,18 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
                 
                     <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>requestToken</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Request token from Twitter</td>
+                        <td class="jd-descrcol">RequestToken</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol"></td>
+                    </tr>
+                
+                
+          
+                
+                    <tr class="alt-color api apilevel-" >
                         <td class="jd-linkcol"><nobr>oauthVerifier</nobr></td>
                         <td class="jd-descrcol"></td>
                         <td class="jd-descrcol">The OAuth verifier code from Twitter.</td>
@@ -5207,7 +5219,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
               <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
                 
-                    <tr class="alt-color api apilevel-" >
+                    <tr class=" api apilevel-" >
                         <td class="jd-linkcol"><nobr>accessKey</nobr></td>
                         <td class="jd-descrcol"></td>
                         <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access key provided by Twitter</td>
@@ -5217,7 +5229,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                     </tr>
                     
                 
-                    <tr class=" api apilevel-" >
+                    <tr class="alt-color api apilevel-" >
                         <td class="jd-linkcol"><nobr>accessSecret</nobr></td>
                         <td class="jd-descrcol"></td>
                         <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access secret provided by Twitter</td>
@@ -5233,6 +5245,19 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
   </div>
   
   
+      <div class="jd-tagdata">
+         <h5 class="jd-tagtitle">Returns</h5>
+         <table id="lconfig" class="jd-sumtable">
+             <tr>
+                <th>Return Type</th>
+                <th>Description</th>
+             </tr>
+             <tr>
+                <td class="jd-descrcol">AccessToken</td>
+                <td class="jd-descrcol">Twitter AccessToken info.</td>
+             </tr>
+         </table>
+  </div>
     
   
   <div class="jd-tagdata">

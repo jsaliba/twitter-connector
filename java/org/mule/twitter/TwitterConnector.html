@@ -1471,7 +1471,7 @@ Summary:
             
             
             
-            String</nobr>
+            RequestToken</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#requestAuthorization(java.lang.String)">requestAuthorization</a></span>(String callbackUrl)</nobr>
@@ -1696,10 +1696,10 @@ Summary:
             
             
             
-            void</nobr>
+            AccessToken</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#setOauthVerifier(java.lang.String)">setOauthVerifier</a></span>(String oauthVerifier)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#setOauthVerifier(twitter4j.auth.RequestToken, java.lang.String)">setOauthVerifier</a></span>(RequestToken requestToken, String oauthVerifier)</nobr>
         
         <div class="jd-descrdiv">Set the OAuth verifier after it has been retrieved via requestAuthorization.</div>
   
@@ -5090,7 +5090,7 @@ From interface
          
          
          
-        String
+        RequestToken
       </span>
       <span class="sympad">requestAuthorization</span>
       <span class="normal">(String callbackUrl)</span>
@@ -5119,7 +5119,7 @@ From interface
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>The user authorization URL.</li></ul>
+      <ul class="nolist"><li>The user request token. For retrieving the authorization URL please call requestToken.getAuthorizationURL()</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -5814,7 +5814,7 @@ From interface
 </div>
 
 
-<A NAME="setOauthVerifier(java.lang.String)"></A>
+<A NAME="setOauthVerifier(twitter4j.auth.RequestToken, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -5824,10 +5824,10 @@ From interface
          
          
          
-        void
+        AccessToken
       </span>
       <span class="sympad">setOauthVerifier</span>
-      <span class="normal">(String oauthVerifier)</span>
+      <span class="normal">(RequestToken requestToken, String oauthVerifier)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -5848,10 +5848,18 @@ From interface
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
+          <th>requestToken</td>
+          <td>Request token from Twitter</td>
+        </tr>
+        <tr>
           <th>oauthVerifier</td>
           <td>The OAuth verifier code from Twitter.</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Twitter AccessToken info.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
