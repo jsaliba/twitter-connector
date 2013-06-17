@@ -22,34 +22,6 @@
         <twitter:get-mentions />
 <!-- END_INCLUDE(twitter:getMentions) -->
 
-<!-- BEGIN_INCLUDE(twitter:getRetweetedByMe) -->
-        <twitter:get-retweeted-by-me />
-<!-- END_INCLUDE(twitter:getRetweetedByMe) -->
-
-<!-- BEGIN_INCLUDE(twitter:getRetweetedToMe) -->
-        <twitter:get-retweeted-to-me />
-<!-- END_INCLUDE(twitter:getRetweetedToMe) -->
-
-<!-- BEGIN_INCLUDE(twitter:getRetweetsOfMe) -->
-        <twitter:get-retweets-of-me />
-<!-- END_INCLUDE(twitter:getRetweetsOfMe) -->
-
-<!-- BEGIN_INCLUDE(twitter:getRetweetedToUserByScreenName) -->
-        <twitter:get-retweeted-to-user-by-screen-name screenName="someScreenName" />
-<!-- END_INCLUDE(twitter:getRetweetedToUserByScreenName) -->
-
-<!-- BEGIN_INCLUDE(twitter:getRetweetedToUserByUserId) -->
-        <twitter:get-retweeted-to-user-by-user-id userId="321" />
-<!-- END_INCLUDE(twitter:getRetweetedToUserByUserId) -->
-
-<!-- BEGIN_INCLUDE(twitter:getRetweetedByUserByScreenName) -->
-        <twitter:get-retweeted-by-user-by-screen-name screenName="someScreenName" />
-<!-- END_INCLUDE(twitter:getRetweetedByUserByScreenName) -->
-
-<!-- BEGIN_INCLUDE(twitter:getRetweetedByUserByUserId) -->
-        <twitter:get-retweeted-by-user-by-user-id userId="321" />
-<!-- END_INCLUDE(twitter:getRetweetedByUserByUserId) -->
-
 <!-- BEGIN_INCLUDE(twitter:showStatus) -->
         <twitter:show-status id="321" />
 <!-- END_INCLUDE(twitter:showStatus) -->
@@ -73,14 +45,6 @@
 <!-- BEGIN_INCLUDE(twitter:getRetweets) -->
         <twitter:get-retweets statusId="321" />
 <!-- END_INCLUDE(twitter:getRetweets) -->
-
-<!-- BEGIN_INCLUDE(twitter:getRetweetedBy) -->
-        <twitter:get-retweeted-by-me />
-<!-- END_INCLUDE(twitter:getRetweetedBy) -->
-
-<!-- BEGIN_INCLUDE(twitter:getRetweetedByIds) -->
-        <twitter:get-retweeted-by-ids statusId="321" />
-<!-- END_INCLUDE(twitter:getRetweetedByIds) -->
 
 <!-- BEGIN_INCLUDE(twitter:setOauthVerifier) -->
         <twitter:set-oauth-verifier oauthVerifier="444" />
@@ -124,14 +88,6 @@
 <!-- BEGIN_INCLUDE(twitter:getLocationTrends) -->
       <twitter:get-location-trends woeid="1" />
 <!-- END_INCLUDE(twitter:getLocationTrends) -->
-
-<!-- BEGIN_INCLUDE(twitter:getDailyTrends) -->
-      <twitter:get-daily-trends />
-<!-- END_INCLUDE(twitter:getDailyTrends) -->
-
-<!-- BEGIN_INCLUDE(twitter:getWeeklyTrends) -->
-      <twitter:get-weekly-trends/>
-<!-- END_INCLUDE(twitter:getWeeklyTrends) -->
 
 <!-- BEGIN_INCLUDE(twitter:filteredStream) -->
         <twitter:filtered-stream>

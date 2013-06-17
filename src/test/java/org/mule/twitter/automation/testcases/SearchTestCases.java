@@ -22,7 +22,6 @@ import org.mule.twitter.automation.TwitterTestUtils;
 
 import twitter4j.QueryResult;
 import twitter4j.Status;
-import twitter4j.Tweet;
 
 
 
@@ -84,7 +83,7 @@ public class SearchTestCases extends TwitterTestParent {
 			response = flow.process(getTestEvent("blue+angels"));
 
 			QueryResult responseList = (QueryResult) response.getMessage().getPayload();
-			List<Tweet> tweets = (List<Tweet>) responseList.getTweets();
+			List<Status> tweets = (List<Status>) responseList.getTweets();
 			assertTrue(tweets.size() != 0);
 			
 		} catch (Exception e) {
