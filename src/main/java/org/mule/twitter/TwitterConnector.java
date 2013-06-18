@@ -8,12 +8,26 @@
 
 package org.mule.twitter;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.UnhandledException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mule.api.*;
-import org.mule.api.annotations.*;
+import org.mule.api.ConnectionException;
+import org.mule.api.ConnectionExceptionCode;
+import org.mule.api.MuleContext;
+import org.mule.api.MuleEvent;
+import org.mule.api.MuleException;
+import org.mule.api.annotations.Configurable;
+import org.mule.api.annotations.Connect;
+import org.mule.api.annotations.ConnectionIdentifier;
+import org.mule.api.annotations.Connector;
+import org.mule.api.annotations.Disconnect;
+import org.mule.api.annotations.Processor;
+import org.mule.api.annotations.Source;
+import org.mule.api.annotations.ValidateConnection;
 import org.mule.api.annotations.display.FriendlyName;
 import org.mule.api.annotations.display.Password;
 import org.mule.api.annotations.display.Placement;
@@ -23,16 +37,36 @@ import org.mule.api.annotations.param.Optional;
 import org.mule.api.callback.SourceCallback;
 import org.mule.api.context.MuleContextAware;
 import org.mule.twitter.UserEvent.EventType;
-import twitter4j.*;
+
+import twitter4j.DirectMessage;
+import twitter4j.FilterQuery;
+import twitter4j.GeoLocation;
+import twitter4j.GeoQuery;
+import twitter4j.Location;
+import twitter4j.Paging;
+import twitter4j.Place;
+import twitter4j.Query;
+import twitter4j.QueryResult;
+import twitter4j.ResponseList;
+import twitter4j.SimilarPlaces;
+import twitter4j.SiteStreamsAdapter;
+import twitter4j.Status;
+import twitter4j.StatusAdapter;
+import twitter4j.StatusUpdate;
+import twitter4j.Trends;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.TwitterStream;
+import twitter4j.TwitterStreamFactory;
+import twitter4j.User;
+import twitter4j.UserList;
+import twitter4j.UserStreamAdapter;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 import twitter4j.conf.ConfigurationBuilder;
 import twitter4j.internal.http.alternative.HttpClientHiddenConstructionArgument;
 import twitter4j.internal.http.alternative.MuleHttpClient;
-
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Twitter is an online social networking service and microblogging service that enables its users to send and read
@@ -44,8 +78,8 @@ import java.util.Map;
 minMuleVersion = "3.4")
 public class TwitterConnector implements MuleContextAware {
 
-    private static final String STREAM_BASE_URL = "https://stream.twitter.com/1/";
-    private static final String SITE_STREAM_BASE_URL = "https://sitestream.twitter.com/2b/";
+    private static final String STREAM_BASE_URL = "http://stream.twitter.com/1.1/";
+    private static final String SITE_STREAM_BASE_URL = "https://sitestream.twitter.com/1.1/";
 
     protected transient Log logger = LogFactory.getLog(getClass());
 
@@ -127,7 +161,7 @@ public class TwitterConnector implements MuleContextAware {
         cb.setHttpProxyPort(proxyPort);
         cb.setHttpProxyUser(proxyUsername);
         cb.setHttpProxyPassword(proxyPassword);
-
+        
         HttpClientHiddenConstructionArgument.setUseMule(true);
         twitter = new TwitterFactory(cb.build()).getInstance();
 
@@ -175,8 +209,6 @@ public class TwitterConnector implements MuleContextAware {
      * @param lang Restricts tweets to the given language, given by an <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1 code</a>
      * @param locale Specify the language of the query you are sending (only ja is currently effective). This is intended for language-specific clients and the default should work in the majority of cases.
      * @param maxId If specified, returns tweets with status ids less than the given id
-     * @param rpp Sets the number of tweets to return per page, up to a max of 100
-     * @param page Sets the page number (starting at 1) to return, up to a max of roughly 1500 results
      * @param since If specified, returns tweets since the given date. Date should be formatted as YYYY-MM-DD
      * @param sinceId Returns tweets with status ids greater than the given id.
      * @param geocode A {@link String} containing the latitude and longitude separated by ','. Used to get the tweets by users located within a given radius of the given latitude/longitude, where the user's location is taken from their Twitter profile
@@ -192,8 +224,6 @@ public class TwitterConnector implements MuleContextAware {
                               @Optional String lang,
                               @Optional String locale,
                               @Optional Long maxId,
-                              @Optional Integer rpp,
-                              @Optional Integer page,
                               @Optional String since,
                               @Optional Long sinceId,
                               @Optional String geocode,
@@ -215,14 +245,7 @@ public class TwitterConnector implements MuleContextAware {
         {
             q.setMaxId(maxId.longValue());
         }
-        if (rpp != null && rpp.intValue() != 0 )
-        {
-            q.setRpp(rpp.intValue());
-        }
-        if (page != null && page.intValue() != 0)
-        {
-            q.setPage(page.intValue());
-        }
+        
         if (since != null)
         {
             q.setSince(since);
@@ -423,60 +446,6 @@ public class TwitterConnector implements MuleContextAware {
     }
 
     /**
-     * Returns the 20 most recent retweets posted by the authenticating user. <br>
-     * This method calls http://api.twitter.com/1/statuses/retweeted_by_me
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getRetweetedByMe}
-     *
-     * @param page    Specifies the page of results to retrieve.
-     * @param count   Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-     *                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-     *                after the count has been applied.
-     * @param sinceId Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-     *                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-     *                the since_id, the since_id will be forced to the oldest ID available.
-     * @return the 20 most recent retweets ({@link Status}) posted by the authenticating user
-     * @throws TwitterException when Twitter service or network is unavailable
-     * @see <a href="http://dev.twitter.com/doc/get/statuses/retweeted_by_me">GET
-     *      statuses/retweeted_by_me | dev.twitter.com</a>
-     */
-    @Processor
-    public ResponseList<Status> getRetweetedByMe(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                                 @Placement(group = "Pagination") @Default(value = "20") @Optional int count,
-                                                 @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
-            throws TwitterException {
-        return twitter.getRetweetedByMe(getPaging(page, count, sinceId));
-    }
-
-    /**
-     * Returns the 20 most recent retweets posted by the authenticating user's
-     * friends. <br>
-     * This method calls http://api.twitter.com/1/statuses/retweeted_to_me
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getRetweetedToMe}
-     *
-     * @param page    Specifies the page of results to retrieve.
-     * @param count   Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-     *                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-     *                after the count has been applied.
-     * @param sinceId Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-     *                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-     *                the since_id, the since_id will be forced to the oldest ID available.
-     * @return the 20 most recent retweets ({@link Status}) posted by the authenticating user's
-     *         friends.
-     * @throws TwitterException when Twitter service or network is unavailable
-     * @see <a href="http://dev.twitter.com/doc/get/statuses/retweeted_to_me">GET
-     *      statuses/retweeted_to_me | dev.twitter.com</a>
-     */
-    @Processor
-    public ResponseList<Status> getRetweetedToMe(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                                 @Placement(group = "Pagination") @Default(value = "20") @Optional int count,
-                                                 @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
-            throws TwitterException {
-        return twitter.getRetweetedToMe(getPaging(page, count, sinceId));
-    }
-
-    /**
      * Returns the 20 most recent tweets of the authenticated user that have been
      * retweeted by others. <br>
      * This method calls http://api.twitter.com/1/statuses/retweets_of_me
@@ -501,138 +470,6 @@ public class TwitterConnector implements MuleContextAware {
                                                 @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
             throws TwitterException {
         return twitter.getRetweetsOfMe(getPaging(page, count, sinceId));
-    }
-
-    /**
-     * Returns the 20 most recent retweets posted by users the specified user
-     * follows. This method is identical to statuses/retweeted_to_me except you can
-     * choose the user to view. <br>
-     * This method has not been finalized and the interface is subject to change in
-     * incompatible ways. <br>
-     * This method calls http://api.twitter.com/1/statuses/retweeted_to_user
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getRetweetedToUserByScreenName}
-     *
-     * @param screenName the user to view
-     * @param page       Specifies the page of results to retrieve.
-     * @param count      Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-     *                   best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-     *                   after the count has been applied.
-     * @param sinceId    Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-     *                   limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-     *                   the since_id, the since_id will be forced to the oldest ID available.
-     * @return the 20 most recent retweets ({@link Status}) posted by the authenticating user's friends.
-     * @throws TwitterException when Twitter service or network is unavailable
-     * @see <a
-     *      href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter
-     *      and the API - Twitter API Announcements | Google Group</a>
-     */
-    @Processor
-    public ResponseList<Status> getRetweetedToUserByScreenName(String screenName,
-                                                               @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                                               @Placement(group = "Pagination") @Default(value = "20") @Optional int count,
-                                                               @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
-            throws TwitterException {
-        return twitter.getRetweetedToUser(screenName, getPaging(page, count, sinceId));
-    }
-
-    /**
-     * Returns the 20 most recent retweets posted by users the specified user
-     * follows. This method is identical to statuses/retweeted_to_me except you can
-     * choose the user to view. <br>
-     * This method has not been finalized and the interface is subject to change in
-     * incompatible ways. <br>
-     * This method calls http://api.twitter.com/1/statuses/retweeted_to_user
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getRetweetedToUserByUserId}
-     *
-     * @param userId  the user to view
-     * @param page    Specifies the page of results to retrieve.
-     * @param count   Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-     *                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-     *                after the count has been applied.
-     * @param sinceId Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-     *                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-     *                the since_id, the since_id will be forced to the oldest ID available.
-     * @return the 20 most recent retweets ({@link Status}) posted by the authenticating user's friends.
-     * @throws TwitterException when Twitter service or network is unavailable
-     * @see <a
-     *      href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter
-     *      and the API - Twitter API Announcements | Google Group</a>
-     */
-    @Processor
-    public ResponseList<Status> getRetweetedToUserByUserId(long userId,
-                                                           @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                                           @Placement(group = "Pagination") @Default(value = "20") @Optional int count,
-                                                           @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
-            throws TwitterException {
-        return twitter.getRetweetedToUser(userId, getPaging(page, count, sinceId));
-    }
-
-    /**
-     * Returns the 20 most recent retweets posted by the specified user. This method
-     * is identical to statuses/retweeted_by_me except you can choose the user to
-     * view. <br>
-     * This method has not been finalized and the interface is subject to change in
-     * incompatible ways. <br>
-     * This method calls http://api.twitter.com/1/statuses/retweeted_by_user
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getRetweetedByUserByScreenName}
-     *
-     * @param screenName the user to view
-     * @param page       Specifies the page of results to retrieve.
-     * @param count      Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-     *                   best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-     *                   after the count has been applied.
-     * @param sinceId    Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-     *                   limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-     *                   the since_id, the since_id will be forced to the oldest ID available.
-     * @return the 20 most recent retweets ({@link Status}) posted by the authenticating user
-     * @throws TwitterException when Twitter service or network is unavailable
-     * @see <a
-     *      href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter
-     *      and the API - Twitter API Announcements | Google Group</a>
-     */
-    @Processor
-    public ResponseList<Status> getRetweetedByUserByScreenName(String screenName,
-                                                               @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                                               @Placement(group = "Pagination") @Default(value = "20") @Optional int count,
-                                                               @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
-            throws TwitterException {
-        return twitter.getRetweetedByUser(screenName, getPaging(page, count, sinceId));
-    }
-
-    /**
-     * Returns the 20 most recent retweets posted by the specified user. This method
-     * is identical to statuses/retweeted_by_me except you can choose the user to
-     * view. <br>
-     * This method has not been finalized and the interface is subject to change in
-     * incompatible ways. <br>
-     * This method calls http://api.twitter.com/1/statuses/retweeted_by_user
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getRetweetedByUserByUserId}
-     *
-     * @param userId  the user to view
-     * @param page    Specifies the page of results to retrieve.
-     * @param count   Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-     *                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-     *                after the count has been applied.
-     * @param sinceId Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-     *                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-     *                the since_id, the since_id will be forced to the oldest ID available.
-     * @return the 20 most recent retweets ({@link Status}) posted by the authenticating user
-     * @throws TwitterException when Twitter service or network is unavailable
-     * @see <a
-     *      href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter
-     *      and the API - Twitter API Announcements | Google Group</a>
-     */
-    @Processor
-    public ResponseList<Status> getRetweetedByUserByUserId(long userId,
-                                                           @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                                           @Placement(group = "Pagination") @Default(value = "20") @Optional int count,
-                                                           @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
-            throws TwitterException {
-        return twitter.getRetweetedByUser(userId, getPaging(page, count, sinceId));
     }
 
     /**
@@ -761,63 +598,6 @@ public class TwitterConnector implements MuleContextAware {
     @Processor
     public ResponseList<Status> getRetweets(long statusId) throws TwitterException {
         return twitter.getRetweets(statusId);
-    }
-
-    /**
-     * Show user objects of up to 100 members who retweeted the status. <br>
-     * This method calls http://api.twitter.com/1/statuses/:id/retweeted_by
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getRetweetedBy}
-     *
-     * @param statusId The ID of the status you want to get retweeters of
-     * @param page     Specifies the page of results to retrieve.
-     * @param count    Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-     *                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-     *                 after the count has been applied.
-     * @param sinceId  Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-     *                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-     *                 the since_id, the since_id will be forced to the oldest ID available.
-     * @return the list of {@link User} who retweeted your status
-     * @throws TwitterException when Twitter service or network is unavailable
-     * @see <a href="http://dev.twitter.com/doc/get/statuses/:id/retweeted_by">GET
-     *      statuses/:id/retweeted_by | dev.twitter.com</a>
-     */
-    @Processor
-    public ResponseList<User> getRetweetedBy(long statusId,
-                                             @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                             @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
-                                             @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
-            throws TwitterException {
-        return twitter.getRetweetedBy(statusId, getPaging(page, count, sinceId));
-    }
-
-    /**
-     * Show user ids of up to 100 users who retweeted the status represented by id <br />
-     * This method calls
-     * http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getRetweetedByIds}
-     *
-     * @param statusId The ID of the status you want to get retweeters of
-     * @param page     Specifies the page of results to retrieve.
-     * @param count    Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-     *                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-     *                 after the count has been applied.
-     * @param sinceId  Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-     *                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-     *                 the since_id, the since_id will be forced to the oldest ID available.
-     * @return {@link IDs} of users who retweeted the stats
-     * @throws TwitterException when Twitter service or network is unavailable
-     * @see <a
-     *      href="http://dev.twitter.com/doc/get/statuses/:id/retweeted_by/ids">GET
-     *      statuses/:id/retweeted_by/ids | dev.twitter.com</a>
-     */
-    @Processor(friendlyName = "Get retweeted by IDs")
-    public IDs getRetweetedByIds(long statusId,
-                                 @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                 @Placement(group = "Pagination") @Default(value = "100") @Optional int count,
-                                 @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId) throws TwitterException {
-        return twitter.getRetweetedByIDs(statusId, getPaging(page, count, sinceId));
     }
 
     /**
@@ -1046,42 +826,6 @@ public class TwitterConnector implements MuleContextAware {
             throws TwitterException {
         return twitter.getLocationTrends(woeid);
     }
-    /**
-     * Returns the top 20 trending topics for each hour in a given day.
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getDailyTrends}
-     *
-     * @param date            starting date of daily trends. If no date is specified, current
-     *                        date is used
-     * @param excludeHashTags whether hashtags should be excluded
-     * @return a list of {@link Trends} objects
-     * @throws TwitterException when Twitter service or network is unavailable
-     */
-    @Processor
-    public List<Trends> getDailyTrends(@Optional Date date,
-                                       @Optional @Default("false") boolean excludeHashTags)
-            throws TwitterException {
-        return twitter.getDailyTrends(date, excludeHashTags);
-    }
-
-    /**
-     * Returns the top 30 trending topics for each day in a given week.
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getWeeklyTrends}
-     *
-     * @param date            starting date of daily trends. If no date is specified, current
-     *                        date is used
-     * @param excludeHashTags if all hashtags should be removed from the trends list.
-     * @return a list of {@link Trends} objects
-     * @throws TwitterException when Twitter service or network is unavailable
-     */
-    @Processor
-    public List<Trends> getWeeklyTrends(@Optional Date date,
-                                        @Optional @Default("false") boolean excludeHashTags)
-            throws TwitterException {
-        return twitter.getWeeklyTrends(date, excludeHashTags);
-    }
-
 
     /**
      * Asynchronously retrieves public statuses that match one or more filter predicates.
@@ -1224,15 +968,6 @@ public class TwitterConnector implements MuleContextAware {
             public void onFollow(User source, User followedUser) {
                 try {
                     callback.process(UserEvent.fromTarget(EventType.FOLLOW, source, followedUser));
-                } catch (Exception e) {
-                    logger.error(e.getMessage(), e);
-                }
-            }
-
-            @Override
-            public void onRetweet(User source, User target, Status retweetedStatus) {
-                try {
-                    callback.process(UserEvent.from(EventType.RETWEET, source, target, retweetedStatus));
                 } catch (Exception e) {
                     logger.error(e.getMessage(), e);
                 }

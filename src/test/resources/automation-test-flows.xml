@@ -61,38 +61,6 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
         <twitter:get-retweets config-ref="auxSandbox" statusId="#[payload]" doc:name="Twitter"/>
         <logger level="INFO" message="### get-retweets-aux-sandbox #[payload]" />
 	</flow>
-	
-	<flow name="get-retweeted-by-user-by-screen-name-default-values" doc:name="get-retweeted-by-user-by-screen-name-default-values">
-        <twitter:get-retweeted-by-user-by-screen-name config-ref="auxAuxSandbox"  doc:name="Twitter" screenName="#[payload]"/>
-        <logger level="INFO" message="### get-retweeted-by-user-by-screen-name-default-values #[payload]" />
-	</flow>
-	
-	<flow name="get-retweeted-by-user-by-screen-name-parametrized" doc:name="get-retweeted-by-user-by-screen-name-parametrized">
-        <twitter:get-retweeted-by-user-by-screen-name config-ref="auxAuxSandbox"  doc:name="Twitter" screenName="#[payload.screenName]" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
-        <logger level="INFO" message="### get-retweeted-by-user-by-screen-name-parametrized #[payload]" />
-	</flow>
-
-	<flow name="get-retweeted-by-user-by-user-id-default-values" doc:name="get-retweeted-by-user-by-user-id-default-values">
-        <twitter:get-retweeted-by-user-by-user-id config-ref="Twitter" userId="#[payload]" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-retweeted-by-user-by-user-id-default-values #[payload]" />
-	</flow>
-	
-	<flow name="get-retweeted-by-user-by-user-id-parametrized" doc:name="get-retweeted-by-user-by-user-id-parametrized">
-        <twitter:get-retweeted-by-user-by-user-id config-ref="auxAuxSandbox"  doc:name="Twitter" userId="#[payload.userId]" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
-        <logger level="INFO" message="### get-retweeted-by-user-by-screen-name-parametrized #[payload]" />
-	</flow>
-	
-	<!--  ### auxAuxSandbox (receives retweets form sandbox) flows  ### -->	
-		
-	<flow name="get-retweeted-to-me-default-values" doc:name="get-retweeted-to-me-default-values">
-        <twitter:get-retweeted-to-me config-ref="auxAuxSandbox" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-retweeted-to-me-default-values #[payload]" />
-	</flow>
-	
-	<flow name="get-retweeted-to-me-parametrized" doc:name="get-retweeted-to-me-parametrized">
-        <twitter:get-retweeted-to-me config-ref="auxAuxSandbox" doc:name="Twitter" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
-        <logger level="INFO" message="### get-retweeted-to-me-parametrized #[payload]" />
-	</flow>
 		
 	<!--  ### Twitter ###  -->
 	
@@ -161,26 +129,6 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
         <logger level="INFO" message="### get-user-timeline-by-user-id-parameterized #[payload]" />
 	</flow>
 	
-	<flow name="get-retweeted-by-default-values" doc:name="get-retweeted-by-default-values">
-        <twitter:get-retweeted-by config-ref="Twitter" statusId="#[payload]" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-retweeted-by-default-values #[payload]" />
-	</flow>
-	
-	<flow name="get-retweeted-by-ids-default-values" doc:name="get-retweeted-by-ids-default-values">
-        <twitter:get-retweeted-by-ids config-ref="Twitter" statusId="#[payload]" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-retweeted-by-ids-default-values #[payload]" />
-	</flow>
-	
-	<flow name="get-retweeted-by-me-default-values" doc:name="get-retweeted-by-me-default-values">
-        <twitter:get-retweeted-by-me config-ref="Twitter" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-retweeted-by-me-default-values #[payload]" />
-	</flow>
-	
-	<flow name="get-retweeted-by-me-parametrized" doc:name="get-retweeted-by-me-parametrized">
-        <twitter:get-retweeted-by-me config-ref="Twitter" doc:name="Twitter" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
-        <logger level="INFO" message="### get-retweeted-by-me-parametrized #[payload]" />
-	</flow>
-
 	<flow name="create-place-default-values" doc:name="create-place-default-values">
         <twitter:create-place config-ref="Twitter" placeName="#[payload.placeName]" containedWithin="#[payload.containedWithin]" token="#[payload.token]" latitude="#[payload.latitude]" longitude="#[payload.longitude]" doc:name="Twitter"/>
         <logger level="INFO" message="### create-place-default-values #[payload]" />
@@ -211,16 +159,6 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
         <logger level="INFO" message="### get-available-trends-parametrized #[payload]" />
 	</flow>
 	
-	<flow name="get-daily-trends-default-values" doc:name="get-daily-trends-default-values">
-        <twitter:get-daily-trends config-ref="Twitter" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-daily-trends-default-values #[payload]" />
-	</flow>
-	
-	<flow name="get-daily-trends-parametrized" doc:name="get-daily-trends-parametrized">
-        <twitter:get-daily-trends config-ref="Twitter" doc:name="Twitter" date="#[payload]"/>
-        <logger level="INFO" message="### get-daily-trends-parametrized #[payload]" />
-	</flow>
-	
 	<flow name="get-geo-details" doc:name="get-geo-details">
         <twitter:get-geo-details config-ref="Twitter" id="#[payload]" doc:name="Twitter"/>
         <logger level="INFO" message="### get-geo-details #[payload]" />
@@ -246,16 +184,6 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
         <logger level="INFO" message="### get-mentions-parametrized #[payload]" />
 	</flow>
 	
-	<flow name="get-weekly-trends-default-values" doc:name="get-weekly-trends-default-values">
-        <twitter:get-weekly-trends config-ref="Twitter" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-weekly-trends-default-values #[payload]" />
-	</flow>
-	
-	<flow name="get-weekly-trends-parametrized" doc:name="get-weekly-trends-parametrized">
-        <twitter:get-weekly-trends config-ref="Twitter" doc:name="Twitter"  date="#[payload]"/>
-        <logger level="INFO" message="### get-weekly-trends-parametrized #[payload]" />
-	</flow>		
-	
 	<flow name="request-authorization" doc:name="request-authorization">
         <twitter:request-authorization config-ref="Twitter" doc:name="Twitter"/>
         <logger level="INFO" message="### request-authorization #[payload]" />
@@ -276,11 +204,6 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
         <logger level="INFO" message="### search-default-values #[payload]" />
 	</flow>
 	
-	<flow name="send-direct-message-by-screen-name" doc:name="send-direct-message-by-screen-name">
-        <twitter:send-direct-message-by-screen-name config-ref="Twitter" screenName="#[payload.screenName]" message="#[payload.message]" doc:name="Twitter"/>
-        <logger level="INFO" message="### send-direct-message-by-screen-name #[payload]" />
-	</flow>
-	
 	<flow name="send-direct-message-by-user-id" doc:name="send-direct-message-by-user-id">
         <twitter:send-direct-message-by-user-id config-ref="Twitter" userId="#[payload.userId]" message="#[payload.message]" doc:name="Twitter"/>
         <logger level="INFO" message="### send-direct-message-by-user-id #[payload]" />
@@ -289,26 +212,6 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 	<flow name="set-oauth-verifier-default-values" doc:name="set-oauth-verifier-mentions-default-values">
         <twitter:set-oauth-verifier config-ref="Twitter" oauthVerifier="#[payload.oauthVerifier]" doc:name="Twitter"/>
         <logger level="INFO" message="### set-oauth-verifier-default-values #[payload]" />
-	</flow>
-	
-	<flow name="get-retweeted-to-user-by-screen-name-default-values" doc:name="get-retweeted-to-user-by-screen-name-default-values">
-        <twitter:get-retweeted-to-user-by-screen-name config-ref="Twitter" screenName="#[payload]" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-retweeted-to-user-by-screen-name-default-values #[payload]" />
-	</flow>
-	
-	<flow name="get-retweeted-to-user-by-screen-name-parametrized" doc:name="get-retweeted-to-user-by-screen-name-parametrized">
-        <twitter:get-retweeted-to-user-by-screen-name config-ref="Twitter" doc:name="Twitter" screenName="#[payload.screenName]" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
-        <logger level="INFO" message="### get-retweeted-to-user-by-screen-name-parametrized #[payload]" />
-	</flow>
-	
-	<flow name="get-retweeted-to-user-by-user-id-default-values" doc:name="get-retweeted-to-user-by-user-id-default-values">
-        <twitter:get-retweeted-to-user-by-user-id config-ref="Twitter" userId="#[payload]" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-retweeted-to-user-by-user-id-default-values #[payload]" />
-	</flow>
-	
-	<flow name="get-retweeted-to-user-by-user-id-parametrized" doc:name="get-retweeted-to-user-by-user-id-parametrized">
-        <twitter:get-retweeted-to-user-by-user-id config-ref="Twitter" doc:name="Twitter" userId="#[payload.userId]" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
-        <logger level="INFO" message="### get-retweeted-to-user-by-user-id-parametrized #[payload]" />
 	</flow>
 	
 </mule>
