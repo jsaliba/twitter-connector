@@ -1512,7 +1512,7 @@ From class
             ResponseList&lt;Location&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getAvailableTrends(java.lang.Double, java.lang.Double)">getAvailableTrends</a></span>(Double latitude, Double longitude)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getAvailableTrends()">getAvailableTrends</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns the sorted locations that Twitter has trending topic information for.</div>
   
@@ -1521,6 +1521,24 @@ From class
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            ResponseList&lt;Location&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getClosestTrends(double, double)">getClosestTrends</a></span>(double latitude, double longitude)</nobr>
+        
+        <div class="jd-descrdiv">Returns the locations that Twitter has trending topic information for, closest to a specified location.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1536,7 +1554,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1552,7 +1570,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1564,24 +1582,6 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getConsumerSecret()">getConsumerSecret</a></span>()</nobr>
         
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            List&lt;Trends&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getDailyTrends(java.util.Date, boolean)">getDailyTrends</a></span>(Date date, boolean excludeHashTags)</nobr>
-        
-        <div class="jd-descrdiv">Returns the top 20 trending topics for each hour in a given day.</div>
-  
   </td></tr>
 
 
@@ -1631,13 +1631,13 @@ From class
             
             
             
-            Trends</nobr>
+            ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getLocationTrends(int)">getLocationTrends</a></span>(int woeid)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getMentionsTimeline(int, int, long)">getMentionsTimeline</a></span>(int page, int count, long sinceId)</nobr>
         
-        <div class="jd-descrdiv">Returns the top 10 trending topics for a specific location Twitter has trending 
- topic information for.</div>
+        <div class="jd-descrdiv">Returns the 20 most recent mentions (status containing @username) for the
+ authenticating user.</div>
   
   </td></tr>
 
@@ -1650,14 +1650,11 @@ From class
             
             
             
-            ResponseList&lt;Status&gt;</nobr>
+            Paging</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getMentions(int, int, long)">getMentions</a></span>(int page, int count, long sinceId)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getPaging(int, int, long)">getPaging</a></span>(int page, int count, long sinceId)</nobr>
         
-        <div class="jd-descrdiv">Returns the 20 most recent mentions (status containing @username) for the
- authenticating user.</div>
-  
   </td></tr>
 
 
@@ -1669,11 +1666,13 @@ From class
             
             
             
-            Paging</nobr>
+            Trends</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getPaging(int, int, long)">getPaging</a></span>(int page, int count, long sinceId)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getPlaceTrends(int)">getPlaceTrends</a></span>(int woeid)</nobr>
         
+        <div class="jd-descrdiv">Returns the top 10 trending topics for a specific WOEID, if trending information is available for it.</div>
+  
   </td></tr>
 
 
@@ -1738,157 +1737,6 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getProxyUsername()">getProxyUsername</a></span>()</nobr>
         
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;User&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getRetweetedBy(long, int, int, long)">getRetweetedBy</a></span>(long statusId, int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Show user objects of up to 100 members who retweeted the status.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            IDs</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByIds(long, int, int, long)">getRetweetedByIds</a></span>(long statusId, int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Show user ids of up to 100 users who retweeted the status represented by id <br />
- This method calls
- http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
- <p/>
- </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByMe(int, int, long)">getRetweetedByMe</a></span>(int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the authenticating user.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByUserByScreenName(java.lang.String, int, int, long)">getRetweetedByUserByScreenName</a></span>(String screenName, int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the specified user.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByUserByUserId(long, int, int, long)">getRetweetedByUserByUserId</a></span>(long userId, int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the specified user.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getRetweetedToMe(int, int, long)">getRetweetedToMe</a></span>(int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the authenticating user's
- friends.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getRetweetedToUserByScreenName(java.lang.String, int, int, long)">getRetweetedToUserByScreenName</a></span>(String screenName, int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by users the specified user
- follows.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getRetweetedToUserByUserId(long, int, int, long)">getRetweetedToUserByUserId</a></span>(long userId, int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by users the specified user
- follows.</div>
-  
   </td></tr>
 
 
@@ -2041,24 +1889,6 @@ From class
             
             
             
-            List&lt;Trends&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getWeeklyTrends(java.util.Date, boolean)">getWeeklyTrends</a></span>(Date date, boolean excludeHashTags)</nobr>
-        
-        <div class="jd-descrdiv">Returns the top 30 trending topics for each day in a given week.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -2068,7 +1898,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2086,7 +1916,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2104,7 +1934,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2122,7 +1952,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2141,7 +1971,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2159,7 +1989,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2169,7 +1999,7 @@ From class
             QueryResult</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#search(java.lang.String, java.lang.String, java.lang.String, java.lang.Long, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.Long, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">search</a></span>(String query, String lang, String locale, Long maxId, Integer rpp, Integer page, String since, Long sinceId, String geocode, String radius, String unit, String until, String resultType)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#search(java.lang.String, java.lang.String, java.lang.String, java.lang.Long, java.lang.String, java.lang.Long, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">search</a></span>(String query, String lang, String locale, Long maxId, String since, Long sinceId, String geocode, String radius, String unit, String until, String resultType)</nobr>
         
         <div class="jd-descrdiv">Returns tweets that match a specified query.</div>
   
@@ -2177,7 +2007,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2195,7 +2025,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2213,7 +2043,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2231,7 +2061,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2247,7 +2077,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2263,7 +2093,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2279,7 +2109,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2295,7 +2125,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2311,7 +2141,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2329,7 +2159,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2345,7 +2175,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2361,7 +2191,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2377,7 +2207,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2393,7 +2223,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2409,7 +2239,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2427,7 +2257,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2447,7 +2277,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2465,7 +2295,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2483,7 +2313,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2515,7 +2345,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             

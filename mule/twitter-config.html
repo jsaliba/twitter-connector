@@ -413,9 +413,9 @@ Summary:
 	 
     <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/twitter-config.html#get-daily-trends">&lt;twitter:get-daily-trends&gt;</a></nobr>
+        <span class="sympad"><a href="../mule/twitter-config.html#get-closest-trends">&lt;twitter:get-closest-trends&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Returns the top 20 trending topics for each hour in a given day.</div>
+        <div class="jd-descrdiv">Returns the locations that Twitter has trending topic information for, closest to a specified location.</div>
         
   </td></tr>
 
@@ -445,18 +445,7 @@ Summary:
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/twitter-config.html#get-location-trends">&lt;twitter:get-location-trends&gt;</a></nobr>
-        
-        <div class="jd-descrdiv">Returns the top 10 trending topics for a specific location Twitter has trending 
- topic information for.</div>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/twitter-config.html#get-mentions">&lt;twitter:get-mentions&gt;</a></nobr>
+        <span class="sympad"><a href="../mule/twitter-config.html#get-mentions-timeline">&lt;twitter:get-mentions-timeline&gt;</a></nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent mentions (status containing @username) for the
  authenticating user.</div>
@@ -465,88 +454,11 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-by">&lt;twitter:get-retweeted-by&gt;</a></nobr>
-        
-        <div class="jd-descrdiv">Show user objects of up to 100 members who retweeted the status.</div>
-        
-  </td></tr>
-
-
-	 
     <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-by-ids">&lt;twitter:get-retweeted-by-ids&gt;</a></nobr>
+        <span class="sympad"><a href="../mule/twitter-config.html#get-place-trends">&lt;twitter:get-place-trends&gt;</a></nobr>
         
-        <div class="jd-descrdiv">Show user ids of up to 100 users who retweeted the status represented by id <br />
- This method calls
- http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
- <p/>
- </div>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-by-me">&lt;twitter:get-retweeted-by-me&gt;</a></nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the authenticating user.</div>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-by-user-by-screen-name">&lt;twitter:get-retweeted-by-user-by-screen-name&gt;</a></nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the specified user.</div>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-by-user-by-user-id">&lt;twitter:get-retweeted-by-user-by-user-id&gt;</a></nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the specified user.</div>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-to-me">&lt;twitter:get-retweeted-to-me&gt;</a></nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the authenticating user's
- friends.</div>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-to-user-by-screen-name">&lt;twitter:get-retweeted-to-user-by-screen-name&gt;</a></nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by users the specified user
- follows.</div>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/twitter-config.html#get-retweeted-to-user-by-user-id">&lt;twitter:get-retweeted-to-user-by-user-id&gt;</a></nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by users the specified user
- follows.</div>
+        <div class="jd-descrdiv">Returns the top 10 trending topics for a specific WOEID, if trending information is available for it.</div>
         
   </td></tr>
 
@@ -615,16 +527,6 @@ Summary:
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/twitter-config.html#get-weekly-trends">&lt;twitter:get-weekly-trends&gt;</a></nobr>
-        
-        <div class="jd-descrdiv">Returns the top 30 trending topics for each day in a given week.</div>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#request-authorization">&lt;twitter:request-authorization&gt;</a></nobr>
         
         <div class="jd-descrdiv">Start the OAuth request authorization process.</div>
@@ -633,7 +535,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#retweet-status">&lt;twitter:retweet-status&gt;</a></nobr>
         
@@ -643,7 +545,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#reverse-geo-code">&lt;twitter:reverse-geo-code&gt;</a></nobr>
         
@@ -654,7 +556,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#search">&lt;twitter:search&gt;</a></nobr>
         
@@ -664,7 +566,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#search-places">&lt;twitter:search-places&gt;</a></nobr>
         
@@ -674,7 +576,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#send-direct-message-by-screen-name">&lt;twitter:send-direct-message-by-screen-name&gt;</a></nobr>
         
@@ -684,7 +586,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#send-direct-message-by-user-id">&lt;twitter:send-direct-message-by-user-id&gt;</a></nobr>
         
@@ -694,7 +596,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#set-oauth-verifier">&lt;twitter:set-oauth-verifier&gt;</a></nobr>
         
@@ -704,7 +606,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#show-status">&lt;twitter:show-status&gt;</a></nobr>
         
@@ -714,7 +616,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#show-user">&lt;twitter:show-user&gt;</a></nobr>
         
@@ -726,7 +628,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/twitter-config.html#update-status">&lt;twitter:update-status&gt;</a></nobr>
         
@@ -1179,7 +1081,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
   <div class="jd-tagdata jd-tagdescr"><p>Destroys the status specified by the required ID parameter.<br>
  Usage note: The authenticating user must be the author of the specified
  status. <br>
- This method calls http://api.twitter.com/1/statuses/destroy
+ This method calls http://api.twitter.com/1.1/statuses/destroy
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:destroy-status statusId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
@@ -1296,8 +1198,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
  <br>The available trend locations will be sorted by distance to the lat 
  and long passed in. The sort is nearest to furthest.
 
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-available-trends latitude="#[header:latitude]"
-                              longitude="#[header:longitude]" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-available-trends/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1312,30 +1213,6 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           <td class="jd-descrcol"></td>
         </tr>
           
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>latitude</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The latitude</td>
-                        <td class="jd-descrcol">Double</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>longitude</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The longitude</td>
-                        <td class="jd-descrcol">Double</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
           
           
               <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
@@ -1398,11 +1275,11 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
 </div>
 
 
-<A NAME="get-daily-trends"></A>
+<A NAME="get-closest-trends"></A>
 
 <div class="jd-details api apilevel-">
     <h4 class="jd-details-title">
-      <span class="sympad">&lt;twitter:get-daily-trends&gt;</span>
+      <span class="sympad">&lt;twitter:get-closest-trends&gt;</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1411,9 +1288,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 20 trending topics for each hour in a given day.
- <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-daily-trends /&gt;</pre></div></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the locations that Twitter has trending topic information for, closest to a specified location.<br>
+ The response is an array of "locations" that encode the location's WOEID and some other human-readable information such as a canonical name and country the location belongs in.<br>
+ A WOEID is a <a href="http://developer.yahoo.com/geo/geoplanet/">Yahoo! Where On Earth ID</a>.
+ <br>This method calls http://api.twitter.com/1.1/trends/closest.json
+ 
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-closest-trends latitude="#[header:latitude]"
+                              longitude="#[header:longitude]" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1431,11 +1312,11 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
                 
                     <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>date</nobr></td>
+                        <td class="jd-linkcol"><nobr>latitude</nobr></td>
                         <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Starting date of daily trends. If no date is specified, current
-                        date is used</td>
-                        <td class="jd-descrcol">Date</td>
+                        <td class="jd-descrcol">The latitude of the location this tweet refers to. This parameter will be ignored unless it is
+                  inside the range -90.0 to +90.0 (North is positive) inclusive.</td>
+                        <td class="jd-descrcol">double</td>
                         <td class="jd-descrcol">*/*</td>
                         <td class="jd-descrcol"></td>
                     </tr>
@@ -1444,10 +1325,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
                 
                     <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>excludeHashTags</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Whether hashtags should be excluded</td>
-                        <td class="jd-descrcol">boolean</td>
+                        <td class="jd-linkcol"><nobr>longitude</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol">He longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to
+                  +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range or if there not a
+                  corresponding lat parameter.</td>
+                        <td class="jd-descrcol">double</td>
                         <td class="jd-descrcol">*/*</td>
                         <td class="jd-descrcol"></td>
                     </tr>
@@ -1491,8 +1374,8 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">List&lt;Trends&gt;</td>
-                <td class="jd-descrcol">a list of Trends objects</td>
+                <td class="jd-descrcol">ResponseList&lt;Location&gt;</td>
+                <td class="jd-descrcol">the locations</td>
              </tr>
          </table>
   </div>
@@ -1505,7 +1388,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         
         <tr>
             <td>TwitterException</td>
-            <td>when Twitter service or network is unavailable
+            <td>twitter4j.TwitterException when Twitter service or network is unavailable
 </td>
         </tr>
       </table>
@@ -1642,7 +1525,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
  statuses/friends_timeline does not for backwards compatibility reasons. In a
  future version of the API, statuses/friends_timeline will be deprected and
  replaced by home_timeline. <br>
- This method calls http://api.twitter.com/1/statuses/home_timeline
+ This method calls http://api.twitter.com/1.1/statuses/home_timeline
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-home-timeline/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
@@ -1765,121 +1648,11 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
 </div>
 
 
-<A NAME="get-location-trends"></A>
+<A NAME="get-mentions-timeline"></A>
 
 <div class="jd-details api apilevel-">
     <h4 class="jd-details-title">
-      <span class="sympad">&lt;twitter:get-location-trends&gt;</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 10 trending topics for a specific location Twitter has trending 
- topic information for. The response is an array of "trend" objects that encode 
- the name of the trending topic, the query parameter that can be used to search 
- for the topic on Search, and the direct URL that can be issued against Search. 
- This information is cached for five minutes, and therefore users are discouraged 
- from querying these endpoints faster than once every five minutes.  
- Global trends information is also available from this API by using a WOEID of 1.
-
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-location-trends woeid="1" /&gt;</pre></div></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Attributes</h5>
-
-        <table id="lconfig" class="jd-sumtable">
-        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
-        <tr>
-          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-        </tr>
-          
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>woeid</nobr></td>
-                        <td class="jd-descrcol">1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The WOEID of the location to be querying for</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-          
-              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessKey</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access key provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessSecret</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access secret provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-          
-          
-        </table>
-  </div>
-  
-  
-      <div class="jd-tagdata">
-         <h5 class="jd-tagtitle">Returns</h5>
-         <table id="lconfig" class="jd-sumtable">
-             <tr>
-                <th>Return Type</th>
-                <th>Description</th>
-             </tr>
-             <tr>
-                <td class="jd-descrcol">Trends</td>
-                <td class="jd-descrcol">trends</td>
-             </tr>
-         </table>
-  </div>
-    
-  
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payloads</h5>
-      <table class="jd-sumtable">
-        <tr><th>Payload Class</th><th>Description</th></tr>
-        
-        <tr>
-            <td>TwitterException</td>
-            <td>when Twitter service or network is unavailable
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="get-mentions"></A>
-
-<div class="jd-details api apilevel-">
-    <h4 class="jd-details-title">
-      <span class="sympad">&lt;twitter:get-mentions&gt;</span>
+      <span class="sympad">&lt;twitter:get-mentions-timeline&gt;</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1890,9 +1663,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent mentions (status containing @username) for the
  authenticating user. <br>
- This method calls http://api.twitter.com/1/statuses/mentions
+ This method calls http://api.twitter.com/1.1/statuses/mentions_timeline
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-mentions /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-mentions-timeline /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2014,11 +1787,11 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
 </div>
 
 
-<A NAME="get-retweeted-by"></A>
+<A NAME="get-place-trends"></A>
 
 <div class="jd-details api apilevel-">
     <h4 class="jd-details-title">
-      <span class="sympad">&lt;twitter:get-retweeted-by&gt;</span>
+      <span class="sympad">&lt;twitter:get-place-trends&gt;</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2027,10 +1800,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Show user objects of up to 100 members who retweeted the status. <br>
- This method calls http://api.twitter.com/1/statuses/:id/retweeted_by
- <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-me /&gt;</pre></div></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 10 trending topics for a specific WOEID, if trending information is available for it.<br>
+ The response is an array of "trend" objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on <a href="http://search.twitter.com/">Twitter Search</a>, and the Twitter Search URL.<br>
+ This information is cached for 5 minutes. Requesting more frequently than that will not return any more data, and will count against your rate limit usage.<br>
+ <br>This method calls http://api.twitter.com/1.1/trends/place.json
+
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-place-trends/&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2048,340 +1823,10 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
                 
                     <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>statusId</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The ID of the status you want to get retweeters of</td>
-                        <td class="jd-descrcol">long</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>page</nobr></td>
+                        <td class="jd-linkcol"><nobr>woeid</nobr></td>
                         <td class="jd-descrcol">1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
+                        <td class="jd-descrcol"><i>Optional.&nbsp;</i><a href="http://developer.yahoo.com/geo/geoplanet/">The Yahoo! Where On Earth ID</a> of the location to return trending information for. Global information is available by using 1 as the WOEID.</td>
                         <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol">100</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                 after the count has been applied.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>sinceId</nobr></td>
-                        <td class="jd-descrcol">-1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                 the since_id, the since_id will be forced to the oldest ID available.</td>
-                        <td class="jd-descrcol">long</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-          
-              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessKey</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access key provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessSecret</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access secret provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-          
-          
-        </table>
-  </div>
-  
-  
-      <div class="jd-tagdata">
-         <h5 class="jd-tagtitle">Returns</h5>
-         <table id="lconfig" class="jd-sumtable">
-             <tr>
-                <th>Return Type</th>
-                <th>Description</th>
-             </tr>
-             <tr>
-                <td class="jd-descrcol">ResponseList&lt;User&gt;</td>
-                <td class="jd-descrcol">the list of User who retweeted your status</td>
-             </tr>
-         </table>
-  </div>
-    
-  
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payloads</h5>
-      <table class="jd-sumtable">
-        <tr><th>Payload Class</th><th>Description</th></tr>
-        
-        <tr>
-            <td>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a href="http://dev.twitter.com/doc/get/statuses/:id/retweeted_by">GET
-      statuses/:id/retweeted_by | dev.twitter.com</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="get-retweeted-by-ids"></A>
-
-<div class="jd-details api apilevel-">
-    <h4 class="jd-details-title">
-      <span class="sympad">&lt;twitter:get-retweeted-by-ids&gt;</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Show user ids of up to 100 users who retweeted the status represented by id <br />
- This method calls
- http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
- <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-ids statusId="321" /&gt;</pre></div></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Attributes</h5>
-
-        <table id="lconfig" class="jd-sumtable">
-        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
-        <tr>
-          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-        </tr>
-          
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>statusId</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The ID of the status you want to get retweeters of</td>
-                        <td class="jd-descrcol">long</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>page</nobr></td>
-                        <td class="jd-descrcol">1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol">100</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                 after the count has been applied.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>sinceId</nobr></td>
-                        <td class="jd-descrcol">-1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                 the since_id, the since_id will be forced to the oldest ID available.</td>
-                        <td class="jd-descrcol">long</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-          
-              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessKey</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access key provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessSecret</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access secret provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-          
-          
-        </table>
-  </div>
-  
-  
-      <div class="jd-tagdata">
-         <h5 class="jd-tagtitle">Returns</h5>
-         <table id="lconfig" class="jd-sumtable">
-             <tr>
-                <th>Return Type</th>
-                <th>Description</th>
-             </tr>
-             <tr>
-                <td class="jd-descrcol">IDs</td>
-                <td class="jd-descrcol">IDs of users who retweeted the stats</td>
-             </tr>
-         </table>
-  </div>
-    
-  
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payloads</h5>
-      <table class="jd-sumtable">
-        <tr><th>Payload Class</th><th>Description</th></tr>
-        
-        <tr>
-            <td>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a
-      href="http://dev.twitter.com/doc/get/statuses/:id/retweeted_by/ids">GET
-      statuses/:id/retweeted_by/ids | dev.twitter.com</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="get-retweeted-by-me"></A>
-
-<div class="jd-details api apilevel-">
-    <h4 class="jd-details-title">
-      <span class="sympad">&lt;twitter:get-retweeted-by-me&gt;</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by the authenticating user. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_by_me
- <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-me /&gt;</pre></div></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Attributes</h5>
-
-        <table id="lconfig" class="jd-sumtable">
-        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
-        <tr>
-          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-        </tr>
-          
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>page</nobr></td>
-                        <td class="jd-descrcol">1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol">20</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>sinceId</nobr></td>
-                        <td class="jd-descrcol">-1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.</td>
-                        <td class="jd-descrcol">long</td>
                         <td class="jd-descrcol">*/*</td>
                         <td class="jd-descrcol"></td>
                     </tr>
@@ -2425,8 +1870,8 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">ResponseList&lt;Status&gt;</td>
-                <td class="jd-descrcol">the 20 most recent retweets (Status) posted by the authenticating user</td>
+                <td class="jd-descrcol">Trends</td>
+                <td class="jd-descrcol">trends</td>
              </tr>
          </table>
   </div>
@@ -2439,775 +1884,10 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         
         <tr>
             <td>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
+            <td>when Twitter service or network is unavailable
+</td>
         </tr>
       </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a href="http://dev.twitter.com/doc/get/statuses/retweeted_by_me">GET
-      statuses/retweeted_by_me | dev.twitter.com</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="get-retweeted-by-user-by-screen-name"></A>
-
-<div class="jd-details api apilevel-">
-    <h4 class="jd-details-title">
-      <span class="sympad">&lt;twitter:get-retweeted-by-user-by-screen-name&gt;</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by the specified user. This method
- is identical to statuses/retweeted_by_me except you can choose the user to
- view. <br>
- This method has not been finalized and the interface is subject to change in
- incompatible ways. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_by_user
- <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-user-by-screen-name screenName="someScreenName" /&gt;</pre></div></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Attributes</h5>
-
-        <table id="lconfig" class="jd-sumtable">
-        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
-        <tr>
-          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-        </tr>
-          
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>screenName</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The user to view</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>page</nobr></td>
-                        <td class="jd-descrcol">1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol">20</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                   best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                   after the count has been applied.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>sinceId</nobr></td>
-                        <td class="jd-descrcol">-1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                   limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                   the since_id, the since_id will be forced to the oldest ID available.</td>
-                        <td class="jd-descrcol">long</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-          
-              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessKey</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access key provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessSecret</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access secret provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-          
-          
-        </table>
-  </div>
-  
-  
-      <div class="jd-tagdata">
-         <h5 class="jd-tagtitle">Returns</h5>
-         <table id="lconfig" class="jd-sumtable">
-             <tr>
-                <th>Return Type</th>
-                <th>Description</th>
-             </tr>
-             <tr>
-                <td class="jd-descrcol">ResponseList&lt;Status&gt;</td>
-                <td class="jd-descrcol">the 20 most recent retweets (Status) posted by the authenticating user</td>
-             </tr>
-         </table>
-  </div>
-    
-  
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payloads</h5>
-      <table class="jd-sumtable">
-        <tr><th>Payload Class</th><th>Description</th></tr>
-        
-        <tr>
-            <td>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a
-      href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter
-      and the API - Twitter API Announcements | Google Group</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="get-retweeted-by-user-by-user-id"></A>
-
-<div class="jd-details api apilevel-">
-    <h4 class="jd-details-title">
-      <span class="sympad">&lt;twitter:get-retweeted-by-user-by-user-id&gt;</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by the specified user. This method
- is identical to statuses/retweeted_by_me except you can choose the user to
- view. <br>
- This method has not been finalized and the interface is subject to change in
- incompatible ways. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_by_user
- <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-by-user-by-user-id userId="321" /&gt;</pre></div></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Attributes</h5>
-
-        <table id="lconfig" class="jd-sumtable">
-        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
-        <tr>
-          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-        </tr>
-          
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>userId</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The user to view</td>
-                        <td class="jd-descrcol">long</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>page</nobr></td>
-                        <td class="jd-descrcol">1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol">20</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>sinceId</nobr></td>
-                        <td class="jd-descrcol">-1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.</td>
-                        <td class="jd-descrcol">long</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-          
-              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessKey</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access key provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessSecret</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access secret provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-          
-          
-        </table>
-  </div>
-  
-  
-      <div class="jd-tagdata">
-         <h5 class="jd-tagtitle">Returns</h5>
-         <table id="lconfig" class="jd-sumtable">
-             <tr>
-                <th>Return Type</th>
-                <th>Description</th>
-             </tr>
-             <tr>
-                <td class="jd-descrcol">ResponseList&lt;Status&gt;</td>
-                <td class="jd-descrcol">the 20 most recent retweets (Status) posted by the authenticating user</td>
-             </tr>
-         </table>
-  </div>
-    
-  
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payloads</h5>
-      <table class="jd-sumtable">
-        <tr><th>Payload Class</th><th>Description</th></tr>
-        
-        <tr>
-            <td>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a
-      href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter
-      and the API - Twitter API Announcements | Google Group</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="get-retweeted-to-me"></A>
-
-<div class="jd-details api apilevel-">
-    <h4 class="jd-details-title">
-      <span class="sympad">&lt;twitter:get-retweeted-to-me&gt;</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by the authenticating user's
- friends. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_to_me
- <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-to-me /&gt;</pre></div></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Attributes</h5>
-
-        <table id="lconfig" class="jd-sumtable">
-        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
-        <tr>
-          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-        </tr>
-          
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>page</nobr></td>
-                        <td class="jd-descrcol">1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol">20</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>sinceId</nobr></td>
-                        <td class="jd-descrcol">-1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.</td>
-                        <td class="jd-descrcol">long</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-          
-              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessKey</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access key provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessSecret</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access secret provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-          
-          
-        </table>
-  </div>
-  
-  
-      <div class="jd-tagdata">
-         <h5 class="jd-tagtitle">Returns</h5>
-         <table id="lconfig" class="jd-sumtable">
-             <tr>
-                <th>Return Type</th>
-                <th>Description</th>
-             </tr>
-             <tr>
-                <td class="jd-descrcol">ResponseList&lt;Status&gt;</td>
-                <td class="jd-descrcol">the 20 most recent retweets (Status) posted by the authenticating user's
-         friends.</td>
-             </tr>
-         </table>
-  </div>
-    
-  
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payloads</h5>
-      <table class="jd-sumtable">
-        <tr><th>Payload Class</th><th>Description</th></tr>
-        
-        <tr>
-            <td>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a href="http://dev.twitter.com/doc/get/statuses/retweeted_to_me">GET
-      statuses/retweeted_to_me | dev.twitter.com</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="get-retweeted-to-user-by-screen-name"></A>
-
-<div class="jd-details api apilevel-">
-    <h4 class="jd-details-title">
-      <span class="sympad">&lt;twitter:get-retweeted-to-user-by-screen-name&gt;</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by users the specified user
- follows. This method is identical to statuses/retweeted_to_me except you can
- choose the user to view. <br>
- This method has not been finalized and the interface is subject to change in
- incompatible ways. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_to_user
- <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-to-user-by-screen-name screenName="someScreenName" /&gt;</pre></div></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Attributes</h5>
-
-        <table id="lconfig" class="jd-sumtable">
-        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
-        <tr>
-          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-        </tr>
-          
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>screenName</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The user to view</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>page</nobr></td>
-                        <td class="jd-descrcol">1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol">20</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                   best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                   after the count has been applied.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>sinceId</nobr></td>
-                        <td class="jd-descrcol">-1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                   limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                   the since_id, the since_id will be forced to the oldest ID available.</td>
-                        <td class="jd-descrcol">long</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-          
-              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessKey</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access key provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessSecret</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access secret provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-          
-          
-        </table>
-  </div>
-  
-  
-      <div class="jd-tagdata">
-         <h5 class="jd-tagtitle">Returns</h5>
-         <table id="lconfig" class="jd-sumtable">
-             <tr>
-                <th>Return Type</th>
-                <th>Description</th>
-             </tr>
-             <tr>
-                <td class="jd-descrcol">ResponseList&lt;Status&gt;</td>
-                <td class="jd-descrcol">the 20 most recent retweets (Status) posted by the authenticating user's friends.</td>
-             </tr>
-         </table>
-  </div>
-    
-  
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payloads</h5>
-      <table class="jd-sumtable">
-        <tr><th>Payload Class</th><th>Description</th></tr>
-        
-        <tr>
-            <td>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a
-      href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter
-      and the API - Twitter API Announcements | Google Group</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="get-retweeted-to-user-by-user-id"></A>
-
-<div class="jd-details api apilevel-">
-    <h4 class="jd-details-title">
-      <span class="sympad">&lt;twitter:get-retweeted-to-user-by-user-id&gt;</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by users the specified user
- follows. This method is identical to statuses/retweeted_to_me except you can
- choose the user to view. <br>
- This method has not been finalized and the interface is subject to change in
- incompatible ways. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_to_user
- <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweeted-to-user-by-user-id userId="321" /&gt;</pre></div></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Attributes</h5>
-
-        <table id="lconfig" class="jd-sumtable">
-        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
-        <tr>
-          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-        </tr>
-          
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>userId</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The user to view</td>
-                        <td class="jd-descrcol">long</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>page</nobr></td>
-                        <td class="jd-descrcol">1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the page of results to retrieve.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>count</nobr></td>
-                        <td class="jd-descrcol">20</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>sinceId</nobr></td>
-                        <td class="jd-descrcol">-1</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.</td>
-                        <td class="jd-descrcol">long</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-          
-              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessKey</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access key provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessSecret</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access secret provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-          
-          
-        </table>
-  </div>
-  
-  
-      <div class="jd-tagdata">
-         <h5 class="jd-tagtitle">Returns</h5>
-         <table id="lconfig" class="jd-sumtable">
-             <tr>
-                <th>Return Type</th>
-                <th>Description</th>
-             </tr>
-             <tr>
-                <td class="jd-descrcol">ResponseList&lt;Status&gt;</td>
-                <td class="jd-descrcol">the 20 most recent retweets (Status) posted by the authenticating user's friends.</td>
-             </tr>
-         </table>
-  </div>
-    
-  
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payloads</h5>
-      <table class="jd-sumtable">
-        <tr><th>Payload Class</th><th>Description</th></tr>
-        
-        <tr>
-            <td>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a
-      href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter
-      and the API - Twitter API Announcements | Google Group</a></li>
-      </ul>
   </div>
 
     </div>
@@ -3228,7 +1908,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns up to 100 of the first retweets of a given tweet. <br>
- This method calls http://api.twitter.com/1/statuses/retweets
+ This method calls http://api.twitter.com/1.1/statuses/retweets
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweets statusId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
@@ -3339,7 +2019,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent tweets of the authenticated user that have been
  retweeted by others. <br>
- This method calls http://api.twitter.com/1/statuses/retweets_of_me
+ This method calls http://api.twitter.com/1.1/statuses/retweets_of_me
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-retweets-of-me /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
@@ -3648,7 +2328,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
  Atom). If you'd like them included, you can merge them in from statuses
  retweeted_by_me.<br>
  <br>
- This method calls http://api.twitter.com/1/statuses/user_timeline.json
+ This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-user-timeline /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
@@ -3794,7 +2474,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
  Atom). If you'd like them included, you can merge them in from statuses
  retweeted_by_me.<br>
  <br>
- This method calls http://api.twitter.com/1/statuses/user_timeline.json
+ This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-user-timeline-by-screen-name screenName="someScreenName" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
@@ -3952,7 +2632,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
  Atom). If you'd like them included, you can merge them in from statuses
  retweeted_by_me.<br>
  <br>
- This method calls http://api.twitter.com/1/statuses/user_timeline.json
+ This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-user-timeline-by-user-id userId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
@@ -4088,123 +2768,6 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
 </div>
 
 
-<A NAME="get-weekly-trends"></A>
-
-<div class="jd-details api apilevel-">
-    <h4 class="jd-details-title">
-      <span class="sympad">&lt;twitter:get-weekly-trends&gt;</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 30 trending topics for each day in a given week.
- <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:get-weekly-trends/&gt;</pre></div></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Attributes</h5>
-
-        <table id="lconfig" class="jd-sumtable">
-        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
-        <tr>
-          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-        </tr>
-          
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>date</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Starting date of daily trends. If no date is specified, current
-                        date is used</td>
-                        <td class="jd-descrcol">Date</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>excludeHashTags</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>If all hashtags should be removed from the trends list.</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-          
-              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessKey</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access key provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>accessSecret</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The access secret provided by Twitter</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-          
-          
-        </table>
-  </div>
-  
-  
-      <div class="jd-tagdata">
-         <h5 class="jd-tagtitle">Returns</h5>
-         <table id="lconfig" class="jd-sumtable">
-             <tr>
-                <th>Return Type</th>
-                <th>Description</th>
-             </tr>
-             <tr>
-                <td class="jd-descrcol">List&lt;Trends&gt;</td>
-                <td class="jd-descrcol">a list of Trends objects</td>
-             </tr>
-         </table>
-  </div>
-    
-  
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Exception Payloads</h5>
-      <table class="jd-sumtable">
-        <tr><th>Payload Class</th><th>Description</th></tr>
-        
-        <tr>
-            <td>TwitterException</td>
-            <td>when Twitter service or network is unavailable
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
 <A NAME="request-authorization"></A>
 
 <div class="jd-details api apilevel-">
@@ -4323,7 +2886,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Retweets a tweet. Returns the original tweet with retweet details embedded. <br>
- This method calls http://api.twitter.com/1/statuses/retweet
+ This method calls http://api.twitter.com/1.1/statuses/retweet
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:retweet-status statusId="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
@@ -4618,30 +3181,6 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                         <td class="jd-descrcol"></td>
                         <td class="jd-descrcol"><i>Optional.&nbsp;</i>If specified, returns tweets with status ids less than the given id</td>
                         <td class="jd-descrcol">Long</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>rpp</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Sets the number of tweets to return per page, up to a max of 100</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>page</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Sets the page number (starting at 1) to return, up to a max of roughly 1500 results</td>
-                        <td class="jd-descrcol">Integer</td>
                         <td class="jd-descrcol">*/*</td>
                         <td class="jd-descrcol"></td>
                     </tr>
@@ -5292,7 +3831,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a single status, specified by the id parameter below. The status's
  author will be returned inline. <br>
- This method calls http://api.twitter.com/1/statuses/show
+ This method calls http://api.twitter.com/1.1/statuses/show
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:show-status id="321" /&gt;</pre></div></p></div>
   <div class="jd-tagdata">
@@ -5496,7 +4035,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
   <div class="jd-tagdata jd-tagdescr"><p>Updates the authenticating user's status. A status update with text identical
  to the authenticating user's text identical to the authenticating user's
  current status will be ignored to prevent duplicates. <br>
- This method calls http://api.twitter.com/1/statuses/update
+ This method calls http://api.twitter.com/1.1/statuses/update
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;twitter:update-status status="hello world"/&gt;</pre></div></p></div>
   <div class="jd-tagdata">

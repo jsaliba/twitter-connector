@@ -906,7 +906,7 @@ Summary:
             ResponseList&lt;Location&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getAvailableTrends(java.lang.Double, java.lang.Double)">getAvailableTrends</a></span>(Double latitude, Double longitude)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getAvailableTrends()">getAvailableTrends</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns the sorted locations that Twitter has trending topic information for.</div>
   
@@ -915,6 +915,24 @@ Summary:
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            ResponseList&lt;Location&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getClosestTrends(double, double)">getClosestTrends</a></span>(double latitude, double longitude)</nobr>
+        
+        <div class="jd-descrdiv">Returns the locations that Twitter has trending topic information for, closest to a specified location.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -930,7 +948,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -946,7 +964,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -958,24 +976,6 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getConsumerSecret()">getConsumerSecret</a></span>()</nobr>
         
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            List&lt;Trends&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getDailyTrends(java.util.Date, boolean)">getDailyTrends</a></span>(Date date, boolean excludeHashTags)</nobr>
-        
-        <div class="jd-descrdiv">Returns the top 20 trending topics for each hour in a given day.</div>
-  
   </td></tr>
 
 
@@ -1025,13 +1025,13 @@ Summary:
             
             
             
-            Trends</nobr>
+            ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getLocationTrends(int)">getLocationTrends</a></span>(int woeid)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getMentionsTimeline(int, int, long)">getMentionsTimeline</a></span>(int page, int count, long sinceId)</nobr>
         
-        <div class="jd-descrdiv">Returns the top 10 trending topics for a specific location Twitter has trending 
- topic information for.</div>
+        <div class="jd-descrdiv">Returns the 20 most recent mentions (status containing @username) for the
+ authenticating user.</div>
   
   </td></tr>
 
@@ -1044,13 +1044,12 @@ Summary:
             
             
             
-            ResponseList&lt;Status&gt;</nobr>
+            Trends</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getMentions(int, int, long)">getMentions</a></span>(int page, int count, long sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getPlaceTrends(int)">getPlaceTrends</a></span>(int woeid)</nobr>
         
-        <div class="jd-descrdiv">Returns the 20 most recent mentions (status containing @username) for the
- authenticating user.</div>
+        <div class="jd-descrdiv">Returns the top 10 trending topics for a specific WOEID, if trending information is available for it.</div>
   
   </td></tr>
 
@@ -1116,157 +1115,6 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getProxyUsername()">getProxyUsername</a></span>()</nobr>
         
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;User&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedBy(long, int, int, long)">getRetweetedBy</a></span>(long statusId, int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Show user objects of up to 100 members who retweeted the status.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            IDs</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByIds(long, int, int, long)">getRetweetedByIds</a></span>(long statusId, int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Show user ids of up to 100 users who retweeted the status represented by id <br />
- This method calls
- http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
- <p/>
- </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByMe(int, int, long)">getRetweetedByMe</a></span>(int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the authenticating user.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByUserByScreenName(java.lang.String, int, int, long)">getRetweetedByUserByScreenName</a></span>(String screenName, int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the specified user.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedByUserByUserId(long, int, int, long)">getRetweetedByUserByUserId</a></span>(long userId, int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the specified user.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedToMe(int, int, long)">getRetweetedToMe</a></span>(int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by the authenticating user's
- friends.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedToUserByScreenName(java.lang.String, int, int, long)">getRetweetedToUserByScreenName</a></span>(String screenName, int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by users the specified user
- follows.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getRetweetedToUserByUserId(long, int, int, long)">getRetweetedToUserByUserId</a></span>(long userId, int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent retweets posted by users the specified user
- follows.</div>
-  
   </td></tr>
 
 
@@ -1419,24 +1267,6 @@ Summary:
             
             
             
-            List&lt;Trends&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getWeeklyTrends(java.util.Date, boolean)">getWeeklyTrends</a></span>(Date date, boolean excludeHashTags)</nobr>
-        
-        <div class="jd-descrdiv">Returns the top 30 trending topics for each day in a given week.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1446,7 +1276,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1464,7 +1294,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1482,7 +1312,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1500,7 +1330,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1519,7 +1349,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1537,7 +1367,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1547,7 +1377,7 @@ Summary:
             QueryResult</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#search(java.lang.String, java.lang.String, java.lang.String, java.lang.Long, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.Long, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">search</a></span>(String query, String lang, String locale, Long maxId, Integer rpp, Integer page, String since, Long sinceId, String geocode, String radius, String unit, String until, String resultType)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#search(java.lang.String, java.lang.String, java.lang.String, java.lang.Long, java.lang.String, java.lang.Long, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">search</a></span>(String query, String lang, String locale, Long maxId, String since, Long sinceId, String geocode, String radius, String unit, String until, String resultType)</nobr>
         
         <div class="jd-descrdiv">Returns tweets that match a specified query.</div>
   
@@ -1555,7 +1385,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1573,7 +1403,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1591,7 +1421,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1609,7 +1439,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1625,7 +1455,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1641,7 +1471,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1657,7 +1487,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1673,7 +1503,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1689,7 +1519,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1707,7 +1537,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1723,7 +1553,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1739,7 +1569,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1755,7 +1585,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1771,7 +1601,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1787,7 +1617,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1805,7 +1635,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1825,7 +1655,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1843,7 +1673,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1861,7 +1691,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1893,7 +1723,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2249,7 +2079,7 @@ From interface
         <span class="jd-tagtitle">Constant Value: </span>
         <span>
             
-                "https://sitestream.twitter.com/2b/"
+                "https://sitestream.twitter.com/1.1/"
             
         </span>
         </div>
@@ -2288,7 +2118,7 @@ From interface
         <span class="jd-tagtitle">Constant Value: </span>
         <span>
             
-                "https://stream.twitter.com/1/"
+                "http://stream.twitter.com/1.1/"
             
         </span>
         </div>
@@ -2894,7 +2724,7 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Destroys the status specified by the required ID parameter.<br>
  Usage note: The authenticating user must be the author of the specified
  status. <br>
- This method calls http://api.twitter.com/1/statuses/destroy
+ This method calls http://api.twitter.com/1.1/statuses/destroy
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -3141,7 +2971,7 @@ From interface
 </div>
 
 
-<A NAME="getAvailableTrends(java.lang.Double, java.lang.Double)"></A>
+<A NAME="getAvailableTrends()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3154,7 +2984,7 @@ From interface
         ResponseList&lt;Location&gt;
       </span>
       <span class="sympad">getAvailableTrends</span>
-      <span class="normal">(Double latitude, Double longitude)</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3176,19 +3006,6 @@ From interface
 
  </p></div>
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>latitude</td>
-          <td>The latitude</td>
-        </tr>
-        <tr>
-          <th>longitude</td>
-          <td>The longitude</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>the Locations</li></ul>
   </div>
@@ -3198,6 +3015,72 @@ From interface
         <tr>
             <th>TwitterException</td>
             <td>when Twitter service or network is unavailable
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getClosestTrends(double, double)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        ResponseList&lt;Location&gt;
+      </span>
+      <span class="sympad">getClosestTrends</span>
+      <span class="normal">(double latitude, double longitude)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the locations that Twitter has trending topic information for, closest to a specified location.<br>
+ The response is an array of "locations" that encode the location's WOEID and some other human-readable information such as a canonical name and country the location belongs in.<br>
+ A WOEID is a <a href="http://developer.yahoo.com/geo/geoplanet/">Yahoo! Where On Earth ID</a>.
+ <br>This method calls http://api.twitter.com/1.1/trends/closest.json
+ 
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>latitude</td>
+          <td>The latitude of the location this tweet refers to. This parameter will be ignored unless it is
+                  inside the range -90.0 to +90.0 (North is positive) inclusive.</td>
+        </tr>
+        <tr>
+          <th>longitude</td>
+          <td>He longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to
+                  +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range or if there not a
+                  corresponding lat parameter.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the locations</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>TwitterException</td>
+            <td>twitter4j.TwitterException when Twitter service or network is unavailable
 </td>
         </tr>
       </table>
@@ -3300,67 +3183,6 @@ From interface
 </div>
 
 
-<A NAME="getDailyTrends(java.util.Date, boolean)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        List&lt;Trends&gt;
-      </span>
-      <span class="sympad">getDailyTrends</span>
-      <span class="normal">(Date date, boolean excludeHashTags)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 20 trending topics for each hour in a given day.
- <p/>
- </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>date</td>
-          <td>Starting date of daily trends. If no date is specified, current
-                        date is used</td>
-        </tr>
-        <tr>
-          <th>excludeHashTags</td>
-          <td>Whether hashtags should be excluded</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>a list of Trends objects</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
 <A NAME="getGeoDetails(java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -3452,7 +3274,7 @@ From interface
  statuses/friends_timeline does not for backwards compatibility reasons. In a
  future version of the API, statuses/friends_timeline will be deprected and
  replaced by home_timeline. <br>
- This method calls http://api.twitter.com/1/statuses/home_timeline
+ This method calls http://api.twitter.com/1.1/statuses/home_timeline
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -3499,69 +3321,7 @@ From interface
 </div>
 
 
-<A NAME="getLocationTrends(int)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        Trends
-      </span>
-      <span class="sympad">getLocationTrends</span>
-      <span class="normal">(int woeid)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 10 trending topics for a specific location Twitter has trending 
- topic information for. The response is an array of "trend" objects that encode 
- the name of the trending topic, the query parameter that can be used to search 
- for the topic on Search, and the direct URL that can be issued against Search. 
- This information is cached for five minutes, and therefore users are discouraged 
- from querying these endpoints faster than once every five minutes.  
- Global trends information is also available from this API by using a WOEID of 1.
-
- </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>woeid</td>
-          <td>The WOEID of the location to be querying for</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>trends</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="getMentions(int, int, long)"></A>
+<A NAME="getMentionsTimeline(int, int, long)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3573,7 +3333,7 @@ From interface
          
         ResponseList&lt;Status&gt;
       </span>
-      <span class="sympad">getMentions</span>
+      <span class="sympad">getMentionsTimeline</span>
       <span class="normal">(int page, int count, long sinceId)</span>
     </h4>
       <div class="api-level">
@@ -3588,7 +3348,7 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent mentions (status containing @username) for the
  authenticating user. <br>
- This method calls http://api.twitter.com/1/statuses/mentions
+ This method calls http://api.twitter.com/1.1/statuses/mentions_timeline
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -3630,6 +3390,65 @@ From interface
       <ul class="nolist"><li><a href="http://dev.twitter.com/doc/get/statuses/mentions">GET
       statuses/mentions | dev.twitter.com</a></li>
       </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getPlaceTrends(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Trends
+      </span>
+      <span class="sympad">getPlaceTrends</span>
+      <span class="normal">(int woeid)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 10 trending topics for a specific WOEID, if trending information is available for it.<br>
+ The response is an array of "trend" objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on <a href="http://search.twitter.com/">Twitter Search</a>, and the Twitter Search URL.<br>
+ This information is cached for 5 minutes. Requesting more frequently than that will not return any more data, and will count against your rate limit usage.<br>
+ <br>This method calls http://api.twitter.com/1.1/trends/place.json
+
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>woeid</td>
+          <td><a href="http://developer.yahoo.com/geo/geoplanet/">The Yahoo! Where On Earth ID</a> of the location to return trending information for. Global information is available by using 1 as the WOEID.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>trends</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>TwitterException</td>
+            <td>when Twitter service or network is unavailable
+</td>
+        </tr>
+      </table>
   </div>
 
     </div>
@@ -3760,646 +3579,6 @@ From interface
 </div>
 
 
-<A NAME="getRetweetedBy(long, int, int, long)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        ResponseList&lt;User&gt;
-      </span>
-      <span class="sympad">getRetweetedBy</span>
-      <span class="normal">(long statusId, int page, int count, long sinceId)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Show user objects of up to 100 members who retweeted the status. <br>
- This method calls http://api.twitter.com/1/statuses/:id/retweeted_by
- <p/>
- </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>statusId</td>
-          <td>The ID of the status you want to get retweeters of</td>
-        </tr>
-        <tr>
-          <th>page</td>
-          <td>Specifies the page of results to retrieve.</td>
-        </tr>
-        <tr>
-          <th>count</td>
-          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                 after the count has been applied.</td>
-        </tr>
-        <tr>
-          <th>sinceId</td>
-          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                 the since_id, the since_id will be forced to the oldest ID available.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the list of User who retweeted your status</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a href="http://dev.twitter.com/doc/get/statuses/:id/retweeted_by">GET
-      statuses/:id/retweeted_by | dev.twitter.com</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="getRetweetedByIds(long, int, int, long)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        IDs
-      </span>
-      <span class="sympad">getRetweetedByIds</span>
-      <span class="normal">(long statusId, int page, int count, long sinceId)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Show user ids of up to 100 users who retweeted the status represented by id <br />
- This method calls
- http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
- <p/>
- </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>statusId</td>
-          <td>The ID of the status you want to get retweeters of</td>
-        </tr>
-        <tr>
-          <th>page</td>
-          <td>Specifies the page of results to retrieve.</td>
-        </tr>
-        <tr>
-          <th>count</td>
-          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                 best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                 after the count has been applied.</td>
-        </tr>
-        <tr>
-          <th>sinceId</td>
-          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                 limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                 the since_id, the since_id will be forced to the oldest ID available.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>IDs of users who retweeted the stats</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a
-      href="http://dev.twitter.com/doc/get/statuses/:id/retweeted_by/ids">GET
-      statuses/:id/retweeted_by/ids | dev.twitter.com</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="getRetweetedByMe(int, int, long)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        ResponseList&lt;Status&gt;
-      </span>
-      <span class="sympad">getRetweetedByMe</span>
-      <span class="normal">(int page, int count, long sinceId)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by the authenticating user. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_by_me
- <p/>
- </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>page</td>
-          <td>Specifies the page of results to retrieve.</td>
-        </tr>
-        <tr>
-          <th>count</td>
-          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.</td>
-        </tr>
-        <tr>
-          <th>sinceId</td>
-          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a href="http://dev.twitter.com/doc/get/statuses/retweeted_by_me">GET
-      statuses/retweeted_by_me | dev.twitter.com</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="getRetweetedByUserByScreenName(java.lang.String, int, int, long)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        ResponseList&lt;Status&gt;
-      </span>
-      <span class="sympad">getRetweetedByUserByScreenName</span>
-      <span class="normal">(String screenName, int page, int count, long sinceId)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by the specified user. This method
- is identical to statuses/retweeted_by_me except you can choose the user to
- view. <br>
- This method has not been finalized and the interface is subject to change in
- incompatible ways. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_by_user
- <p/>
- </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>screenName</td>
-          <td>The user to view</td>
-        </tr>
-        <tr>
-          <th>page</td>
-          <td>Specifies the page of results to retrieve.</td>
-        </tr>
-        <tr>
-          <th>count</td>
-          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                   best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                   after the count has been applied.</td>
-        </tr>
-        <tr>
-          <th>sinceId</td>
-          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                   limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                   the since_id, the since_id will be forced to the oldest ID available.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a
-      href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter
-      and the API - Twitter API Announcements | Google Group</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="getRetweetedByUserByUserId(long, int, int, long)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        ResponseList&lt;Status&gt;
-      </span>
-      <span class="sympad">getRetweetedByUserByUserId</span>
-      <span class="normal">(long userId, int page, int count, long sinceId)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by the specified user. This method
- is identical to statuses/retweeted_by_me except you can choose the user to
- view. <br>
- This method has not been finalized and the interface is subject to change in
- incompatible ways. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_by_user
- <p/>
- </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>userId</td>
-          <td>The user to view</td>
-        </tr>
-        <tr>
-          <th>page</td>
-          <td>Specifies the page of results to retrieve.</td>
-        </tr>
-        <tr>
-          <th>count</td>
-          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.</td>
-        </tr>
-        <tr>
-          <th>sinceId</td>
-          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a
-      href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter
-      and the API - Twitter API Announcements | Google Group</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="getRetweetedToMe(int, int, long)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        ResponseList&lt;Status&gt;
-      </span>
-      <span class="sympad">getRetweetedToMe</span>
-      <span class="normal">(int page, int count, long sinceId)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by the authenticating user's
- friends. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_to_me
- <p/>
- </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>page</td>
-          <td>Specifies the page of results to retrieve.</td>
-        </tr>
-        <tr>
-          <th>count</td>
-          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.</td>
-        </tr>
-        <tr>
-          <th>sinceId</td>
-          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user's
-         friends.</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a href="http://dev.twitter.com/doc/get/statuses/retweeted_to_me">GET
-      statuses/retweeted_to_me | dev.twitter.com</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="getRetweetedToUserByScreenName(java.lang.String, int, int, long)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        ResponseList&lt;Status&gt;
-      </span>
-      <span class="sympad">getRetweetedToUserByScreenName</span>
-      <span class="normal">(String screenName, int page, int count, long sinceId)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by users the specified user
- follows. This method is identical to statuses/retweeted_to_me except you can
- choose the user to view. <br>
- This method has not been finalized and the interface is subject to change in
- incompatible ways. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_to_user
- <p/>
- </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>screenName</td>
-          <td>The user to view</td>
-        </tr>
-        <tr>
-          <th>page</td>
-          <td>Specifies the page of results to retrieve.</td>
-        </tr>
-        <tr>
-          <th>count</td>
-          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                   best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                   after the count has been applied.</td>
-        </tr>
-        <tr>
-          <th>sinceId</td>
-          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                   limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                   the since_id, the since_id will be forced to the oldest ID available.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user's friends.</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a
-      href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter
-      and the API - Twitter API Announcements | Google Group</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="getRetweetedToUserByUserId(long, int, int, long)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        ResponseList&lt;Status&gt;
-      </span>
-      <span class="sympad">getRetweetedToUserByUserId</span>
-      <span class="normal">(long userId, int page, int count, long sinceId)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent retweets posted by users the specified user
- follows. This method is identical to statuses/retweeted_to_me except you can
- choose the user to view. <br>
- This method has not been finalized and the interface is subject to change in
- incompatible ways. <br>
- This method calls http://api.twitter.com/1/statuses/retweeted_to_user
- <p/>
- </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>userId</td>
-          <td>The user to view</td>
-        </tr>
-        <tr>
-          <th>page</td>
-          <td>Specifies the page of results to retrieve.</td>
-        </tr>
-        <tr>
-          <th>count</td>
-          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-                after the count has been applied.</td>
-        </tr>
-        <tr>
-          <th>sinceId</td>
-          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-                the since_id, the since_id will be forced to the oldest ID available.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the 20 most recent retweets (Status) posted by the authenticating user's friends.</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><a
-      href="http://groups.google.com/group/twitter-api-announce/msg/34909da7c399169e">#newtwitter
-      and the API - Twitter API Announcements | Google Group</a></li>
-      </ul>
-  </div>
-
-    </div>
-</div>
-
-
 <A NAME="getRetweets(long)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -4426,7 +3605,7 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns up to 100 of the first retweets of a given tweet. <br>
- This method calls http://api.twitter.com/1/statuses/retweets
+ This method calls http://api.twitter.com/1.1/statuses/retweets
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -4489,7 +3668,7 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent tweets of the authenticated user that have been
  retweeted by others. <br>
- This method calls http://api.twitter.com/1/statuses/retweets_of_me
+ This method calls http://api.twitter.com/1.1/statuses/retweets_of_me
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -4716,7 +3895,7 @@ From interface
  Atom). If you'd like them included, you can merge them in from statuses
  retweeted_by_me.<br>
  <br>
- This method calls http://api.twitter.com/1/statuses/user_timeline.json
+ This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -4798,7 +3977,7 @@ From interface
  Atom). If you'd like them included, you can merge them in from statuses
  retweeted_by_me.<br>
  <br>
- This method calls http://api.twitter.com/1/statuses/user_timeline.json
+ This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -4884,7 +4063,7 @@ From interface
  Atom). If you'd like them included, you can merge them in from statuses
  retweeted_by_me.<br>
  <br>
- This method calls http://api.twitter.com/1/statuses/user_timeline.json
+ This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -4930,67 +4109,6 @@ From interface
       <ul class="nolist"><li><a href="http://dev.twitter.com/doc/get/statuses/user_timeline">GET
       statuses/user_timeline | dev.twitter.com</a></li>
       </ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="getWeeklyTrends(java.util.Date, boolean)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        List&lt;Trends&gt;
-      </span>
-      <span class="sympad">getWeeklyTrends</span>
-      <span class="normal">(Date date, boolean excludeHashTags)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the top 30 trending topics for each day in a given week.
- <p/>
- </p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>date</td>
-          <td>Starting date of daily trends. If no date is specified, current
-                        date is used</td>
-        </tr>
-        <tr>
-          <th>excludeHashTags</td>
-          <td>If all hashtags should be removed from the trends list.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>a list of Trends objects</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>TwitterException</td>
-            <td>when Twitter service or network is unavailable
-</td>
-        </tr>
-      </table>
   </div>
 
     </div>
@@ -5162,7 +4280,7 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Retweets a tweet. Returns the original tweet with retweet details embedded. <br>
- This method calls http://api.twitter.com/1/statuses/retweet
+ This method calls http://api.twitter.com/1.1/statuses/retweet
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -5318,7 +4436,7 @@ From interface
 </div>
 
 
-<A NAME="search(java.lang.String, java.lang.String, java.lang.String, java.lang.Long, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.Long, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
+<A NAME="search(java.lang.String, java.lang.String, java.lang.String, java.lang.Long, java.lang.String, java.lang.Long, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -5331,7 +4449,7 @@ From interface
         QueryResult
       </span>
       <span class="sympad">search</span>
-      <span class="normal">(String query, String lang, String locale, Long maxId, Integer rpp, Integer page, String since, Long sinceId, String geocode, String radius, String unit, String until, String resultType)</span>
+      <span class="normal">(String query, String lang, String locale, Long maxId, String since, Long sinceId, String geocode, String radius, String unit, String until, String resultType)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -5366,14 +4484,6 @@ From interface
         <tr>
           <th>maxId</td>
           <td>If specified, returns tweets with status ids less than the given id</td>
-        </tr>
-        <tr>
-          <th>rpp</td>
-          <td>Sets the number of tweets to return per page, up to a max of 100</td>
-        </tr>
-        <tr>
-          <th>page</td>
-          <td>Sets the page number (starting at 1) to return, up to a max of roughly 1500 results</td>
         </tr>
         <tr>
           <th>since</td>
@@ -6103,7 +5213,7 @@ From interface
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a single status, specified by the id parameter below. The status's
  author will be returned inline. <br>
- This method calls http://api.twitter.com/1/statuses/show
+ This method calls http://api.twitter.com/1.1/statuses/show
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -6269,7 +5379,7 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Updates the authenticating user's status. A status update with text identical
  to the authenticating user's text identical to the authenticating user's
  current status will be ignored to prevent duplicates. <br>
- This method calls http://api.twitter.com/1/statuses/update
+ This method calls http://api.twitter.com/1.1/statuses/update
  <p/>
  </p></div>
   <div class="jd-tagdata">

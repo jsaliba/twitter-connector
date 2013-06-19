@@ -351,16 +351,6 @@ This method calls http://search.twitter.com/search.json
             &lt;xs:documentation&gt;If specified, returns tweets with status ids less than the given id&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;rpp&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Sets the number of tweets to return per page, up to a max of 100&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;page&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Sets the page number (starting at 1) to return, up to a max of roughly 1500 results&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
         &lt;xs:attribute name=&quot;since&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;If specified, returns tweets since the given date. Date should be formatted as YYYY-MM-DD&lt;/xs:documentation&gt;
@@ -419,7 +409,7 @@ except that home_timeline also contains retweets, while
 statuses/friends_timeline does not for backwards compatibility reasons. In a
 future version of the API, statuses/friends_timeline will be deprected and
 replaced by home_timeline. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/home_timeline
+This method calls http://api.twitter.com/1.1/statuses/home_timeline
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -470,7 +460,7 @@ user_timeline when calling in XML or JSON (they appear with 'RT' in RSS and
 Atom). If you'd like them included, you can merge them in from statuses
 retweeted_by_me.&amp;lt;br&amp;gt;
 &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/user_timeline.json
+This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -526,7 +516,7 @@ user_timeline when calling in XML or JSON (they appear with 'RT' in RSS and
 Atom). If you'd like them included, you can merge them in from statuses
 retweeted_by_me.&amp;lt;br&amp;gt;
 &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/user_timeline.json
+This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -582,7 +572,7 @@ user_timeline when calling in XML or JSON (they appear with 'RT' in RSS and
 Atom). If you'd like them included, you can merge them in from statuses
 retweeted_by_me.&amp;lt;br&amp;gt;
 &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/user_timeline.json
+This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -622,102 +612,15 @@ This method calls http://api.twitter.com/1/statuses/user_timeline.json
       &lt;/xs:extension&gt;
     &lt;/xs:complexContent&gt;
   &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-mentions&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetMentionsType&quot;&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-mentions-timeline&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetMentionsTimelineType&quot;&gt;
     &lt;xs:annotation&gt;
       &lt;xs:documentation&gt;Returns the 20 most recent mentions (status containing @username) for the
 authenticating user. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/mentions
+This method calls http://api.twitter.com/1.1/statuses/mentions_timeline
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetMentionsType&quot;&gt;
-    &lt;xs:complexContent&gt;
-      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
-        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;page&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;sinceId&quot; default=&quot;-1&quot; use=&quot;optional&quot; type=&quot;longType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-      &lt;/xs:extension&gt;
-    &lt;/xs:complexContent&gt;
-  &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-retweeted-by-me&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetRetweetedByMeType&quot;&gt;
-    &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Returns the 20 most recent retweets posted by the authenticating user. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/retweeted_by_me
-&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
-    &lt;/xs:annotation&gt;
-  &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetRetweetedByMeType&quot;&gt;
-    &lt;xs:complexContent&gt;
-      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
-        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;page&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;sinceId&quot; default=&quot;-1&quot; use=&quot;optional&quot; type=&quot;longType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-      &lt;/xs:extension&gt;
-    &lt;/xs:complexContent&gt;
-  &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-retweeted-to-me&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetRetweetedToMeType&quot;&gt;
-    &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Returns the 20 most recent retweets posted by the authenticating user's
-friends. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/retweeted_to_me
-&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
-    &lt;/xs:annotation&gt;
-  &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetRetweetedToMeType&quot;&gt;
+  &lt;xs:complexType name=&quot;GetMentionsTimelineType&quot;&gt;
     &lt;xs:complexContent&gt;
       &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
         &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
@@ -757,7 +660,7 @@ This method calls http://api.twitter.com/1/statuses/retweeted_to_me
     &lt;xs:annotation&gt;
       &lt;xs:documentation&gt;Returns the 20 most recent tweets of the authenticated user that have been
 retweeted by others. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/retweets_of_me
+This method calls http://api.twitter.com/1.1/statuses/retweets_of_me
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -797,219 +700,11 @@ This method calls http://api.twitter.com/1/statuses/retweets_of_me
       &lt;/xs:extension&gt;
     &lt;/xs:complexContent&gt;
   &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-retweeted-to-user-by-screen-name&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetRetweetedToUserByScreenNameType&quot;&gt;
-    &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Returns the 20 most recent retweets posted by users the specified user
-follows. This method is identical to statuses/retweeted_to_me except you can
-choose the user to view. &amp;lt;br&amp;gt;
-This method has not been finalized and the interface is subject to change in
-incompatible ways. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/retweeted_to_user
-&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
-    &lt;/xs:annotation&gt;
-  &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetRetweetedToUserByScreenNameType&quot;&gt;
-    &lt;xs:complexContent&gt;
-      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
-        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;screenName&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;the user to view&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;page&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;sinceId&quot; default=&quot;-1&quot; use=&quot;optional&quot; type=&quot;longType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-      &lt;/xs:extension&gt;
-    &lt;/xs:complexContent&gt;
-  &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-retweeted-to-user-by-user-id&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetRetweetedToUserByUserIdType&quot;&gt;
-    &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Returns the 20 most recent retweets posted by users the specified user
-follows. This method is identical to statuses/retweeted_to_me except you can
-choose the user to view. &amp;lt;br&amp;gt;
-This method has not been finalized and the interface is subject to change in
-incompatible ways. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/retweeted_to_user
-&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
-    &lt;/xs:annotation&gt;
-  &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetRetweetedToUserByUserIdType&quot;&gt;
-    &lt;xs:complexContent&gt;
-      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
-        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;userId&quot; use=&quot;required&quot; type=&quot;longType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;the user to view&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;page&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;sinceId&quot; default=&quot;-1&quot; use=&quot;optional&quot; type=&quot;longType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-      &lt;/xs:extension&gt;
-    &lt;/xs:complexContent&gt;
-  &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-retweeted-by-user-by-screen-name&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetRetweetedByUserByScreenNameType&quot;&gt;
-    &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Returns the 20 most recent retweets posted by the specified user. This method
-is identical to statuses/retweeted_by_me except you can choose the user to
-view. &amp;lt;br&amp;gt;
-This method has not been finalized and the interface is subject to change in
-incompatible ways. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/retweeted_by_user
-&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
-    &lt;/xs:annotation&gt;
-  &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetRetweetedByUserByScreenNameType&quot;&gt;
-    &lt;xs:complexContent&gt;
-      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
-        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;screenName&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;the user to view&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;page&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;sinceId&quot; default=&quot;-1&quot; use=&quot;optional&quot; type=&quot;longType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-      &lt;/xs:extension&gt;
-    &lt;/xs:complexContent&gt;
-  &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-retweeted-by-user-by-user-id&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetRetweetedByUserByUserIdType&quot;&gt;
-    &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Returns the 20 most recent retweets posted by the specified user. This method
-is identical to statuses/retweeted_by_me except you can choose the user to
-view. &amp;lt;br&amp;gt;
-This method has not been finalized and the interface is subject to change in
-incompatible ways. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/retweeted_by_user
-&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
-    &lt;/xs:annotation&gt;
-  &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetRetweetedByUserByUserIdType&quot;&gt;
-    &lt;xs:complexContent&gt;
-      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
-        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;userId&quot; use=&quot;required&quot; type=&quot;longType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;the user to view&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;page&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;20&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;sinceId&quot; default=&quot;-1&quot; use=&quot;optional&quot; type=&quot;longType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-      &lt;/xs:extension&gt;
-    &lt;/xs:complexContent&gt;
-  &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;show-status&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;ShowStatusType&quot;&gt;
     &lt;xs:annotation&gt;
       &lt;xs:documentation&gt;Returns a single status, specified by the id parameter below. The status's
 author will be returned inline. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/show
+This method calls http://api.twitter.com/1.1/statuses/show
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1071,7 +766,7 @@ This method calls http://api.twitter.com/1/statuses/show
       &lt;xs:documentation&gt;Updates the authenticating user's status. A status update with text identical
 to the authenticating user's text identical to the authenticating user's
 current status will be ignored to prevent duplicates. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/update
+This method calls http://api.twitter.com/1.1/statuses/update
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1121,7 +816,7 @@ This method calls http://api.twitter.com/1/statuses/update
       &lt;xs:documentation&gt;Destroys the status specified by the required ID parameter.&amp;lt;br&amp;gt;
 Usage note: The authenticating user must be the author of the specified
 status. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/destroy
+This method calls http://api.twitter.com/1.1/statuses/destroy
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1154,7 +849,7 @@ This method calls http://api.twitter.com/1/statuses/destroy
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;retweet-status&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;RetweetStatusType&quot;&gt;
     &lt;xs:annotation&gt;
       &lt;xs:documentation&gt;Retweets a tweet. Returns the original tweet with retweet details embedded. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/retweet
+This method calls http://api.twitter.com/1.1/statuses/retweet
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1187,7 +882,7 @@ This method calls http://api.twitter.com/1/statuses/retweet
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-retweets&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetRetweetsType&quot;&gt;
     &lt;xs:annotation&gt;
       &lt;xs:documentation&gt;Returns up to 100 of the first retweets of a given tweet. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/retweets
+This method calls http://api.twitter.com/1.1/statuses/retweets
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1202,103 +897,6 @@ This method calls http://api.twitter.com/1/statuses/retweets
         &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;statusId&quot; use=&quot;required&quot; type=&quot;longType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The numerical ID of the tweet you want the retweets of.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-      &lt;/xs:extension&gt;
-    &lt;/xs:complexContent&gt;
-  &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-retweeted-by&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetRetweetedByType&quot;&gt;
-    &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Show user objects of up to 100 members who retweeted the status. &amp;lt;br&amp;gt;
-This method calls http://api.twitter.com/1/statuses/:id/retweeted_by
-&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
-    &lt;/xs:annotation&gt;
-  &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetRetweetedByType&quot;&gt;
-    &lt;xs:complexContent&gt;
-      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
-        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;statusId&quot; use=&quot;required&quot; type=&quot;longType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The ID of the status you want to get retweeters of&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;page&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;sinceId&quot; default=&quot;-1&quot; use=&quot;optional&quot; type=&quot;longType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-      &lt;/xs:extension&gt;
-    &lt;/xs:complexContent&gt;
-  &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-retweeted-by-ids&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetRetweetedByIdsType&quot;&gt;
-    &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Show user ids of up to 100 users who retweeted the status represented by id &amp;lt;br /&amp;gt;
-This method calls
-http://api.twitter.com/1/statuses/:id/retweeted_by/ids.format
-&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
-    &lt;/xs:annotation&gt;
-  &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetRetweetedByIdsType&quot;&gt;
-    &lt;xs:complexContent&gt;
-      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
-        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;statusId&quot; use=&quot;required&quot; type=&quot;longType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The ID of the status you want to get retweeters of&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;page&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the page of results to retrieve.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;count&quot; default=&quot;100&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;sinceId&quot; default=&quot;-1&quot; use=&quot;optional&quot; type=&quot;longType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
         &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
@@ -1639,127 +1237,6 @@ and long passed in. The sort is nearest to furthest.&lt;/xs:documentation&gt;
             &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;latitude&quot; use=&quot;optional&quot; type=&quot;doubleType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;the latitude&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;longitude&quot; use=&quot;optional&quot; type=&quot;doubleType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;the longitude&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-      &lt;/xs:extension&gt;
-    &lt;/xs:complexContent&gt;
-  &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-location-trends&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetLocationTrendsType&quot;&gt;
-    &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Returns the top 10 trending topics for a specific location Twitter has trending
-topic information for. The response is an array of &quot;trend&quot; objects that encode
-the name of the trending topic, the query parameter that can be used to search
-for the topic on Search, and the direct URL that can be issued against Search.
-This information is cached for five minutes, and therefore users are discouraged
-from querying these endpoints faster than once every five minutes.
-Global trends information is also available from this API by using a WOEID of 1.&lt;/xs:documentation&gt;
-    &lt;/xs:annotation&gt;
-  &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetLocationTrendsType&quot;&gt;
-    &lt;xs:complexContent&gt;
-      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
-        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;woeid&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The WOEID of the location to be querying for&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-      &lt;/xs:extension&gt;
-    &lt;/xs:complexContent&gt;
-  &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-daily-trends&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetDailyTrendsType&quot;&gt;
-    &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Returns the top 20 trending topics for each hour in a given day.
-&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
-    &lt;/xs:annotation&gt;
-  &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetDailyTrendsType&quot;&gt;
-    &lt;xs:complexContent&gt;
-      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
-        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;date&quot; use=&quot;optional&quot; type=&quot;dateTimeType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;starting date of daily trends. If no date is specified, current date is used&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;excludeHashTags&quot; default=&quot;false&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;whether hashtags should be excluded&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-      &lt;/xs:extension&gt;
-    &lt;/xs:complexContent&gt;
-  &lt;/xs:complexType&gt;
-  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-weekly-trends&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetWeeklyTrendsType&quot;&gt;
-    &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Returns the top 30 trending topics for each day in a given week.
-&amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
-    &lt;/xs:annotation&gt;
-  &lt;/xs:element&gt;
-  &lt;xs:complexType name=&quot;GetWeeklyTrendsType&quot;&gt;
-    &lt;xs:complexContent&gt;
-      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
-        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;date&quot; use=&quot;optional&quot; type=&quot;dateTimeType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;starting date of daily trends. If no date is specified, current date is used&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;excludeHashTags&quot; default=&quot;false&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
-          &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;if all hashtags should be removed from the trends list.&lt;/xs:documentation&gt;
-          &lt;/xs:annotation&gt;
-        &lt;/xs:attribute&gt;
         &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
@@ -1836,6 +1313,79 @@ the length of the text is exceeding 140 characters.
         &lt;xs:attribute name=&quot;message&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;The text of your direct message&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-place-trends&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetPlaceTrendsType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Returns the top 10 trending topics for a specific WOEID, if trending information is available for it.&amp;lt;br&amp;gt;
+The response is an array of &quot;trend&quot; objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on &amp;lt;a href=&quot;http://search.twitter.com/&quot;&amp;gt;Twitter Search&amp;lt;/a&amp;gt;, and the Twitter Search URL.&amp;lt;br&amp;gt;
+This information is cached for 5 minutes. Requesting more frequently than that will not return any more data, and will count against your rate limit usage.&amp;lt;br&amp;gt;
+&amp;lt;br&amp;gt;This method calls http://api.twitter.com/1.1/trends/place.json&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;GetPlaceTrendsType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;woeid&quot; default=&quot;1&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;&amp;lt;a href=&quot;http://developer.yahoo.com/geo/geoplanet/&quot;&amp;gt;The Yahoo! Where On Earth ID&amp;lt;/a&amp;gt; of the location to return trending information for. Global information is available by using 1 as the WOEID.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-closest-trends&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetClosestTrendsType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Returns the locations that Twitter has trending topic information for, closest to a specified location.&amp;lt;br&amp;gt;
+The response is an array of &quot;locations&quot; that encode the location's WOEID and some other human-readable information such as a canonical name and country the location belongs in.&amp;lt;br&amp;gt;
+A WOEID is a &amp;lt;a href=&quot;http://developer.yahoo.com/geo/geoplanet/&quot;&amp;gt;Yahoo! Where On Earth ID&amp;lt;/a&amp;gt;.
+&amp;lt;br&amp;gt;This method calls http://api.twitter.com/1.1/trends/closest.json&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;GetClosestTrendsType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;latitude&quot; use=&quot;required&quot; type=&quot;doubleType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;longitude&quot; use=&quot;required&quot; type=&quot;doubleType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;he longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range or if there not a corresponding lat parameter.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
         &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
