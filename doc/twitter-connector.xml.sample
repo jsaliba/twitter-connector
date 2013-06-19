@@ -19,7 +19,7 @@
 <!-- END_INCLUDE(twitter:getUserTimeline) -->
 
 <!-- BEGIN_INCLUDE(twitter:getMentions) -->
-        <twitter:get-mentions />
+        <twitter:get-mentions-timeline />
 <!-- END_INCLUDE(twitter:getMentions) -->
 
 <!-- BEGIN_INCLUDE(twitter:getRetweetsOfMe) -->
@@ -93,9 +93,17 @@
 <!-- END_INCLUDE(twitter:createPlace) -->
 
 <!-- BEGIN_INCLUDE(twitter:getAvailableTrends) -->
-      <twitter:get-available-trends latitude="#[header:latitude]"
-                                    longitude="#[header:longitude]" />
+      <twitter:get-available-trends/>
 <!-- END_INCLUDE(twitter:getAvailableTrends) -->
+
+<!-- BEGIN_INCLUDE(twitter:getPlaceTrends) -->
+      <twitter:get-place-trends/>
+<!-- END_INCLUDE(twitter:getPlaceTrends) -->
+
+<!-- BEGIN_INCLUDE(twitter:getClosestTrends) -->
+      <twitter:get-closest-trends latitude="#[header:latitude]"
+                                    longitude="#[header:longitude]" />
+<!-- END_INCLUDE(twitter:getClosestTrends) -->
 
 <!-- BEGIN_INCLUDE(twitter:getLocationTrends) -->
       <twitter:get-location-trends woeid="1" />

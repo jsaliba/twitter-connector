@@ -15,25 +15,15 @@ import org.junit.runners.Suite.SuiteClasses;
 import org.mule.twitter.automation.testcases.CreatePlaceTestCases;
 import org.mule.twitter.automation.testcases.DestroyStatusTestCases;
 import org.mule.twitter.automation.testcases.GetAvailableTrendsTestCases;
-import org.mule.twitter.automation.testcases.GetDailyTrendsTestCases;
 import org.mule.twitter.automation.testcases.GetGeoDetailsTestCases;
 import org.mule.twitter.automation.testcases.GetHomeTimelineTestCases;
 import org.mule.twitter.automation.testcases.GetLocationTrendsTestCases;
 import org.mule.twitter.automation.testcases.GetMentionsTestCases;
-import org.mule.twitter.automation.testcases.GetRetweetedByIdsTestCases;
-import org.mule.twitter.automation.testcases.GetRetweetedByMeTestCases;
-import org.mule.twitter.automation.testcases.GetRetweetedByTestCases;
-import org.mule.twitter.automation.testcases.GetRetweetedByUserByScreenNameTestCases;
-import org.mule.twitter.automation.testcases.GetRetweetedByUserByUserIdTestCases;
-import org.mule.twitter.automation.testcases.GetRetweetedToMeTestCases;
-import org.mule.twitter.automation.testcases.GetRetweetedToUserByScreenNameTestCases;
-import org.mule.twitter.automation.testcases.GetRetweetedToUserByUserIdTestCases;
 import org.mule.twitter.automation.testcases.GetRetweetsOfMeTestCases;
 import org.mule.twitter.automation.testcases.GetRetweetsTestCases;
 import org.mule.twitter.automation.testcases.GetUserTimelineByScreenNameTestCases;
 import org.mule.twitter.automation.testcases.GetUserTimelineByUserIdTestCases;
 import org.mule.twitter.automation.testcases.GetUserTimelineTestCases;
-import org.mule.twitter.automation.testcases.GetWeeklyTrendsTestCases;
 import org.mule.twitter.automation.testcases.RetweetStatusTestCases;
 import org.mule.twitter.automation.testcases.ReverseGeoCodeTestCases;
 import org.mule.twitter.automation.testcases.SanityTests;
@@ -49,20 +39,13 @@ import org.mule.twitter.automation.testcases.UpdateStatusTestCases;
 @IncludeCategory(SanityTests.class)
 @SuiteClasses({ 
 		CreatePlaceTestCases.class, DestroyStatusTestCases.class,
-		GetAvailableTrendsTestCases.class, GetDailyTrendsTestCases.class,
+		GetAvailableTrendsTestCases.class,
 		GetGeoDetailsTestCases.class, GetHomeTimelineTestCases.class,
 		GetLocationTrendsTestCases.class, GetMentionsTestCases.class,
-		GetRetweetedByIdsTestCases.class,
-		GetRetweetedByMeTestCases.class, GetRetweetedByTestCases.class,
-		GetRetweetedByUserByScreenNameTestCases.class,
-		GetRetweetedByUserByUserIdTestCases.class,
-		GetRetweetedToMeTestCases.class,
-		GetRetweetedToUserByScreenNameTestCases.class,
-		GetRetweetedToUserByUserIdTestCases.class,
 		GetRetweetsOfMeTestCases.class, GetRetweetsTestCases.class,
 		GetUserTimelineByScreenNameTestCases.class,
 		GetUserTimelineByUserIdTestCases.class, GetUserTimelineTestCases.class,
-		GetWeeklyTrendsTestCases.class, RetweetStatusTestCases.class,
+		RetweetStatusTestCases.class,
 		ReverseGeoCodeTestCases.class, SearchPlacesTestCases.class,
 		SearchTestCases.class, SendDirectMessageByScreenNameTestCases.class,
 		SendDirectMessageByUserIdTestCases.class, ShowStatusTestCases.class,

@@ -53,7 +53,7 @@ public class TwitterTestDriver extends AbstractMuleTestCase
 
     public void testGetTrends() throws Exception
     {
-        assertNotNull(connector.getLocationTrends(1));
+        assertNotNull(connector.getPlaceTrends(1));
     }
 
     public void testSearchPlaces() throws Exception

@@ -14,6 +14,7 @@ import static org.junit.Assert.fail;
 
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.UUID;
 
 import org.junit.After;
 import org.junit.Before;
@@ -35,7 +36,7 @@ public class GetRetweetsTestCases extends TwitterTestParent {
     	testObjects = new HashMap<String,Object>();
     			
     	TwitterTestStatus aStatus = (TwitterTestStatus) context.getBean("aStatusToRetweet");
-    	
+    	aStatus.setText(String.format("%s Random Automation status", UUID.randomUUID().toString().substring(0, 9)));
     	try {
     		
         	flow = lookupFlowConstruct("update-status-aux-sandbox");
@@ -49,6 +50,7 @@ public class GetRetweetsTestCases extends TwitterTestParent {
         	
         	testObjects.put("aStatusToRetweet", aStatus);
         	
+        	Thread.sleep(TwitterTestUtils.SETUP_DELAY);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,8 +90,8 @@ public class GetRetweetsTestCases extends TwitterTestParent {
 			response = flow.process(getTestEvent(aRetweet.getId()));
 
 			ResponseList<Status> responseList = (ResponseList<Status>) response.getMessage().getPayload();
-			
-			Long expectedStatusId = aRetweet.getId();
+			 
+			Long expectedStatusId = TwitterTestUtils.getIdForStatusTextOnResponseList(responseList,aRetweet.getText());
 			String statusIdErrorMessage = context.getMessage("timeline.statusId.notFound", new Object[] {expectedStatusId}, Locale.getDefault());
 			
 			assertTrue(statusIdErrorMessage, TwitterTestUtils.isStatusIdOnTimeline(responseList, expectedStatusId));
@@ -99,7 +101,7 @@ public class GetRetweetsTestCases extends TwitterTestParent {
 			
 			String statusTextErrorMessage = context.getMessage("status.text.noMatchForId", new Object[] {expectedStatusId}, Locale.getDefault());
 			
-	        assertEquals(statusTextErrorMessage, expectedStatusText, actualStatusText);
+			assertTrue(statusTextErrorMessage, actualStatusText.contains(expectedStatusText));
 	        
 			String responseListLenghtErrorMessage = context.getMessage("timeline.length", new Object[] {TwitterTestUtils.TIMELINE_DEFAULT_LENGTH}, Locale.getDefault());
 	        

@@ -65,6 +65,23 @@ public class TwitterTestUtils {
         return null;
     }
 	
+	public static String getStatusTextOnResponseList(ResponseList<Status> statusList, long statusId) {
+		
+		Status status;
+		String statusText = "";
+		boolean found = false;
+		
+		Iterator<Status> iter = statusList.iterator();
+        while (iter.hasNext() && found == false){
+        	status = iter.next();
+        	if (status.getId()==statusId) {
+        		statusText = status.getText();
+        		found = true;
+        	}
+        } 
+        return statusText;
+    }
+	
 	public static long getIdForStatusTextOnResponseList(ResponseList<Status> statusList, String statusText) {
 		
 		Status status;
@@ -81,7 +98,6 @@ public class TwitterTestUtils {
         } 
         return statusId;
     }
-	
 	public static boolean isUserOnList(ResponseList<User> userList, long userId) {
 		
 		User user;

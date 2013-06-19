@@ -155,7 +155,7 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 	</flow>
 	
 	<flow name="get-available-trends-parametrized" doc:name="get-available-trends-parametrized">
-        <twitter:get-available-trends config-ref="Twitter" doc:name="Twitter" latitude="#[payload.latitude]" longitude="#[payload.longitude]"/>
+        <twitter:get-available-trends config-ref="Twitter" doc:name="Twitter"/>
         <logger level="INFO" message="### get-available-trends-parametrized #[payload]" />
 	</flow>
 	
@@ -165,22 +165,22 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 	</flow>
 	
 	<flow name="get-location-trends-default-values" doc:name="get-location-trends-default-values">
-        <twitter:get-location-trends config-ref="Twitter" doc:name="Twitter"/>
+        <twitter:get-place-trends config-ref="Twitter" doc:name="Twitter"/>
         <logger level="INFO" message="### get-location-trends-default-values #[payload]" />
 	</flow>
 	
 	<flow name="get-location-trends-parametrized" doc:name="get-location-trends-parametrized">
-        <twitter:get-location-trends config-ref="Twitter" doc:name="Twitter" woeid="#[payload]"/>
+        <twitter:get-place-trends config-ref="Twitter" doc:name="Twitter" woeid="#[payload]"/>
         <logger level="INFO" message="### get-location-trends-parametrized #[payload]" />
 	</flow>
 	
 	<flow name="get-mentions-default-values" doc:name="get-mentions-default-values">
-        <twitter:get-mentions config-ref="Twitter" doc:name="Twitter"/>
+        <twitter:get-mentions-timeline config-ref="Twitter" doc:name="Twitter"/>
         <logger level="INFO" message="### get-mentions-default-values #[payload]" />
 	</flow>
 	
 	<flow name="get-mentions-parametrized" doc:name="get-mentions-parametrized">
-        <twitter:get-mentions config-ref="Twitter" doc:name="Twitter" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
+        <twitter:get-mentions-timeline config-ref="Twitter" doc:name="Twitter" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
         <logger level="INFO" message="### get-mentions-parametrized #[payload]" />
 	</flow>
 	
@@ -203,7 +203,10 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
         <twitter:search config-ref="Twitter" query="#[payload]" doc:name="Twitter"/>
         <logger level="INFO" message="### search-default-values #[payload]" />
 	</flow>
-	
+	<flow name="send-direct-message-by-screen-name" doc:name="send-direct-message-by-screen-name">
+        <twitter:send-direct-message-by-screen-name config-ref="Twitter" screenName="#[payload.screenName]" message="#[payload.message]" doc:name="Twitter"/>
+        <logger level="INFO" message="### send-direct-message-by-screen-name #[payload]" />
+	</flow>
 	<flow name="send-direct-message-by-user-id" doc:name="send-direct-message-by-user-id">
         <twitter:send-direct-message-by-user-id config-ref="Twitter" userId="#[payload.userId]" message="#[payload.message]" doc:name="Twitter"/>
         <logger level="INFO" message="### send-direct-message-by-user-id #[payload]" />

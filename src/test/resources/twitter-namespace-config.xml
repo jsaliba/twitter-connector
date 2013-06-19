@@ -41,7 +41,7 @@
     </flow>
 
     <flow name="getMentions">
-        <twitter:get-mentions/>
+        <twitter:get-mentions-timeline/>
     </flow>
 
     <flow name="getRetweetsOfMe">
@@ -89,12 +89,11 @@
     </flow>
 
     <flow name="AvailableTrends">
-        <twitter:get-available-trends latitude="#[header:latitude]"
-                                      longitude="#[header:longitude]" />
+        <twitter:get-available-trends/>
     </flow>
 
     <flow name="LocationTrends">
-        <twitter:get-location-trends woeid="#[header:woeid]" />
+        <twitter:get-place-trends woeid="#[header:woeid]" />
     </flow>  
     
     <flow name="GetGeoDetais">

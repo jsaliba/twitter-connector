@@ -281,7 +281,7 @@ public class TwitterConnector implements MuleContextAware {
      * statuses/friends_timeline does not for backwards compatibility reasons. In a
      * future version of the API, statuses/friends_timeline will be deprected and
      * replaced by home_timeline. <br>
-     * This method calls http://api.twitter.com/1/statuses/home_timeline
+     * This method calls http://api.twitter.com/1.1/statuses/home_timeline
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getHomeTimeline}
      *
@@ -314,7 +314,7 @@ public class TwitterConnector implements MuleContextAware {
      * Atom). If you'd like them included, you can merge them in from statuses
      * retweeted_by_me.<br>
      * <br>
-     * This method calls http://api.twitter.com/1/statuses/user_timeline.json
+     * This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getUserTimelineByScreenName}
      *
@@ -350,7 +350,7 @@ public class TwitterConnector implements MuleContextAware {
      * Atom). If you'd like them included, you can merge them in from statuses
      * retweeted_by_me.<br>
      * <br>
-     * This method calls http://api.twitter.com/1/statuses/user_timeline.json
+     * This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getUserTimelineByUserId}
      *
@@ -394,7 +394,7 @@ public class TwitterConnector implements MuleContextAware {
      * Atom). If you'd like them included, you can merge them in from statuses
      * retweeted_by_me.<br>
      * <br>
-     * This method calls http://api.twitter.com/1/statuses/user_timeline.json
+     * This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getUserTimeline}
      *
@@ -421,7 +421,7 @@ public class TwitterConnector implements MuleContextAware {
     /**
      * Returns the 20 most recent mentions (status containing @username) for the
      * authenticating user. <br>
-     * This method calls http://api.twitter.com/1/statuses/mentions
+     * This method calls http://api.twitter.com/1.1/statuses/mentions_timeline
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getMentions}
      *
@@ -438,17 +438,17 @@ public class TwitterConnector implements MuleContextAware {
      *      statuses/mentions | dev.twitter.com</a>
      */
     @Processor
-    public ResponseList<Status> getMentions(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
+    public ResponseList<Status> getMentionsTimeline(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
                                             @Placement(group = "Pagination") @Default(value = "20") @Optional int count,
                                             @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
             throws TwitterException {
-        return twitter.getMentions(getPaging(page, count, sinceId));
+        return twitter.getMentionsTimeline(getPaging(page, count, sinceId));
     }
 
     /**
      * Returns the 20 most recent tweets of the authenticated user that have been
      * retweeted by others. <br>
-     * This method calls http://api.twitter.com/1/statuses/retweets_of_me
+     * This method calls http://api.twitter.com/1.1/statuses/retweets_of_me
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getRetweetsOfMe}
      *
@@ -475,7 +475,7 @@ public class TwitterConnector implements MuleContextAware {
     /**
      * Returns a single status, specified by the id parameter below. The status's
      * author will be returned inline. <br>
-     * This method calls http://api.twitter.com/1/statuses/show
+     * This method calls http://api.twitter.com/1.1/statuses/show
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:showStatus}
      *
@@ -507,7 +507,7 @@ public class TwitterConnector implements MuleContextAware {
      * Updates the authenticating user's status. A status update with text identical
      * to the authenticating user's text identical to the authenticating user's
      * current status will be ignored to prevent duplicates. <br>
-     * This method calls http://api.twitter.com/1/statuses/update
+     * This method calls http://api.twitter.com/1.1/statuses/update
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:updateStatus}
      *
@@ -550,7 +550,7 @@ public class TwitterConnector implements MuleContextAware {
      * Destroys the status specified by the required ID parameter.<br>
      * Usage note: The authenticating user must be the author of the specified
      * status. <br>
-     * This method calls http://api.twitter.com/1/statuses/destroy
+     * This method calls http://api.twitter.com/1.1/statuses/destroy
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:destroyStatus}
      *
@@ -567,7 +567,7 @@ public class TwitterConnector implements MuleContextAware {
 
     /**
      * Retweets a tweet. Returns the original tweet with retweet details embedded. <br>
-     * This method calls http://api.twitter.com/1/statuses/retweet
+     * This method calls http://api.twitter.com/1.1/statuses/retweet
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:retweetStatus}
      *
@@ -584,7 +584,7 @@ public class TwitterConnector implements MuleContextAware {
 
     /**
      * Returns up to 100 of the first retweets of a given tweet. <br>
-     * This method calls http://api.twitter.com/1/statuses/retweets
+     * This method calls http://api.twitter.com/1.1/statuses/retweets
      * <p/>
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getRetweets}
      *
@@ -789,42 +789,14 @@ public class TwitterConnector implements MuleContextAware {
      *
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getAvailableTrends}
      * 
-     * @param latitude the latitude
-     * @param longitude the longitude
      * @return the {@link Location}s
      * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
-    public ResponseList<Location> getAvailableTrends(@Optional Double latitude, 
-                                                     @Optional Double longitude) 
+    public ResponseList<Location> getAvailableTrends() 
             throws TwitterException {
-        
-        if(latitude != null && longitude != null) {
-            return twitter.getAvailableTrends(new GeoLocation(latitude, longitude));
-        }
         
         return twitter.getAvailableTrends();
-    }
-
-    /**
-     * Returns the top 10 trending topics for a specific location Twitter has trending 
-     * topic information for. The response is an array of "trend" objects that encode 
-     * the name of the trending topic, the query parameter that can be used to search 
-     * for the topic on Search, and the direct URL that can be issued against Search. 
-     * This information is cached for five minutes, and therefore users are discouraged 
-     * from querying these endpoints faster than once every five minutes.  
-     * Global trends information is also available from this API by using a WOEID of 1.
-     *
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getLocationTrends}
-     * 
-     * @param woeid The WOEID of the location to be querying for
-     * @return trends
-     * @throws TwitterException when Twitter service or network is unavailable
-     */
-    @Processor
-    public Trends getLocationTrends(@Optional @Default(value = "1") int woeid) 
-            throws TwitterException {
-        return twitter.getLocationTrends(woeid);
     }
 
     /**
@@ -1132,6 +1104,44 @@ public class TwitterConnector implements MuleContextAware {
         return twitter.sendDirectMessage(userId, message);
     }
 
+    /**
+     * Returns the top 10 trending topics for a specific WOEID, if trending information is available for it.<br>
+     * The response is an array of "trend" objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on <a href="http://search.twitter.com/">Twitter Search</a>, and the Twitter Search URL.<br>
+     * This information is cached for 5 minutes. Requesting more frequently than that will not return any more data, and will count against your rate limit usage.<br>
+     * <br>This method calls http://api.twitter.com/1.1/trends/place.json
+	 *
+     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getPlaceTrends}
+     * 
+     * @param woeid <a href="http://developer.yahoo.com/geo/geoplanet/">The Yahoo! Where On Earth ID</a> of the location to return trending information for. Global information is available by using 1 as the WOEID.
+     * @return trends
+     * @throws twitter4j.TwitterException when Twitter service or network is unavailable
+     */
+    @Processor
+    public Trends getPlaceTrends(@Optional @Default("1") int woeid) throws TwitterException{
+    	return twitter.getPlaceTrends(woeid);
+    }
+    
+    /**
+     * Returns the locations that Twitter has trending topic information for, closest to a specified location.<br>
+     * The response is an array of "locations" that encode the location's WOEID and some other human-readable information such as a canonical name and country the location belongs in.<br>
+     * A WOEID is a <a href="http://developer.yahoo.com/geo/geoplanet/">Yahoo! Where On Earth ID</a>.
+     * <br>This method calls http://api.twitter.com/1.1/trends/closest.json
+     * 
+     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getClosestTrends}
+     * 
+     * @param latitude  The latitude of the location this tweet refers to. This parameter will be ignored unless it is
+     *                  inside the range -90.0 to +90.0 (North is positive) inclusive.
+     * @param longitude he longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to
+     *                  +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range or if there not a
+     *                  corresponding lat parameter.
+     * @return the locations
+     * @throws TwitterException twitter4j.TwitterException when Twitter service or network is unavailable
+     */
+    @Processor
+    public ResponseList<Location> getClosestTrends(double latitude, double longitude) throws TwitterException{
+    	return twitter.getClosestTrends(new GeoLocation(latitude, longitude));
+    }
+    
     private void initStream() {
         if (stream != null) {
             throw new IllegalStateException("Only one stream can be consumed per twitter account");
