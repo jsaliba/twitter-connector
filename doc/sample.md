@@ -85,26 +85,29 @@ Let's create a small Mule flow that will return user information for the authent
 10   Finally drag and drop an "Object to JSON" transformer next to the "Twitter" connector.  
 
 If you click the **Configuration XML** tab this is how the code should look like
-
-<?xml version="1.0" encoding="UTF-8"?>
-
-<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
-    xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:twitter="http://www.mulesoft.org/schema/mule/twitter"
-    xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-    xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.4.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
-http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/2.4/mule-twitter.xsd">
-    <flow name="show-user" doc:name="show-user" />
-    <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="showUser" doc:name="HTTP" />
-    <twitter:show-user config-ref="Twitter" doc:name="Show user" />
-    <json:object-to-json-transformer doc:name="Object to JSON" />
-    <flow />
-</mule>
-
+```
+   <?xml version="1.0" encoding="UTF-8"?>
+   <mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+   xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:twitter="http://www.mulesoft.org/schema/mule/twitter"
+   xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+   xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.4.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans-current.xsd
+   http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+   http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+   http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+   http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/2.4/mule-twitter.xsd">
+      <twitter:config name="Twitter" accessKey="${twitter.accessKey}" accessSecret="${twitter.accessSecret}" 
+         consumerKey="${twitter.consumerKey}" consumerSecret="${twitter.consumerSecret}" doc:name="Twitter"/>
+      <flow name="show-user" doc:name="show-user"/>
+         <http:inbound-endpoint exchange-pattern="request-response" 
+            host="localhost" port="8081" path="showUser" doc:name="HTTP"/>
+         <twitter:show-user config-ref="Twitter" doc:name="Show user"/>
+         <json:object-to-json-transformer doc:name="Object to JSON"/>
+      <flow/>
+   </mule>
+```
 
 ### Step: Run the application
 
@@ -118,7 +121,7 @@ http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 3   Hit the endpoint at <http://localhost:8081/showUser> and check the operation payload formatted as JSON.
-
+```
     {
    "id":729170916,
    "name":"MuleConnectorQA",
@@ -223,7 +226,7 @@ http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/
    },
    "accessLevel":3
 }
-
+```
 From this response we're going to save the id and screenName of the authenticated user for later use.
 
 Tweeting and sending direct messages
@@ -286,7 +289,7 @@ Send direct message by screen name
 3      Hit the endpoint at
  <http://localhost:8081/updateStatus>.
  Check the text field of the JSON object returned as payload.
-
+```
 {
    "id":729170916,
    "name":"MuleConnectorQA",
@@ -391,13 +394,13 @@ Send direct message by screen name
    },
    "accessLevel":3
 }
-
+```
 Also if you go to your Twitter homepage a new tweet appears containing the text you tweeted through the connector.
 
 4      Replace the message and the userScreenName values in this URL
   <http://localhost:8081/sendDirectMessageByScreenName?message=&lt;directMessageByScreenName\>&userScreenName=&lt;userScreenName\>>
  and hit the endpoint. This operations Sends a new direct message to the specified user from the authenticating user. Pay attention to the sender, receiver and message fields of the response.
-
+```
     {
    "id":349214462424805376,
    "text":"newDirectMessage",
@@ -545,7 +548,7 @@ Also if you go to your Twitter homepage a new tweet appears containing the text 
    "rateLimitStatus":null,
    "accessLevel":3
 }
-
+```
  If you go to your Twitter homepage and check your Direct Messages it can be found among them.
 
 Getting timelines
@@ -580,7 +583,7 @@ Get user timeline by user id
 3      Replace the message and the userId value in this URL
  <http://localhost:8081/getUserTimelineByUserId?userId=&lt;userId\>>
  and hit the endpoint.
-
+```
     [
     {
       "createdAt":1361340860000,
@@ -779,7 +782,7 @@ Get user timeline by user id
       "accessLevel":0
    }
 ]
-
+```
 The response is the same as the one we would get from from **Get user timeline** and **Get user timeline by user screen name**.
 
 
