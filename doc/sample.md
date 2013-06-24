@@ -86,22 +86,25 @@ Let's create a small Mule flow that will return user information for the authent
 
 If you click the **Configuration XML** tab this is how the code should look like
 
-    <?xml version="1.0" encoding="UTF-8"?\>
-    <mule xmlns="http:/www.mulesoft.org/schema/mule/core" xmlns:json="http:/www.mulesoft.org/schema/mule/json" xmlns:http="http:/www.mulesoft.org/schema/mule/http" xmlns:twitter="http:/www.mulesoft.org/schema/mule/twitter" xmlns:doc="http:/www.mulesoft.org/schema/mule/documentation" xmlns:spring="http:/www.springframework.org/schema/beans" xmlns:xsi="http:/www.w3.org/2001/XMLSchema-instance" version="CE-3.3.0" xsi:schemaLocation="
-    http:/www.mulesoft.org/schema/mule/json http:/www.mulesoft.org/schema/mule/json/current/mule-json.xsd
-    http:/www.mulesoft.org/schema/mule/http http:/www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-    http:/www.mulesoft.org/schema/mule/twitter http:/www.mulesoft.org/schema/mule/twitter/2.4/mule-twitter.xsd
-    http:/www.springframework.org/schema/beans http:/www.springframework.org/schema/beans/spring-beans-current.xsd
-    http:/www.mulesoft.org/schema/mule/core http:/www.mulesoft.org/schema/mule/core/current/mule.xsd "\>
+<?xml version="1.0" encoding="UTF-8"?>
 
-    <twitter:config name="Twitter" accessKey="${twitter.accessKey}" accessSecret="${twitter.accessSecret}" consumerKey="${twitter.consumerKey}" consumerSecret="${twitter.consumerSecret}" doc:name="Twitter"\>  
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+    xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:twitter="http://www.mulesoft.org/schema/mule/twitter"
+    xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+    xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.4.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/2.4/mule-twitter.xsd">
+    <flow name="show-user" doc:name="show-user" />
+    <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="showUser" doc:name="HTTP" />
+    <twitter:show-user config-ref="Twitter" doc:name="Show user" />
+    <json:object-to-json-transformer doc:name="Object to JSON" />
+    <flow />
+</mule>
 
-    <flow name="show-user" doc:name="show-user"\>
-        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="showUser" doc:name="HTTP"\>
-        <twitter:show-user config-ref="Twitter" doc:name="Show user"\>
-        <json:object-to-json-transformer doc:name="Object to JSON"\>
-        <flow\>
-    <mule\>
 
 ### Step: Run the application
 
