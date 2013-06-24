@@ -12,7 +12,7 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
     <flow name="exampleFlow1" doc:name="exampleFlow1">
         <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" doc:name="HTTP"/>
         <twitter:update-status config-ref="Twitter" status="Hi @MuleConnectorQA" doc:name="Twitter"/>
-        <twitter:get-mentions config-ref="Twitter" count="10" doc:name="Twitter"/>
+        <twitter:get-mentions-timeline config-ref="Twitter" count="10" doc:name="Twitter"/>
         <data-mapper:transform config-ref="mentions-to-map" doc:name="DataMapper"/>
         <twitter:update-status config-ref="Twitter" status="Thanks for your mention @#[payload.screenname]" doc:name="Twitter"/>
         <json:object-to-json-transformer doc:name="Object to JSON"/>
