@@ -34,6 +34,10 @@
         <twitter:show-user />
 <!-- END_INCLUDE(twitter:showUser) -->
 
+<!-- BEGIN_INCLUDE(twitter:getFollowers) -->
+        <twitter:get-followers cursor="-1" />
+<!-- END_INCLUDE(twitter:getFollowers) -->
+
 <!-- BEGIN_INCLUDE(twitter:updateStatus) -->
         <twitter:update-status status="hello world"/>
 <!-- END_INCLUDE(twitter:updateStatus) -->
