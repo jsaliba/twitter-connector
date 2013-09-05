@@ -43,6 +43,7 @@ import twitter4j.FilterQuery;
 import twitter4j.GeoLocation;
 import twitter4j.GeoQuery;
 import twitter4j.Location;
+import twitter4j.PagableResponseList;
 import twitter4j.Paging;
 import twitter4j.Place;
 import twitter4j.Query;
@@ -501,6 +502,25 @@ public class TwitterConnector implements MuleContextAware {
     @Processor
     public User showUser() throws TwitterException {
         return twitter.showUser(twitter.getId());
+    }
+    
+    /**
+     * Returns a cursored collection of user objects for users following the specified user.<br>
+     * At this time, results are ordered with the most recent following first, however, this ordering is subject to unannounced 
+     * change and eventual consistency issues. Results are given in groups of 20 users and multiple "pages" of results can be 
+     * navigated through using the next_cursor value in subsequent requests.
+     * 
+     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getFollowers}
+     * 
+     * @param cursor Causes the results to be broken into pages of no more than 20 records at a time.
+     * @return Paginated list of followers
+     * @throws TwitterException when Twitter service or network is unavailable
+     * @see <a href="https://dev.twitter.com/docs/misc/cursoring">Using cursors to navigate collections</a>
+     */
+    @Processor
+    public PagableResponseList<User> getFollowers(@Default(value = "-1") @Optional long cursor) 
+                    throws TwitterException{
+        return twitter.getFollowersList(twitter.getId(), cursor);
     }
 
     /**
