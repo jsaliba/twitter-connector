@@ -761,6 +761,40 @@ This method calls http://api.twitter.com/1.1/statuses/show
       &lt;/xs:extension&gt;
     &lt;/xs:complexContent&gt;
   &lt;/xs:complexType&gt;
+  &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-followers&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetFollowersType&quot;&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;Returns a cursored collection of user objects for users following the specified user.&amp;lt;br&amp;gt;
+At this time, results are ordered with the most recent following first, however, this ordering is subject to unannounced
+change and eventual consistency issues. Results are given in groups of 20 users and multiple &quot;pages&quot; of results can be
+navigated through using the next_cursor value in subsequent requests.&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+  &lt;/xs:element&gt;
+  &lt;xs:complexType name=&quot;GetFollowersType&quot;&gt;
+    &lt;xs:complexContent&gt;
+      &lt;xs:extension xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; base=&quot;mule:abstractMessageProcessorType&quot;&gt;
+        &lt;xs:attribute name=&quot;config-ref&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; name=&quot;cursor&quot; default=&quot;-1&quot; use=&quot;optional&quot; type=&quot;longType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Causes the results to be broken into pages of no more than 20 records at a time.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;accessKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The access key provided by Twitter&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name=&quot;accessSecret&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;The access secret provided by Twitter&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+      &lt;/xs:extension&gt;
+    &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/twitter&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;update-status&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;UpdateStatusType&quot;&gt;
     &lt;xs:annotation&gt;
       &lt;xs:documentation&gt;Updates the authenticating user's status. A status update with text identical

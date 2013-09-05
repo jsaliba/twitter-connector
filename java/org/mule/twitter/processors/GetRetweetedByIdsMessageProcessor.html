@@ -74,7 +74,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
 <title>
 
-  GetRetweetedByIDsMessageProcessor
+  GetRetweetedByIdsMessageProcessor
 
 
 | Mule Twitter Connector
@@ -255,6 +255,7 @@
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetClosestTrendsMessageProcessor.html">GetClosestTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetCurrentTrendsMessageProcessor.html">GetCurrentTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetDailyTrendsMessageProcessor.html">GetDailyTrendsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetFollowersMessageProcessor.html">GetFollowersMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetGeoDetailsMessageProcessor.html">GetGeoDetailsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetHomeTimelineMessageProcessor.html">GetHomeTimelineMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetLocationTrendsMessageProcessor.html">GetLocationTrendsMessageProcessor</a></li>
@@ -262,8 +263,8 @@
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetMentionsTimelineMessageProcessor.html">GetMentionsTimelineMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetPlaceTrendsMessageProcessor.html">GetPlaceTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetPublicTimelineMessageProcessor.html">GetPublicTimelineMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html">GetRetweetedByIdsMessageProcessor</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html">GetRetweetedByIDsMessageProcessor</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html">GetRetweetedByIdsMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html">GetRetweetedByIDsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByMeMessageProcessor.html">GetRetweetedByMeMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByMessageProcessor.html">GetRetweetedByMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByUserByScreenNameMessageProcessor.html">GetRetweetedByUserByScreenNameMessageProcessor</a></li>
@@ -422,6 +423,23 @@
   
   
 
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
 
 <div class="sum-details-links">
 
@@ -479,7 +497,7 @@ Summary:
      
     
     class
-<h1>GetRetweetedByIDsMessageProcessor</h1>
+<h1>GetRetweetedByIdsMessageProcessor</h1>
 
 
 
@@ -514,6 +532,8 @@ Summary:
         Stoppable 
       
         MessageProcessor 
+      
+        OperationMetaDataEnabled 
       
   
   
@@ -573,7 +593,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.twitter.processors.GetRetweetedByIDsMessageProcessor</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.twitter.processors.GetRetweetedByIdsMessageProcessor</td>
     </tr>
     
 
@@ -589,7 +609,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>GetRetweetedByIDsMessageProcessor invokes the org.mule.twitter.TwitterConnector#getRetweetedByIDs(long, int, int, long) method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+<p>GetRetweetedByIdsMessageProcessor invokes the org.mule.twitter.TwitterConnector#getRetweetedByIds(long, int, int, long) method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -777,6 +797,12 @@ org.mule.api.lifecycle.Stoppable
 
 
 
+
+
+
+
+
+
 </table>
 
 
@@ -793,7 +819,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           int</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#_countType">_countType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#_countType">_countType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -804,7 +830,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           int</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#_pageType">_pageType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#_pageType">_pageType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -815,7 +841,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           long</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#_sinceIdType">_sinceIdType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#_sinceIdType">_sinceIdType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -826,7 +852,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           long</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#_statusIdType">_statusIdType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#_statusIdType">_statusIdType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -837,7 +863,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#count">count</a></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#count">count</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -848,7 +874,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#page">page</a></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#page">page</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -859,7 +885,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#sinceId">sinceId</a></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#sinceId">sinceId</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -870,7 +896,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#statusId">statusId</a></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#statusId">statusId</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -1036,6 +1062,12 @@ org.mule.api.lifecycle.Stoppable
 
 
 
+
+
+
+
+
+
 </table>
 
 
@@ -1057,7 +1089,7 @@ org.mule.api.lifecycle.Stoppable
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#GetRetweetedByIDsMessageProcessor()">GetRetweetedByIDsMessageProcessor</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#GetRetweetedByIdsMessageProcessor()">GetRetweetedByIdsMessageProcessor</a></span>()</nobr>
         
   </td></tr>
 
@@ -1086,7 +1118,39 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Result&lt;MetaData&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#getInputMetaData()">getInputMetaData</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Result&lt;MetaData&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#getOutputMetaData(org.mule.common.metadata.MetaData)">getOutputMetaData</a></span>(MetaData inputMetadata)</nobr>
         
   </td></tr>
 
@@ -1102,7 +1166,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
         
         <div class="jd-descrdiv">Obtains the expression manager from the Mule context and initialises the connector.</div>
   
@@ -1120,7 +1184,7 @@ org.mule.api.lifecycle.Stoppable
             MuleEvent</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
         
         <div class="jd-descrdiv">Invokes the MessageProcessor.</div>
   
@@ -1138,7 +1202,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#setCount(java.lang.Object)">setCount</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#setCount(java.lang.Object)">setCount</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets count</div>
   
@@ -1156,7 +1220,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
         
         <div class="jd-descrdiv">Sets flow construct</div>
   
@@ -1174,7 +1238,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
         
         <div class="jd-descrdiv">Set the Mule context</div>
   
@@ -1192,7 +1256,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#setPage(java.lang.Object)">setPage</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#setPage(java.lang.Object)">setPage</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets page</div>
   
@@ -1210,7 +1274,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#setSinceId(java.lang.Object)">setSinceId</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#setSinceId(java.lang.Object)">setSinceId</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets sinceId</div>
   
@@ -1228,7 +1292,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#setStatusId(java.lang.Object)">setStatusId</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#setStatusId(java.lang.Object)">setStatusId</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets statusId</div>
   
@@ -1246,7 +1310,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#start()">start</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#start()">start</a></span>()</nobr>
         
   </td></tr>
 
@@ -1262,7 +1326,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html#stop()">stop</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html#stop()">stop</a></span>()</nobr>
         
   </td></tr>
 
@@ -2261,6 +2325,68 @@ From interface
 </td></tr>
 
 
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  org.mule.common.metadata.MetaDataDescriptor
+
+<div id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor">
+  <div id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.common.metadata.MetaDataDescriptor-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Result&lt;MetaData&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getInputMetaData</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Result&lt;MetaData&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getOutputMetaData</span>(MetaData arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
 </table>
 
 
@@ -2542,7 +2668,7 @@ From interface
 
 
 
-<A NAME="GetRetweetedByIDsMessageProcessor()"></A>
+<A NAME="GetRetweetedByIdsMessageProcessor()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2554,7 +2680,7 @@ From interface
          
         
       </span>
-      <span class="sympad">GetRetweetedByIDsMessageProcessor</span>
+      <span class="sympad">GetRetweetedByIdsMessageProcessor</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2614,6 +2740,77 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getInputMetaData()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Result&lt;MetaData&gt;
+      </span>
+      <span class="sympad">getInputMetaData</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getOutputMetaData(org.mule.common.metadata.MetaData)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Result&lt;MetaData&gt;
+      </span>
+      <span class="sympad">getOutputMetaData</span>
+      <span class="normal">(MetaData inputMetadata)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>inputMetadata</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>

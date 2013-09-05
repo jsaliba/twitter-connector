@@ -74,7 +74,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
 <title>
 
-  ReverseGeoCodeMessageProcessor
+  GetFollowersMessageProcessor
 
 
 | Mule Twitter Connector
@@ -255,7 +255,7 @@
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetClosestTrendsMessageProcessor.html">GetClosestTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetCurrentTrendsMessageProcessor.html">GetCurrentTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetDailyTrendsMessageProcessor.html">GetDailyTrendsMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetFollowersMessageProcessor.html">GetFollowersMessageProcessor</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetFollowersMessageProcessor.html">GetFollowersMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetGeoDetailsMessageProcessor.html">GetGeoDetailsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetHomeTimelineMessageProcessor.html">GetHomeTimelineMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetLocationTrendsMessageProcessor.html">GetLocationTrendsMessageProcessor</a></li>
@@ -282,7 +282,7 @@
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetWeeklyTrendsMessageProcessor.html">GetWeeklyTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/RequestAuthorizationMessageProcessor.html">RequestAuthorizationMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/RetweetStatusMessageProcessor.html">RetweetStatusMessageProcessor</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html">ReverseGeoCodeMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html">ReverseGeoCodeMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/SearchMessageProcessor.html">SearchMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/SearchPlacesMessageProcessor.html">SearchPlacesMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/SendDirectMessageByScreenNameMessageProcessor.html">SendDirectMessageByScreenNameMessageProcessor</a></li>
@@ -497,7 +497,7 @@ Summary:
      
     
     class
-<h1>ReverseGeoCodeMessageProcessor</h1>
+<h1>GetFollowersMessageProcessor</h1>
 
 
 
@@ -593,7 +593,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.twitter.processors.ReverseGeoCodeMessageProcessor</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.twitter.processors.GetFollowersMessageProcessor</td>
     </tr>
     
 
@@ -609,7 +609,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>ReverseGeoCodeMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#reverseGeoCode(java.lang.Double, java.lang.Double)">reverseGeoCode(java.lang.Double, java.lang.Double)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+<p>GetFollowersMessageProcessor invokes the <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html#getFollowers(long)">getFollowers(long)</a></code> method in <code><a href="../../../../../java/org/mule/twitter/TwitterConnector.html">TwitterConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -818,30 +818,8 @@ org.mule.api.lifecycle.Stoppable
           protected
           
           
-          Double</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#_latitudeType">_latitudeType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          protected
-          
-          
-          Double</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#_longitudeType">_longitudeType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          protected
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#latitude">latitude</a></td>
+          long</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetFollowersMessageProcessor.html#_cursorType">_cursorType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -852,7 +830,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#longitude">longitude</a></td>
+          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/processors/GetFollowersMessageProcessor.html#cursor">cursor</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -1045,7 +1023,7 @@ org.mule.api.lifecycle.Stoppable
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#ReverseGeoCodeMessageProcessor()">ReverseGeoCodeMessageProcessor</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetFollowersMessageProcessor.html#GetFollowersMessageProcessor()">GetFollowersMessageProcessor</a></span>()</nobr>
         
   </td></tr>
 
@@ -1074,7 +1052,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetFollowersMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
         
   </td></tr>
 
@@ -1090,7 +1068,7 @@ org.mule.api.lifecycle.Stoppable
             Result&lt;MetaData&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#getInputMetaData()">getInputMetaData</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetFollowersMessageProcessor.html#getInputMetaData()">getInputMetaData</a></span>()</nobr>
         
   </td></tr>
 
@@ -1106,7 +1084,7 @@ org.mule.api.lifecycle.Stoppable
             Result&lt;MetaData&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#getOutputMetaData(org.mule.common.metadata.MetaData)">getOutputMetaData</a></span>(MetaData inputMetadata)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetFollowersMessageProcessor.html#getOutputMetaData(org.mule.common.metadata.MetaData)">getOutputMetaData</a></span>(MetaData inputMetadata)</nobr>
         
   </td></tr>
 
@@ -1122,7 +1100,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetFollowersMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
         
         <div class="jd-descrdiv">Obtains the expression manager from the Mule context and initialises the connector.</div>
   
@@ -1140,7 +1118,7 @@ org.mule.api.lifecycle.Stoppable
             MuleEvent</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetFollowersMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
         
         <div class="jd-descrdiv">Invokes the MessageProcessor.</div>
   
@@ -1158,7 +1136,25 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetFollowersMessageProcessor.html#setCursor(java.lang.Object)">setCursor</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets cursor</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetFollowersMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
         
         <div class="jd-descrdiv">Sets flow construct</div>
   
@@ -1166,24 +1162,6 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#setLatitude(java.lang.Object)">setLatitude</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets latitude</div>
-  
-  </td></tr>
-
-
-	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -1194,25 +1172,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#setLongitude(java.lang.Object)">setLongitude</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets longitude</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetFollowersMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
         
         <div class="jd-descrdiv">Set the Mule context</div>
   
@@ -1220,22 +1180,6 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#start()">start</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -1246,7 +1190,23 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html#stop()">stop</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetFollowersMessageProcessor.html#start()">start</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/GetFollowersMessageProcessor.html#stop()">stop</a></span>()</nobr>
         
   </td></tr>
 
@@ -2339,7 +2299,7 @@ From interface
 
 
 
-<A NAME="_latitudeType"></A>
+<A NAME="_cursorType"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2347,9 +2307,9 @@ From interface
         protected 
          
          
-        Double
+        long
       </span>
-        _latitudeType
+        _cursorType
     </h4>
       <div class="api-level">
         
@@ -2369,37 +2329,7 @@ From interface
 
 
 
-<A NAME="_longitudeType"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-        Double
-      </span>
-        _longitudeType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="latitude"></A>
+<A NAME="cursor"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2409,37 +2339,7 @@ From interface
          
         Object
       </span>
-        latitude
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="longitude"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-        Object
-      </span>
-        longitude
+        cursor
     </h4>
       <div class="api-level">
         
@@ -2468,7 +2368,7 @@ From interface
 
 
 
-<A NAME="ReverseGeoCodeMessageProcessor()"></A>
+<A NAME="GetFollowersMessageProcessor()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2480,7 +2380,7 @@ From interface
          
         
       </span>
-      <span class="sympad">ReverseGeoCodeMessageProcessor</span>
+      <span class="sympad">GetFollowersMessageProcessor</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2705,6 +2605,47 @@ From interface
 </div>
 
 
+<A NAME="setCursor(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setCursor</span>
+      <span class="normal">(Object value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets cursor</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="setFlowConstruct(org.mule.api.construct.FlowConstruct)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2737,88 +2678,6 @@ From interface
         <tr>
           <th>flowConstruct</td>
           <td>Flow construct to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setLatitude(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setLatitude</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets latitude</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setLongitude(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setLongitude</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets longitude</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
 </td>
         </tr>
       </table>
