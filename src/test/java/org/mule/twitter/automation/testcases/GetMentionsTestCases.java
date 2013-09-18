@@ -39,7 +39,7 @@ public class GetMentionsTestCases extends TwitterTestParent {
     	
     	try {
     		
-    		flow = lookupFlowConstruct("show-user");
+    		flow = lookupMessageProcessorConstruct("show-user");
         	
     		response = flow.process(getTestEvent(null));
     		
@@ -47,7 +47,7 @@ public class GetMentionsTestCases extends TwitterTestParent {
         	firstTweet.setText('@' + screenName + ' ' + firstTweet.getText());
         	secondTweet.setText('@' + screenName + ' ' + secondTweet.getText());
     		
-    		flow = lookupFlowConstruct("update-status-aux-sandbox");
+    		flow = lookupMessageProcessorConstruct("update-status-aux-sandbox");
 
         	response = flow.process(getTestEvent(firstTweet.getText()));
         	firstTweet.setId(((Status) response.getMessage().getPayload()).getId());
@@ -75,7 +75,7 @@ public class GetMentionsTestCases extends TwitterTestParent {
     		TwitterTestStatus firstMention = (TwitterTestStatus) testObjects.get("firstMention");
     		TwitterTestStatus secondMention = (TwitterTestStatus) testObjects.get("secondMention");
     		
-        	flow = lookupFlowConstruct("destroy-status-aux-sandbox");
+        	flow = lookupMessageProcessorConstruct("destroy-status-aux-sandbox");
         	
         	flow.process(getTestEvent(firstMention.getId()));
         	flow.process(getTestEvent(secondMention.getId()));
@@ -96,7 +96,7 @@ public class GetMentionsTestCases extends TwitterTestParent {
 		
 		try {
 			
-			flow = lookupFlowConstruct("get-mentions-default-values");
+			flow = lookupMessageProcessorConstruct("get-mentions-default-values");
 			response = flow.process(getTestEvent(null));
 
 			ResponseList<Status> mentions = (ResponseList<Status>) response.getMessage().getPayload();
@@ -141,7 +141,7 @@ public class GetMentionsTestCases extends TwitterTestParent {
 		
 		try {
 			
-			flow = lookupFlowConstruct("get-mentions-parametrized");
+			flow = lookupMessageProcessorConstruct("get-mentions-parametrized");
 			response = flow.process(getTestEvent(operationParams));
 
 			ResponseList<Status> mentions = (ResponseList<Status>) response.getMessage().getPayload();

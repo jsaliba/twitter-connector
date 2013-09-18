@@ -14,8 +14,6 @@ import static org.junit.Assert.fail;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.mule.twitter.automation.TwitterTestPlace;
 
 import twitter4j.Place;
@@ -30,7 +28,7 @@ public class CreatePlaceTestCases extends TwitterTestParent {
     	
 		try {
 
-			flow = lookupFlowConstruct("search-places-by-ip");
+			flow = lookupMessageProcessorConstruct("search-places-by-ip");
         	response = flow.process(getTestEvent(place.getIp()));
         	ResponseList<Place> placesList = (ResponseList<Place>) response.getMessage().getPayload();
         	
@@ -55,7 +53,7 @@ public class CreatePlaceTestCases extends TwitterTestParent {
 			operationParams.put("latitude", place.getLatitude());
 			operationParams.put("longitude", place.getLongitude());
 			
-			flow = lookupFlowConstruct("search-places-by-coordinates");
+			flow = lookupMessageProcessorConstruct("search-places-by-coordinates");
         	response = flow.process(getTestEvent(operationParams));
         	ResponseList<Place> placesList = (ResponseList<Place>) response.getMessage().getPayload();
         	

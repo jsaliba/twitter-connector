@@ -31,7 +31,7 @@ public class GetAvailableTrendsTestCases extends TwitterTestParent {
     	
     	try {
     		
-        	flow = lookupFlowConstruct("get-available-trends-default-values");
+        	flow = lookupMessageProcessorConstruct("get-available-trends-default-values");
         	response = flow.process(getTestEvent(null));
         	ResponseList<Location> locations = (ResponseList<Location>) response.getMessage().getPayload();
         
@@ -57,7 +57,7 @@ public class GetAvailableTrendsTestCases extends TwitterTestParent {
     	
     	try {
     		
-        	flow = lookupFlowConstruct("get-available-trends-parametrized");
+        	flow = lookupMessageProcessorConstruct("get-available-trends-parametrized");
         	response = flow.process(getTestEvent(operationParams));
         	ResponseList<Location> locations = (ResponseList<Location>) response.getMessage().getPayload();
         

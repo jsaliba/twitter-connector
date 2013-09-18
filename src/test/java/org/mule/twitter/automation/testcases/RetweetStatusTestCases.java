@@ -39,7 +39,7 @@ public class RetweetStatusTestCases extends TwitterTestParent {
     	
     	try {
     		
-        	flow = lookupFlowConstruct("update-status-aux-sandbox");
+        	flow = lookupMessageProcessorConstruct("update-status-aux-sandbox");
         	response = flow.process(getTestEvent(aTweet.getText()));
         	aTweet.setId(((Status) response.getMessage().getPayload()).getId());
         	testObjects.put("testTweet", aTweet);
@@ -59,7 +59,7 @@ public class RetweetStatusTestCases extends TwitterTestParent {
     		
     		TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("testTweet");
     		
-        	flow = lookupFlowConstruct("destroy-status-aux-sandbox");
+        	flow = lookupMessageProcessorConstruct("destroy-status-aux-sandbox");
         	flow.process(getTestEvent(testTweet.getId()));
 
 		} catch (Exception e) {
@@ -78,7 +78,7 @@ public class RetweetStatusTestCases extends TwitterTestParent {
 		
 		try {
 			
-			flow = lookupFlowConstruct("retweet-status");
+			flow = lookupMessageProcessorConstruct("retweet-status");
 	        response = flow.process(getTestEvent(testTweet.getId()));
 	        Status retweetedStatus = ((Status) response.getMessage().getPayload()).getRetweetedStatus();
 	        

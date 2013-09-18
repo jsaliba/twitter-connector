@@ -37,7 +37,7 @@ public class ShowStatusTestCases extends TwitterTestParent {
     	
     	try {
     		
-        	flow = lookupFlowConstruct("update-status");
+        	flow = lookupMessageProcessorConstruct("update-status");
         	response = flow.process(getTestEvent(aTweet.getText()));
         	aTweet.setId(((Status) response.getMessage().getPayload()).getId());
         	testObjects.put("testTweet", aTweet);
@@ -57,7 +57,7 @@ public class ShowStatusTestCases extends TwitterTestParent {
     		
     		TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("testTweet");
     		
-        	flow = lookupFlowConstruct("destroy-status");
+        	flow = lookupMessageProcessorConstruct("destroy-status");
         	flow.process(getTestEvent(testTweet.getId()));
 
 		} catch (Exception e) {
@@ -76,7 +76,7 @@ public class ShowStatusTestCases extends TwitterTestParent {
 		
 		try {
 			
-			flow = lookupFlowConstruct("show-status");
+			flow = lookupMessageProcessorConstruct("show-status");
 	        response = flow.process(getTestEvent(testTweet.getId()));
 	        	
 	        Long expectedStatusId = testTweet.getId();

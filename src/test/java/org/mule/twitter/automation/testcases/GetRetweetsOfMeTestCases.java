@@ -43,7 +43,7 @@ public class GetRetweetsOfMeTestCases extends TwitterTestParent {
     	
     	try {
     		
-        	flow = lookupFlowConstruct("update-status-aux-sandbox");
+        	flow = lookupMessageProcessorConstruct("update-status-aux-sandbox");
         	
         	response = flow.process(getTestEvent(firstTweet.getText()));
         	firstTweet.setId(((Status) response.getMessage().getPayload()).getId());
@@ -51,7 +51,7 @@ public class GetRetweetsOfMeTestCases extends TwitterTestParent {
         	response = flow.process(getTestEvent(secondTweet.getText()));
         	secondTweet.setId(((Status) response.getMessage().getPayload()).getId());
         	
-        	flow = lookupFlowConstruct("retweet-status");
+        	flow = lookupMessageProcessorConstruct("retweet-status");
 	        
         	flow.process(getTestEvent(firstTweet.getId()));
         	flow.process(getTestEvent(secondTweet.getId()));
@@ -77,7 +77,7 @@ public class GetRetweetsOfMeTestCases extends TwitterTestParent {
     		TwitterTestStatus firstRetweetedStatus = (TwitterTestStatus) testObjects.get("firstRetweetedStatus");
     		TwitterTestStatus secondRetweetedStatus = (TwitterTestStatus) testObjects.get("secondRetweetedStatus");
     		
-        	flow = lookupFlowConstruct("destroy-status-aux-sandbox");
+        	flow = lookupMessageProcessorConstruct("destroy-status-aux-sandbox");
         	
         	flow.process(getTestEvent(firstRetweetedStatus.getId()));
         	flow.process(getTestEvent(secondRetweetedStatus.getId()));
@@ -98,7 +98,7 @@ public class GetRetweetsOfMeTestCases extends TwitterTestParent {
 		
 		try {
 			
-			flow = lookupFlowConstruct("get-retweets-of-me-default-values");
+			flow = lookupMessageProcessorConstruct("get-retweets-of-me-default-values");
 			response = flow.process(getTestEvent(null));
 
 			ResponseList<Status> responseList = (ResponseList<Status>) response.getMessage().getPayload();
@@ -143,7 +143,7 @@ public class GetRetweetsOfMeTestCases extends TwitterTestParent {
 		
 		try {
 			
-			flow = lookupFlowConstruct("get-retweets-of-me-parametrized");
+			flow = lookupMessageProcessorConstruct("get-retweets-of-me-parametrized");
 			response = flow.process(getTestEvent(operationParams));
 
 			ResponseList<Status> responseList = (ResponseList<Status>) response.getMessage().getPayload();

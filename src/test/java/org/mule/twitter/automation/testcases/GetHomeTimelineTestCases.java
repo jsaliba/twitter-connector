@@ -38,7 +38,7 @@ public class GetHomeTimelineTestCases extends TwitterTestParent {
     	
     	try {
     		
-        	flow = lookupFlowConstruct("update-status");
+        	flow = lookupMessageProcessorConstruct("update-status");
         	
         	response = flow.process(getTestEvent(firstTweet.getText()));
         	firstTweet.setId(((Status) response.getMessage().getPayload()).getId());
@@ -66,7 +66,7 @@ public class GetHomeTimelineTestCases extends TwitterTestParent {
     		TwitterTestStatus firstTweet = (TwitterTestStatus) testObjects.get("firstTweet");
     		TwitterTestStatus secondTweet = (TwitterTestStatus) testObjects.get("secondTweet");
     		
-        	flow = lookupFlowConstruct("destroy-status");
+        	flow = lookupMessageProcessorConstruct("destroy-status");
         	flow.process(getTestEvent(firstTweet.getId()));
         	flow.process(getTestEvent(secondTweet.getId()));
 
@@ -86,7 +86,7 @@ public class GetHomeTimelineTestCases extends TwitterTestParent {
 		
 		try {
 			
-			flow = lookupFlowConstruct("get-home-timeline-default-values");
+			flow = lookupMessageProcessorConstruct("get-home-timeline-default-values");
 			response = flow.process(getTestEvent(null));
 
 			ResponseList<Status> timeLine = (ResponseList<Status>) response.getMessage().getPayload();
@@ -131,7 +131,7 @@ public class GetHomeTimelineTestCases extends TwitterTestParent {
 		
 		try {
 			
-			flow = lookupFlowConstruct("get-home-timeline-parameterized");
+			flow = lookupMessageProcessorConstruct("get-home-timeline-parameterized");
 			response = flow.process(getTestEvent(operationParams));
 
 			ResponseList<Status> timeLine = (ResponseList<Status>) response.getMessage().getPayload();
