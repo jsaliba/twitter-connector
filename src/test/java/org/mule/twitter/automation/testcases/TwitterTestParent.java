@@ -8,19 +8,18 @@
 
 package org.mule.twitter.automation.testcases;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.BeforeClass;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
-import org.mule.tck.junit4.FunctionalTestCase;
+import org.mule.modules.tests.ConnectorTestCase;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 
-public class TwitterTestParent extends FunctionalTestCase {
+public class TwitterTestParent extends ConnectorTestCase {
 	
 	protected static final String[] SPRING_CONFIG_FILES = new String[] {"SandboxesSpringBeans.xml","TweetsSpringBeans.xml", "PlacesSpringBeans.xml"};
 	protected static ApplicationContext context;
@@ -34,7 +33,7 @@ public class TwitterTestParent extends FunctionalTestCase {
 		return "automation-test-flows.xml";
 	}
 	
-    protected MessageProcessor lookupMessageProcessorConstruct(String name) {
+    protected MessageProcessor lookupMessageProcessor(String name) {
         return (MessageProcessor) muleContext.getRegistry().lookupFlowConstruct(name);
     }
 	

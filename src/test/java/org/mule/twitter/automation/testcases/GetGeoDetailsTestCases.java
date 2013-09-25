@@ -27,7 +27,7 @@ public class GetGeoDetailsTestCases extends TwitterTestParent {
     	
 		try {
 
-			flow = lookupMessageProcessorConstruct("get-geo-details");
+			flow = lookupMessageProcessor("get-geo-details");
         	response = flow.process(getTestEvent(placeById.getId()));
         	Place place = (Place) response.getMessage().getPayload();
         	

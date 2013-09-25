@@ -37,7 +37,7 @@ public class SendDirectMessageByUserIdTestCases extends TwitterTestParent {
 		
 		try {
 			
-			flow = lookupMessageProcessorConstruct("send-direct-message-by-user-id");
+			flow = lookupMessageProcessor("send-direct-message-by-user-id");
 			response = flow.process(getTestEvent(operationParams));
 
 			DirectMessage directMessage = (DirectMessage) response.getMessage().getPayload();

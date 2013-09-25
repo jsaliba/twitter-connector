@@ -44,7 +44,7 @@ public class GetUserTimelineByUserIdTestCases extends TwitterTestParent {
     	
     	try {
     		
-        	flow = lookupMessageProcessorConstruct("update-status-aux-sandbox");
+        	flow = lookupMessageProcessor("update-status-aux-sandbox");
         	
         	response = flow.process(getTestEvent(firstTweet.getText()));
         	firstTweet.setId(((Status) response.getMessage().getPayload()).getId());
@@ -72,7 +72,7 @@ public class GetUserTimelineByUserIdTestCases extends TwitterTestParent {
     		TwitterTestStatus firstTweet = (TwitterTestStatus) testObjects.get("firstTweet");
     		TwitterTestStatus secondTweet = (TwitterTestStatus) testObjects.get("secondTweet");
     		
-        	flow = lookupMessageProcessorConstruct("destroy-status-aux-sandbox");
+        	flow = lookupMessageProcessor("destroy-status-aux-sandbox");
         	flow.process(getTestEvent(firstTweet.getId()));
         	flow.process(getTestEvent(secondTweet.getId()));
 
@@ -92,7 +92,7 @@ public class GetUserTimelineByUserIdTestCases extends TwitterTestParent {
 		
 		try {
 			
-			flow = lookupMessageProcessorConstruct("get-user-timeline-by-user-id-default-values");
+			flow = lookupMessageProcessor("get-user-timeline-by-user-id-default-values");
 			response = flow.process(getTestEvent(sandbox.getUserId()));
 
 			ResponseList<Status> timeLine = (ResponseList<Status>) response.getMessage().getPayload();
@@ -138,7 +138,7 @@ public class GetUserTimelineByUserIdTestCases extends TwitterTestParent {
 		
 		try {
 			
-			flow = lookupMessageProcessorConstruct("get-user-timeline-by-user-id-parameterized");
+			flow = lookupMessageProcessor("get-user-timeline-by-user-id-parameterized");
 			response = flow.process(getTestEvent(operationParams));
 
 			ResponseList<Status> timeLine = (ResponseList<Status>) response.getMessage().getPayload();

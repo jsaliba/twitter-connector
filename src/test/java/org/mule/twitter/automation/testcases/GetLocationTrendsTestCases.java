@@ -25,7 +25,7 @@ public class GetLocationTrendsTestCases extends TwitterTestParent {
     	
 		try {
 
-			flow = lookupMessageProcessorConstruct("get-location-trends-default-values");
+			flow = lookupMessageProcessor("get-location-trends-default-values");
         	response = flow.process(getTestEvent(null));
         	Trends trends = (Trends) response.getMessage().getPayload();
         	
@@ -47,7 +47,7 @@ public class GetLocationTrendsTestCases extends TwitterTestParent {
     	
 		try {
 
-			flow = lookupMessageProcessorConstruct("get-location-trends-parametrized");
+			flow = lookupMessageProcessor("get-location-trends-parametrized");
         	response = flow.process(getTestEvent(place.getWoeid()));
         	Trends trends = (Trends) response.getMessage().getPayload();
         	

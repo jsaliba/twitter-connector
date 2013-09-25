@@ -35,7 +35,7 @@ public class ReverseGeoCodeTestCases extends TwitterTestParent {
 			operationParams.put("latitude", place.getLatitude());
 			operationParams.put("longitude", place.getLongitude());
 			
-			flow = lookupMessageProcessorConstruct("reverse-geo-code-by-coordinates");
+			flow = lookupMessageProcessor("reverse-geo-code-by-coordinates");
         	response = flow.process(getTestEvent(operationParams));
         	ResponseList<Place> placesList = (ResponseList<Place>) response.getMessage().getPayload();
         	

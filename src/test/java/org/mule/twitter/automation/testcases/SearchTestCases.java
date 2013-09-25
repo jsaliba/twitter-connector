@@ -36,7 +36,7 @@ public class SearchTestCases extends TwitterTestParent {
     	
     	try {
     		
-        	flow = lookupMessageProcessorConstruct("update-status");
+        	flow = lookupMessageProcessor("update-status");
         	
         	response = flow.process(getTestEvent(aTweetToQueryFor.getText()));
         	aTweetToQueryFor.setId(((Status) response.getMessage().getPayload()).getId());
@@ -60,7 +60,7 @@ public class SearchTestCases extends TwitterTestParent {
     		
     		TwitterTestStatus aTweetToQueryFor = (TwitterTestStatus) testObjects.get("aTweetToQueryFor");
     		
-        	flow = lookupMessageProcessorConstruct("destroy-status");
+        	flow = lookupMessageProcessor("destroy-status");
         	flow.process(getTestEvent(aTweetToQueryFor.getId()));
 
 		} catch (Exception e) {
@@ -79,7 +79,7 @@ public class SearchTestCases extends TwitterTestParent {
 
 		try {
 			
-			flow = lookupMessageProcessorConstruct("search-default-values");
+			flow = lookupMessageProcessor("search-default-values");
 			response = flow.process(getTestEvent("blue+angels"));
 
 			QueryResult responseList = (QueryResult) response.getMessage().getPayload();

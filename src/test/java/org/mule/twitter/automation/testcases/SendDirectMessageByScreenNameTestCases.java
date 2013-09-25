@@ -37,7 +37,7 @@ public class SendDirectMessageByScreenNameTestCases extends TwitterTestParent {
 		
 		try {
 			
-			flow = lookupMessageProcessorConstruct("send-direct-message-by-screen-name");
+			flow = lookupMessageProcessor("send-direct-message-by-screen-name");
 			response = flow.process(getTestEvent(operationParams));
 
 			DirectMessage directMessage = (DirectMessage) response.getMessage().getPayload();

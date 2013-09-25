@@ -39,12 +39,12 @@ public class GetRetweetsTestCases extends TwitterTestParent {
     	aStatus.setText(String.format("%s Random Automation status", UUID.randomUUID().toString().substring(0, 9)));
     	try {
     		
-        	flow = lookupMessageProcessorConstruct("update-status-aux-sandbox");
+        	flow = lookupMessageProcessor("update-status-aux-sandbox");
         	
         	response = flow.process(getTestEvent(aStatus.getText()));
         	aStatus.setId(((Status) response.getMessage().getPayload()).getId());
         	
-        	flow = lookupMessageProcessorConstruct("retweet-status");
+        	flow = lookupMessageProcessor("retweet-status");
 	        
         	flow.process(getTestEvent(aStatus.getId()));
         	
@@ -66,7 +66,7 @@ public class GetRetweetsTestCases extends TwitterTestParent {
     		
     		TwitterTestStatus aRetweetedStatus = (TwitterTestStatus) testObjects.get("aStatusToRetweet");
     		
-        	flow = lookupMessageProcessorConstruct("destroy-status-aux-sandbox");
+        	flow = lookupMessageProcessor("destroy-status-aux-sandbox");
         	
         	flow.process(getTestEvent(aRetweetedStatus.getId()));
 
@@ -86,7 +86,7 @@ public class GetRetweetsTestCases extends TwitterTestParent {
 		
 		try {
 			
-			flow = lookupMessageProcessorConstruct("get-retweets-aux-sandbox");
+			flow = lookupMessageProcessor("get-retweets-aux-sandbox");
 			response = flow.process(getTestEvent(aRetweet.getId()));
 
 			ResponseList<Status> responseList = (ResponseList<Status>) response.getMessage().getPayload();

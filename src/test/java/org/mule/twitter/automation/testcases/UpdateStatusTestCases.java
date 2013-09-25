@@ -31,7 +31,7 @@ public class UpdateStatusTestCases extends TwitterTestParent {
     		
     		TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("testTweet");
     		
-        	flow = lookupMessageProcessorConstruct("destroy-status");
+        	flow = lookupMessageProcessor("destroy-status");
         	flow.process(getTestEvent(testTweet.getId()));
 
 		} catch (Exception e) {
@@ -52,7 +52,7 @@ public class UpdateStatusTestCases extends TwitterTestParent {
     	
     	try {
     		
-        	flow = lookupMessageProcessorConstruct("update-status");
+        	flow = lookupMessageProcessor("update-status");
         	response = flow.process(getTestEvent(aTweet.getText()));
         	
 			String expectedStatusText = aTweet.getText();

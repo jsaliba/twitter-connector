@@ -31,7 +31,7 @@ public class SearchPlacesTestCases extends TwitterTestParent {
     	
 		try {
 
-			flow = lookupMessageProcessorConstruct("search-places-by-ip");
+			flow = lookupMessageProcessor("search-places-by-ip");
 			response = flow.process(getTestEvent(place.getIp()));
         	ResponseList<Place> placesList = (ResponseList<Place>) response.getMessage().getPayload();
         	
@@ -56,7 +56,7 @@ public class SearchPlacesTestCases extends TwitterTestParent {
 			operationParams.put("latitude", place.getLatitude());
 			operationParams.put("longitude", place.getLongitude());
 			
-			flow = lookupMessageProcessorConstruct("search-places-by-coordinates");
+			flow = lookupMessageProcessor("search-places-by-coordinates");
         	response = flow.process(getTestEvent(operationParams));
         	ResponseList<Place> placesList = (ResponseList<Place>) response.getMessage().getPayload();
         	

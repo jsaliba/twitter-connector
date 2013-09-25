@@ -29,7 +29,7 @@ public class ShowUserTestCases extends TwitterTestParent {
     	
 		try {
 			
-			flow = lookupMessageProcessorConstruct("show-user");
+			flow = lookupMessageProcessor("show-user");
 	        response = flow.process(getTestEvent(null));
 	        
 	        User user = (User) response.getMessage().getPayload();

@@ -34,7 +34,7 @@ public class DestroyStatusTestCases extends TwitterTestParent {
     	
     	try {
     		
-        	flow = lookupMessageProcessorConstruct("update-status");
+        	flow = lookupMessageProcessor("update-status");
         	response = flow.process(getTestEvent(aTweet.getText()));
         	aTweet.setId(((Status) response.getMessage().getPayload()).getId());
         	testObjects.put("testTweet", aTweet);
@@ -55,7 +55,7 @@ public class DestroyStatusTestCases extends TwitterTestParent {
     		
     		TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("testTweet");
     		
-        	flow = lookupMessageProcessorConstruct("destroy-status");
+        	flow = lookupMessageProcessor("destroy-status");
         	response = flow.process(getTestEvent(testTweet.getId()));
         	
         	Long expectedStatusId = testTweet.getId();
