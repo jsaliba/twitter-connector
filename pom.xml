@@ -68,11 +68,6 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-connector-test</artifactId>
-			<version>${project.parent.version}</version>
-		</dependency>
 	</dependencies>
 
 	<repositories>
