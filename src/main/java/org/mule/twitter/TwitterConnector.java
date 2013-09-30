@@ -76,7 +76,7 @@ import twitter4j.internal.http.alternative.MuleHttpClient;
  * @author MuleSoft, Inc.
  */
 @Connector(name = "twitter", schemaVersion = "2.4", description = "Twitter Integration", friendlyName = "Twitter",
-minMuleVersion = "3.4")
+minMuleVersion = "3.5")
 public class TwitterConnector implements MuleContextAware {
 
     private static final String STREAM_BASE_URL = "http://stream.twitter.com/1.1/";
