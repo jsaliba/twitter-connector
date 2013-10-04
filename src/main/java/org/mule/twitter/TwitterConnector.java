@@ -16,13 +16,13 @@ import org.apache.commons.lang.UnhandledException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mule.api.ConnectionException;
-import org.mule.api.ConnectionExceptionCode;
 import org.mule.api.MuleContext;
 import org.mule.api.MuleEvent;
 import org.mule.api.MuleException;
 import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Connect;
 import org.mule.api.annotations.ConnectionIdentifier;
+import org.mule.api.annotations.ConnectivityTesting;
 import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Disconnect;
 import org.mule.api.annotations.Processor;
@@ -76,7 +76,7 @@ import twitter4j.internal.http.alternative.MuleHttpClient;
  * @author MuleSoft, Inc.
  */
 @Connector(name = "twitter", schemaVersion = "2.4", description = "Twitter Integration", friendlyName = "Twitter",
-minMuleVersion = "3.4")
+minMuleVersion = "3.4", connectivityTesting = ConnectivityTesting.DISABLED)
 public class TwitterConnector implements MuleContextAware {
 
     private static final String STREAM_BASE_URL = "http://stream.twitter.com/1.1/";
@@ -171,16 +171,6 @@ public class TwitterConnector implements MuleContextAware {
             twitter.setOAuthAccessToken(new AccessToken(accessKey, accessSecret));
             setAccessToken(accessKey);
             setAccessTokenSecret(accessSecret);
-        }
-
-        //for connectivity testing
-        try {
-            if (accessKey != null)
-            {
-                getUserTimeline(1, 1, -1);
-            }
-        } catch (TwitterException te) {
-            throw new ConnectionException(ConnectionExceptionCode.UNKNOWN, null, "Bad credentials");
         }
     }
 
