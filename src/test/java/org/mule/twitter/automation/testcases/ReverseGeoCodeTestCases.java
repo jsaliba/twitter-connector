@@ -11,12 +11,9 @@ package org.mule.twitter.automation.testcases;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TwitterTestPlace;
+import org.mule.modules.tests.ConnectorTestUtils;
 
 import twitter4j.Place;
 import twitter4j.ResponseList;
@@ -26,26 +23,14 @@ public class ReverseGeoCodeTestCases extends TwitterTestParent {
     @Category({RegressionTests.class})
 	@Test
 	public void testReverseGeoCodesByCoordinates() {
-    	
-    	TwitterTestPlace place = (TwitterTestPlace) context.getBean("placeByCoordinates");
-		
 		try {
-			
-			Map<String,Object> operationParams = new HashMap<String,Object>();
-			operationParams.put("latitude", place.getLatitude());
-			operationParams.put("longitude", place.getLongitude());
-			
-			flow = lookupMessageProcessor("reverse-geo-code-by-coordinates");
-        	response = flow.process(getTestEvent(operationParams));
-        	ResponseList<Place> placesList = (ResponseList<Place>) response.getMessage().getPayload();
-        	
+
+        	ResponseList<Place> placesList = runFlowAndGetPayload("reverse-geo-code-by-coordinates","reverseGeoCodesByCoordinatesTestData");
         	assertNotNull(placesList);
         	
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail(); 
-		}  
+			fail(ConnectorTestUtils.getStackTrace(e));
+		} 
      
 	}
     

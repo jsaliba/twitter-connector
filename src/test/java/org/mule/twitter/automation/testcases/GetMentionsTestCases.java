@@ -12,115 +12,53 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TwitterTestStatus;
+import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.TwitterTestUtils;
 
 import twitter4j.ResponseList;
 import twitter4j.Status;
-import twitter4j.User;
 
 public class GetMentionsTestCases extends TwitterTestParent {
-		
+	
+	private Status firstMention;
+	private Status secondMention;
+	
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
+    	firstMention = runFlowAndGetPayload("update-status","aRandomMention");
+    	secondMention = runFlowAndGetPayload("update-status","aRandomMention");
     	
-    	testObjects = new HashMap<String,Object>();
-    	
-    	TwitterTestStatus firstTweet = (TwitterTestStatus) context.getBean("firstMention");
-    	TwitterTestStatus secondTweet = (TwitterTestStatus) context.getBean("secondMention");
-    	
-    	try {
-    		
-    		flow = lookupMessageProcessor("show-user");
-        	
-    		response = flow.process(getTestEvent(null));
-    		
-    		String screenName = ((User) response.getMessage().getPayload()).getScreenName();
-        	firstTweet.setText('@' + screenName + ' ' + firstTweet.getText());
-        	secondTweet.setText('@' + screenName + ' ' + secondTweet.getText());
-    		
-    		flow = lookupMessageProcessor("update-status-aux-sandbox");
-
-        	response = flow.process(getTestEvent(firstTweet.getText()));
-        	firstTweet.setId(((Status) response.getMessage().getPayload()).getId());
-        	testObjects.put("firstMention", firstTweet);
-        	
-        	response = flow.process(getTestEvent(secondTweet.getText()));
-        	secondTweet.setId(((Status) response.getMessage().getPayload()).getId());
-        	testObjects.put("secondMention", secondTweet);
-        	
-        	Thread.sleep(TwitterTestUtils.SETUP_DELAY);
-        	
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		}
+    	Thread.sleep(TwitterTestUtils.SETUP_DELAY);
     	 
     }
 
     @After
-    public void tearDown() {
-    	
-    	try {
-    		
-    		TwitterTestStatus firstMention = (TwitterTestStatus) testObjects.get("firstMention");
-    		TwitterTestStatus secondMention = (TwitterTestStatus) testObjects.get("secondMention");
-    		
-        	flow = lookupMessageProcessor("destroy-status-aux-sandbox");
-        	
-        	flow.process(getTestEvent(firstMention.getId()));
-        	flow.process(getTestEvent(secondMention.getId()));
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		}
+    public void tearDown() throws Exception {
+    	upsertOnTestRunMessage("statusId", firstMention.getId());
+    	runFlowAndGetPayload("destroy-status");
+    	upsertOnTestRunMessage("statusId", secondMention.getId());
+    	runFlowAndGetPayload("destroy-status");
    	
     }
 	
-    @Category({SanityTests.class, RegressionTests.class})
+    @Category({RegressionTests.class})
 	@Test
-	public void testGetMentionsDefaultValues() {
-		
-		TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("firstMention");
-		
-		try {
-			
-			flow = lookupMessageProcessor("get-mentions-default-values");
-			response = flow.process(getTestEvent(null));
+	public void testGetMentionsDefaultValues() {	
+    	Long expectedStatusId = firstMention.getId();
+    	
+    	try {	
+			ResponseList<Status> mentions = runFlowAndGetPayload("get-mentions-default-values");
 
-			ResponseList<Status> mentions = (ResponseList<Status>) response.getMessage().getPayload();
-			
-			Long expectedStatusId = testTweet.getId();
-			String statusIdErrorMessage = context.getMessage("timeline.statusId.notFound", new Object[] {expectedStatusId}, Locale.getDefault());
-			
-			assertTrue(statusIdErrorMessage, TwitterTestUtils.isStatusIdOnTimeline(mentions, expectedStatusId));
-			
-			String expectedStatusText = testTweet.getText();
-			String actualStatusText = TwitterTestUtils.getStatusTextOnTimeline(mentions, expectedStatusId);
-			
-			String statusTextErrorMessage = context.getMessage("status.text.noMatchForId", new Object[] {expectedStatusId}, Locale.getDefault());
-			
-	        assertEquals(statusTextErrorMessage, expectedStatusText, actualStatusText);
-	        
-			String timelineLenghtErrorMessage = context.getMessage("timeline.length", new Object[] {TwitterTestUtils.TIMELINE_DEFAULT_LENGTH}, Locale.getDefault());
-	        
-	        assertTrue(timelineLenghtErrorMessage, mentions.size() <= TwitterTestUtils.TIMELINE_DEFAULT_LENGTH);
+			assertTrue(TwitterTestUtils.isStatusIdOnTimeline(mentions, expectedStatusId));
+	        assertEquals(firstMention.getText(), TwitterTestUtils.getStatusTextOnTimeline(mentions, expectedStatusId));
+	        assertTrue(mentions.size() <= TwitterTestUtils.TIMELINE_DEFAULT_LENGTH);
 	      
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
+			fail(ConnectorTestUtils.getStackTrace(e));
 		}
         
 	} 
@@ -128,44 +66,20 @@ public class GetMentionsTestCases extends TwitterTestParent {
     @Category({RegressionTests.class})
 	@Test
 	public void testGetMentionsParametrized() {
-	
-		int count = new Integer(2);
-		
-		TwitterTestStatus firstMention = (TwitterTestStatus) testObjects.get("firstMention");
-		TwitterTestStatus secondMention = (TwitterTestStatus) testObjects.get("secondMention");
-		
-		Map<String,Object> operationParams = new HashMap<String,Object>();
-		operationParams.put("count", count);
-		operationParams.put("page", new Integer(1));
-		operationParams.put("sinceId", firstMention.getId());
+    	Long expectedStatusId = secondMention.getId();
+    	
+    	initializeTestRunMessage("getMentionsTestData");
+		upsertOnTestRunMessage("sinceId", firstMention.getId());
 		
 		try {
+			ResponseList<Status> mentions = runFlowAndGetPayload("get-mentions-parametrized");
 			
-			flow = lookupMessageProcessor("get-mentions-parametrized");
-			response = flow.process(getTestEvent(operationParams));
-
-			ResponseList<Status> mentions = (ResponseList<Status>) response.getMessage().getPayload();
-			
-			Long expectedStatusId = secondMention.getId();
-			String statusIdErrorMessage = context.getMessage("timeline.statusId.notFound", new Object[] {expectedStatusId}, Locale.getDefault());
-			
-			assertTrue(statusIdErrorMessage, TwitterTestUtils.isStatusIdOnTimeline(mentions, expectedStatusId));
-			
-			String expectedStatusText = secondMention.getText();
-			String actualStatusText = TwitterTestUtils.getStatusTextOnTimeline(mentions, expectedStatusId);
-			
-			String statusTextErrorMessage = context.getMessage("status.text.noMatchForId", new Object[] {expectedStatusId, expectedStatusText, actualStatusText}, Locale.getDefault());
-			
-	        assertEquals(statusTextErrorMessage, expectedStatusText, actualStatusText);
-	        
-			String timelineLenghtErrorMessage = context.getMessage("timeline.length", new Object[] {count}, Locale.getDefault());
-	        
-	        assertTrue(timelineLenghtErrorMessage, mentions.size() <= count);
+			assertTrue(TwitterTestUtils.isStatusIdOnTimeline(mentions, expectedStatusId));
+	        assertEquals(secondMention.getText(), TwitterTestUtils.getStatusTextOnTimeline(mentions, expectedStatusId));
+	        assertTrue(mentions.size() <= (Integer) getTestRunMessageValue("count"));
 	      
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
+			fail(ConnectorTestUtils.getStackTrace(e));
 		}
         
 	}

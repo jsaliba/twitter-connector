@@ -11,12 +11,9 @@ package org.mule.twitter.automation.testcases;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TwitterTestPlace;
+import org.mule.modules.tests.ConnectorTestUtils;
 
 import twitter4j.Location;
 import twitter4j.ResponseList;
@@ -25,50 +22,31 @@ import twitter4j.ResponseList;
 
 public class GetAvailableTrendsTestCases extends TwitterTestParent {
 	
-    @Category({SanityTests.class, RegressionTests.class})
+    @Category({RegressionTests.class})
 	@Test
-    public void testGetAvailableTrendsDefaultValues() {
-    	
+    public void testGetAvailableTrendsDefaultValues() {	
     	try {
-    		
-        	flow = lookupMessageProcessor("get-available-trends-default-values");
-        	response = flow.process(getTestEvent(null));
-        	ResponseList<Location> locations = (ResponseList<Location>) response.getMessage().getPayload();
-        
+        	ResponseList<Location> locations = runFlowAndGetPayload("get-available-trends-default-values");
         	assertNotNull(locations);
         	
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		} 
-    	 
+    	} catch (Exception e) {
+    		fail(ConnectorTestUtils.getStackTrace(e));
+    	}
+ 
     }
     
     @Category({RegressionTests.class})
 	@Test
     public void testGetAvailableTrendsParametrized() {
-    	
-    	TwitterTestPlace aPlace = (TwitterTestPlace) context.getBean("placeByCoordinates");
-    	
-    	Map<String,Object> operationParams = new HashMap<String,Object>();
-		operationParams.put("latitude", aPlace.getLatitude());
-		operationParams.put("longitude", aPlace.getLongitude());
-    	
+    	initializeTestRunMessage("getAvailableTrendsTestData");
     	try {
-    		
-        	flow = lookupMessageProcessor("get-available-trends-parametrized");
-        	response = flow.process(getTestEvent(operationParams));
-        	ResponseList<Location> locations = (ResponseList<Location>) response.getMessage().getPayload();
-        
+        	ResponseList<Location> locations = runFlowAndGetPayload("get-available-trends-parametrized");
         	assertNotNull(locations);
         	
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		} 
-    	 
+    	} catch (Exception e) {
+    		fail(ConnectorTestUtils.getStackTrace(e));
+    	}	
+
     }
 	
 }

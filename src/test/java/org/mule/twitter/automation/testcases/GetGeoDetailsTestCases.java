@@ -13,32 +13,25 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TwitterTestPlace;
+import org.mule.modules.tests.ConnectorTestUtils;
 
 import twitter4j.Place;
 
 public class GetGeoDetailsTestCases extends TwitterTestParent {
     
-    @Category({SanityTests.class, RegressionTests.class})
+    @Category({RegressionTests.class})
 	@Test
 	public void testGetGeoDetails() {
-		
-    	TwitterTestPlace placeById = (TwitterTestPlace) context.getBean("placeById");
-    	
+    	initializeTestRunMessage("getGeoDetailsTestData");
 		try {
-
-			flow = lookupMessageProcessor("get-geo-details");
-        	response = flow.process(getTestEvent(placeById.getId()));
-        	Place place = (Place) response.getMessage().getPayload();
+        	Place place = runFlowAndGetPayload("get-geo-details");
         	
         	assertNotNull(place);
         	
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		} 
-     
+			fail(ConnectorTestUtils.getStackTrace(e));
+		}
+
 	}
 
 }

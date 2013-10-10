@@ -13,50 +13,35 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TwitterTestPlace;
+import org.mule.modules.tests.ConnectorTestUtils;
 
 import twitter4j.Trends;
 
 public class GetLocationTrendsTestCases extends TwitterTestParent {
     
-    @Category({SanityTests.class, RegressionTests.class})
+    @Category({RegressionTests.class})
 	@Test
-	public void testGetLocationTrendsDefaultValues() {
-    	
+	public void testGetLocationTrendsDefaultValues() {  	
 		try {
-
-			flow = lookupMessageProcessor("get-location-trends-default-values");
-        	response = flow.process(getTestEvent(null));
-        	Trends trends = (Trends) response.getMessage().getPayload();
-        	
+        	Trends trends = runFlowAndGetPayload("get-location-trends-default-values");
         	assertNotNull(trends);
         	
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
+			fail(ConnectorTestUtils.getStackTrace(e));
 		}
      
     }
     
     @Category({RegressionTests.class})
 	@Test
-	public void testGetLocationTrendsParametrized() {
-		
-    	TwitterTestPlace place = (TwitterTestPlace) context.getBean("placeByWOEID");
-    	
+	public void testGetLocationTrendsParametrized() {	
+    	initializeTestRunMessage("placeByWOEID");
 		try {
-
-			flow = lookupMessageProcessor("get-location-trends-parametrized");
-        	response = flow.process(getTestEvent(place.getWoeid()));
-        	Trends trends = (Trends) response.getMessage().getPayload();
-        	
+        	Trends trends = runFlowAndGetPayload("get-location-trends-parametrized");
         	assertNotNull(trends);
         	
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
+			fail(ConnectorTestUtils.getStackTrace(e));
 		}
      
 	}

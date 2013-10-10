@@ -11,59 +11,40 @@ package org.mule.twitter.automation.testcases;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.mule.twitter.automation.TwitterTestPlace;
+import org.junit.Before;
+import org.mule.modules.tests.ConnectorTestUtils;
 
 import twitter4j.Place;
 import twitter4j.ResponseList;
 
 public class CreatePlaceTestCases extends TwitterTestParent {
 	    
+	
+	@Before
+	public void setUp() throws Exception {
+		initializeTestRunMessage("createPlaceTestData");
+	}
 
-	public void testCreatePlace() {
-		
-    	TwitterTestPlace place = (TwitterTestPlace) context.getBean("newPlace");
-    	
+	public void testCreatePlace() {	 	
 		try {
-
-			flow = lookupMessageProcessor("search-places-by-ip");
-        	response = flow.process(getTestEvent(place.getIp()));
-        	ResponseList<Place> placesList = (ResponseList<Place>) response.getMessage().getPayload();
-        	
+        	ResponseList<Place> placesList = runFlowAndGetPayload("search-places-by-ip");
         	assertNotNull(placesList);
         	
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		}  
-     
+			fail(ConnectorTestUtils.getStackTrace(e));
+		}       	
+
 	}
     
 
 	public void testCreatePlacePassingCoordinates() {
-    	
-    	TwitterTestPlace place = (TwitterTestPlace) context.getBean("placeByCoordinates");
-		
 		try {
-			
-			Map<String,Object> operationParams = new HashMap<String,Object>();
-			operationParams.put("latitude", place.getLatitude());
-			operationParams.put("longitude", place.getLongitude());
-			
-			flow = lookupMessageProcessor("search-places-by-coordinates");
-        	response = flow.process(getTestEvent(operationParams));
-        	ResponseList<Place> placesList = (ResponseList<Place>) response.getMessage().getPayload();
-        	
+        	ResponseList<Place> placesList = runFlowAndGetPayload("search-places-by-coordinates");
         	assertNotNull(placesList);
 		
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		} 
+			fail(ConnectorTestUtils.getStackTrace(e));
+		}
      
 	}
     

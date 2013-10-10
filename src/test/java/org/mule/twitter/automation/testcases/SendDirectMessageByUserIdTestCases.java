@@ -11,45 +11,27 @@ package org.mule.twitter.automation.testcases;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TwitterTestStatus;
-import org.mule.twitter.automation.TwitterSandbox;
+import org.mule.modules.tests.ConnectorTestUtils;
 
 import twitter4j.DirectMessage;
 
 public class SendDirectMessageByUserIdTestCases extends TwitterTestParent {
-	
-    @Category({SanityTests.class, RegressionTests.class})
+    	
+    @Category({RegressionTests.class})
 	@Test
 	public void testSendDirectMessageByUserId() {
-    	
-    	TwitterSandbox senderSandbox = (TwitterSandbox) context.getBean("sandbox");
-    	TwitterSandbox recipientSandbox = (TwitterSandbox) context.getBean("auxAuxSandbox");
-		TwitterTestStatus aDirectMessage = (TwitterTestStatus) context.getBean("directMessageByUserId");
-		
-		Map<String,Object> operationParams = new HashMap<String,Object>();
-		operationParams.put("userId", recipientSandbox.getUserId());
-		operationParams.put("message", aDirectMessage.getText());
-		
+    	initializeTestRunMessage("sendDirectMessageByUserIdTestData");	
 		try {
+			DirectMessage directMessage = runFlowAndGetPayload("send-direct-message-by-user-id");
 			
-			flow = lookupMessageProcessor("send-direct-message-by-user-id");
-			response = flow.process(getTestEvent(operationParams));
-
-			DirectMessage directMessage = (DirectMessage) response.getMessage().getPayload();
-			
-			assertEquals(aDirectMessage.getText(), directMessage.getText());
-			assertEquals(senderSandbox.getUserId(), directMessage.getSenderId());
-			assertEquals(recipientSandbox.getUserId(), directMessage.getRecipientId());
+			assertEquals(getTestRunMessageValue("message").toString(), directMessage.getText());
+			assertEquals(getTestRunMessageValue("senderSandboxScreenName").toString(), directMessage.getSenderId());
+			assertEquals(getTestRunMessageValue("recipientSandboxScreenName").toString(), directMessage.getRecipientId());
 	      
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
+			fail(ConnectorTestUtils.getStackTrace(e));
 		}
         
 	} 
