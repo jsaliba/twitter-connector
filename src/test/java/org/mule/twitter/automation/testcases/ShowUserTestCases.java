@@ -11,9 +11,11 @@ package org.mule.twitter.automation.testcases;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.util.Map;
+
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TwitterSandbox;
+import org.mule.modules.tests.ConnectorTestUtils;
 
 import twitter4j.User;
 
@@ -21,27 +23,21 @@ import twitter4j.User;
 
 public class ShowUserTestCases extends TwitterTestParent {
      
-    @Category({SmokeTests.class, SanityTests.class, RegressionTests.class})
+    @Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testShowUser() {
     	
-    	TwitterSandbox sandbox = (TwitterSandbox) context.getBean("sandbox");
+    	Map<String,Object> sandbox = getBeanFromContext("sandbox");
     	
 		try {
-			
-			flow = lookupFlowConstruct("show-user");
-	        response = flow.process(getTestEvent(null));
+	        User user = runFlowAndGetPayload("show-user");
 	        
-	        User user = (User) response.getMessage().getPayload();
-	        
-	        assertEquals(sandbox.getUserId(), user.getId()); 
-	        assertEquals(sandbox.getUserName(), user.getName()); 
-	        assertEquals(sandbox.getUserScreenName(), user.getScreenName()); 
+	        assertEquals(sandbox.get("userId").toString(), user.getId()); 
+	        assertEquals( sandbox.get("userName").toString(), user.getName()); 
+	        assertEquals( sandbox.get("userScreenName").toString(), user.getScreenName()); 
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
+			fail(ConnectorTestUtils.getStackTrace(e));
 		}
      
 	}

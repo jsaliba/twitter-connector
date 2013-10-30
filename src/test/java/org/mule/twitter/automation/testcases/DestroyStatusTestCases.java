@@ -11,71 +11,42 @@ package org.mule.twitter.automation.testcases;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import java.util.HashMap;
-import java.util.Locale;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TwitterTestStatus;
+import org.mule.modules.tests.ConnectorTestUtils;
 
 import twitter4j.Status;
-
-
 
 public class DestroyStatusTestCases extends TwitterTestParent {
 	
     @Before
-    public void setUp() {
-    	
-    	testObjects = new HashMap<String,Object>();
-    	
-    	TwitterTestStatus aTweet = (TwitterTestStatus) context.getBean("aStatus");
-    	
-    	try {
-    		
-        	flow = lookupFlowConstruct("update-status");
-        	response = flow.process(getTestEvent(aTweet.getText()));
-        	aTweet.setId(((Status) response.getMessage().getPayload()).getId());
-        	testObjects.put("testTweet", aTweet);
-        	
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		} 
-    	 
+    public void setUp() throws Exception {
+    	initializeTestRunMessage("aStatus");
+        upsertOnTestRunMessage("statusId", ((Status) runFlowAndGetPayload("update-status")).getId());
+        
     }
     
-    @Category({SmokeTests.class, SanityTests.class, RegressionTests.class})
+    @Category({SmokeTests.class, RegressionTests.class})
     @Test
     public void testDestroyStatus() {
-    	
     	try {
     		
-    		TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("testTweet");
+    		Status destroyedStatus = runFlowAndGetPayload("destroy-status");
     		
-        	flow = lookupFlowConstruct("destroy-status");
-        	response = flow.process(getTestEvent(testTweet.getId()));
-        	
-        	Long expectedStatusId = testTweet.getId();
-	        Long actualStatusId = ((Status) response.getMessage().getPayload()).getId();
+        	Long expectedStatusId = getTestRunMessageValue("statusId");
+	        Long actualStatusId = destroyedStatus.getId();
 			
-			String expectedStatusText = testTweet.getText();
-			String actualStatusText = ((Status) response.getMessage().getPayload()).getText();
+			String expectedStatusText = getTestRunMessageValue("text");
+			String actualStatusText = destroyedStatus.getText();
 			
-			String statusIdErrorMessage = context.getMessage("status.id.noMatch", null, Locale.getDefault());
-			String statusTextErrorMessage = context.getMessage("status.text.noMatchForId", new Object[] {expectedStatusId}, Locale.getDefault());
-			
-	        assertEquals(statusIdErrorMessage, expectedStatusId, actualStatusId);
-	        assertEquals(statusTextErrorMessage, expectedStatusText, actualStatusText);  
+	        assertEquals(expectedStatusId, actualStatusId);
+	        assertEquals(expectedStatusText, actualStatusText);  
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		} 
-   	
+			fail(ConnectorTestUtils.getStackTrace(e));
+		}     
+
     }
 
 }

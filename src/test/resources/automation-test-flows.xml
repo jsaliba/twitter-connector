@@ -33,188 +33,151 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 	<!--  ### auxSandbox flows ### -->
 	
 	<flow name="update-status-aux-sandbox" doc:name="update-status-aux-sandbox">
-        <twitter:update-status config-ref="auxSandbox" status="#[payload]" doc:name="Update status"/>
-        <logger level="INFO" message="### update-status on auxSandbox #[payload]" />
-	</flow>
+        <twitter:update-status config-ref="auxSandbox" status="#[payload.status]" doc:name="Update status"/>
+    </flow>
 	
 	<flow name="destroy-status-aux-sandbox" doc:name="destroy-status-aux-sandbox">
-        <twitter:destroy-status config-ref="auxSandbox" statusId="#[payload]" doc:name="Destroy status"/>
-        <logger level="INFO" message="### destroy-status on auxSandbox #[payload]" />
-	</flow>
+        <twitter:destroy-status config-ref="auxSandbox" statusId="#[payload.statusId]" doc:name="Destroy status"/>
+    </flow>
 	
 	<flow name="retweet-status-aux-sandbox" doc:name="retweet-status-aux-sandbox">
-        <twitter:retweet-status config-ref="auxSandbox" statusId="#[payload]" doc:name="Twitter"/>
-        <logger level="INFO" message="### retweet-status-aux-sandbox #[payload]" />
-	</flow>
+        <twitter:retweet-status config-ref="auxSandbox" statusId="#[payload.statusId]" doc:name="Twitter"/>
+    </flow>
 	
 	<flow name="get-retweets-of-me-default-values" doc:name="get-retweets-of-me-default-values">
 		<twitter:get-retweets-of-me config-ref="auxSandbox" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-retweets-of-me-default-values #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="get-retweets-of-me-parametrized" doc:name="get-retweets-of-me-parametrized">
         <twitter:get-retweets-of-me config-ref="auxSandbox" doc:name="Twitter" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
-        <logger level="INFO" message="### get-retweets-of-me-parametrized #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="get-retweets-aux-sandbox" doc:name="get-retweets-aux-sandbox">
-        <twitter:get-retweets config-ref="auxSandbox" statusId="#[payload]" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-retweets-aux-sandbox #[payload]" />
-	</flow>
+        <twitter:get-retweets config-ref="auxSandbox" statusId="#[payload.statusId]" doc:name="Twitter"/>
+    </flow>
 		
 	<!--  ### Twitter ###  -->
 	
 	<flow name="show-user" doc:name="show-user">
         <twitter:show-user config-ref="Twitter"  doc:name="Twitter"   />
-        <logger level="INFO" message="### show-user #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="update-status" doc:name="update-status">
-        <twitter:update-status config-ref="Twitter" status="#[payload]" doc:name="Update status"/>
-        <logger level="INFO" message="### update-status #[payload]" />
-	</flow>
+        <twitter:update-status config-ref="Twitter" status="#[payload.status]" doc:name="Update status"/>
+    </flow>
 	
 	<flow name="retweet-status" doc:name="retweet-status">
-        <twitter:retweet-status config-ref="Twitter" statusId="#[payload]" doc:name="Twitter"/>
-        <logger level="INFO" message="### retweet-status #[payload]" />
-	</flow>
+        <twitter:retweet-status config-ref="Twitter" statusId="#[payload.statusId]" doc:name="Twitter"/>
+    </flow>
 
 	<flow name="destroy-status" doc:name="destroy-status">
-        <twitter:destroy-status config-ref="Twitter" statusId="#[payload]" doc:name="Destroy status"/>
-        <logger level="INFO" message="### destroy-status #[payload]" />
-	</flow>
+        <twitter:destroy-status config-ref="Twitter" statusId="#[payload.statusId]" doc:name="Destroy status"/>
+    </flow>
 	
 	<flow name="show-status" doc:name="show-status">
-        <twitter:show-status config-ref="Twitter" id="#[payload]" doc:name="Twitter"/>
-        <logger level="INFO" message="### show-status #[payload]" />
-	</flow>
+        <twitter:show-status config-ref="Twitter" id="#[payload.id]" doc:name="Twitter"/>
+    </flow>
 	
 	<flow name="get-home-timeline-default-values" doc:name="get-home-timeline-default-values">
         <twitter:get-home-timeline config-ref="Twitter"  doc:name="Twitter"/>
-        <logger level="INFO" message="### get-home-timeline-default-values #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="get-home-timeline-parameterized" doc:name="get-home-timeline-parameterized">
         <twitter:get-home-timeline config-ref="Twitter"  doc:name="Twitter" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
-        <logger level="INFO" message="### get-home-timeline-parameterized #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="get-user-timeline-default-values" doc:name="get-user-timeline-default-values">
         <twitter:get-user-timeline config-ref="Twitter"  doc:name="Twitter"   />
-        <logger level="INFO" message="### get-user-timeline-default-values #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="get-user-timeline-parameterized" doc:name="get-user-timeline-parameterized">
         <twitter:get-user-timeline config-ref="Twitter"  doc:name="Twitter" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
-        <logger level="INFO" message="### get-user-timeline-parameterized #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="get-user-timeline-by-screen-name-default-values" doc:name="get-user-timeline-by-screen-name-default-values">
-        <twitter:get-user-timeline-by-screen-name config-ref="Twitter"  doc:name="Twitter" screenName="#[payload]"/>
-        <logger level="INFO" message="### get-user-timeline-by-screen-name-default-values #[payload]" />
-	</flow>
+        <twitter:get-user-timeline-by-screen-name config-ref="Twitter"  doc:name="Twitter" screenName="#[payload.screenName]"/>
+    </flow>
 	
 	<flow name="get-user-timeline-by-screen-name-parameterized" doc:name="get-user-timeline-by-screen-name-parameterized">
         <twitter:get-user-timeline-by-screen-name config-ref="Twitter"  doc:name="Twitter" screenName="#[payload.screenName]" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
-        <logger level="INFO" message="### get-user-timeline-by-screen-name-parameterized #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="get-user-timeline-by-user-id-default-values" doc:name="get-user-timeline-by-user-id-default-values">
-        <twitter:get-user-timeline-by-user-id config-ref="Twitter"  doc:name="Twitter" userId="#[payload]"/>
-        <logger level="INFO" message="### get-user-timeline-by-user-id-default-values #[payload]" />
-	</flow>
+        <twitter:get-user-timeline-by-user-id config-ref="Twitter"  doc:name="Twitter" userId="#[payload.userId]"/>
+    </flow>
 	
 	<flow name="get-user-timeline-by-user-id-parameterized" doc:name="get-user-timeline-by-user-id-parameterized">
         <twitter:get-user-timeline-by-user-id config-ref="Twitter"  doc:name="Update status" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]" userId="#[payload.userId]"/>
-        <logger level="INFO" message="### get-user-timeline-by-user-id-parameterized #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="create-place-default-values" doc:name="create-place-default-values">
         <twitter:create-place config-ref="Twitter" placeName="#[payload.placeName]" containedWithin="#[payload.containedWithin]" token="#[payload.token]" latitude="#[payload.latitude]" longitude="#[payload.longitude]" doc:name="Twitter"/>
-        <logger level="INFO" message="### create-place-default-values #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="create-place-parametrized" doc:name="create-place-parametrized">
         <twitter:create-place config-ref="Twitter" placeName="#[payload.placeName]" containedWithin="#[payload.containedWithin]" token="#[payload.token]" latitude="#[payload.latitude]" longitude="#[payload.longitude]" streetAddress="#[payload.streetAddress]" doc:name="Twitter"/>
-        <logger level="INFO" message="### create-place-parametrized #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="search-places-by-coordinates" doc:name="search-places-by-coordinates">
         <twitter:search-places config-ref="Twitter" doc:name="Twitter" latitude="#[payload.latitude]" longitude="#[payload.longitude]"/>
-        <logger level="INFO" message="### search-places-by-coordinates #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="search-places-by-ip" doc:name="search-places-by-ip">
-        <twitter:search-places config-ref="Twitter" doc:name="Twitter" ip="#[payload]"/>
-        <logger level="INFO" message="### search-places-by-ip #[payload]" />
-	</flow>
+        <twitter:search-places config-ref="Twitter" doc:name="Twitter" ip="#[payload.ip]"/>
+    </flow>
 	
 	<flow name="get-available-trends-default-values" doc:name="get-available-trends-default-values">
         <twitter:get-available-trends config-ref="Twitter" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-available-trends-default-values #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="get-available-trends-parametrized" doc:name="get-available-trends-parametrized">
         <twitter:get-available-trends config-ref="Twitter" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-available-trends-parametrized #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="get-geo-details" doc:name="get-geo-details">
-        <twitter:get-geo-details config-ref="Twitter" id="#[payload]" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-geo-details #[payload]" />
-	</flow>
+        <twitter:get-geo-details config-ref="Twitter" id="#[payload.id]" doc:name="Twitter"/>
+    </flow>
 	
 	<flow name="get-location-trends-default-values" doc:name="get-location-trends-default-values">
         <twitter:get-place-trends config-ref="Twitter" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-location-trends-default-values #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="get-location-trends-parametrized" doc:name="get-location-trends-parametrized">
-        <twitter:get-place-trends config-ref="Twitter" doc:name="Twitter" woeid="#[payload]"/>
-        <logger level="INFO" message="### get-location-trends-parametrized #[payload]" />
-	</flow>
+        <twitter:get-place-trends config-ref="Twitter" doc:name="Twitter" woeid="#[payload.woeid]"/>
+    </flow>
 	
 	<flow name="get-mentions-default-values" doc:name="get-mentions-default-values">
         <twitter:get-mentions-timeline config-ref="Twitter" doc:name="Twitter"/>
-        <logger level="INFO" message="### get-mentions-default-values #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="get-mentions-parametrized" doc:name="get-mentions-parametrized">
         <twitter:get-mentions-timeline config-ref="Twitter" doc:name="Twitter" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
-        <logger level="INFO" message="### get-mentions-parametrized #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="request-authorization" doc:name="request-authorization">
         <twitter:request-authorization config-ref="Twitter" doc:name="Twitter"/>
-        <logger level="INFO" message="### request-authorization #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="reverse-geo-code-by-ip" doc:name="reverse-geo-code-by-ip">
         <twitter:reverse-geo-code config-ref="Twitter" doc:name="Twitter" />
-        <logger level="INFO" message="### reverse-geo-code-by-ip #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="reverse-geo-code-by-coordinates" doc:name="reverse-geo-code-by-coordinates">
         <twitter:reverse-geo-code config-ref="Twitter" doc:name="Twitter" latitude="#[payload.latitude]" longitude="#[payload.longitude]"/>
-        <logger level="INFO" message="### reverse-geo-code-by-coordinates #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="search-default-values" doc:name="search-default-values">
-        <twitter:search config-ref="Twitter" query="#[payload]" doc:name="Twitter"/>
-        <logger level="INFO" message="### search-default-values #[payload]" />
-	</flow>
+        <twitter:search config-ref="Twitter" query="#[payload.query]" doc:name="Twitter"/>
+    </flow>
 	<flow name="send-direct-message-by-screen-name" doc:name="send-direct-message-by-screen-name">
         <twitter:send-direct-message-by-screen-name config-ref="Twitter" screenName="#[payload.screenName]" message="#[payload.message]" doc:name="Twitter"/>
-        <logger level="INFO" message="### send-direct-message-by-screen-name #[payload]" />
-	</flow>
+    </flow>
 	<flow name="send-direct-message-by-user-id" doc:name="send-direct-message-by-user-id">
         <twitter:send-direct-message-by-user-id config-ref="Twitter" userId="#[payload.userId]" message="#[payload.message]" doc:name="Twitter"/>
-        <logger level="INFO" message="### send-direct-message-by-user-id #[payload]" />
-	</flow>
+    </flow>
 	
 	<flow name="set-oauth-verifier-default-values" doc:name="set-oauth-verifier-mentions-default-values">
         <twitter:set-oauth-verifier config-ref="Twitter" oauthVerifier="#[payload.oauthVerifier]" doc:name="Twitter"/>
-        <logger level="INFO" message="### set-oauth-verifier-default-values #[payload]" />
-	</flow>
+    </flow>
 	
 </mule>

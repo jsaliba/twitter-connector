@@ -8,16 +8,17 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TwitterTestStatus;
+import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.TwitterTestUtils;
 
 import twitter4j.QueryResult;
@@ -27,69 +28,31 @@ import twitter4j.Status;
 
 public class SearchTestCases extends TwitterTestParent {
 	
+	private Map<String,Object> aTweetToQueryFor = getBeanFromContext("aTweetToQueryFor");
+	
     @Before
-    public void setUp() {
-
-    	testObjects = new HashMap<String,Object>();
-    			
-    	TwitterTestStatus aTweetToQueryFor = (TwitterTestStatus) context.getBean("aTweetToQueryFor");
-    	
-    	try {
-    		
-        	flow = lookupFlowConstruct("update-status");
-        	
-        	response = flow.process(getTestEvent(aTweetToQueryFor.getText()));
-        	aTweetToQueryFor.setId(((Status) response.getMessage().getPayload()).getId());
-
-        	testObjects.put("aTweetToQueryFor", aTweetToQueryFor);
-  	 	
-        	Thread.sleep(TwitterTestUtils.SETUP_DELAY);
-        	
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		}
+    public void setUp() throws Exception {
+		aTweetToQueryFor.put("statusId", ((Status) runFlowAndGetPayload("update-status")).getId());
+		Thread.sleep(TwitterTestUtils.SETUP_DELAY);
     	 
     }
     
     @After
-    public void tearDown() {
-    	
-    	try {
-    		
-    		TwitterTestStatus aTweetToQueryFor = (TwitterTestStatus) testObjects.get("aTweetToQueryFor");
-    		
-        	flow = lookupFlowConstruct("destroy-status");       	
-        	flow.process(getTestEvent(aTweetToQueryFor.getId()));
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		}
-   	
+    public void tearDown() throws Exception {
+    	initializeTestRunMessage(aTweetToQueryFor);
+    	runFlowAndGetPayload("destroy-status");
     }
     
-    @Category({SanityTests.class, RegressionTests.class})
+    @Category({RegressionTests.class})
 	@Test
 	public void testGetRetweetsByIdsDefaultValues() {
-		
-		TwitterTestStatus aTweetToQueryFor = (TwitterTestStatus) testObjects.get("aTweetToQueryFor");
-
 		try {
-			
-			flow = lookupFlowConstruct("search-default-values");
-			response = flow.process(getTestEvent("blue+angels"));
-
-			QueryResult responseList = (QueryResult) response.getMessage().getPayload();
+			QueryResult responseList = runFlowAndGetPayload("search-default-values");
 			List<Status> tweets = (List<Status>) responseList.getTweets();
 			assertTrue(tweets.size() != 0);
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
+			fail(ConnectorTestUtils.getStackTrace(e));
 		}
         
 	} 

@@ -9,18 +9,15 @@
 package org.mule.twitter.automation.testcases;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
-import java.util.HashMap;
-import java.util.Locale;
+import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.twitter.automation.TwitterTestStatus;
-
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
+import org.mule.modules.tests.ConnectorTestUtils;
 
 import twitter4j.Status;
 
@@ -28,73 +25,40 @@ import twitter4j.Status;
 
 public class ShowStatusTestCases extends TwitterTestParent {
     
+	private Map<String,Object> aStatus = getBeanFromContext("aRandomStatus");
+	
 	@Before
-    public void setUp() {
-    	
-    	testObjects = new HashMap<String,Object>();
-    			
-    	TwitterTestStatus aTweet = (TwitterTestStatus) context.getBean("aStatus");
-    	
-    	try {
-    		
-        	flow = lookupFlowConstruct("update-status");
-        	response = flow.process(getTestEvent(aTweet.getText()));
-        	aTweet.setId(((Status) response.getMessage().getPayload()).getId());
-        	testObjects.put("testTweet", aTweet);
-        	
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		}
-    	 
+    public void setUp() throws Exception {
+		initializeTestRunMessage(aStatus);
+        upsertOnTestRunMessage("statusId", ((Status) runFlowAndGetPayload("update-status")).getId());
+
     }
     
     @After
-    public void tearDown() {
-    	
-    	try {
-    		
-    		TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("testTweet");
-    		
-        	flow = lookupFlowConstruct("destroy-status");
-        	flow.process(getTestEvent(testTweet.getId()));
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
-		}
+    public void tearDown() throws Exception {
+    	initializeTestRunMessage(aStatus);
+		runFlowAndGetPayload("destroy-status");
    	
     }
     
-    @Category({SanityTests.class, RegressionTests.class})
+    @Category({RegressionTests.class})
 	@Test
 	public void testShowStatus() {
-    	
-    	TwitterTestStatus testTweet = (TwitterTestStatus) testObjects.get("testTweet");
-		
 		try {
 			
-			flow = lookupFlowConstruct("show-status");
-	        response = flow.process(getTestEvent(testTweet.getId()));
-	        	
-	        Long expectedStatusId = testTweet.getId();
-	        Long actualStatusId = ((Status) response.getMessage().getPayload()).getId();
+			Status status = runFlowAndGetPayload("show-status");
 			
-			String expectedStatusText = testTweet.getText();
-			String actualStatusText = ((Status) response.getMessage().getPayload()).getText();
+			Long expectedStatusId = (Long) aStatus.get("statusId");
+	        Long actualStatusId = status.getId();
 			
-			String statusIdErrorMessage = context.getMessage("status.id.noMatch", null, Locale.getDefault());
-			String statusTextErrorMessage = context.getMessage("status.text.noMatchForId", new Object[] {expectedStatusId}, Locale.getDefault());
-			
-	        assertEquals(statusIdErrorMessage, expectedStatusId, actualStatusId);
-	        assertEquals(statusTextErrorMessage, expectedStatusText, actualStatusText);  
+			String expectedStatusText = aStatus.get("text").toString();
+			String actualStatusText = status.getText();
+
+	        assertEquals(expectedStatusId, actualStatusId);
+	        assertEquals(expectedStatusText, actualStatusText);  
 		
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail();
+			fail(ConnectorTestUtils.getStackTrace(e));
 		}
      
 	}
