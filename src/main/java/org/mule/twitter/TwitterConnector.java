@@ -16,7 +16,6 @@ import org.apache.commons.lang.UnhandledException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mule.api.ConnectionException;
-import org.mule.api.ConnectionExceptionCode;
 import org.mule.api.MuleContext;
 import org.mule.api.MuleEvent;
 import org.mule.api.MuleException;
@@ -80,9 +79,6 @@ import twitter4j.internal.http.alternative.MuleHttpClient;
 minMuleVersion = "3.5", connectivityTesting = ConnectivityTesting.DISABLED)
 public class TwitterConnector implements MuleContextAware {
 
-    private static final String STREAM_BASE_URL = "http://stream.twitter.com/1.1/";
-    private static final String SITE_STREAM_BASE_URL = "https://sitestream.twitter.com/1.1/";
-
     protected transient Log logger = LogFactory.getLog(getClass());
 
     private Twitter twitter;
@@ -144,6 +140,26 @@ public class TwitterConnector implements MuleContextAware {
     @Placement(group = "Proxy settings", tab = "Proxy")
     @Password
     private String proxyPassword;
+
+    /**
+     * Twitter Stream Base Url
+     */
+    @Configurable
+    @Optional
+    @Default("https://stream.twitter.com/1.1/")
+    @Placement(group = "Streaming settings", tab = "Streaming")
+    private String streamBaseUrl;
+
+    /**
+     *
+     * Twitter Site Stream Base Url
+     */
+    @Configurable
+    @Optional
+    @Default("https://sitestream.twitter.com/1.1/")
+    @Placement(group = "Streaming settings", tab = "Streaming")
+    private String siteStreamBaseUrl;
+
 
     private String accessToken;
 
@@ -1193,8 +1209,8 @@ public class TwitterConnector implements MuleContextAware {
                 .setUseSSL(useSSL)
                 .setOAuthConsumerKey(consumerKey)
                 .setOAuthConsumerSecret(consumerSecret)
-                .setStreamBaseURL(STREAM_BASE_URL)
-                .setSiteStreamBaseURL(SITE_STREAM_BASE_URL)
+                .setStreamBaseURL(getStreamBaseUrl())
+                .setSiteStreamBaseURL(getSiteStreamBaseUrl())
                 .setHttpProxyHost(proxyHost)
                 .setHttpProxyPort(proxyPort)
                 .setHttpProxyUser(proxyUsername)
@@ -1347,5 +1363,21 @@ public class TwitterConnector implements MuleContextAware {
 
     public void setAccessTokenSecret(String accessTokenSecret) {
         this.accessTokenSecret = accessTokenSecret;
+    }
+
+    public String getStreamBaseUrl() {
+        return streamBaseUrl;
+    }
+
+    public void setStreamBaseUrl(String streamBaseUrl) {
+        this.streamBaseUrl = streamBaseUrl;
+    }
+
+    public String getSiteStreamBaseUrl() {
+        return siteStreamBaseUrl;
+    }
+
+    public void setSiteStreamBaseUrl(String siteStreamBaseUrl) {
+        this.siteStreamBaseUrl = siteStreamBaseUrl;
     }
 }
