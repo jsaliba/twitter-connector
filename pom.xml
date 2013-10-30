@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>org.mule.tools.devkit</groupId>
 		<artifactId>mule-devkit-parent</artifactId>
-		<version>3.5.0-bighorn</version>
+		<version>3.4.0</version>
 	</parent>
 
 	<properties>
@@ -68,6 +68,12 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-connector-test</artifactId>
+            <version>${connector.test.version}</version>
+            <scope>test</scope>
+        </dependency>
 	</dependencies>
 
 	<repositories>
