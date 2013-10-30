@@ -363,12 +363,9 @@ Summary:
 
 
 
-  <a href="#constants">Constants</a>
-  
 
 
-
-  &#124; <a href="#lfields">Fields</a>
+  <a href="#lfields">Fields</a>
   
 
 
@@ -585,29 +582,6 @@ Summary:
 
 
 
-<!-- =========== ENUM CONSTANT SUMMARY =========== -->
-<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
-
-
-    
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">String</td>
-        <td class="jd-linkcol"><a href="../../../../org/mule/twitter/TwitterConnector.html#SITE_STREAM_BASE_URL">SITE_STREAM_BASE_URL</a></td>
-        <td class="jd-descrcol" width="100%"></td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">String</td>
-        <td class="jd-linkcol"><a href="../../../../org/mule/twitter/TwitterConnector.html#STREAM_BASE_URL">STREAM_BASE_URL</a></td>
-        <td class="jd-descrcol" width="100%"></td>
-    </tr>
-    
-    
-
-</table>
-
-
 
 
 
@@ -728,9 +702,33 @@ Summary:
           private
           
           
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../org/mule/twitter/TwitterConnector.html#siteStreamBaseUrl">siteStreamBaseUrl</a></td>
+          <td class="jd-descrcol" width="100%">Twitter Site Stream Base Url
+</td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
           TwitterStream</nobr></td>
           <td class="jd-linkcol"><a href="../../../../org/mule/twitter/TwitterConnector.html#stream">stream</a></td>
           <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../org/mule/twitter/TwitterConnector.html#streamBaseUrl">streamBaseUrl</a></td>
+          <td class="jd-descrcol" width="100%">Twitter Stream Base Url
+</td>
       </tr>
       
     
@@ -1242,6 +1240,38 @@ Summary:
             
             
             
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getSiteStreamBaseUrl()">getSiteStreamBaseUrl</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getStreamBaseUrl()">getStreamBaseUrl</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             Twitter</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -1657,6 +1687,38 @@ Summary:
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#setProxyUsername(java.lang.String)">setProxyUsername</a></span>(String proxyUsername)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#setSiteStreamBaseUrl(java.lang.String)">setSiteStreamBaseUrl</a></span>(String siteStreamBaseUrl)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#setStreamBaseUrl(java.lang.String)">setStreamBaseUrl</a></span>(String streamBaseUrl)</nobr>
         
   </td></tr>
 
@@ -2105,91 +2167,6 @@ From interface
 <!-- Constants -->
 
 
-<!-- ========= ENUM CONSTANTS DETAIL ======== -->
-<h2>Constants</h2>
-
-
-
-
-<A NAME="SITE_STREAM_BASE_URL"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-        static 
-        final 
-        String
-      </span>
-        SITE_STREAM_BASE_URL
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "https://sitestream.twitter.com/1.1/"
-            
-        </span>
-        </div>
-    
-    </div>
-</div>
-
-
-
-<A NAME="STREAM_BASE_URL"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-        static 
-        final 
-        String
-      </span>
-        STREAM_BASE_URL
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "http://stream.twitter.com/1.1/"
-            
-        </span>
-        </div>
-    
-    </div>
-</div>
-
-
-
-
 <!-- Fields -->
 
 
@@ -2475,6 +2452,37 @@ From interface
 
 
 
+<A NAME="siteStreamBaseUrl"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        siteStreamBaseUrl
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Twitter Site Stream Base Url
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
 <A NAME="stream"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2498,6 +2506,37 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="streamBaseUrl"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        streamBaseUrl
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Twitter Stream Base Url
+</p></div>
 
     
     </div>
@@ -3923,6 +3962,68 @@ From interface
 </div>
 
 
+<A NAME="getSiteStreamBaseUrl()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getSiteStreamBaseUrl</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getStreamBaseUrl()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getStreamBaseUrl</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 <A NAME="getTwitterClient()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -5261,6 +5362,86 @@ From interface
       <table class="jd-tagtable">
         <tr>
           <th>proxyUsername</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setSiteStreamBaseUrl(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setSiteStreamBaseUrl</span>
+      <span class="normal">(String siteStreamBaseUrl)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>siteStreamBaseUrl</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setStreamBaseUrl(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setStreamBaseUrl</span>
+      <span class="normal">(String streamBaseUrl)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>streamBaseUrl</td>
           <td></td>
         </tr>
       </table>
