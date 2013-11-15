@@ -142,24 +142,21 @@ public class TwitterConnector implements MuleContextAware {
     private String proxyPassword;
 
     /**
-     * Twitter Stream Base Url
+     * Twitter Stream Base Url. Only specified this to override the default Twitter values
      */
     @Configurable
     @Optional
-    @Default("https://stream.twitter.com/1.1/")
     @Placement(group = "Streaming settings", tab = "Streaming")
     private String streamBaseUrl;
 
     /**
      *
-     * Twitter Site Stream Base Url
+     * Twitter Site Stream Base Url. Only specified this to override the default Twitter values
      */
     @Configurable
     @Optional
-    @Default("https://sitestream.twitter.com/1.1/")
     @Placement(group = "Streaming settings", tab = "Streaming")
     private String siteStreamBaseUrl;
-
 
     private String accessToken;
 
@@ -1209,12 +1206,18 @@ public class TwitterConnector implements MuleContextAware {
                 .setUseSSL(useSSL)
                 .setOAuthConsumerKey(consumerKey)
                 .setOAuthConsumerSecret(consumerSecret)
-                .setStreamBaseURL(getStreamBaseUrl())
-                .setSiteStreamBaseURL(getSiteStreamBaseUrl())
                 .setHttpProxyHost(proxyHost)
                 .setHttpProxyPort(proxyPort)
                 .setHttpProxyUser(proxyUsername)
                 .setHttpProxyPassword(proxyPassword);
+
+        if (StringUtils.isNotBlank(getStreamBaseUrl())) {
+            cb.setStreamBaseURL(getStreamBaseUrl());
+        }
+
+        if (StringUtils.isNotBlank(getSiteStreamBaseUrl())) {
+            cb.setSiteStreamBaseURL(getSiteStreamBaseUrl());
+        }
 
         if (getAccessToken() != null) {
             cb.setOAuthAccessToken(accessToken).setOAuthAccessTokenSecret(accessTokenSecret);
