@@ -65,49 +65,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -260,8 +217,6 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/config/package-summary.html">org.mule.twitter.config</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/twitter/config/spring/package-summary.html">org.mule.twitter.config.spring</a></li>
-    <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/connection/package-summary.html">org.mule.twitter.connection</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/connectivity/package-summary.html">org.mule.twitter.connectivity</a></li>
@@ -275,8 +230,6 @@
   <a href="../../../../../java/org/mule/twitter/processors/package-summary.html">org.mule.twitter.processors</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/sources/package-summary.html">org.mule.twitter.sources</a></li>
-    <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/twitter/transformers/package-summary.html">org.mule.twitter.transformers</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/twitter4j/internal/http/alternative/package-summary.html">twitter4j.internal.http.alternative</a></li>
               </ul><br/>
@@ -435,7 +388,7 @@ Summary:
   
       implements 
       
-        Capabilities 
+        <a href="../../../../../java/org/mule/twitter/basic/Capabilities.html">Capabilities</a> 
       
   
   
@@ -744,8 +697,7 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/TwitterConnector.html#siteStreamBaseUrl">siteStreamBaseUrl</a></td>
-          <td class="jd-descrcol" width="100%">Twitter Site Stream Base Url
-</td>
+          <td class="jd-descrcol" width="100%">Twitter Site Stream Base Url.</td>
       </tr>
       
     
@@ -767,8 +719,7 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/TwitterConnector.html#streamBaseUrl">streamBaseUrl</a></td>
-          <td class="jd-descrcol" width="100%">Twitter Stream Base Url
-</td>
+          <td class="jd-descrcol" width="100%">Twitter Stream Base Url.</td>
       </tr>
       
     
@@ -857,7 +808,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/adapters/TwitterConnectorCapabilitiesAdapter.html#isCapableOf(org.mule.api.devkit.capability.ModuleCapability)">isCapableOf</a></span>(ModuleCapability capability)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/adapters/TwitterConnectorCapabilitiesAdapter.html#isCapableOf(org.mule.twitter.basic.Capability)">isCapableOf</a></span>(<a href="../../../../../java/org/mule/twitter/basic/Capability.html">Capability</a> capability)</nobr>
         
         <div class="jd-descrdiv">Returns true if this module implements such capability
  
@@ -2232,19 +2183,19 @@ From interface
 
 <tr class="api apilevel-" >
 <td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.devkit.capability.Capabilities" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.api.devkit.capability.Capabilities-trigger"
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.twitter.basic.Capabilities" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.twitter.basic.Capabilities-trigger"
           src="../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>
 From interface
 
-  org.mule.api.devkit.capability.Capabilities
+  <a href="../../../../../org/mule/twitter/basic/Capabilities.html">org.mule.twitter.basic.Capabilities</a>
 
-<div id="inherited-methods-org.mule.api.devkit.capability.Capabilities">
-  <div id="inherited-methods-org.mule.api.devkit.capability.Capabilities-list"
+<div id="inherited-methods-org.mule.twitter.basic.Capabilities">
+  <div id="inherited-methods-org.mule.twitter.basic.Capabilities-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-methods-org.mule.api.devkit.capability.Capabilities-summary" style="display: none;">
+  <div id="inherited-methods-org.mule.twitter.basic.Capabilities-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
@@ -2260,8 +2211,11 @@ From interface
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">isCapableOf</span>(ModuleCapability arg0)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/basic/Capabilities.html#isCapableOf(org.mule.twitter.basic.Capability)">isCapableOf</a></span>(<a href="../../../../../java/org/mule/twitter/basic/Capability.html">Capability</a> capability)</nobr>
         
+        <div class="jd-descrdiv">Returns true if this module implements such
+ capability</div>
+  
   </td></tr>
 
 
@@ -2351,7 +2305,7 @@ From interface
 
 
 
-<A NAME="isCapableOf(org.mule.api.devkit.capability.ModuleCapability)"></A>
+<A NAME="isCapableOf(org.mule.twitter.basic.Capability)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2364,7 +2318,7 @@ From interface
         boolean
       </span>
       <span class="sympad">isCapableOf</span>
-      <span class="normal">(ModuleCapability capability)</span>
+      <span class="normal">(<a href="../../../../../java/org/mule/twitter/basic/Capability.html">Capability</a> capability)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2384,9 +2338,14 @@ From interface
       <table class="jd-tagtable">
         <tr>
           <th>capability</td>
-          <td></td>
+          <td>The capability to test for</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>True if it does, false otherwise
+</li></ul>
   </div>
 
     </div>

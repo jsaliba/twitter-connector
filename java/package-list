@@ -5,7 +5,6 @@ org.mule.twitter.agents
 org.mule.twitter.basic
 org.mule.twitter.callback
 org.mule.twitter.config
-org.mule.twitter.config.spring
 org.mule.twitter.connection
 org.mule.twitter.connectivity
 org.mule.twitter.devkit
@@ -13,6 +12,5 @@ org.mule.twitter.oauth
 org.mule.twitter.process
 org.mule.twitter.processors
 org.mule.twitter.sources
-org.mule.twitter.transformers
 twitter4j.internal.http.alternative
 
