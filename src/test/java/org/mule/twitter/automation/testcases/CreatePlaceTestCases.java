@@ -8,14 +8,16 @@
 
 package org.mule.twitter.automation.testcases;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 import org.junit.Before;
+import org.junit.Test;
 import org.mule.modules.tests.ConnectorTestUtils;
+import org.mule.twitter.automation.TwitterTestParent;
 
 import twitter4j.Place;
-import twitter4j.ResponseList;
 
 public class CreatePlaceTestCases extends TwitterTestParent {
 	    
@@ -24,11 +26,13 @@ public class CreatePlaceTestCases extends TwitterTestParent {
 	public void setUp() throws Exception {
 		initializeTestRunMessage("createPlaceTestData");
 	}
-
+	
+	@Test
 	public void testCreatePlace() {	 	
 		try {
-        	ResponseList<Place> placesList = runFlowAndGetPayload("search-places-by-ip");
-        	assertNotNull(placesList);
+        	Place place = runFlowAndGetPayload("create-place-default-values");
+        	assertNotNull(place.getId());
+        	assertEquals(place.getName(), getTestRunMessageValue("placeName"));
         	
 		} catch (Exception e) {
 			fail(ConnectorTestUtils.getStackTrace(e));
@@ -36,11 +40,13 @@ public class CreatePlaceTestCases extends TwitterTestParent {
 
 	}
     
-
-	public void testCreatePlacePassingCoordinates() {
+	@Test
+	public void testCreatePlaceParametrized() {
 		try {
-        	ResponseList<Place> placesList = runFlowAndGetPayload("search-places-by-coordinates");
-        	assertNotNull(placesList);
+			Place place = runFlowAndGetPayload("create-place-parametrized");
+        	assertNotNull(place.getId());
+        	assertEquals(place.getName(), getTestRunMessageValue("placeName"));
+        	assertEquals(place.getStreetAddress(), getTestRunMessageValue("streetAddress"));
 		
 		} catch (Exception e) {
 			fail(ConnectorTestUtils.getStackTrace(e));

@@ -6,7 +6,7 @@
  * LICENSE.md file.
  */
 
-package org.mule.twitter.automation.testcases;
+package org.mule.twitter.automation;
 
 public interface SmokeTests {
 	

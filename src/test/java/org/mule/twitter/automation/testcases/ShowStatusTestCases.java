@@ -18,6 +18,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
+import org.mule.twitter.automation.RegressionTests;
+import org.mule.twitter.automation.TwitterTestParent;
 
 import twitter4j.Status;
 

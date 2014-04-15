@@ -15,6 +15,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
+import org.mule.twitter.automation.RegressionTests;
+import org.mule.twitter.automation.SmokeTests;
+import org.mule.twitter.automation.TwitterTestParent;
 
 import twitter4j.Status;
 
@@ -22,7 +25,7 @@ public class DestroyStatusTestCases extends TwitterTestParent {
 	
     @Before
     public void setUp() throws Exception {
-    	initializeTestRunMessage("aStatus");
+    	initializeTestRunMessage("aRandomStatus");
         upsertOnTestRunMessage("statusId", ((Status) runFlowAndGetPayload("update-status")).getId());
         
     }
@@ -37,7 +40,7 @@ public class DestroyStatusTestCases extends TwitterTestParent {
         	Long expectedStatusId = getTestRunMessageValue("statusId");
 	        Long actualStatusId = destroyedStatus.getId();
 			
-			String expectedStatusText = getTestRunMessageValue("text");
+			String expectedStatusText = getTestRunMessageValue("status");
 			String actualStatusText = destroyedStatus.getText();
 			
 	        assertEquals(expectedStatusId, actualStatusId);

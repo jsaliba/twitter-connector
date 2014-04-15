@@ -6,12 +6,13 @@
  * LICENSE.md file.
  */
 
-package org.mule.twitter.automation;
+package org.mule.twitter.automation.testrunners;
 
 import org.junit.experimental.categories.Categories;
 import org.junit.experimental.categories.Categories.IncludeCategory;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite.SuiteClasses;
+import org.mule.twitter.automation.RegressionTests;
 import org.mule.twitter.automation.testcases.CreatePlaceTestCases;
 import org.mule.twitter.automation.testcases.DestroyStatusTestCases;
 import org.mule.twitter.automation.testcases.GetAvailableTrendsTestCases;
@@ -24,7 +25,6 @@ import org.mule.twitter.automation.testcases.GetRetweetsTestCases;
 import org.mule.twitter.automation.testcases.GetUserTimelineByScreenNameTestCases;
 import org.mule.twitter.automation.testcases.GetUserTimelineByUserIdTestCases;
 import org.mule.twitter.automation.testcases.GetUserTimelineTestCases;
-import org.mule.twitter.automation.testcases.RegressionTests;
 import org.mule.twitter.automation.testcases.RetweetStatusTestCases;
 import org.mule.twitter.automation.testcases.ReverseGeoCodeTestCases;
 import org.mule.twitter.automation.testcases.SearchPlacesTestCases;

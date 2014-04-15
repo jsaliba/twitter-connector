@@ -16,6 +16,9 @@ import java.util.Map;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
+import org.mule.twitter.automation.RegressionTests;
+import org.mule.twitter.automation.SmokeTests;
+import org.mule.twitter.automation.TwitterTestParent;
 
 import twitter4j.User;
 
@@ -32,9 +35,9 @@ public class ShowUserTestCases extends TwitterTestParent {
 		try {
 	        User user = runFlowAndGetPayload("show-user");
 	        
-	        assertEquals(sandbox.get("userId").toString(), user.getId()); 
-	        assertEquals( sandbox.get("userName").toString(), user.getName()); 
-	        assertEquals( sandbox.get("userScreenName").toString(), user.getScreenName()); 
+	        assertEquals(sandbox.get("userId").toString(), String.valueOf(user.getId())); 
+	        assertEquals(sandbox.get("userName").toString(), String.valueOf(user.getName())); 
+	        assertEquals(sandbox.get("userScreenName").toString(), String.valueOf(user.getScreenName())); 
 
 		} catch (Exception e) {
 			fail(ConnectorTestUtils.getStackTrace(e));

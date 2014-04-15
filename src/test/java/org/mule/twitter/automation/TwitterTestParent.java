@@ -6,10 +6,12 @@
  * LICENSE.md file.
  */
 
-package org.mule.twitter.automation.testcases;
+package org.mule.twitter.automation;
 
-public interface RegressionTests {
-	
-	/* category marker */
+import org.mule.modules.tests.ConnectorTestCase;
+
+
+
+public class TwitterTestParent extends ConnectorTestCase {
 
 }

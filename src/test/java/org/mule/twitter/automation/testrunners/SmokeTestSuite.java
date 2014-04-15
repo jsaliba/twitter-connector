@@ -6,12 +6,13 @@
  * LICENSE.md file.
  */
 
-package org.mule.twitter.automation;
+package org.mule.twitter.automation.testrunners;
 
 import org.junit.experimental.categories.Categories;
 import org.junit.experimental.categories.Categories.IncludeCategory;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite.SuiteClasses;
+import org.mule.twitter.automation.SmokeTests;
 import org.mule.twitter.automation.testcases.*;
 
 @RunWith(Categories.class)

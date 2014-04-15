@@ -3,14 +3,14 @@
 <mule xmlns:twitter="http://www.mulesoft.org/schema/mule/twitter"
 	xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns="http://www.mulesoft.org/schema/mule/core"
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.3.0"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.5.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="
-http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd 
-http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/2.4/mule-twitter.xsd 
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd 
-http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd ">
+	xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/2.4/mule-twitter.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
 	
 	<context:property-placeholder location="${TWITTER_CREDENTIALS}"/>
 	
@@ -18,17 +18,17 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 		accessKey="${twitter.sandbox.accessKey}"
 		accessSecret="${twitter.sandbox.accessSecret}" consumerKey="${twitter.sandbox.consumerKey}"
 		consumerSecret="${twitter.sandbox.consumerSecret}" doc:name="Twitter"
-		useSSL="true" />
+		 />
 	<twitter:config name="auxSandbox"
 		accessKey="${twitter.auxSandbox.accessKey}"
 		accessSecret="${twitter.auxSandbox.accessSecret}" consumerKey="${twitter.auxSandbox.consumerKey}"
 		consumerSecret="${twitter.auxSandbox.consumerSecret}" doc:name="Twitter"
-		useSSL="true" />
+		 />
 	<twitter:config name="auxAuxSandbox"
 		accessKey="${twitter.auxAuxSandbox.accessKey}"
 		accessSecret="${twitter.auxAuxSandbox.accessSecret}" consumerKey="${twitter.auxAuxSandbox.consumerKey}"
 		consumerSecret="${twitter.auxAuxSandbox.consumerSecret}" doc:name="Twitter"
-		useSSL="true" />
+		 />
 		
 	<!--  ### auxSandbox flows ### -->
 	
@@ -176,7 +176,7 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
         <twitter:send-direct-message-by-user-id config-ref="Twitter" userId="#[payload.userId]" message="#[payload.message]" doc:name="Twitter"/>
     </flow>
 	
-	<flow name="set-oauth-verifier-default-values" doc:name="set-oauth-verifier-mentions-default-values">
+	<flow name="set-oauth-verifier-default-values" doc:name="set-oauth-verifier-default-values">
         <twitter:set-oauth-verifier config-ref="Twitter" oauthVerifier="#[payload.oauthVerifier]" doc:name="Twitter"/>
     </flow>
 	
