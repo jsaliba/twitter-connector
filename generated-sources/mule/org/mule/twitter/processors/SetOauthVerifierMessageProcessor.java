@@ -35,7 +35,7 @@ import twitter4j.auth.RequestToken;
  * SetOauthVerifierMessageProcessor invokes the {@link org.mule.twitter.TwitterConnector#setOauthVerifier(twitter4j.auth.RequestToken, java.lang.String)} method in {@link TwitterConnector }. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-M4", date = "2014-04-15T10:53:47-05:00", comments = "Build M4.1875.17b58a3")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:24:28-05:00", comments = "Build master.1915.dd1962d")
 public class SetOauthVerifierMessageProcessor
     extends AbstractConnectedProcessor
     implements MessageProcessor, OperationMetaDataEnabled
@@ -112,7 +112,7 @@ public class SetOauthVerifierMessageProcessor
             final RequestToken _transformedRequestToken = ((RequestToken) evaluateAndTransform(getMuleContext(), event, SetOauthVerifierMessageProcessor.class.getDeclaredField("_requestTokenType").getGenericType(), null, requestToken));
             final String _transformedOauthVerifier = ((String) evaluateAndTransform(getMuleContext(), event, SetOauthVerifierMessageProcessor.class.getDeclaredField("_oauthVerifierType").getGenericType(), null, oauthVerifier));
             Object resultPayload;
-            ProcessTemplate<Object, Object> processTemplate = ((ProcessAdapter<Object> ) moduleObject).getProcessTemplate();
+            final ProcessTemplate<Object, Object> processTemplate = ((ProcessAdapter<Object> ) moduleObject).getProcessTemplate();
             resultPayload = processTemplate.execute(new ProcessCallback<Object,Object>() {
 
 

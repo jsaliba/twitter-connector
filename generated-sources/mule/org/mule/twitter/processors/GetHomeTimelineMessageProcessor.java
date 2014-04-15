@@ -34,7 +34,7 @@ import twitter4j.ResponseList;
  * GetHomeTimelineMessageProcessor invokes the {@link org.mule.twitter.TwitterConnector#getHomeTimeline(int, int, long)} method in {@link TwitterConnector }. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-M4", date = "2014-04-15T10:53:47-05:00", comments = "Build M4.1875.17b58a3")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:24:28-05:00", comments = "Build master.1915.dd1962d")
 public class GetHomeTimelineMessageProcessor
     extends AbstractConnectedProcessor
     implements MessageProcessor, OperationMetaDataEnabled
@@ -123,7 +123,7 @@ public class GetHomeTimelineMessageProcessor
             final Integer _transformedCount = ((Integer) evaluateAndTransform(getMuleContext(), event, GetHomeTimelineMessageProcessor.class.getDeclaredField("_countType").getGenericType(), null, count));
             final Long _transformedSinceId = ((Long) evaluateAndTransform(getMuleContext(), event, GetHomeTimelineMessageProcessor.class.getDeclaredField("_sinceIdType").getGenericType(), null, sinceId));
             Object resultPayload;
-            ProcessTemplate<Object, Object> processTemplate = ((ProcessAdapter<Object> ) moduleObject).getProcessTemplate();
+            final ProcessTemplate<Object, Object> processTemplate = ((ProcessAdapter<Object> ) moduleObject).getProcessTemplate();
             resultPayload = processTemplate.execute(new ProcessCallback<Object,Object>() {
 
 

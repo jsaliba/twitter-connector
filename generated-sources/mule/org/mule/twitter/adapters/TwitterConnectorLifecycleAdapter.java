@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
  * A <code>TwitterConnectorLifecycleAdapter</code> is a wrapper around {@link TwitterConnector } that adds lifecycle methods to the pojo.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-M4", date = "2014-04-15T10:53:47-05:00", comments = "Build M4.1875.17b58a3")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:24:28-05:00", comments = "Build master.1915.dd1962d")
 public class TwitterConnectorLifecycleAdapter
     extends TwitterConnectorMetadataAdapater
     implements Disposable, Initialisable, Startable, Stoppable

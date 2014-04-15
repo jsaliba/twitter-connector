@@ -24,7 +24,7 @@ import org.mule.twitter.connectivity.TwitterConnectorConnectionManager;
  * UserStreamMessageSource wraps {@link org.mule.twitter.TwitterConnector#userStream(java.util.List, org.mule.api.callback.SourceCallback)} method in {@link TwitterConnector } as a message source capable of generating Mule events.  The POJO's method is invoked in its own thread.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-M4", date = "2014-04-15T10:53:47-05:00", comments = "Build M4.1875.17b58a3")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:24:28-05:00", comments = "Build master.1915.dd1962d")
 public class UserStreamMessageSource
     extends AbstractListeningMessageProcessor
     implements Runnable, FlowConstructAware, MuleContextAware, Startable, Stoppable, MessageSource
@@ -32,10 +32,6 @@ public class UserStreamMessageSource
 
     protected Object keywords;
     protected List<String> _keywordsType;
-    protected Object accessKey;
-    protected String _accessKeyType;
-    protected Object accessSecret;
-    protected String _accessSecretType;
     /**
      * Thread under which this message source will execute
      * 
@@ -63,24 +59,6 @@ public class UserStreamMessageSource
      */
     public void setKeywords(Object value) {
         this.keywords = value;
-    }
-
-    /**
-     * Sets accessKey
-     * 
-     * @param value Value to set
-     */
-    public void setAccessKey(Object value) {
-        this.accessKey = value;
-    }
-
-    /**
-     * Sets accessSecret
-     * 
-     * @param value Value to set
-     */
-    public void setAccessSecret(Object value) {
-        this.accessSecret = value;
     }
 
     /**

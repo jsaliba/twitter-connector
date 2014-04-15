@@ -29,14 +29,13 @@ import org.mule.twitter.TwitterConnector;
 import org.mule.twitter.adapters.TwitterConnectorConnectionIdentifierAdapter;
 import org.mule.twitter.connection.ConnectionManager;
 import org.mule.twitter.connection.UnableToAcquireConnectionException;
-import org.mule.twitter.processors.AbstractConnectedProcessor;
 
 
 /**
  * A {@code TwitterConnectorConnectionManager} is a wrapper around {@link TwitterConnector } that adds connection management capabilities to the pojo.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-M4", date = "2014-04-15T10:53:47-05:00", comments = "Build M4.1875.17b58a3")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:24:28-05:00", comments = "Build master.1915.dd1962d")
 public class TwitterConnectorConnectionManager
     extends ExpressionEvaluatorSupport
     implements MetadataAware, MuleContextAware, ProcessAdapter<TwitterConnectorConnectionIdentifierAdapter> , Capabilities, Disposable, Initialisable, Testable, ConnectionManager<TwitterConnectorConnectionKey, TwitterConnectorConnectionIdentifierAdapter>
@@ -78,8 +77,8 @@ public class TwitterConnectorConnectionManager
     protected RetryPolicyTemplate retryPolicyTemplate;
     private final static String MODULE_NAME = "Twitter";
     private final static String MODULE_VERSION = "3.0.3-SNAPSHOT";
-    private final static String DEVKIT_VERSION = "3.5.0-M4";
-    private final static String DEVKIT_BUILD = "M4.1875.17b58a3";
+    private final static String DEVKIT_VERSION = "3.5.0-SNAPSHOT";
+    private final static String DEVKIT_BUILD = "master.1915.dd1962d";
     private final static String MIN_MULE_VERSION = "3.5";
 
     /**
@@ -408,11 +407,11 @@ public class TwitterConnectorConnectionManager
         throws Exception
     {
         if (event!= null) {
-            final String _transformedAccessKey = ((String) evaluateAndTransform(muleContext, event, AbstractConnectedProcessor.class.getDeclaredField("_accessKeyType").getGenericType(), null, getAccessKey()));
+            final String _transformedAccessKey = ((String) evaluateAndTransform(muleContext, event, this.getClass().getDeclaredField("accessKey").getGenericType(), null, getAccessKey()));
             if (_transformedAccessKey == null) {
                 throw new UnableToAcquireConnectionException("Parameter accessKey in method connect can't be null because is not @Optional");
             }
-            final String _transformedAccessSecret = ((String) evaluateAndTransform(muleContext, event, AbstractConnectedProcessor.class.getDeclaredField("_accessSecretType").getGenericType(), null, getAccessSecret()));
+            final String _transformedAccessSecret = ((String) evaluateAndTransform(muleContext, event, this.getClass().getDeclaredField("accessSecret").getGenericType(), null, getAccessSecret()));
             if (_transformedAccessSecret == null) {
                 throw new UnableToAcquireConnectionException("Parameter accessSecret in method connect can't be null because is not @Optional");
             }

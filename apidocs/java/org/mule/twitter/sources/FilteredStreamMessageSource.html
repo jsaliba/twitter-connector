@@ -198,7 +198,7 @@
       <a href="http://www.mulesoft.com" tabindex="-1">
       <img src="../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
       
-  <div id="search" >
+  <div id="searchContainer" >
       <div id="searchForm">
           <form accept-charset="utf-8" class="gsc-search-box" 
                 onsubmit="return submit_search()">
@@ -815,28 +815,6 @@ org.mule.api.lifecycle.Stoppable
           protected
           
           
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#_accessKeyType">_accessKeyType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          protected
-          
-          
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#_accessSecretType">_accessSecretType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          protected
-          
-          
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#_countType">_countType</a></td>
           <td class="jd-descrcol" width="100%"></td>
@@ -861,28 +839,6 @@ org.mule.api.lifecycle.Stoppable
           
           List&lt;String&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#_userIdsType">_userIdsType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          protected
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#accessKey">accessKey</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          protected
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#accessSecret">accessSecret</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -1154,42 +1110,6 @@ org.mule.devkit.processor.DevkitBasedMessageProcessor
         <span class="sympad"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#run()">run</a></span>()</nobr>
         
         <div class="jd-descrdiv">Implementation <code><a href="null#run()">run()</a></code> that will invoke the method on the pojo that this message source wraps.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#setAccessKey(java.lang.Object)">setAccessKey</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets accessKey</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/sources/FilteredStreamMessageSource.html#setAccessSecret(java.lang.Object)">setAccessSecret</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets accessSecret</div>
   
   </td></tr>
 
@@ -2654,66 +2574,6 @@ From interface
 
 
 
-<A NAME="_accessKeyType"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-        String
-      </span>
-        _accessKeyType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="_accessSecretType"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-        String
-      </span>
-        _accessSecretType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
 <A NAME="_countType"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2785,66 +2645,6 @@ From interface
         List&lt;String&gt;
       </span>
         _userIdsType
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="accessKey"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-        Object
-      </span>
-        accessKey
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="accessSecret"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-        Object
-      </span>
-        accessSecret
     </h4>
       <div class="api-level">
         
@@ -3118,88 +2918,6 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Implementation <code><a href="null#run()">run()</a></code> that will invoke the method on the pojo that this message source wraps.
  
 </p></div>
-
-    </div>
-</div>
-
-
-<A NAME="setAccessKey(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setAccessKey</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets accessKey</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="setAccessSecret(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setAccessSecret</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets accessSecret</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
 
     </div>
 </div>

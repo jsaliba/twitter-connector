@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" prefix="twitter" url="http://www.mulesoft.org/schema/mule/twitter">
-  <global-cloud-connector metaData="static" connectivityTesting="disabled" extends="http://www.mulesoft.org/schema/mule/twitter/abstractTwitterConnectorGeneric" abstract="true" image="" localId="parentConfig" icon="" description="" caption="Twitter" versions="[3.5.0,8.0.0]"></global-cloud-connector>
+  <global-cloud-connector extends="http://www.mulesoft.org/schema/mule/twitter/abstractTwitterConnectorGeneric" abstract="true" image="" localId="parentConfig" icon="" description="" caption="Twitter" versions="[3.5.0,8.0.0]"></global-cloud-connector>
   <nested abstract="true" localId="connection-pooling-profile" description="" caption="">
-    <label description="" caption="Define connection pool configuration" name="poolingProfileLabel"></label>
-    <integer step="0" min="0" defaultValue="5" fillLine="true" description="Controls the maximum number of connections that can be borrowed from the pool at one time. When set to a negative value, there is no limit to the number of connections that may be active at one time. When maxActive is exceeded, the pool is said to be exhausted." caption="Max active" name="maxActive"></integer>
-    <integer step="0" min="0" defaultValue="5" fillLine="true" description="Controls the maximum number of connections that can sit idle in the pool at any time. When set to a negative value, there is no limit to the number of connections that may be idle at one time." caption="Max idle" name="maxIdle"></integer>
-    <enum defaultValue="INITIALISE_ONE" alwaysFill="true" description="Determines how connections in a pool should be initialized. The possible values are: INITIALISE_NONE (will not load any connection into the pool on startup), INITIALISE_ONE (will load one initial connection into the pool on startup), or INITIALISE_ALL (will load all connections in the pool on startup)" caption="Initialisation policy" name="initialisationPolicy">
+    <radioBoolean fillLine="true" description="Use default connection pool configuration." caption="Use default connection pool configuration" name="defaultPoolingProfile"></radioBoolean>
+    <radioBoolean fillLine="true" description="Define connection pool configuration." caption="Define connection pool configuration" name="customPoolingProfile"></radioBoolean>
+    <integer step="0" min="0" defaultValue="5" fillLine="true" indented="true" controlled="customPoolingProfile" description="Controls the maximum number of connections that can be borrowed from the pool at one time. When set to a negative value, there is no limit to the number of connections that may be active at one time. When maxActive is exceeded, the pool is said to be exhausted." caption="Max active" name="maxActive"></integer>
+    <integer step="0" min="0" defaultValue="5" fillLine="true" indented="true" controlled="customPoolingProfile" description="Controls the maximum number of connections that can sit idle in the pool at any time. When set to a negative value, there is no limit to the number of connections that may be idle at one time." caption="Max idle" name="maxIdle"></integer>
+    <enum defaultValue="INITIALISE_ONE" indented="true" controlled="customPoolingProfile" alwaysFill="true" description="Determines how connections in a pool should be initialized. The possible values are: INITIALISE_NONE (will not load any connection into the pool on startup), INITIALISE_ONE (will load one initial connection into the pool on startup), or INITIALISE_ALL (will load all connections in the pool on startup)" caption="Initialisation policy" name="initialisationPolicy">
       <option value="INITIALISE_NONE"></option>
       <option value="INITIALISE_ONE"></option>
       <option value="INITIALISE_ALL"></option>
     </enum>
-    <enum defaultValue="WHEN_EXHAUSTED_GROW" alwaysFill="true" description="Specifies the behavior of the connection pool when the pool is exhausted. Possible values are: &quot;WHEN_EXHAUSTED_FAIL&quot;, which will throw a NoSuchElementException, &quot;WHEN_EXHAUSTED_WAIT&quot;, which will block by invoking Object.wait(long) until a new or idle object is available, or WHEN_EXHAUSTED_GROW, which will create a new connection and return it, essentially making maxActive meaningless. If a positive maxWait value is supplied, it will block for at most that many milliseconds, after which a NoSuchElementException will be thrown. If maxThreadWait is a negative value, it will block indefinitely." caption="Exhausted action" name="exhaustedAction">
+    <enum defaultValue="WHEN_EXHAUSTED_GROW" indented="true" controlled="customPoolingProfile" alwaysFill="true" description="Specifies the behavior of the connection pool when the pool is exhausted. Possible values are: &quot;WHEN_EXHAUSTED_FAIL&quot;, which will throw a NoSuchElementException, &quot;WHEN_EXHAUSTED_WAIT&quot;, which will block by invoking Object.wait(long) until a new or idle object is available, or WHEN_EXHAUSTED_GROW, which will create a new connection and return it, essentially making maxActive meaningless. If a positive maxWait value is supplied, it will block for at most that many milliseconds, after which a NoSuchElementException will be thrown. If maxThreadWait is a negative value, it will block indefinitely." caption="Exhausted action" name="exhaustedAction">
       <option value="WHEN_EXHAUSTED_WAIT"></option>
       <option value="WHEN_EXHAUSTED_FAIL"></option>
       <option value="WHEN_EXHAUSTED_GROW"></option>
     </enum>
-    <integer step="0" min="0" defaultValue="5" fillLine="true" description="When exhausted action is Wait (or block) this is the amount of time in milliseconds that the pool will wait before failing. Setting a negative value will block indefinitely until an idle instance becomes available." caption="Max wait" name="maxWait"></integer>
-    <integer step="0" min="0" defaultValue="1800000" fillLine="true" description="Determines the minimum amount of time a connection may sit idle in the pool before it is eligible for eviction. When non-positive, no connections will be evicted from the pool due to idle time alone." caption="Min eviction (ms)" name="minEvictionMillis"></integer>
-    <integer step="0" min="0" defaultValue="-1" fillLine="true" description="Specifies the number of milliseconds between runs of the connection evictor. When non-positive, no connection evictor is executed." caption="Eviction check interval (ms)" name="evictionCheckIntervalMillis"></integer>
+    <integer step="0" min="0" defaultValue="5" fillLine="true" indented="true" controlled="customPoolingProfile" description="When exhausted action is Wait (or block) this is the amount of time in milliseconds that the pool will wait before failing. Setting a negative value will block indefinitely until an idle instance becomes available." caption="Max wait" name="maxWait"></integer>
+    <integer step="0" min="0" defaultValue="1800000" fillLine="true" indented="true" controlled="customPoolingProfile" description="Determines the minimum amount of time a connection may sit idle in the pool before it is eligible for eviction. When non-positive, no connections will be evicted from the pool due to idle time alone." caption="Min eviction (ms)" name="minEvictionMillis"></integer>
+    <integer step="0" min="0" defaultValue="-1" fillLine="true" indented="true" controlled="customPoolingProfile" description="Specifies the number of milliseconds between runs of the connection evictor. When non-positive, no connection evictor is executed." caption="Eviction check interval (ms)" name="evictionCheckIntervalMillis"></integer>
   </nested>
   <nested abstract="true" localId="reconnectionStrategyElement" description="" caption="">
     <label description="" caption="Define how mule should attempt to handle a connection failure" name="connectionLabel"></label>
@@ -33,7 +34,7 @@
   </nested>
   <cloud-connector-message-source supportsOutbound="false" supportsInbound="true" extends="http://www.mulesoft.org/schema/mule/twitter/abstractTwitterConnectorGeneric" abstract="false" image="icons/large/twitter-endpoint-48x32.png" localId="endpoint" icon="icons/small/twitter-endpoint-24x16.png" description="Twitter Integration" caption="Twitter (Streaming)" versions="[3.5.0,8.0.0]">
     <attribute-category description="General." caption="General">
-      <group caption="Generic" id="twitterConnectorGeneric">
+      <group caption="Basic Settings" id="twitterConnectorGeneric">
         <modeSwitch alwaysCombo="true" description="Operation." caption="Operation" name="Twitter operations to execute">
           <mode modeLabel="Filtered stream" modeId="http://www.mulesoft.org/schema/mule/twitter/filtered-stream"></mode>
           <mode modeLabel="Firehose stream" modeId="http://www.mulesoft.org/schema/mule/twitter/firehose-stream"></mode>
@@ -147,7 +148,7 @@ only one twitter stream can be consumed per connector instance.
   </cloud-connector-message-source>
   <global-cloud-connector metaData="static" connectivityTesting="disabled" extends="http://www.mulesoft.org/schema/mule/twitter/parentConfig" abstract="false" image="icons/large/twitter-connector-48x32.png" localId="config" icon="icons/small/twitter-connector-24x16.png" description="Global Twitter configuration information." caption="Twitter" versions="[3.5.0,8.0.0]">
     <attribute-category description="Twitter configuration properties." caption="General">
-      <group caption="Generic" id="twitterGenericProperties">
+      <group caption="Basic Settings" id="twitterGenericProperties">
         <name required="true" description="Give a name to this configuration so it can be later referenced by config-ref." caption="Name" name="name"></name>
       </group>
       <group caption="Connection" id="connection">
@@ -162,7 +163,7 @@ only one twitter stream can be consumed per connector instance.
     </attribute-category>
     <attribute-category description="Pooling profile options." caption="Pooling Profile">
       <group caption="Pooling Profile" id="poolingProfile">
-        <childElement inplace="true" description="" caption="" name="http://www.mulesoft.org/schema/mule/twitter/connection-pooling-profile"></childElement>
+        <childElement inplace="true" valuePersistence="org.mule.tooling.ui.modules.core.widgets.meta.PoolingProfileValuePersistence" description="" caption="" name="http://www.mulesoft.org/schema/mule/twitter/connection-pooling-profile"></childElement>
       </group>
     </attribute-category>
     <attribute-category description="Reconnection options." caption="Reconnection">
@@ -188,14 +189,14 @@ only one twitter stream can be consumed per connector instance.
   </global-cloud-connector>
   <cloud-connector abstract="true" image="icons/large/twitter-connector-48x32.png" localId="abstractTwitterConnectorGeneric" icon="icons/small/twitter-connector-24x16.png" description="Interact with Twitter." caption="Abstracttwitterconnectorgeneric">
     <attribute-category description="General." caption="General">
-      <group caption="Generic" id="abstractTwitterConnectorGeneric">
-        <globalRef requiredType="http://www.mulesoft.org/schema/mule/twitter/config" required="true" description="Specify which configuration to use for this invocation." caption="Config Reference" name="config-ref"></globalRef>
+      <group caption="Basic Settings" id="abstractTwitterConnectorGeneric">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/twitter/config" required="true" description="Specify which configuration to use for this invocation." caption="Connector Configuration" name="config-ref"></globalRef>
       </group>
     </attribute-category>
   </cloud-connector>
   <cloud-connector extends="http://www.mulesoft.org/schema/mule/twitter/abstractTwitterConnectorGeneric" image="icons/large/twitter-connector-48x32.png" localId="twitter-connector" icon="icons/small/twitter-connector-24x16.png" description="Twitter Integration" caption="Twitter" aliasId="org.mule.tooling.ui.modules.core.pattern.twitter" versions="[3.5.0,8.0.0]">
     <attribute-category description="General." caption="General">
-      <group caption="Generic" id="twitterConnectorGeneric">
+      <group caption="Basic Settings" id="twitterConnectorGeneric">
         <modeSwitch alwaysCombo="true" description="Operation." caption="Operation" name="Twitter operations to execute">
           <mode modeLabel="Create place" modeId="http://www.mulesoft.org/schema/mule/twitter/create-place"></mode>
           <mode modeLabel="Destroy status" modeId="http://www.mulesoft.org/schema/mule/twitter/destroy-status"></mode>
@@ -240,10 +241,8 @@ only one twitter stream can be consumed per connector instance.
         <string javaType="java.lang.Double" required="true" description="The longitude the place is located at." caption="Longitude" name="longitude"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -255,10 +254,8 @@ only one twitter stream can be consumed per connector instance.
         <integer step="1" min="0" javaType="long" required="true" description="The ID of the status to destroy." caption="Status Id" name="statusId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -266,10 +263,8 @@ only one twitter stream can be consumed per connector instance.
   </cloud-connector>
   <cloud-connector returnType="twitter4j.ResponseList&lt;twitter4j.Location&gt;" metaData="static" extends="http://www.mulesoft.org/schema/mule/twitter/abstractTwitterConnectorGeneric" abstract="true" image="icons/large/twitter-connector-48x32.png" localId="get-available-trends" icon="icons/small/twitter-connector-24x16.png" caption="Get Available Trends">
     <attribute-category description="General." caption="General"></attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -282,10 +277,8 @@ only one twitter stream can be consumed per connector instance.
         <string javaType="double" required="true" description="He longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range or if there not a corresponding lat parameter." caption="Longitude" name="longitude"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -297,10 +290,8 @@ only one twitter stream can be consumed per connector instance.
         <integer step="1" min="0" defaultValue="-1" javaType="long" required="false" description="Causes the results to be broken into pages of no more than 20 records at a time." caption="Cursor" name="cursor"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -312,10 +303,8 @@ only one twitter stream can be consumed per connector instance.
         <string javaType="java.lang.String" required="true" description="The ID of the location to query about." caption="Id" name="id"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -329,10 +318,8 @@ only one twitter stream can be consumed per connector instance.
         <integer step="1" min="0" defaultValue="-1" javaType="long" required="false" description="Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available." caption="Since Id" name="sinceId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -346,10 +333,8 @@ only one twitter stream can be consumed per connector instance.
         <integer step="1" min="0" defaultValue="-1" javaType="long" required="false" description="Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available." caption="Since Id" name="sinceId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -361,10 +346,8 @@ only one twitter stream can be consumed per connector instance.
         <integer step="1" min="0" defaultValue="1" javaType="int" required="false" description="The Yahoo! Where On Earth ID of the location to return trending information for. Global information is available by using 1 as the WOEID." caption="Woeid" name="woeid"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -376,10 +359,8 @@ only one twitter stream can be consumed per connector instance.
         <integer step="1" min="0" javaType="long" required="true" description="The numerical ID of the tweet you want the retweets of." caption="Status Id" name="statusId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -393,10 +374,8 @@ only one twitter stream can be consumed per connector instance.
         <integer step="1" min="0" defaultValue="-1" javaType="long" required="false" description="Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available." caption="Since Id" name="sinceId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -414,10 +393,8 @@ only one twitter stream can be consumed per connector instance.
         <string javaType="java.lang.String" required="false" description="This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted." caption="Street Address" name="streetAddress"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -431,10 +408,8 @@ only one twitter stream can be consumed per connector instance.
         <integer step="1" min="0" defaultValue="-1" javaType="long" required="false" description="Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available." caption="Since Id" name="sinceId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -451,10 +426,8 @@ only one twitter stream can be consumed per connector instance.
         <integer step="1" min="0" defaultValue="-1" javaType="long" required="false" description="Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available." caption="Since Id" name="sinceId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -471,10 +444,8 @@ only one twitter stream can be consumed per connector instance.
         <integer step="1" min="0" defaultValue="-1" javaType="long" required="false" description="Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available." caption="Since Id" name="sinceId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -486,10 +457,8 @@ only one twitter stream can be consumed per connector instance.
         <string javaType="java.lang.String" required="false" description="The url to be requested when the user authorizes this app." caption="Callback Url" name="callbackUrl"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -501,10 +470,8 @@ only one twitter stream can be consumed per connector instance.
         <integer step="1" min="0" javaType="long" required="true" description="The ID of the status to retweet." caption="Status Id" name="statusId"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -517,10 +484,8 @@ only one twitter stream can be consumed per connector instance.
         <string javaType="java.lang.Double" required="false" description="Longitude coordinate." caption="Longitude" name="longitude"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -542,10 +507,8 @@ only one twitter stream can be consumed per connector instance.
         <string javaType="java.lang.String" required="false" description="If specified, returns tweets with generated before the given date. Date should be formatted as YYYY-MM-DD." caption="Until" name="until"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -561,10 +524,8 @@ only one twitter stream can be consumed per connector instance.
         <string javaType="java.lang.String" required="false" description="The ip. Mandatory if coordinates are not specified." caption="Ip" name="ip"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -577,10 +538,8 @@ only one twitter stream can be consumed per connector instance.
         <string javaType="java.lang.String" required="true" description="The screen name of the user to whom send the direct message." caption="Screen Name" name="screenName"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -593,10 +552,8 @@ only one twitter stream can be consumed per connector instance.
         <string javaType="java.lang.String" required="true" description="The text of your direct message." caption="Message" name="message"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -609,10 +566,8 @@ only one twitter stream can be consumed per connector instance.
         <string javaType="java.lang.String" required="true" description="The OAuth verifier code from Twitter." caption="Oauth Verifier" name="oauthVerifier"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -624,10 +579,8 @@ only one twitter stream can be consumed per connector instance.
         <integer step="1" min="0" javaType="long" required="true" description="The numerical ID of the status you're trying to retrieve." caption="Id" name="id"></integer>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -635,10 +588,8 @@ only one twitter stream can be consumed per connector instance.
   </cloud-connector>
   <cloud-connector returnType="twitter4j.User" metaData="static" extends="http://www.mulesoft.org/schema/mule/twitter/abstractTwitterConnectorGeneric" abstract="true" image="icons/large/twitter-connector-48x32.png" localId="show-user" icon="icons/small/twitter-connector-24x16.png" caption="Show User">
     <attribute-category description="General." caption="General"></attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
@@ -655,10 +606,8 @@ only one twitter stream can be consumed per connector instance.
         <string javaType="java.lang.Double" required="false" description="He longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range or if there not a corresponding lat parameter." caption="Longitude" name="longitude"></string>
       </group>
     </attribute-category>
-    <attribute-category description="Connection." caption="Connection">
-      <group caption="Connection" id="connection">
-        <label caption="Use these fields to override the credentials defined in the Twitter connector."></label>
-        <label caption=""></label>
+    <attribute-category description="Advanced." caption="Advanced">
+      <group caption="Connector Configuration Overrides" id="connector Configuration Overrides">
         <string javaType="java.lang.String" required="false" description="The access key provided by Twitter." caption="Access Key" name="accessKey"></string>
         <string javaType="java.lang.String" required="false" description="The access secret provided by Twitter." caption="Access Secret" name="accessSecret"></string>
       </group>
