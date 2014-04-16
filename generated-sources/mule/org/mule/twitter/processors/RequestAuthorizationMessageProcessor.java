@@ -34,7 +34,7 @@ import twitter4j.auth.RequestToken;
  * RequestAuthorizationMessageProcessor invokes the {@link org.mule.twitter.TwitterConnector#requestAuthorization(java.lang.String)} method in {@link TwitterConnector }. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-15T03:24:28-05:00", comments = "Build master.1915.dd1962d")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-16T09:56:36-05:00", comments = "Build master.1915.dd1962d")
 public class RequestAuthorizationMessageProcessor
     extends AbstractConnectedProcessor
     implements MessageProcessor, OperationMetaDataEnabled
