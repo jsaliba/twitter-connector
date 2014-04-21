@@ -10,7 +10,7 @@ import org.mule.twitter.TwitterConnector;
  * A <code>TwitterConnectorMetadataAdapater</code> is a wrapper around {@link TwitterConnector } that adds support for querying metadata about the extension.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-16T09:56:36-05:00", comments = "Build master.1915.dd1962d")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-21T01:59:11-05:00", comments = "Build UNKNOWN_BUILDNUMBER")
 public class TwitterConnectorMetadataAdapater
     extends TwitterConnectorCapabilitiesAdapter
     implements MetadataAware
@@ -19,7 +19,7 @@ public class TwitterConnectorMetadataAdapater
     private final static String MODULE_NAME = "Twitter";
     private final static String MODULE_VERSION = "3.0.3-SNAPSHOT";
     private final static String DEVKIT_VERSION = "3.5.0-SNAPSHOT";
-    private final static String DEVKIT_BUILD = "master.1915.dd1962d";
+    private final static String DEVKIT_BUILD = "UNKNOWN_BUILDNUMBER";
     private final static String MIN_MULE_VERSION = "3.5";
 
     public String getModuleName() {

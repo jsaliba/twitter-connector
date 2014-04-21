@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Twitter
 Bundle-SymbolicName: org.mule.tooling.ui.contribution.twitter.3.5.0;singleton:=true
-Bundle-Version: 3.0.3.201404160956
+Bundle-Version: 3.0.3.201404211359
 Bundle-Activator: org.mule.tooling.ui.contribution.TwitterActivator
 Bundle-Vendor: MuleSoft, Inc.
 Require-Bundle: org.eclipse.ui,

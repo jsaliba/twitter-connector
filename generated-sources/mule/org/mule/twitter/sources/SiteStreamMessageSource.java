@@ -24,7 +24,7 @@ import org.mule.twitter.connectivity.TwitterConnectorConnectionManager;
  * SiteStreamMessageSource wraps {@link org.mule.twitter.TwitterConnector#siteStream(java.util.List, boolean, org.mule.api.callback.SourceCallback)} method in {@link TwitterConnector } as a message source capable of generating Mule events.  The POJO's method is invoked in its own thread.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-16T09:56:36-05:00", comments = "Build master.1915.dd1962d")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-21T01:59:11-05:00", comments = "Build UNKNOWN_BUILDNUMBER")
 public class SiteStreamMessageSource
     extends AbstractListeningMessageProcessor
     implements Runnable, FlowConstructAware, MuleContextAware, Startable, Stoppable, MessageSource

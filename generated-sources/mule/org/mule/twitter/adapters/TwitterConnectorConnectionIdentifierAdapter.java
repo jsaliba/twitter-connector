@@ -10,7 +10,7 @@ import org.mule.twitter.connection.Connection;
  * A <code>TwitterConnectorConnectionIdentifierAdapter</code> is a wrapper around {@link TwitterConnector } that implements {@link org.mule.devkit.dynamic.api.helper.Connection} interface.
  * 
  */
-@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-16T09:56:36-05:00", comments = "Build master.1915.dd1962d")
+@Generated(value = "Mule DevKit Version 3.5.0-SNAPSHOT", date = "2014-04-21T01:59:11-05:00", comments = "Build UNKNOWN_BUILDNUMBER")
 public class TwitterConnectorConnectionIdentifierAdapter
     extends TwitterConnectorProcessAdapter
     implements Connection
