@@ -13,21 +13,16 @@ import org.junit.experimental.categories.Categories.IncludeCategory;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite.SuiteClasses;
 import org.mule.twitter.automation.SmokeTests;
-import org.mule.twitter.automation.testcases.*;
+import org.mule.twitter.automation.testcases.DestroyStatusTestCases;
+import org.mule.twitter.automation.testcases.RetweetStatusTestCases;
+import org.mule.twitter.automation.testcases.ShowUserTestCases;
+import org.mule.twitter.automation.testcases.UpdateStatusTestCases;
 
 @RunWith(Categories.class)
 @IncludeCategory(SmokeTests.class)
-@SuiteClasses({ CreatePlaceTestCases.class, DestroyStatusTestCases.class,
-		GetAvailableTrendsTestCases.class,
-		GetGeoDetailsTestCases.class, GetHomeTimelineTestCases.class,
-		GetLocationTrendsTestCases.class, GetMentionsTestCases.class,
-		GetRetweetsOfMeTestCases.class, GetRetweetsTestCases.class,
-		GetUserTimelineByScreenNameTestCases.class,
-		GetUserTimelineByUserIdTestCases.class, GetUserTimelineTestCases.class,
-		RetweetStatusTestCases.class,
-		ReverseGeoCodeTestCases.class, SearchPlacesTestCases.class,
-		SearchTestCases.class, SendDirectMessageByScreenNameTestCases.class,
-		SendDirectMessageByUserIdTestCases.class, ShowStatusTestCases.class,
-		ShowUserTestCases.class, UpdateStatusTestCases.class })
+@SuiteClasses({DestroyStatusTestCases.class,
+        RetweetStatusTestCases.class,
+        ShowUserTestCases.class,
+        UpdateStatusTestCases.class})
 public class SmokeTestSuite {
 }
