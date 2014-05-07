@@ -198,7 +198,7 @@
       <a href="http://www.mulesoft.com" tabindex="-1">
       <img src="../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
       
-  <div id="search" >
+  <div id="searchContainer" >
       <div id="searchForm">
           <form accept-charset="utf-8" class="gsc-search-box" 
                 onsubmit="return submit_search()">
@@ -254,13 +254,7 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/agents/package-summary.html">org.mule.twitter.agents</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/twitter/basic/package-summary.html">org.mule.twitter.basic</a></li>
-    <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/twitter/callback/package-summary.html">org.mule.twitter.callback</a></li>
-    <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/config/package-summary.html">org.mule.twitter.config</a></li>
-    <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/twitter/config/spring/package-summary.html">org.mule.twitter.config.spring</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/connection/package-summary.html">org.mule.twitter.connection</a></li>
     <li class="api apilevel-">
@@ -268,15 +262,13 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/devkit/package-summary.html">org.mule.twitter.devkit</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/twitter/oauth/package-summary.html">org.mule.twitter.oauth</a></li>
+  <a href="../../../../../java/org/mule/twitter/pooling/package-summary.html">org.mule.twitter.pooling</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/process/package-summary.html">org.mule.twitter.process</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../../java/org/mule/twitter/processors/package-summary.html">org.mule.twitter.processors</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/sources/package-summary.html">org.mule.twitter.sources</a></li>
-    <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/twitter/transformers/package-summary.html">org.mule.twitter.transformers</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/twitter4j/internal/http/alternative/package-summary.html">twitter4j.internal.http.alternative</a></li>
               </ul><br/>
@@ -285,45 +277,31 @@
           <div id="classes-nav">
             <ul>
               
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/ConnectivityProcessor.html">ConnectivityProcessor</a></li>
+      </ul>
+    </li>
               
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/AbstractConnectedProcessor.html">AbstractConnectedProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/AbstractExpressionEvaluator.html">AbstractExpressionEvaluator</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/AbstractListeningMessageProcessor.html">AbstractListeningMessageProcessor</a>&lt;O&gt;</li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/AbstractMessageProcessor.html">AbstractMessageProcessor</a>&lt;O&gt;</li>
           <li class="selected api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/AbstractPagedConnectedProcessor.html">AbstractPagedConnectedProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/CreatePlaceMessageProcessor.html">CreatePlaceMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/DestroyStatusMessageProcessor.html">DestroyStatusMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetAvailableTrendsMessageProcessor.html">GetAvailableTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetClosestTrendsMessageProcessor.html">GetClosestTrendsMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetCurrentTrendsMessageProcessor.html">GetCurrentTrendsMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetDailyTrendsMessageProcessor.html">GetDailyTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetFollowersMessageProcessor.html">GetFollowersMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetGeoDetailsMessageProcessor.html">GetGeoDetailsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetHomeTimelineMessageProcessor.html">GetHomeTimelineMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetLocationTrendsMessageProcessor.html">GetLocationTrendsMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetMentionsMessageProcessor.html">GetMentionsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetMentionsTimelineMessageProcessor.html">GetMentionsTimelineMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetPlaceTrendsMessageProcessor.html">GetPlaceTrendsMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetPublicTimelineMessageProcessor.html">GetPublicTimelineMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByIdsMessageProcessor.html">GetRetweetedByIdsMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByIDsMessageProcessor.html">GetRetweetedByIDsMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByMeMessageProcessor.html">GetRetweetedByMeMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByMessageProcessor.html">GetRetweetedByMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByUserByScreenNameMessageProcessor.html">GetRetweetedByUserByScreenNameMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedByUserByUserIdMessageProcessor.html">GetRetweetedByUserByUserIdMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedToMeMessageProcessor.html">GetRetweetedToMeMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedToUserByScreenNameMessageProcessor.html">GetRetweetedToUserByScreenNameMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetedToUserByUserIdMessageProcessor.html">GetRetweetedToUserByUserIdMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetsMessageProcessor.html">GetRetweetsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetRetweetsOfMeMessageProcessor.html">GetRetweetsOfMeMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetSimilarPlacesMessageProcessor.html">GetSimilarPlacesMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetTrendsMessageProcessor.html">GetTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetUserTimelineByScreenNameMessageProcessor.html">GetUserTimelineByScreenNameMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetUserTimelineByUserIdMessageProcessor.html">GetUserTimelineByUserIdMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetUserTimelineMessageProcessor.html">GetUserTimelineMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/GetWeeklyTrendsMessageProcessor.html">GetWeeklyTrendsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/RequestAuthorizationMessageProcessor.html">RequestAuthorizationMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/RetweetStatusMessageProcessor.html">RetweetStatusMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../java/org/mule/twitter/processors/ReverseGeoCodeMessageProcessor.html">ReverseGeoCodeMessageProcessor</a></li>
@@ -460,6 +438,13 @@
   
   
 
+  
+   
+  
+  
+  
+  
+
 
 <div class="sum-details-links">
 
@@ -540,6 +525,11 @@ Summary:
   
 
   
+  
+      implements 
+      
+        <a href="../../../../../java/org/mule/twitter/processors/ConnectivityProcessor.html">ConnectivityProcessor</a> 
+      
   
   
 
@@ -795,6 +785,8 @@ org.mule.api.lifecycle.Stoppable
 </td></tr>
 
 
+
+
 </table>
 
 
@@ -991,6 +983,8 @@ org.mule.devkit.processor.DevkitBasedMessageProcessor
 
 
 
+
+
 </table>
 
 
@@ -1102,6 +1096,26 @@ org.mule.devkit.processor.DevkitBasedMessageProcessor
         <span class="sympad"><a href="../../../../../org/mule/twitter/processors/AbstractPagedConnectedProcessor.html#setAccessSecret(java.lang.Object)">setAccessSecret</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets accessSecret</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Type</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/AbstractPagedConnectedProcessor.html#typeFor(java.lang.String)">typeFor</a></span>(String fieldName)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the concrete java.lang.reflect.Type of a connectivity argument, needed for the @Connect
+ 
+</div>
   
   </td></tr>
 
@@ -1347,7 +1361,7 @@ From class
         <td class="jd-typecol"><nobr>
             
             
-            final
+            
             
             
             MuleEvent</nobr>
@@ -2148,6 +2162,82 @@ From interface
 </td></tr>
 
 
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.twitter.processors.ConnectivityProcessor" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.twitter.processors.ConnectivityProcessor-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../../org/mule/twitter/processors/ConnectivityProcessor.html">org.mule.twitter.processors.ConnectivityProcessor</a>
+
+<div id="inherited-methods-org.mule.twitter.processors.ConnectivityProcessor">
+  <div id="inherited-methods-org.mule.twitter.processors.ConnectivityProcessor-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.twitter.processors.ConnectivityProcessor-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ConnectivityProcessor.html#getAccessKey()">getAccessKey</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ConnectivityProcessor.html#getAccessSecret()">getAccessSecret</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            Type</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/processors/ConnectivityProcessor.html#typeFor(java.lang.String)">typeFor</a></span>(String fieldName)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the concrete java.lang.reflect.Type of a connectivity argument, needed for the @Connect</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
 </table>
 
 
@@ -2504,6 +2594,61 @@ From interface
           <th>value</td>
           <td>Value to set
 </td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="typeFor(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Type
+      </span>
+      <span class="sympad">typeFor</span>
+      <span class="normal">(String fieldName)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the concrete java.lang.reflect.Type of a connectivity argument, needed for the @Connect
+ 
+</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>fieldName</td>
+          <td>Name of the field to look for</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The java.lang.reflect.Type associated with the field <code>fieldName</code></li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>NoSuchFieldException</td>
+            <td></td>
         </tr>
       </table>
   </div>
