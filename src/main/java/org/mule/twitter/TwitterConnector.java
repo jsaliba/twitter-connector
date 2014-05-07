@@ -358,39 +358,6 @@ public class TwitterConnector implements MuleContextAware {
         return paging;
     }
 
-    /**
-     * Returns the 20 most recent statuses posted from the authenticating user. It's
-     * also possible to request another user's timeline via the id parameter.<br>
-     * This is the equivalent of the Web / page for your own user, or the profile
-     * page for a third party.<br>
-     * For backwards compatibility reasons, retweets are stripped out of the
-     * user_timeline when calling in XML or JSON (they appear with 'RT' in RSS and
-     * Atom). If you'd like them included, you can merge them in from statuses
-     * retweeted_by_me.<br>
-     * <br>
-     * This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
-     * <p/>
-     * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getUserTimeline}
-     *
-     * @param page    Specifies the page of results to retrieve.
-     * @param count   Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
-     *                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
-     *                after the count has been applied.
-     * @param sinceId Returns results with an ID greater than (that is, more recent than) the specified ID. There are
-     *                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
-     *                the since_id, the since_id will be forced to the oldest ID available.
-     * @return list of {@link Status} the user Timeline
-     * @throws TwitterException when Twitter service or network is unavailable
-     * @see <a href="http://dev.twitter.com/doc/get/statuses/user_timeline">GET
-     *      statuses/user_timeline | dev.twitter.com</a>
-     */
-    @Processor
-    public ResponseList<Status> getUserTimeline(@Placement(group = "Pagination") @Default(value = "1")  int page,
-                                                @Placement(group = "Pagination") @Default(value = "20")  int count,
-                                                @Placement(group = "Pagination") @Default(value = "-1")  long sinceId)
-            throws TwitterException {
-        return twitter.getUserTimeline(getPaging(page, count, sinceId));
-    }
 
     /**
      * Returns the 20 most recent mentions (status containing @username) for the
