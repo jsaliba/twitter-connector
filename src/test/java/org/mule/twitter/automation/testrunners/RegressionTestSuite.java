@@ -24,7 +24,6 @@ import org.mule.twitter.automation.testcases.GetRetweetsOfMeTestCases;
 import org.mule.twitter.automation.testcases.GetRetweetsTestCases;
 import org.mule.twitter.automation.testcases.GetUserTimelineByScreenNameTestCases;
 import org.mule.twitter.automation.testcases.GetUserTimelineByUserIdTestCases;
-import org.mule.twitter.automation.testcases.GetUserTimelineTestCases;
 import org.mule.twitter.automation.testcases.RetweetStatusTestCases;
 import org.mule.twitter.automation.testcases.ReverseGeoCodeTestCases;
 import org.mule.twitter.automation.testcases.SearchPlacesTestCases;
@@ -44,7 +43,7 @@ import org.mule.twitter.automation.testcases.UpdateStatusTestCases;
 		GetLocationTrendsTestCases.class, GetMentionsTestCases.class,
 		GetRetweetsOfMeTestCases.class, GetRetweetsTestCases.class,
 		GetUserTimelineByScreenNameTestCases.class,
-		GetUserTimelineByUserIdTestCases.class, GetUserTimelineTestCases.class,
+		GetUserTimelineByUserIdTestCases.class,
 		RetweetStatusTestCases.class,
 		ReverseGeoCodeTestCases.class, SearchPlacesTestCases.class,
 		SearchTestCases.class, SendDirectMessageByScreenNameTestCases.class,
