@@ -8,9 +8,6 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,9 +16,11 @@ import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.RegressionTests;
 import org.mule.twitter.automation.TwitterTestParent;
 import org.mule.twitter.automation.TwitterTestUtils;
-
 import twitter4j.ResponseList;
 import twitter4j.Status;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 
 

@@ -8,16 +8,15 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.RegressionTests;
 import org.mule.twitter.automation.TwitterTestParent;
-
 import twitter4j.DirectMessage;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class SendDirectMessageByUserIdTestCases extends TwitterTestParent {
     	
@@ -29,8 +28,8 @@ public class SendDirectMessageByUserIdTestCases extends TwitterTestParent {
 			DirectMessage directMessage = runFlowAndGetPayload("send-direct-message-by-user-id");
 			
 			assertEquals(getTestRunMessageValue("message").toString(), directMessage.getText());
-			assertEquals(getTestRunMessageValue("senderSandboxScreenName").toString(), directMessage.getSenderId());
-			assertEquals(getTestRunMessageValue("recipientSandboxScreenName").toString(), directMessage.getRecipientId());
+			assertEquals(getTestRunMessageValue("senderSandboxUserId").toString(), directMessage.getSenderId() + "");
+			assertEquals(getTestRunMessageValue("recipientSandboxUserId").toString(), directMessage.getRecipientId() + "");
 	      
 		} catch (Exception e) {
 			fail(ConnectorTestUtils.getStackTrace(e));

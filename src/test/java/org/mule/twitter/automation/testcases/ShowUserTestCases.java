@@ -8,19 +8,18 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import java.util.Map;
-
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.RegressionTests;
 import org.mule.twitter.automation.SmokeTests;
 import org.mule.twitter.automation.TwitterTestParent;
-
 import twitter4j.User;
+
+import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 
 

@@ -8,12 +8,6 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.List;
-import java.util.Map;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,9 +16,14 @@ import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.RegressionTests;
 import org.mule.twitter.automation.TwitterTestParent;
 import org.mule.twitter.automation.TwitterTestUtils;
-
 import twitter4j.QueryResult;
 import twitter4j.Status;
+
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 
 
@@ -34,7 +33,7 @@ public class SearchTestCases extends TwitterTestParent {
 	
     @Before
     public void setUp() throws Exception {
-		aTweetToQueryFor.put("statusId", ((Status) runFlowAndGetPayload("update-status")).getId());
+		aTweetToQueryFor.put("statusId", ((Status) runFlowAndGetPayload("update-status","aTweetToQueryFor")).getId());
 		Thread.sleep(TwitterTestUtils.SETUP_DELAY);
     	 
     }
@@ -49,6 +48,7 @@ public class SearchTestCases extends TwitterTestParent {
 	@Test
 	public void testSearch() {
 		try {
+            initializeTestRunMessage("searchTestData");
 			QueryResult responseList = runFlowAndGetPayload("search-default-values");
 			List<Status> tweets = (List<Status>) responseList.getTweets();
 			assertTrue(tweets.size() != 0);

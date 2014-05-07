@@ -8,16 +8,15 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.RegressionTests;
 import org.mule.twitter.automation.TwitterTestParent;
-
 import twitter4j.DirectMessage;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class SendDirectMessageByScreenNameTestCases extends TwitterTestParent {
 	
@@ -29,8 +28,8 @@ public class SendDirectMessageByScreenNameTestCases extends TwitterTestParent {
 			DirectMessage directMessage = runFlowAndGetPayload("send-direct-message-by-screen-name");
 			
 			assertEquals(getTestRunMessageValue("message").toString(), directMessage.getText());
-			assertEquals(getTestRunMessageValue("senderSandboxScreenName").toString(), directMessage.getSenderScreenName());
-			assertEquals(getTestRunMessageValue("recipientSandboxScreenName").toString(), directMessage.getRecipientScreenName());
+			assertEquals(getTestRunMessageValue("senderSandboxUserName").toString(), directMessage.getSenderScreenName());
+			assertEquals(getTestRunMessageValue("recipientSandboxUserName").toString(), directMessage.getRecipientScreenName());
 	      
 		} catch (Exception e) {
 			fail(ConnectorTestUtils.getStackTrace(e));

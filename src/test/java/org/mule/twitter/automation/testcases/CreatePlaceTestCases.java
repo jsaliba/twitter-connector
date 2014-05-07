@@ -8,16 +8,13 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.TwitterTestParent;
-
 import twitter4j.Place;
+
+import static org.junit.Assert.*;
 
 public class CreatePlaceTestCases extends TwitterTestParent {
 	    
