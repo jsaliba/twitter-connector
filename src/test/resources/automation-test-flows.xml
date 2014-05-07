@@ -95,11 +95,11 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
     </flow>
 	
 	<flow name="get-user-timeline-by-screen-name-default-values" doc:name="get-user-timeline-by-screen-name-default-values">
-        <twitter:get-user-timeline-by-screen-name config-ref="Twitter"  doc:name="Twitter" screenName="#[payload.screenName]"/>
+        <twitter:get-user-timeline-by-screen-name config-ref="Twitter"  doc:name="Twitter" screenName="#[payload.userScreenName]"/>
     </flow>
 	
 	<flow name="get-user-timeline-by-screen-name-parameterized" doc:name="get-user-timeline-by-screen-name-parameterized">
-        <twitter:get-user-timeline-by-screen-name config-ref="Twitter"  doc:name="Twitter" screenName="#[payload.screenName]" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
+        <twitter:get-user-timeline-by-screen-name config-ref="Twitter"  doc:name="Twitter" screenName="#[payload.screenName]" count="#[payload.count]" page="#[payload.page]" />
     </flow>
 	
 	<flow name="get-user-timeline-by-user-id-default-values" doc:name="get-user-timeline-by-user-id-default-values">

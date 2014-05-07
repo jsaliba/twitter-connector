@@ -8,10 +8,6 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,9 +16,10 @@ import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.RegressionTests;
 import org.mule.twitter.automation.TwitterTestParent;
 import org.mule.twitter.automation.TwitterTestUtils;
-
 import twitter4j.ResponseList;
 import twitter4j.Status;
+
+import static org.junit.Assert.*;
 
 public class GetUserTimelineByUserIdTestCases extends TwitterTestParent {
 
@@ -68,7 +65,7 @@ public class GetUserTimelineByUserIdTestCases extends TwitterTestParent {
 	
     @Category({RegressionTests.class})
 	@Test
-	public void testGetUserTimelineByUserIdParametrized() {
+	public void testGetUserTimelineByUserIdParameterized() {
     	Long expectedStatusId = secondStatus.getId();
     	
     	initializeTestRunMessage("getUserTimelineByUserIdTestData");
@@ -79,7 +76,7 @@ public class GetUserTimelineByUserIdTestCases extends TwitterTestParent {
 
 			assertTrue(TwitterTestUtils.isStatusIdOnTimeline(timeLine, expectedStatusId));
 	        assertEquals(secondStatus.getText(), TwitterTestUtils.getStatusTextOnTimeline(timeLine, expectedStatusId));        
-	        assertTrue(timeLine.size() <= (Integer) getTestRunMessageValue("count"));
+	        assertTrue(timeLine.size() <= Integer.parseInt((String) getTestRunMessageValue("count")));
 	        
 		} catch (Exception e) {
 			fail(ConnectorTestUtils.getStackTrace(e));

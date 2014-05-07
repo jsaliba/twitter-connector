@@ -8,11 +8,6 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import java.util.Map;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,49 +15,46 @@ import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.RegressionTests;
 import org.mule.twitter.automation.TwitterTestParent;
-
 import twitter4j.Status;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 
 public class ShowStatusTestCases extends TwitterTestParent {
-    
-	private Map<String,Object> aStatus = getBeanFromContext("aRandomStatus");
-	
-	@Before
-    public void setUp() throws Exception {
-		initializeTestRunMessage(aStatus);
-        upsertOnTestRunMessage("statusId", ((Status) runFlowAndGetPayload("update-status")).getId());
 
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("aRandomStatus");
+        long id = ((Status) runFlowAndGetPayload("update-status")).getId();
+        upsertOnTestRunMessage("id", id);
+        upsertOnTestRunMessage("statusId", id);
     }
-    
+
     @After
     public void tearDown() throws Exception {
-    	initializeTestRunMessage(aStatus);
-		runFlowAndGetPayload("destroy-status");
-   	
+        runFlowAndGetPayload("destroy-status");
     }
-    
-    @Category({RegressionTests.class})
-	@Test
-	public void testShowStatus() {
-		try {
-			
-			Status status = runFlowAndGetPayload("show-status");
-			
-			Long expectedStatusId = (Long) aStatus.get("statusId");
-	        Long actualStatusId = status.getId();
-			
-			String expectedStatusText = aStatus.get("text").toString();
-			String actualStatusText = status.getText();
 
-	        assertEquals(expectedStatusId, actualStatusId);
-	        assertEquals(expectedStatusText, actualStatusText);  
-		
-		} catch (Exception e) {
-			fail(ConnectorTestUtils.getStackTrace(e));
-		}
-     
-	}
+    @Category({RegressionTests.class})
+    @Test
+    public void testShowStatus() {
+        try {
+            Status status = runFlowAndGetPayload("show-status");
+
+            Long expectedStatusId = getTestRunMessageValue("id");
+            Long actualStatusId = status.getId();
+
+            String expectedStatusText = getTestRunMessageValue("status");
+            String actualStatusText = status.getText();
+
+            assertEquals(expectedStatusId, actualStatusId);
+            assertEquals(expectedStatusText, actualStatusText);
+
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+
+    }
 
 }

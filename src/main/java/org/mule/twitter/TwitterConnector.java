@@ -8,9 +8,6 @@
 
 package org.mule.twitter;
 
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.UnhandledException;
 import org.apache.commons.logging.Log;
@@ -19,15 +16,7 @@ import org.mule.api.ConnectionException;
 import org.mule.api.MuleContext;
 import org.mule.api.MuleEvent;
 import org.mule.api.MuleException;
-import org.mule.api.annotations.Configurable;
-import org.mule.api.annotations.Connect;
-import org.mule.api.annotations.ConnectionIdentifier;
-import org.mule.api.annotations.ConnectivityTesting;
-import org.mule.api.annotations.Connector;
-import org.mule.api.annotations.Disconnect;
-import org.mule.api.annotations.Processor;
-import org.mule.api.annotations.Source;
-import org.mule.api.annotations.ValidateConnection;
+import org.mule.api.annotations.*;
 import org.mule.api.annotations.display.FriendlyName;
 import org.mule.api.annotations.display.Password;
 import org.mule.api.annotations.display.Placement;
@@ -37,37 +26,16 @@ import org.mule.api.annotations.param.Optional;
 import org.mule.api.callback.SourceCallback;
 import org.mule.api.context.MuleContextAware;
 import org.mule.twitter.UserEvent.EventType;
-
-import twitter4j.DirectMessage;
-import twitter4j.FilterQuery;
-import twitter4j.GeoLocation;
-import twitter4j.GeoQuery;
-import twitter4j.Location;
-import twitter4j.PagableResponseList;
-import twitter4j.Paging;
-import twitter4j.Place;
+import twitter4j.*;
 import twitter4j.Query;
-import twitter4j.QueryResult;
-import twitter4j.ResponseList;
-import twitter4j.SimilarPlaces;
-import twitter4j.SiteStreamsAdapter;
-import twitter4j.Status;
-import twitter4j.StatusAdapter;
-import twitter4j.StatusUpdate;
-import twitter4j.Trends;
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
-import twitter4j.TwitterStream;
-import twitter4j.TwitterStreamFactory;
-import twitter4j.User;
-import twitter4j.UserList;
-import twitter4j.UserStreamAdapter;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 import twitter4j.conf.ConfigurationBuilder;
 import twitter4j.internal.http.alternative.HttpClientHiddenConstructionArgument;
 import twitter4j.internal.http.alternative.MuleHttpClient;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Twitter is an online social networking service and microblogging service that enables its users to send and read
@@ -76,7 +44,7 @@ import twitter4j.internal.http.alternative.MuleHttpClient;
  * @author MuleSoft, Inc.
  */
 @Connector(name = "twitter", schemaVersion = "2.4", description = "Twitter Integration", friendlyName = "Twitter",
-minMuleVersion = "3.5", connectivityTesting = ConnectivityTesting.DISABLED)
+        minMuleVersion = "3.5", connectivityTesting = ConnectivityTesting.DISABLED)
 public class TwitterConnector implements MuleContextAware {
 
     protected transient Log logger = LogFactory.getLog(getClass());
@@ -100,7 +68,7 @@ public class TwitterConnector implements MuleContextAware {
     /**
      * Whether to use SSL in API calls to Twitter
      */
-    @Optional
+
     @Configurable
     @Default("true")
     @FriendlyName("Use SSL")
@@ -118,7 +86,6 @@ public class TwitterConnector implements MuleContextAware {
      * Proxy port
      */
     @Configurable
-    @Optional
     @Default("-1")
     @Placement(group = "Proxy settings", tab = "Proxy")
     private int proxyPort;
@@ -145,7 +112,6 @@ public class TwitterConnector implements MuleContextAware {
      * Twitter Stream Base Url
      */
     @Configurable
-    @Optional
     @Default("https://stream.twitter.com/1.1/")
     @Placement(group = "Streaming settings", tab = "Streaming")
     private String streamBaseUrl;
@@ -155,7 +121,7 @@ public class TwitterConnector implements MuleContextAware {
      * Twitter Site Stream Base Url
      */
     @Configurable
-    @Optional
+
     @Default("https://sitestream.twitter.com/1.1/")
     @Placement(group = "Streaming settings", tab = "Streaming")
     private String siteStreamBaseUrl;
@@ -179,7 +145,7 @@ public class TwitterConnector implements MuleContextAware {
         cb.setHttpProxyPort(proxyPort);
         cb.setHttpProxyUser(proxyUsername);
         cb.setHttpProxyPassword(proxyPassword);
-        
+
         HttpClientHiddenConstructionArgument.setUseMule(true);
         twitter = new TwitterFactory(cb.build()).getInstance();
 
@@ -236,11 +202,11 @@ public class TwitterConnector implements MuleContextAware {
                               @Optional Long sinceId,
                               @Optional String geocode,
                               @Optional String radius,
-                              @Default (value = Query.MILES) @Optional String unit,
+                              @Default (value = Query.MILES)  String unit,
                               @Optional String until,
                               @Optional String resultType) throws TwitterException {
         final Query q = new Query(query);
-        
+
         if (lang != null)
         {
             q.setLang(lang);
@@ -253,7 +219,7 @@ public class TwitterConnector implements MuleContextAware {
         {
             q.setMaxId(maxId.longValue());
         }
-        
+
         if (since != null)
         {
             q.setSince(since);
@@ -305,9 +271,9 @@ public class TwitterConnector implements MuleContextAware {
      *      statuses/home_timeline | dev.twitter.com</a>
      */
     @Processor
-    public ResponseList<Status> getHomeTimeline(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                                @Placement(group = "Pagination") @Default(value = "20") @Optional int count,
-                                                @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
+    public ResponseList<Status> getHomeTimeline(@Placement(group = "Pagination") @Default(value = "1")  int page,
+                                                @Placement(group = "Pagination") @Default(value = "20")  int count,
+                                                @Placement(group = "Pagination") @Default(value = "-1")  long sinceId)
             throws TwitterException {
         return twitter.getHomeTimeline(getPaging(page, count, sinceId));
     }
@@ -341,9 +307,9 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Processor
     public ResponseList<Status> getUserTimelineByScreenName(String screenName,
-                                                            @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                                            @Placement(group = "Pagination") @Default(value = "20") @Optional int count,
-                                                            @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
+                                                            @Placement(group = "Pagination") @Default(value = "1")  int page,
+                                                            @Placement(group = "Pagination") @Default(value = "20")  int count,
+                                                            @Placement(group = "Pagination") @Default(value = "-1")  long sinceId)
             throws TwitterException {
         return twitter.getUserTimeline(screenName, getPaging(page, count, sinceId));
     }
@@ -377,9 +343,9 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Processor
     public ResponseList<Status> getUserTimelineByUserId(long userId,
-                                                        @Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                                        @Placement(group = "Pagination") @Default(value = "20") @Optional int count,
-                                                        @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
+                                                        @Placement(group = "Pagination") @Default(value = "1")  int page,
+                                                        @Placement(group = "Pagination") @Default(value = "20")  int count,
+                                                        @Placement(group = "Pagination") @Default(value = "-1")  long sinceId)
             throws TwitterException {
         return twitter.getUserTimeline(userId, getPaging(page, count, sinceId));
     }
@@ -419,9 +385,9 @@ public class TwitterConnector implements MuleContextAware {
      *      statuses/user_timeline | dev.twitter.com</a>
      */
     @Processor
-    public ResponseList<Status> getUserTimeline(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                                @Placement(group = "Pagination") @Default(value = "20") @Optional int count,
-                                                @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
+    public ResponseList<Status> getUserTimeline(@Placement(group = "Pagination") @Default(value = "1")  int page,
+                                                @Placement(group = "Pagination") @Default(value = "20")  int count,
+                                                @Placement(group = "Pagination") @Default(value = "-1")  long sinceId)
             throws TwitterException {
         return twitter.getUserTimeline(getPaging(page, count, sinceId));
     }
@@ -446,9 +412,9 @@ public class TwitterConnector implements MuleContextAware {
      *      statuses/mentions | dev.twitter.com</a>
      */
     @Processor
-    public ResponseList<Status> getMentionsTimeline(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                            @Placement(group = "Pagination") @Default(value = "20") @Optional int count,
-                                            @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
+    public ResponseList<Status> getMentionsTimeline(@Placement(group = "Pagination") @Default(value = "1")  int page,
+                                                    @Placement(group = "Pagination") @Default(value = "20")  int count,
+                                                    @Placement(group = "Pagination") @Default(value = "-1")  long sinceId)
             throws TwitterException {
         return twitter.getMentionsTimeline(getPaging(page, count, sinceId));
     }
@@ -473,9 +439,9 @@ public class TwitterConnector implements MuleContextAware {
      *      statuses/retweets_of_me | dev.twitter.com</a>
      */
     @Processor
-    public ResponseList<Status> getRetweetsOfMe(@Placement(group = "Pagination") @Default(value = "1") @Optional int page,
-                                                @Placement(group = "Pagination") @Default(value = "20") @Optional int count,
-                                                @Placement(group = "Pagination") @Default(value = "-1") @Optional long sinceId)
+    public ResponseList<Status> getRetweetsOfMe(@Placement(group = "Pagination") @Default(value = "1")  int page,
+                                                @Placement(group = "Pagination") @Default(value = "20")  int count,
+                                                @Placement(group = "Pagination") @Default(value = "-1")  long sinceId)
             throws TwitterException {
         return twitter.getRetweetsOfMe(getPaging(page, count, sinceId));
     }
@@ -510,23 +476,23 @@ public class TwitterConnector implements MuleContextAware {
     public User showUser() throws TwitterException {
         return twitter.showUser(twitter.getId());
     }
-    
+
     /**
      * Returns a cursored collection of user objects for users following the specified user.<br>
      * At this time, results are ordered with the most recent following first, however, this ordering is subject to unannounced 
      * change and eventual consistency issues. Results are given in groups of 20 users and multiple "pages" of results can be 
      * navigated through using the next_cursor value in subsequent requests.
-     * 
+     *
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getFollowers}
-     * 
+     *
      * @param cursor Causes the results to be broken into pages of no more than 20 records at a time.
      * @return Paginated list of followers
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="https://dev.twitter.com/docs/misc/cursoring">Using cursors to navigate collections</a>
      */
     @Processor
-    public PagableResponseList<User> getFollowers(@Default(value = "-1") @Optional long cursor) 
-                    throws TwitterException{
+    public PagableResponseList<User> getFollowers(@Default(value = "-1")  long cursor)
+            throws TwitterException{
         return twitter.getFollowersList(twitter.getId(), cursor);
     }
 
@@ -552,7 +518,7 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Processor
     public Status updateStatus(String status,
-                               @Default(value = "-1") @Optional long inReplyTo,
+                               @Default(value = "-1")  long inReplyTo,
                                @Placement(group = "Coordinates") @Optional Double latitude,
                                @Placement(group = "Coordinates") @Optional Double longitude) throws TwitterException {
         StatusUpdate update = new StatusUpdate(status);
@@ -563,7 +529,7 @@ public class TwitterConnector implements MuleContextAware {
             update.setLocation(new GeoLocation(latitude, longitude));
         }
         Status response = twitter.updateStatus(update);
-        
+
         //Twitter4j doesn't throw exception when json reponse has 'error: Could not authenticate with OAuth'
         if (response.getId() == -1)
         {
@@ -815,14 +781,14 @@ public class TwitterConnector implements MuleContextAware {
      * and long passed in. The sort is nearest to furthest.
      *
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getAvailableTrends}
-     * 
+     *
      * @return the {@link Location}s
      * @throws TwitterException when Twitter service or network is unavailable
      */
     @Processor
-    public ResponseList<Location> getAvailableTrends() 
+    public ResponseList<Location> getAvailableTrends()
             throws TwitterException {
-        
+
         return twitter.getAvailableTrends();
     }
 
@@ -847,10 +813,10 @@ public class TwitterConnector implements MuleContextAware {
      * @param callback the {@link SourceCallback} used to dispatch messages when a response is received
      */
     @Source
-    public void filteredStream(@Optional @Default("0") int count,
-                               @Placement(group = "User Ids to Follow") @Optional List<String> userIds,
-                               @Placement(group = "Keywords to Track") @Optional List<String> keywords,
-                               final SourceCallback callback) {
+    public void filteredStream( @Default("0") int count,
+                                @Placement(group = "User Ids to Follow") @Optional List<String> userIds,
+                                @Placement(group = "Keywords to Track") @Optional List<String> keywords,
+                                final SourceCallback callback) {
         listenToStatues(callback).filter(new FilterQuery(count, toLongArray(userIds), toStringArray(keywords)));
     }
 
@@ -1073,7 +1039,7 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Source
     public void siteStream(@Placement(group = "User Ids to Follow") List<String> userIds,
-                           @Optional @Default("false") boolean withFollowings,
+                           @Default("false") boolean withFollowings,
                            final SourceCallback callback_) {
         initStream();
         final SoftCallback callback = new SoftCallback(callback_);
@@ -1136,26 +1102,26 @@ public class TwitterConnector implements MuleContextAware {
      * The response is an array of "trend" objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on <a href="http://search.twitter.com/">Twitter Search</a>, and the Twitter Search URL.<br>
      * This information is cached for 5 minutes. Requesting more frequently than that will not return any more data, and will count against your rate limit usage.<br>
      * <br>This method calls http://api.twitter.com/1.1/trends/place.json
-	 *
+     *
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getPlaceTrends}
-     * 
+     *
      * @param woeid <a href="http://developer.yahoo.com/geo/geoplanet/">The Yahoo! Where On Earth ID</a> of the location to return trending information for. Global information is available by using 1 as the WOEID.
      * @return trends
      * @throws twitter4j.TwitterException when Twitter service or network is unavailable
      */
     @Processor
-    public Trends getPlaceTrends(@Optional @Default("1") int woeid) throws TwitterException{
-    	return twitter.getPlaceTrends(woeid);
+    public Trends getPlaceTrends( @Default("1") int woeid) throws TwitterException{
+        return twitter.getPlaceTrends(woeid);
     }
-    
+
     /**
      * Returns the locations that Twitter has trending topic information for, closest to a specified location.<br>
      * The response is an array of "locations" that encode the location's WOEID and some other human-readable information such as a canonical name and country the location belongs in.<br>
      * A WOEID is a <a href="http://developer.yahoo.com/geo/geoplanet/">Yahoo! Where On Earth ID</a>.
      * <br>This method calls http://api.twitter.com/1.1/trends/closest.json
-     * 
+     *
      * {@sample.xml ../../../doc/twitter-connector.xml.sample twitter:getClosestTrends}
-     * 
+     *
      * @param latitude  The latitude of the location this tweet refers to. This parameter will be ignored unless it is
      *                  inside the range -90.0 to +90.0 (North is positive) inclusive.
      * @param longitude he longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to
@@ -1166,9 +1132,9 @@ public class TwitterConnector implements MuleContextAware {
      */
     @Processor
     public ResponseList<Location> getClosestTrends(double latitude, double longitude) throws TwitterException{
-    	return twitter.getClosestTrends(new GeoLocation(latitude, longitude));
+        return twitter.getClosestTrends(new GeoLocation(latitude, longitude));
     }
-    
+
     private void initStream() {
         if (stream != null) {
             throw new IllegalStateException("Only one stream can be consumed per twitter account");

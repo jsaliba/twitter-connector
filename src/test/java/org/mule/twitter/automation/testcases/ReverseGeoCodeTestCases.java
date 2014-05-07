@@ -8,33 +8,31 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.RegressionTests;
 import org.mule.twitter.automation.TwitterTestParent;
-
 import twitter4j.Place;
 import twitter4j.ResponseList;
 
-public class ReverseGeoCodeTestCases extends TwitterTestParent {
-    
-    @Category({RegressionTests.class})
-	@Test
-	public void testReverseGeoCodesByCoordinates() {
-		try {
+import static org.junit.Assert.*;
 
-        	ResponseList<Place> placesList = runFlowAndGetPayload("reverse-geo-code-by-coordinates","reverseGeoCodesByCoordinatesTestData");
-        	assertNotNull(placesList);
-        	
-		} catch (Exception e) {
-			fail(ConnectorTestUtils.getStackTrace(e));
-		} 
-     
-	}
-    
+public class ReverseGeoCodeTestCases extends TwitterTestParent {
+
+    @Category({RegressionTests.class})
+    @Test
+    public void testReverseGeoCodesByCoordinates() {
+        try {
+            initializeTestRunMessage("reverseGeoCodesByCoordinatesTestData");
+            ResponseList<Place> placesList = runFlowAndGetPayload("reverse-geo-code-by-coordinates");
+            assertNotNull(placesList);
+            assertEquals(getTestRunMessageValue("name"),placesList.get(0).getName());
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+
+    }
+
 
 }

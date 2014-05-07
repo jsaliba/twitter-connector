@@ -8,10 +8,6 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,31 +16,26 @@ import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.RegressionTests;
 import org.mule.twitter.automation.TwitterTestParent;
 import org.mule.twitter.automation.TwitterTestUtils;
-
 import twitter4j.ResponseList;
 import twitter4j.Status;
+
+import static org.junit.Assert.*;
 
 public class GetMentionsTestCases extends TwitterTestParent {
 	
 	private Status firstMention;
-	private Status secondMention;
-	
+
     @Before
     public void setUp() throws Exception {
     	firstMention = runFlowAndGetPayload("update-status","aRandomMention");
-    	secondMention = runFlowAndGetPayload("update-status","aRandomMention");
-    	
     	Thread.sleep(TwitterTestUtils.SETUP_DELAY);
     	 
     }
 
     @After
     public void tearDown() throws Exception {
-    	upsertOnTestRunMessage("statusId", firstMention.getId());
+        upsertOnTestRunMessage("statusId", firstMention.getId());
     	runFlowAndGetPayload("destroy-status");
-    	upsertOnTestRunMessage("statusId", secondMention.getId());
-    	runFlowAndGetPayload("destroy-status");
-   	
     }
 	
     @Category({RegressionTests.class})
@@ -67,8 +58,8 @@ public class GetMentionsTestCases extends TwitterTestParent {
 	
     @Category({RegressionTests.class})
 	@Test
-	public void testGetMentionsParametrized() {
-    	Long expectedStatusId = secondMention.getId();
+	public void testGetMentionsParameterized() {
+    	Long expectedStatusId = firstMention.getId();
     	
     	initializeTestRunMessage("getMentionsTestData");
 		upsertOnTestRunMessage("sinceId", firstMention.getId());
@@ -77,7 +68,7 @@ public class GetMentionsTestCases extends TwitterTestParent {
 			ResponseList<Status> mentions = runFlowAndGetPayload("get-mentions-parametrized");
 			
 			assertTrue(TwitterTestUtils.isStatusIdOnTimeline(mentions, expectedStatusId));
-	        assertEquals(secondMention.getText(), TwitterTestUtils.getStatusTextOnTimeline(mentions, expectedStatusId));
+	        assertEquals(firstMention.getText(), TwitterTestUtils.getStatusTextOnTimeline(mentions, expectedStatusId));
 	        assertTrue(mentions.size() <= (Integer) getTestRunMessageValue("count"));
 	      
 		} catch (Exception e) {

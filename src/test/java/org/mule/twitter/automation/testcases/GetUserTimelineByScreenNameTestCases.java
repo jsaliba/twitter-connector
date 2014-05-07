@@ -8,10 +8,6 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,71 +16,72 @@ import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.RegressionTests;
 import org.mule.twitter.automation.TwitterTestParent;
 import org.mule.twitter.automation.TwitterTestUtils;
-
 import twitter4j.ResponseList;
 import twitter4j.Status;
 
+import static org.junit.Assert.*;
+
 public class GetUserTimelineByScreenNameTestCases extends TwitterTestParent {
 
-	private Status firstStatus;
-	private Status secondStatus;
-	
+    private Status firstStatus;
+    private Status secondStatus;
+
     @Before
     public void setUp() throws Exception {
-    	firstStatus = runFlowAndGetPayload("update-status-aux-sandbox","aRandomStatus");
-    	secondStatus = runFlowAndGetPayload("update-status-aux-sandbox","aRandomStatus");
-    	
-    	Thread.sleep(TwitterTestUtils.SETUP_DELAY);
+        firstStatus = runFlowAndGetPayload("update-status-aux-sandbox", "aRandomStatus");
+        secondStatus = runFlowAndGetPayload("update-status-aux-sandbox", "aRandomStatus");
+
+        Thread.sleep(TwitterTestUtils.SETUP_DELAY);
 
     }
 
     @After
     public void tearDown() throws Exception {
-		upsertOnTestRunMessage("statusId", firstStatus.getId());
-		runFlowAndGetPayload("destroy-status-aux-sandbox");
-		upsertOnTestRunMessage("statusId", secondStatus.getId());
-		runFlowAndGetPayload("destroy-status-aux-sandbox");
-   	
+        upsertOnTestRunMessage("statusId", firstStatus.getId());
+        runFlowAndGetPayload("destroy-status-aux-sandbox");
+        upsertOnTestRunMessage("statusId", secondStatus.getId());
+        runFlowAndGetPayload("destroy-status-aux-sandbox");
+
     }
-	
-    @Category({RegressionTests.class})
-	@Test
-	public void testGetUserTimelineByScreenNameDefaultValues() {
-    	Long expectedStatusId = firstStatus.getId();
-    	
-		try {
-			ResponseList<Status> timeLine = runFlowAndGetPayload("get-user-timeline-by-screen-name-default-values","auxSandbox");
-			
-			assertTrue(TwitterTestUtils.isStatusIdOnTimeline(timeLine, expectedStatusId));
 
-	        assertEquals(firstStatus.getText(), TwitterTestUtils.getStatusTextOnTimeline(timeLine, expectedStatusId));
-	        assertTrue(timeLine.size() <= TwitterTestUtils.TIMELINE_DEFAULT_LENGTH);
-	      
-		} catch (Exception e) {
-			fail(ConnectorTestUtils.getStackTrace(e));
-		}
-        
-	} 
-	
     @Category({RegressionTests.class})
-	@Test
-	public void testGetUserTimelineByScreenNameParametrized() {
-    	Long expectedStatusId = secondStatus.getId();
-    	
-    	initializeTestRunMessage("getUserTimelineByScreenNameTestData");
+    @Test
+    public void testGetUserTimelineByScreenNameDefaultValues() {
+        Long expectedStatusId = firstStatus.getId();
+
+        try {
+            ResponseList<Status> timeLine = runFlowAndGetPayload("get-user-timeline-by-screen-name-default-values", "auxSandbox");
+
+            assertTrue(TwitterTestUtils.isStatusIdOnTimeline(timeLine, expectedStatusId));
+
+            assertEquals(firstStatus.getText(), TwitterTestUtils.getStatusTextOnTimeline(timeLine, expectedStatusId));
+            assertTrue(timeLine.size() <= TwitterTestUtils.TIMELINE_DEFAULT_LENGTH);
+
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+
+    }
+
+    @Category({RegressionTests.class})
+    @Test
+    public void testGetUserTimelineByScreenNameParameterized() {
+        Long expectedStatusId = secondStatus.getId();
+
+        initializeTestRunMessage("getUserTimelineByScreenNameTestData");
 		upsertOnTestRunMessage("sinceId", firstStatus.getId());
-		
-		try {
-			ResponseList<Status> timeLine = runFlowAndGetPayload("get-user-timeline-by-screen-name-parameterized");
 
-			assertTrue(TwitterTestUtils.isStatusIdOnTimeline(timeLine, expectedStatusId));
-	        assertEquals(secondStatus.getText(), TwitterTestUtils.getStatusTextOnTimeline(timeLine, expectedStatusId));        
-	        assertTrue(timeLine.size() <= (Integer) getTestRunMessageValue("count"));
-	        
-		} catch (Exception e) {
-			fail(ConnectorTestUtils.getStackTrace(e));
-		}
-        
-	}
-	
+        try {
+            ResponseList<Status> timeLine = runFlowAndGetPayload("get-user-timeline-by-screen-name-parameterized");
+
+            assertTrue(TwitterTestUtils.isStatusIdOnTimeline(timeLine, expectedStatusId));
+            assertEquals(secondStatus.getText(), TwitterTestUtils.getStatusTextOnTimeline(timeLine, expectedStatusId));
+            assertTrue(timeLine.size() <= Integer.parseInt((String) getTestRunMessageValue("count")));
+
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+
+    }
+
 }

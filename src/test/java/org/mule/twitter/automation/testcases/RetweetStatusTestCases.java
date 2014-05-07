@@ -8,9 +8,6 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,8 +17,10 @@ import org.mule.twitter.automation.RegressionTests;
 import org.mule.twitter.automation.SmokeTests;
 import org.mule.twitter.automation.TwitterTestParent;
 import org.mule.twitter.automation.TwitterTestUtils;
-
 import twitter4j.Status;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 
 
@@ -49,7 +48,7 @@ public class RetweetStatusTestCases extends TwitterTestParent {
     		Status retweetedStatus = ((Status) runFlowAndGetPayload("retweet-status")).getRetweetedStatus();
 
 	        assertEquals((Long) getTestRunMessageValue("statusId"), (Long) retweetedStatus.getId());
-	        assertEquals(getTestRunMessageValue("text").toString(), retweetedStatus.getText());  
+	        assertEquals(getTestRunMessageValue("status").toString(), retweetedStatus.getText());
 		
 		} catch (Exception e) {
 			fail(ConnectorTestUtils.getStackTrace(e));

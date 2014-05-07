@@ -8,17 +8,16 @@
 
 package org.mule.twitter.automation.testcases;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
 import org.mule.twitter.automation.RegressionTests;
 import org.mule.twitter.automation.TwitterTestParent;
-
 import twitter4j.Location;
 import twitter4j.ResponseList;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 
 
@@ -39,7 +38,7 @@ public class GetAvailableTrendsTestCases extends TwitterTestParent {
     
     @Category({RegressionTests.class})
 	@Test
-    public void testGetAvailableTrendsParametrized() {
+    public void testGetAvailableTrendsParameterized() {
     	initializeTestRunMessage("getAvailableTrendsTestData");
     	try {
         	ResponseList<Location> locations = runFlowAndGetPayload("get-available-trends-parametrized");
