@@ -43,7 +43,7 @@ import org.mule.twitter.automation.testcases.UpdateStatusTestCases;
 		GetLocationTrendsTestCases.class, GetMentionsTestCases.class,
 		GetRetweetsOfMeTestCases.class, GetRetweetsTestCases.class,
 		GetUserTimelineByScreenNameTestCases.class,
-		GetUserTimelineByUserIdTestCases.class, GetUserTimelineTestCases.class,
+		GetUserTimelineByUserIdTestCases.class,
 		RetweetStatusTestCases.class,
 		ReverseGeoCodeTestCases.class, SearchPlacesTestCases.class,
 		SearchTestCases.class, SendDirectMessageByScreenNameTestCases.class,
