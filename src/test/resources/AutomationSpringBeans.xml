@@ -20,12 +20,12 @@
 		<entry key="status" value-ref="randomShortString" />
 	</util:map>
 	
- 	<bean id="aRandomMentionStatus" class="java.lang.String">
- 	    <constructor-arg value="'@' + ${twitter.sandbox.userScreenName}]" />
+ 	<bean id="aRandomMentionStatus" class="java.lang.String" scope="prototype">
+ 	    <constructor-arg value="#{'Hi @'}${twitter.auxAuxSandbox.userScreenName}" />
  	</bean>
 	
  	<util:map id="aRandomMention" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
- 		<entry key="status" value="Hi #{'@' ${twitter.sandbox.userScreenName}}" />
+ 		<entry key="status" value-ref="aRandomMentionStatus" />
  	</util:map>
  
  	<util:map id="sandbox" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
@@ -77,7 +77,7 @@
 	</util:map>
 	
 	<util:map id="getMentionsTestData" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
-		<entry key="count" value="2" />
+		<entry key="count" value="1" />
 		<entry key="page" value="1" />
 	</util:map>
 	

@@ -145,13 +145,17 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 	<flow name="get-location-trends-parametrized" doc:name="get-location-trends-parametrized">
         <twitter:get-place-trends config-ref="Twitter" doc:name="Twitter" woeid="#[payload.woeid]"/>
     </flow>
-	
+
+    <flow name="update-status-auxaux-sandbox" doc:name="update-status-auxaux-sandbox">
+        <twitter:update-status config-ref="auxAuxSandbox" status="#[payload.status]" doc:name="Update status"/>
+    </flow>
+
 	<flow name="get-mentions-default-values" doc:name="get-mentions-default-values">
-        <twitter:get-mentions-timeline config-ref="Twitter" doc:name="Twitter"/>
+        <twitter:get-mentions-timeline config-ref="auxAuxSandbox" doc:name="Twitter"/>
     </flow>
 	
 	<flow name="get-mentions-parametrized" doc:name="get-mentions-parametrized">
-        <twitter:get-mentions-timeline config-ref="Twitter" doc:name="Twitter" count="#[payload.count]" page="#[payload.page]" sinceId="#[payload.sinceId]"/>
+        <twitter:get-mentions-timeline config-ref="auxAuxSandbox" doc:name="Twitter" count="#[payload.count]"/>
     </flow>
 	
 	<flow name="request-authorization" doc:name="request-authorization">
