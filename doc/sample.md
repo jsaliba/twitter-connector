@@ -14,8 +14,8 @@ I'll be displaying how to meet the configuration requirements for using MuleSoft
 
 In order to build and run this project you'll need:
 
-*  Have a Twitter account.  
-*  A retweet from a user you're following and a tweet with a mention.  
+*  A Twitter account.
+*  A re-tweet from a user you're following and a tweet with a mention.
 *  To download and install MuleStudio.  
 *  Browser to make the requests and view the operations payloads.  
 
@@ -1125,7 +1125,7 @@ Like in the previous section we're going to be using the same flow pattern but f
 		  }
 		]
 
-The response is the same as the one we would get from from **Get user timeline** and **Get user timeline by user screen name**.
+The response is the same as the one we would get from **Get user timeline by user screen name**.
 
 ### Other Resources
 
