@@ -21,7 +21,7 @@
 	</util:map>
 	
  	<bean id="aRandomMentionStatus" class="java.lang.String" scope="prototype">
- 	    <constructor-arg value="#{'Hi @'}${twitter.auxAuxSandbox.userScreenName}" />
+ 	    <constructor-arg value="#{'Hi @'}${twitter.auxAuxSandbox.userScreenName} #{randomShortString}" />
  	</bean>
 	
  	<util:map id="aRandomMention" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
