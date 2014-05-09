@@ -14,10 +14,6 @@
         <twitter:get-user-timeline-by-user-id userId="321" />
 <!-- END_INCLUDE(twitter:getUserTimelineByUserId) -->
 
-<!-- BEGIN_INCLUDE(twitter:getUserTimeline) -->
-        <twitter:get-user-timeline />
-<!-- END_INCLUDE(twitter:getUserTimeline) -->
-
 <!-- BEGIN_INCLUDE(twitter:getMentions) -->
         <twitter:get-mentions-timeline />
 <!-- END_INCLUDE(twitter:getMentions) -->
