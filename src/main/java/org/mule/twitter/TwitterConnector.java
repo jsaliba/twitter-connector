@@ -12,10 +12,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.UnhandledException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mule.api.ConnectionException;
-import org.mule.api.MuleContext;
-import org.mule.api.MuleEvent;
-import org.mule.api.MuleException;
+import org.mule.api.*;
 import org.mule.api.annotations.*;
 import org.mule.api.annotations.display.FriendlyName;
 import org.mule.api.annotations.display.Password;
@@ -44,7 +41,7 @@ import java.util.Map;
  * @author MuleSoft, Inc.
  */
 @Connector(name = "twitter", schemaVersion = "2.4", description = "Twitter Integration", friendlyName = "Twitter",
-        minMuleVersion = "3.5", connectivityTesting = ConnectivityTesting.DISABLED)
+        minMuleVersion = "3.5")
 public class TwitterConnector implements MuleContextAware {
 
     protected transient Log logger = LogFactory.getLog(getClass());
@@ -154,6 +151,18 @@ public class TwitterConnector implements MuleContextAware {
             twitter.setOAuthAccessToken(new AccessToken(accessKey, accessSecret));
             setAccessToken(accessKey);
             setAccessTokenSecret(accessSecret);
+        }
+
+        //for connectivity testing
+
+        try {
+            if (accessKey != null)
+            {
+                getHomeTimeline(1, 1, -1);
+            }
+
+        } catch (TwitterException te) {
+            throw new ConnectionException(ConnectionExceptionCode.UNKNOWN, null, "Bad credentials");
         }
     }
 
