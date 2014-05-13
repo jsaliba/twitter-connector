@@ -65,49 +65,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -198,7 +155,7 @@
       <a href="http://www.mulesoft.com" tabindex="-1">
       <img src="../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
       
-  <div id="searchContainer" >
+  <div id="search" >
       <div id="searchForm">
           <form accept-charset="utf-8" class="gsc-search-box" 
                 onsubmit="return submit_search()">
@@ -254,6 +211,10 @@
     <li class="api apilevel-">
   <a href="../../../../java/org/mule/twitter/agents/package-summary.html">org.mule.twitter.agents</a></li>
     <li class="api apilevel-">
+  <a href="../../../../java/org/mule/twitter/basic/package-summary.html">org.mule.twitter.basic</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../java/org/mule/twitter/callback/package-summary.html">org.mule.twitter.callback</a></li>
+    <li class="api apilevel-">
   <a href="../../../../java/org/mule/twitter/config/package-summary.html">org.mule.twitter.config</a></li>
     <li class="api apilevel-">
   <a href="../../../../java/org/mule/twitter/connection/package-summary.html">org.mule.twitter.connection</a></li>
@@ -262,7 +223,7 @@
     <li class="api apilevel-">
   <a href="../../../../java/org/mule/twitter/devkit/package-summary.html">org.mule.twitter.devkit</a></li>
     <li class="api apilevel-">
-  <a href="../../../../java/org/mule/twitter/pooling/package-summary.html">org.mule.twitter.pooling</a></li>
+  <a href="../../../../java/org/mule/twitter/oauth/package-summary.html">org.mule.twitter.oauth</a></li>
     <li class="api apilevel-">
   <a href="../../../../java/org/mule/twitter/process/package-summary.html">org.mule.twitter.process</a></li>
     <li class="api apilevel-">
@@ -696,8 +657,7 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../org/mule/twitter/TwitterConnector.html#siteStreamBaseUrl">siteStreamBaseUrl</a></td>
-          <td class="jd-descrcol" width="100%">Twitter Site Stream Base Url
-</td>
+          <td class="jd-descrcol" width="100%">Twitter Site Stream Base Url.</td>
       </tr>
       
     
@@ -719,8 +679,7 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../org/mule/twitter/TwitterConnector.html#streamBaseUrl">streamBaseUrl</a></td>
-          <td class="jd-descrcol" width="100%">Twitter Stream Base Url
-</td>
+          <td class="jd-descrcol" width="100%">Twitter Stream Base Url.</td>
       </tr>
       
     
@@ -1299,7 +1258,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getUserTimelineByScreenName(java.lang.String, int, int, long)">getUserTimelineByScreenName</a></span>(String screenName, int page, int count, long sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getUserTimeline(int, int, long)">getUserTimeline</a></span>(int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.</div>
   
@@ -1317,7 +1276,7 @@ Summary:
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getUserTimelineByUserId(long, int, int, long)">getUserTimelineByUserId</a></span>(long userId, int page, int count, long sinceId)</nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getUserTimelineByScreenName(java.lang.String, int, int, long)">getUserTimelineByScreenName</a></span>(String screenName, int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.</div>
   
@@ -1326,6 +1285,24 @@ Summary:
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            ResponseList&lt;Status&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../org/mule/twitter/TwitterConnector.html#getUserTimelineByUserId(long, int, int, long)">getUserTimelineByUserId</a></span>(long userId, int page, int count, long sinceId)</nobr>
+        
+        <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1341,7 +1318,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1359,7 +1336,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1377,7 +1354,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1395,7 +1372,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1414,7 +1391,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1432,7 +1409,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1450,7 +1427,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1468,7 +1445,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1486,7 +1463,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1504,7 +1481,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1520,7 +1497,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1536,7 +1513,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1552,7 +1529,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1568,7 +1545,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1584,7 +1561,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1602,7 +1579,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1618,7 +1595,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1634,7 +1611,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1650,7 +1627,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1666,7 +1643,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1682,7 +1659,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1698,7 +1675,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1714,7 +1691,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1732,7 +1709,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1752,7 +1729,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1770,7 +1747,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1788,7 +1765,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1820,7 +1797,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2448,7 +2425,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Twitter Site Stream Base Url
+  <div class="jd-tagdata jd-tagdescr"><p>Twitter Site Stream Base Url. Only specified this to override the default Twitter values
 </p></div>
 
     
@@ -2509,7 +2486,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Twitter Stream Base Url
+  <div class="jd-tagdata jd-tagdescr"><p>Twitter Stream Base Url. Only specified this to override the default Twitter values
 </p></div>
 
     
@@ -3127,7 +3104,7 @@ From interface
  The response is an array of "locations" that encode the location's WOEID and some other human-readable information such as a canonical name and country the location belongs in.<br>
  A WOEID is a <a href="http://developer.yahoo.com/geo/geoplanet/">Yahoo! Where On Earth ID</a>.
  <br>This method calls http://api.twitter.com/1.1/trends/closest.json
-
+ 
  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3286,7 +3263,7 @@ From interface
  At this time, results are ordered with the most recent following first, however, this ordering is subject to unannounced 
  change and eventual consistency issues. Results are given in groups of 20 users and multiple "pages" of results can be 
  navigated through using the next_cursor value in subsequent requests.
-
+ 
  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -4055,6 +4032,88 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getUserTimeline(int, int, long)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        ResponseList&lt;Status&gt;
+      </span>
+      <span class="sympad">getUserTimeline</span>
+      <span class="normal">(int page, int count, long sinceId)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the 20 most recent statuses posted from the authenticating user. It's
+ also possible to request another user's timeline via the id parameter.<br>
+ This is the equivalent of the Web / page for your own user, or the profile
+ page for a third party.<br>
+ For backwards compatibility reasons, retweets are stripped out of the
+ user_timeline when calling in XML or JSON (they appear with 'RT' in RSS and
+ Atom). If you'd like them included, you can merge them in from statuses
+ retweeted_by_me.<br>
+ <br>
+ This method calls http://api.twitter.com/1.1/statuses/user_timeline.json
+ <p/>
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>page</td>
+          <td>Specifies the page of results to retrieve.</td>
+        </tr>
+        <tr>
+          <th>count</td>
+          <td>Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is
+                best thought of as a limit to the number of tweets to return because suspended or deleted content is removed
+                after the count has been applied.</td>
+        </tr>
+        <tr>
+          <th>sinceId</td>
+          <td>Returns results with an ID greater than (that is, more recent than) the specified ID. There are
+                limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since
+                the since_id, the since_id will be forced to the oldest ID available.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>list of Status the user Timeline</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>TwitterException</td>
+            <td>when Twitter service or network is unavailable</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><a href="http://dev.twitter.com/doc/get/statuses/user_timeline">GET
+      statuses/user_timeline | dev.twitter.com</a></li>
+      </ul>
+  </div>
 
     </div>
 </div>
