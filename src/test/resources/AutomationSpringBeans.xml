@@ -12,6 +12,35 @@
 			<value>${TWITTER_CREDENTIALS}</value>
 		</property>
 	</bean>
+
+    <!-- OAuth v1 property placeholder-->
+    <bean class="beans.OAuthV1Bean" name="twitter.sandbox">
+        <property name="accessKey">
+            <value>${twitter.sandbox.accessKey}</value>
+        </property>
+        <property name="accessSecret">
+            <value>${twitter.sandbox.accessSecret}</value>
+        </property>
+    </bean>
+
+    <bean class="beans.OAuthV1Bean" name="twitter.auxSandbox">
+        <property name="accessKey">
+            <value>${twitter.auxSandbox.accessKey}</value>
+        </property>
+        <property name="accessSecret">
+            <value>${twitter.auxSandbox.accessSecret}</value>
+        </property>
+    </bean>
+
+    <bean class="beans.OAuthV1Bean" name="twitter.auxAuxSandbox">
+        <property name="accessKey">
+            <value>${twitter.auxAuxSandbox.accessKey}</value>
+        </property>
+        <property name="accessSecret">
+            <value>${twitter.auxAuxSandbox.accessSecret}</value>
+        </property>
+    </bean>
+    <!-- /OAuth v1 property placeholder-->
 	
 	<bean id="randomShortString" class="org.mule.modules.tests.ConnectorTestUtils"
 	factory-method="generateRandomShortString" scope="prototype" />

@@ -14,21 +14,23 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 	
 	<context:property-placeholder location="${TWITTER_CREDENTIALS}"/>
 	
-	<twitter:config name="Twitter"
-		accessKey="${twitter.sandbox.accessKey}"
-		accessSecret="${twitter.sandbox.accessSecret}" consumerKey="${twitter.sandbox.consumerKey}"
-		consumerSecret="${twitter.sandbox.consumerSecret}" doc:name="Twitter"
-		 />
-	<twitter:config name="auxSandbox"
-		accessKey="${twitter.auxSandbox.accessKey}"
-		accessSecret="${twitter.auxSandbox.accessSecret}" consumerKey="${twitter.auxSandbox.consumerKey}"
-		consumerSecret="${twitter.auxSandbox.consumerSecret}" doc:name="Twitter"
-		 />
-	<twitter:config name="auxAuxSandbox"
-		accessKey="${twitter.auxAuxSandbox.accessKey}"
-		accessSecret="${twitter.auxAuxSandbox.accessSecret}" consumerKey="${twitter.auxAuxSandbox.consumerKey}"
-		consumerSecret="${twitter.auxAuxSandbox.consumerSecret}" doc:name="Twitter"
-		 />
+	<twitter:config-with-oauth name="Twitter"
+		consumerKey="${twitter.sandbox.consumerKey}"
+		consumerSecret="${twitter.sandbox.consumerSecret}" doc:name="Twitter">
+        <twitter:oauth-callback-config domain="127.0.0.1" localPort="8081" remotePort="8081"></twitter:oauth-callback-config>
+    </twitter:config-with-oauth>
+
+	<twitter:config-with-oauth name="auxSandbox"
+		consumerKey="${twitter.auxSandbox.consumerKey}"
+		consumerSecret="${twitter.auxSandbox.consumerSecret}" doc:name="Twitter">
+        <twitter:oauth-callback-config domain="127.0.0.1" localPort="8081" remotePort="8081"></twitter:oauth-callback-config>
+    </twitter:config-with-oauth>
+
+	<twitter:config-with-oauth name="auxAuxSandbox"
+		consumerKey="${twitter.auxAuxSandbox.consumerKey}"
+		consumerSecret="${twitter.auxAuxSandbox.consumerSecret}" doc:name="Twitter">
+            <twitter:oauth-callback-config domain="127.0.0.1" localPort="8081" remotePort="8081"></twitter:oauth-callback-config>
+		</twitter:config-with-oauth>
 		
 	<!--  ### auxSandbox flows ### -->
 	

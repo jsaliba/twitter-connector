@@ -48,6 +48,13 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+        <!-- OAuth 1 dependency-->
+        <dependency>
+            <artifactId>signpost-core</artifactId>
+            <groupId>oauth.signpost</groupId>
+            <version>[1.2.1.2]</version>
+            <scope>compile</scope>
+        </dependency>
 
 		<!-- test dependencies -->
 		<dependency>
