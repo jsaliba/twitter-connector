@@ -2,13 +2,11 @@ org.mule.twitter
 org.mule.twitter.adapter
 org.mule.twitter.adapters
 org.mule.twitter.agents
-org.mule.twitter.basic
-org.mule.twitter.callback
 org.mule.twitter.config
 org.mule.twitter.connection
 org.mule.twitter.connectivity
 org.mule.twitter.devkit
-org.mule.twitter.oauth
+org.mule.twitter.pooling
 org.mule.twitter.process
 org.mule.twitter.processors
 org.mule.twitter.sources

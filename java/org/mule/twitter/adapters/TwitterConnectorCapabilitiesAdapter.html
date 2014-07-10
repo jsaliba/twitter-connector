@@ -65,6 +65,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -155,7 +198,7 @@
       <a href="http://www.mulesoft.com" tabindex="-1">
       <img src="../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
       
-  <div id="search" >
+  <div id="searchContainer" >
       <div id="searchForm">
           <form accept-charset="utf-8" class="gsc-search-box" 
                 onsubmit="return submit_search()">
@@ -211,10 +254,6 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/agents/package-summary.html">org.mule.twitter.agents</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/twitter/basic/package-summary.html">org.mule.twitter.basic</a></li>
-    <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/twitter/callback/package-summary.html">org.mule.twitter.callback</a></li>
-    <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/config/package-summary.html">org.mule.twitter.config</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/connection/package-summary.html">org.mule.twitter.connection</a></li>
@@ -223,7 +262,7 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/devkit/package-summary.html">org.mule.twitter.devkit</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/twitter/oauth/package-summary.html">org.mule.twitter.oauth</a></li>
+  <a href="../../../../../java/org/mule/twitter/pooling/package-summary.html">org.mule.twitter.pooling</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/process/package-summary.html">org.mule.twitter.process</a></li>
     <li class="api apilevel-">
@@ -388,7 +427,7 @@ Summary:
   
       implements 
       
-        <a href="../../../../../java/org/mule/twitter/basic/Capabilities.html">Capabilities</a> 
+        Capabilities 
       
   
   
@@ -697,7 +736,8 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/TwitterConnector.html#siteStreamBaseUrl">siteStreamBaseUrl</a></td>
-          <td class="jd-descrcol" width="100%">Twitter Site Stream Base Url.</td>
+          <td class="jd-descrcol" width="100%">Twitter Site Stream Base Url
+</td>
       </tr>
       
     
@@ -719,7 +759,8 @@ Summary:
           
           String</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/TwitterConnector.html#streamBaseUrl">streamBaseUrl</a></td>
-          <td class="jd-descrcol" width="100%">Twitter Stream Base Url.</td>
+          <td class="jd-descrcol" width="100%">Twitter Stream Base Url
+</td>
       </tr>
       
     
@@ -808,7 +849,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/adapters/TwitterConnectorCapabilitiesAdapter.html#isCapableOf(org.mule.twitter.basic.Capability)">isCapableOf</a></span>(<a href="../../../../../java/org/mule/twitter/basic/Capability.html">Capability</a> capability)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/adapters/TwitterConnectorCapabilitiesAdapter.html#isCapableOf(org.mule.api.devkit.capability.ModuleCapability)">isCapableOf</a></span>(ModuleCapability capability)</nobr>
         
         <div class="jd-descrdiv">Returns true if this module implements such capability
  
@@ -1376,24 +1417,6 @@ From class
             ResponseList&lt;Status&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getUserTimeline(int, int, long)">getUserTimeline</a></span>(int page, int count, long sinceId)</nobr>
-        
-        <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ResponseList&lt;Status&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/twitter/TwitterConnector.html#getUserTimelineByScreenName(java.lang.String, int, int, long)">getUserTimelineByScreenName</a></span>(String screenName, int page, int count, long sinceId)</nobr>
         
         <div class="jd-descrdiv">Returns the 20 most recent statuses posted from the authenticating user.</div>
@@ -1402,7 +1425,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1420,7 +1443,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1436,7 +1459,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1454,7 +1477,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1472,7 +1495,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1490,7 +1513,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1509,7 +1532,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1527,7 +1550,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1545,7 +1568,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1563,7 +1586,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1581,7 +1604,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1599,7 +1622,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1615,7 +1638,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1631,7 +1654,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1647,7 +1670,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1663,7 +1686,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1679,7 +1702,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1697,7 +1720,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1713,7 +1736,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1729,7 +1752,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1745,7 +1768,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1761,7 +1784,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1777,7 +1800,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1793,7 +1816,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1809,7 +1832,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1827,7 +1850,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1847,7 +1870,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1865,7 +1888,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1883,7 +1906,7 @@ From class
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1915,7 +1938,7 @@ From class
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2183,19 +2206,19 @@ From interface
 
 <tr class="api apilevel-" >
 <td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.twitter.basic.Capabilities" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.twitter.basic.Capabilities-trigger"
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.devkit.capability.Capabilities" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.devkit.capability.Capabilities-trigger"
           src="../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>
 From interface
 
-  <a href="../../../../../org/mule/twitter/basic/Capabilities.html">org.mule.twitter.basic.Capabilities</a>
+  org.mule.api.devkit.capability.Capabilities
 
-<div id="inherited-methods-org.mule.twitter.basic.Capabilities">
-  <div id="inherited-methods-org.mule.twitter.basic.Capabilities-list"
+<div id="inherited-methods-org.mule.api.devkit.capability.Capabilities">
+  <div id="inherited-methods-org.mule.api.devkit.capability.Capabilities-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-methods-org.mule.twitter.basic.Capabilities-summary" style="display: none;">
+  <div id="inherited-methods-org.mule.api.devkit.capability.Capabilities-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
@@ -2211,11 +2234,8 @@ From interface
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/basic/Capabilities.html#isCapableOf(org.mule.twitter.basic.Capability)">isCapableOf</a></span>(<a href="../../../../../java/org/mule/twitter/basic/Capability.html">Capability</a> capability)</nobr>
+        <span class="sympad">isCapableOf</span>(ModuleCapability arg0)</nobr>
         
-        <div class="jd-descrdiv">Returns true if this module implements such
- capability</div>
-  
   </td></tr>
 
 
@@ -2305,7 +2325,7 @@ From interface
 
 
 
-<A NAME="isCapableOf(org.mule.twitter.basic.Capability)"></A>
+<A NAME="isCapableOf(org.mule.api.devkit.capability.ModuleCapability)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2318,7 +2338,7 @@ From interface
         boolean
       </span>
       <span class="sympad">isCapableOf</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/twitter/basic/Capability.html">Capability</a> capability)</span>
+      <span class="normal">(ModuleCapability capability)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2338,14 +2358,9 @@ From interface
       <table class="jd-tagtable">
         <tr>
           <th>capability</td>
-          <td>The capability to test for</td>
+          <td></td>
         </tr>
       </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>True if it does, false otherwise
-</li></ul>
   </div>
 
     </div>

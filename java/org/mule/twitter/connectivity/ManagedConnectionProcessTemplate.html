@@ -65,6 +65,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -155,7 +198,7 @@
       <a href="http://www.mulesoft.com" tabindex="-1">
       <img src="../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
       
-  <div id="search" >
+  <div id="searchContainer" >
       <div id="searchForm">
           <form accept-charset="utf-8" class="gsc-search-box" 
                 onsubmit="return submit_search()">
@@ -211,10 +254,6 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/agents/package-summary.html">org.mule.twitter.agents</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/twitter/basic/package-summary.html">org.mule.twitter.basic</a></li>
-    <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/twitter/callback/package-summary.html">org.mule.twitter.callback</a></li>
-    <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/config/package-summary.html">org.mule.twitter.config</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/connection/package-summary.html">org.mule.twitter.connection</a></li>
@@ -223,7 +262,7 @@
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/devkit/package-summary.html">org.mule.twitter.devkit</a></li>
     <li class="api apilevel-">
-  <a href="../../../../../java/org/mule/twitter/oauth/package-summary.html">org.mule.twitter.oauth</a></li>
+  <a href="../../../../../java/org/mule/twitter/pooling/package-summary.html">org.mule.twitter.pooling</a></li>
     <li class="api apilevel-">
   <a href="../../../../../java/org/mule/twitter/process/package-summary.html">org.mule.twitter.process</a></li>
     <li class="api apilevel-">
@@ -367,7 +406,7 @@ Summary:
   
       implements 
       
-        <a href="../../../../../java/org/mule/twitter/process/ProcessTemplate.html">ProcessTemplate</a>&lt;T,&nbsp;O&gt; 
+        ProcessTemplate&lt;T,&nbsp;O&gt; 
       
   
   
@@ -459,7 +498,7 @@ Summary:
           private
           
           final
-          <a href="../../../../../java/org/mule/twitter/process/ProcessInterceptor.html">ProcessInterceptor</a>&lt;P,&nbsp;<a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a>&gt;</nobr></td>
+          ProcessInterceptor&lt;P,&nbsp;<a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a>&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/twitter/connectivity/ManagedConnectionProcessTemplate.html#processInterceptor">processInterceptor</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
@@ -519,7 +558,7 @@ Summary:
             P</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/connectivity/ManagedConnectionProcessTemplate.html#execute(org.mule.twitter.process.ProcessCallback<P, org.mule.twitter.adapters.TwitterConnectorConnectionIdentifierAdapter>, org.mule.api.routing.filter.Filter, org.mule.api.MuleMessage)">execute</a></span>(<a href="../../../../../java/org/mule/twitter/process/ProcessCallback.html">ProcessCallback</a>&lt;P,&nbsp;<a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a>&gt; processCallback, Filter filter, MuleMessage message)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/connectivity/ManagedConnectionProcessTemplate.html#execute(org.mule.security.oauth.callback.ProcessCallback<P, org.mule.twitter.adapters.TwitterConnectorConnectionIdentifierAdapter>, org.mule.api.processor.MessageProcessor, org.mule.api.MuleEvent)">execute</a></span>(ProcessCallback&lt;P,&nbsp;<a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a>&gt; processCallback, MessageProcessor messageProcessor, MuleEvent event)</nobr>
         
   </td></tr>
 
@@ -535,7 +574,7 @@ Summary:
             P</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/connectivity/ManagedConnectionProcessTemplate.html#execute(org.mule.twitter.process.ProcessCallback<P, org.mule.twitter.adapters.TwitterConnectorConnectionIdentifierAdapter>, org.mule.api.processor.MessageProcessor, org.mule.api.MuleEvent)">execute</a></span>(<a href="../../../../../java/org/mule/twitter/process/ProcessCallback.html">ProcessCallback</a>&lt;P,&nbsp;<a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a>&gt; processCallback, MessageProcessor messageProcessor, MuleEvent event)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/twitter/connectivity/ManagedConnectionProcessTemplate.html#execute(org.mule.security.oauth.callback.ProcessCallback<P, org.mule.twitter.adapters.TwitterConnectorConnectionIdentifierAdapter>, org.mule.api.routing.filter.Filter, org.mule.api.MuleMessage)">execute</a></span>(ProcessCallback&lt;P,&nbsp;<a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a>&gt; processCallback, Filter filter, MuleMessage message)</nobr>
         
   </td></tr>
 
@@ -759,19 +798,19 @@ From class
 
 <tr class="api apilevel-" >
 <td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.twitter.process.ProcessTemplate" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.twitter.process.ProcessTemplate-trigger"
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.devkit.ProcessTemplate" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.api.devkit.ProcessTemplate-trigger"
           src="../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>
 From interface
 
-  <a href="../../../../../org/mule/twitter/process/ProcessTemplate.html">org.mule.twitter.process.ProcessTemplate</a>
+  org.mule.api.devkit.ProcessTemplate
 
-<div id="inherited-methods-org.mule.twitter.process.ProcessTemplate">
-  <div id="inherited-methods-org.mule.twitter.process.ProcessTemplate-list"
+<div id="inherited-methods-org.mule.api.devkit.ProcessTemplate">
+  <div id="inherited-methods-org.mule.api.devkit.ProcessTemplate-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-methods-org.mule.twitter.process.ProcessTemplate-summary" style="display: none;">
+  <div id="inherited-methods-org.mule.api.devkit.ProcessTemplate-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
@@ -787,7 +826,7 @@ From interface
             T</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/process/ProcessTemplate.html#execute(org.mule.twitter.process.ProcessCallback<T, O>, org.mule.api.processor.MessageProcessor, org.mule.api.MuleEvent)">execute</a></span>(<a href="../../../../../java/org/mule/twitter/process/ProcessCallback.html">ProcessCallback</a>&lt;T,&nbsp;O&gt; callback, MessageProcessor messageProcessor, MuleEvent event)</nobr>
+        <span class="sympad">execute</span>(ProcessCallback&lt;T,&nbsp;O&gt; arg0, Filter arg1, MuleMessage arg2)</nobr>
         
   </td></tr>
 
@@ -803,7 +842,7 @@ From interface
             T</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/twitter/process/ProcessTemplate.html#execute(org.mule.twitter.process.ProcessCallback<T, O>, org.mule.api.routing.filter.Filter, org.mule.api.MuleMessage)">execute</a></span>(<a href="../../../../../java/org/mule/twitter/process/ProcessCallback.html">ProcessCallback</a>&lt;T,&nbsp;O&gt; callback, Filter filter, MuleMessage message)</nobr>
+        <span class="sympad">execute</span>(ProcessCallback&lt;T,&nbsp;O&gt; arg0, MessageProcessor arg1, MuleEvent arg2)</nobr>
         
   </td></tr>
 
@@ -854,7 +893,7 @@ From interface
         private 
          
         final 
-        <a href="../../../../../java/org/mule/twitter/process/ProcessInterceptor.html">ProcessInterceptor</a>&lt;P,&nbsp;<a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a>&gt;
+        ProcessInterceptor&lt;P,&nbsp;<a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a>&gt;
       </span>
         processInterceptor
     </h4>
@@ -944,7 +983,7 @@ From interface
 
 
 
-<A NAME="execute(org.mule.twitter.process.ProcessCallback<P, org.mule.twitter.adapters.TwitterConnectorConnectionIdentifierAdapter>, org.mule.api.routing.filter.Filter, org.mule.api.MuleMessage)"></A>
+<A NAME="execute(org.mule.security.oauth.callback.ProcessCallback<P, org.mule.twitter.adapters.TwitterConnectorConnectionIdentifierAdapter>, org.mule.api.processor.MessageProcessor, org.mule.api.MuleEvent)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -957,64 +996,7 @@ From interface
         P
       </span>
       <span class="sympad">execute</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/twitter/process/ProcessCallback.html">ProcessCallback</a>&lt;P,&nbsp;<a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a>&gt; processCallback, Filter filter, MuleMessage message)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>processCallback</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>filter</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>message</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>Exception</td>
-            <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="execute(org.mule.twitter.process.ProcessCallback<P, org.mule.twitter.adapters.TwitterConnectorConnectionIdentifierAdapter>, org.mule.api.processor.MessageProcessor, org.mule.api.MuleEvent)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        P
-      </span>
-      <span class="sympad">execute</span>
-      <span class="normal">(<a href="../../../../../java/org/mule/twitter/process/ProcessCallback.html">ProcessCallback</a>&lt;P,&nbsp;<a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a>&gt; processCallback, MessageProcessor messageProcessor, MuleEvent event)</span>
+      <span class="normal">(ProcessCallback&lt;P,&nbsp;<a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a>&gt; processCallback, MessageProcessor messageProcessor, MuleEvent event)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1040,6 +1022,63 @@ From interface
         </tr>
         <tr>
           <th>event</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>Exception</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="execute(org.mule.security.oauth.callback.ProcessCallback<P, org.mule.twitter.adapters.TwitterConnectorConnectionIdentifierAdapter>, org.mule.api.routing.filter.Filter, org.mule.api.MuleMessage)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        P
+      </span>
+      <span class="sympad">execute</span>
+      <span class="normal">(ProcessCallback&lt;P,&nbsp;<a href="../../../../../java/org/mule/twitter/adapters/TwitterConnectorConnectionIdentifierAdapter.html">TwitterConnectorConnectionIdentifierAdapter</a>&gt; processCallback, Filter filter, MuleMessage message)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>processCallback</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>filter</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>message</td>
           <td></td>
         </tr>
       </table>
