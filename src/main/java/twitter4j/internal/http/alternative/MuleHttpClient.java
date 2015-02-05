@@ -16,8 +16,7 @@ import org.mule.api.client.MuleClient;
 import org.mule.api.transport.OutputHandler;
 import org.mule.client.DefaultLocalMuleClient;
 import org.mule.module.http.api.client.HttpRequestOptions;
-import org.mule.module.http.api.requester.HttpStreamingType;
-import org.mule.module.http.internal.request.client.DefaultHttpRequestOptions;
+import org.mule.module.http.api.client.HttpRequestOptionsBuilder;
 import org.mule.transport.http.HttpConnector;
 import org.mule.twitter.MuleHttpResponse;
 import twitter4j.TwitterException;
@@ -106,8 +105,9 @@ public class MuleHttpClient implements HttpClient {
             msg.setOutboundProperty("Authorization", authorizationHeader);
         }
         try {
-            HttpRequestOptions operationOptions = new DefaultHttpRequestOptions(req.getMethod().name(), true, HttpStreamingType.AUTO,
-                    null, true, true, null, new Long(httpConf.getHttpReadTimeout()));
+
+            HttpRequestOptions operationOptions = HttpRequestOptionsBuilder.newOptions().
+                    method(req.getMethod().name()).build();
             return new MuleHttpResponse(httpConf, client.send(req.getURL(), msg, operationOptions));
         } catch (MuleException e) {
             throw new TwitterException(e);
