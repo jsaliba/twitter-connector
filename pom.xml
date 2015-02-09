@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.mule.modules</groupId>
 	<artifactId>mule-module-twitter</artifactId>
-	<version>3.2.1-SNAPSHOT</version>
+	<version>4.0.0-SNAPSHOT</version>
 	<packaging>mule-module</packaging>
 	<name>Mule Twitter Connector</name>
 
@@ -14,6 +14,7 @@
 	</parent>
 
 	<properties>
+		<mule.version>3.6.0</mule.version>
 		<category>Community</category>
 		<licensePath>LICENSE.md</licensePath>
 		<devkit.studio.package.skip>false</devkit.studio.package.skip>

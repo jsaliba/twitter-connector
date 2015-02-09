@@ -41,7 +41,7 @@ import java.util.Map;
  * @author MuleSoft, Inc.
  */
 @Connector(name = "twitter", schemaVersion = "2.4", description = "Twitter Integration", friendlyName = "Twitter",
-        minMuleVersion = "3.5")
+        minMuleVersion = "3.6")
 public class TwitterConnector implements MuleContextAware {
 
     protected transient Log logger = LogFactory.getLog(getClass());

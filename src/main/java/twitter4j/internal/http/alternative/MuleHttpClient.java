@@ -8,8 +8,6 @@
 
 package twitter4j.internal.http.alternative;
 
-import static twitter4j.internal.http.RequestMethod.POST;
-
 import org.mule.DefaultMuleMessage;
 import org.mule.api.MuleContext;
 import org.mule.api.MuleEvent;
@@ -17,22 +15,16 @@ import org.mule.api.MuleException;
 import org.mule.api.client.MuleClient;
 import org.mule.api.transport.OutputHandler;
 import org.mule.client.DefaultLocalMuleClient;
+import org.mule.module.http.api.client.HttpRequestOptions;
+import org.mule.module.http.api.client.HttpRequestOptionsBuilder;
 import org.mule.transport.http.HttpConnector;
 import org.mule.twitter.MuleHttpResponse;
-
-import java.io.BufferedInputStream;
-import java.io.DataOutputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-
 import twitter4j.TwitterException;
-import twitter4j.internal.http.HttpClient;
-import twitter4j.internal.http.HttpClientConfiguration;
-import twitter4j.internal.http.HttpParameter;
-import twitter4j.internal.http.HttpRequest;
-import twitter4j.internal.http.HttpResponse;
-import twitter4j.internal.http.RequestMethod;
+import twitter4j.internal.http.*;
+
+import java.io.*;
+
+import static twitter4j.internal.http.RequestMethod.POST;
 
 /**
  * A version of the twitter4j client that uses Mule.
@@ -42,22 +34,22 @@ public class MuleHttpClient implements HttpClient {
     private static MuleClient client;
     private static MuleContext context;
     private final HttpClientConfiguration httpConf;
-    
-    
+
+
     public MuleHttpClient(HttpClientConfiguration conf) {
         this.httpConf = conf;
     }
-    
+
     @Override
     public HttpResponse request(final HttpRequest req) throws TwitterException {
         Object body = "";
         final boolean hasFile = HttpParameter.containsFile(req.getParameters());
         final String ctBoundary = "----Twitter4J-upload" + System.currentTimeMillis();
         final String boundary = "--" + ctBoundary;
-        
+
         if (req.getMethod().equals(RequestMethod.POST)) {
             body = new OutputHandler() {
-                
+
                 @Override
                 public void write(MuleEvent event, OutputStream os) throws IOException {
                     if (req.getMethod() == POST) {
@@ -100,7 +92,7 @@ public class MuleHttpClient implements HttpClient {
             };
         }
         DefaultMuleMessage msg = new DefaultMuleMessage(body, context);
-        
+
         if (hasFile) {
             msg.setOutboundProperty("Content-Type", "multipart/form-data; boundary=" + ctBoundary);
         } else if (req.getMethod().equals(RequestMethod.POST)) {
@@ -113,7 +105,10 @@ public class MuleHttpClient implements HttpClient {
             msg.setOutboundProperty("Authorization", authorizationHeader);
         }
         try {
-            return new MuleHttpResponse(httpConf, client.send(req.getURL(), msg));
+
+            HttpRequestOptions operationOptions = HttpRequestOptionsBuilder.newOptions().
+                    method(req.getMethod().name()).build();
+            return new MuleHttpResponse(httpConf, client.send(req.getURL(), msg, operationOptions));
         } catch (MuleException e) {
             throw new TwitterException(e);
         }
@@ -122,7 +117,7 @@ public class MuleHttpClient implements HttpClient {
     @Override
     public void shutdown() {
     }
-    
+
     public static void setMuleContext(MuleContext context) {
         MuleHttpClient.context = context;
         client = new DefaultLocalMuleClient(context);
