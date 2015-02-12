@@ -1,9 +1,9 @@
 Twitter Connector Release Notes
 =================================
  
-Date: 12-MAY-2014
+Date: 13-FEB-2015
  
-Version: 3.0.4
+Version: 4.0.0
  
 Supported API versions
 ------------------------
@@ -11,11 +11,11 @@ Twitter 1.1 API. Please visit this link for detail https://dev.twitter.com/docs/
  
 Supported Mule Runtime Versions
 --------------------------------
-3.5.0
+3.6.0 or higher.
  
 New Features and Functionality
 ------------------------------
-- Migrated to DevKit 3.5.0
+- Migrated to DevKit 3.6.0
 - Fixed automation tests.
 - The list of operation supported by this connector version are
     - search
@@ -52,15 +52,3 @@ N/A
 Known Issues in this release
 ------------------------------
 N/A
-
-http://github.com/mulesoft/twitter-connector/issues
-
-2.9
----
-* Implemented connection manager
-  
-2.8
----
-- Added connectivity testing
-- Migrated to DevKit 3.4.0-RC1
-- Fixed Automation tests
