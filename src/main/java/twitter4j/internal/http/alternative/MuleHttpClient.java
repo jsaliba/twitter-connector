@@ -1,12 +1,10 @@
 /**
- * Copyright (c) MuleSoft, Inc. All rights reserved. http://www.mulesoft.com
- *
- * The software in this package is published under the terms of the CPAL v1.0
- * license, a copy of which has been included with this distribution in the
- * LICENSE.md file.
+ * (c) 2003-2015 MuleSoft, Inc. The software in this package is
+ * published under the terms of the CPAL v1.0 license, a copy of which
+ * has been included with this distribution in the LICENSE.md file.
  */
 
-package twitter4j.internal.http.alternative;
+package twitter4j.internal.http.alternative; // NOSONAR
 
 import org.mule.DefaultMuleMessage;
 import org.mule.api.MuleContext;
@@ -17,8 +15,8 @@ import org.mule.api.transport.OutputHandler;
 import org.mule.client.DefaultLocalMuleClient;
 import org.mule.module.http.api.client.HttpRequestOptions;
 import org.mule.module.http.api.client.HttpRequestOptionsBuilder;
+import org.mule.modules.twitter.MuleHttpResponse;
 import org.mule.transport.http.HttpConnector;
-import org.mule.twitter.MuleHttpResponse;
 import twitter4j.TwitterException;
 import twitter4j.internal.http.*;
 
@@ -38,6 +36,11 @@ public class MuleHttpClient implements HttpClient {
 
     public MuleHttpClient(HttpClientConfiguration conf) {
         this.httpConf = conf;
+    }
+
+    public static void setMuleContext(MuleContext context) {
+        MuleHttpClient.context = context;
+        client = new DefaultLocalMuleClient(context);
     }
 
     @Override
@@ -115,12 +118,7 @@ public class MuleHttpClient implements HttpClient {
     }
 
     @Override
-    public void shutdown() {
-    }
-
-    public static void setMuleContext(MuleContext context) {
-        MuleHttpClient.context = context;
-        client = new DefaultLocalMuleClient(context);
+    public void shutdown() { // NOSONAR
     }
 
 
