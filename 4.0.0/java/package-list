@@ -1,0 +1,13 @@
+org.mule.modules.twitter
+org.mule.modules.twitter.adapter
+org.mule.modules.twitter.adapters
+org.mule.modules.twitter.agents
+org.mule.modules.twitter.config
+org.mule.modules.twitter.connection.strategy
+org.mule.modules.twitter.connectivity
+org.mule.modules.twitter.devkit
+org.mule.modules.twitter.pooling
+org.mule.modules.twitter.processors
+org.mule.modules.twitter.sources
+twitter4j.internal.http.alternative
+
