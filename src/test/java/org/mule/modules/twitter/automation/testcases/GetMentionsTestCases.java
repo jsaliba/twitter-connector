@@ -25,15 +25,10 @@ public class GetMentionsTestCases extends TwitterTestParent {
 
     @Before
     public void setUp() throws Exception {
-        firstMention = runFlowAndGetPayload("update-status", "aRandomMention");
+        initializeTestRunMessage("randomMentionTestData");
+        firstMention = runFlowAndGetPayload("update-status");
     }
 
-    @After
-    public void tearDown() throws Exception {
-        upsertOnTestRunMessage("statusId", firstMention.getId());
-        runFlowAndGetPayload("destroy-status");
-
-    }
 
     @Category({RegressionTests.class})
     @Test
@@ -58,7 +53,7 @@ public class GetMentionsTestCases extends TwitterTestParent {
     public void testGetMentionsParameterized() {
         Long expectedStatusId = firstMention.getId();
 
-        initializeTestRunMessage("getMentionsTestData");
+        upsertBeanFromContextOnTestRunMessage("getMentionsTestData");
 
         try {
             ResponseList<Status> mentions = runFlowAndGetPayload("get-mentions-parametrized");
@@ -72,5 +67,13 @@ public class GetMentionsTestCases extends TwitterTestParent {
         }
 
     }
+
+    @After
+    public void tearDown() throws Exception {
+        upsertOnTestRunMessage("statusId", firstMention.getId());
+        runFlowAndGetPayload("destroy-status");
+
+    }
+
 
 }

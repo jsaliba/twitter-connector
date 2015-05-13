@@ -26,10 +26,9 @@ public class GetUserTimelineByUserIdTestCases extends TwitterTestParent {
 
     @Before
     public void setUp() throws Exception {
-        firstStatus = runFlowAndGetPayload("update-status-aux-sandbox", "aRandomStatus");
-
-        secondStatus = runFlowAndGetPayload("update-status-aux-sandbox", "aRandomStatus");
-
+        initializeTestRunMessage("randomStatusTestData");
+        firstStatus = runFlowAndGetPayload("update-status-aux-sandbox");
+        secondStatus = runFlowAndGetPayload("update-status-aux-sandbox", "randomStatusTestData");
     }
 
     @After
@@ -47,7 +46,7 @@ public class GetUserTimelineByUserIdTestCases extends TwitterTestParent {
         Long expectedStatusId = firstStatus.getId();
 
         try {
-            ResponseList<Status> timeLine = runFlowAndGetPayload("get-user-timeline-by-user-id-default-values", "auxSandbox");
+            ResponseList<Status> timeLine = runFlowAndGetPayload("get-user-timeline-by-user-id-default-values", "auxSandboxTestData");
 
             assertTrue(TwitterTestUtils.isStatusIdOnTimeline(timeLine, expectedStatusId));
 

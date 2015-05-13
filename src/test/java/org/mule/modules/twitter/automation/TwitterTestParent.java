@@ -15,7 +15,7 @@ public class TwitterTestParent extends ConnectorTestCase {
 
     @Rule
     public Timeout globalTimeout = new Timeout(1500000);
-    public static int SETUP_DELAY = 60000;
+    public static int SETUP_DELAY = 30000;
 
 
     protected <T> T runFlowAndGetPayload(String flowName) throws Exception {

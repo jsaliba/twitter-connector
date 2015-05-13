@@ -7,6 +7,7 @@
 package org.mule.modules.twitter.automation.testcases;
 
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
@@ -23,28 +24,29 @@ public class UpdateStatusTestCases extends TwitterTestParent {
 
     private Status status;
 
+   @Before
+   public void setUp() throws Exception {
+       initializeTestRunMessage("randomStatusTestData");
+   }
+
+    @Category({SmokeTests.class, RegressionTests.class})
+    @Test
+    public void testUpdateStatus() {
+        try {
+            status = runFlowAndGetPayload("update-status");
+            assertEquals(getTestRunMessageValue("status"), status.getText());
+        } catch (Exception e) {
+            fail(ConnectorTestUtils.getStackTrace(e));
+        }
+
+    }
+
     @After
     public void tearDown() throws Exception {
         if (status != null) {
             upsertOnTestRunMessage("statusId", status.getId());
             runFlowAndGetPayload("destroy-status");
         }
-    }
-
-    @Category({SmokeTests.class, RegressionTests.class})
-    @Test
-    public void testUpdateStatus() {
-        try {
-
-            initializeTestRunMessage("aRandomStatus");
-
-            status = runFlowAndGetPayload("update-status");
-
-            assertEquals(getTestRunMessageValue("status"), status.getText());
-        } catch (Exception e) {
-            fail(ConnectorTestUtils.getStackTrace(e));
-        }
-
     }
 
 }

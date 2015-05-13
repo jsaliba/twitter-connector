@@ -6,6 +6,8 @@
 
 package org.mule.modules.twitter.automation.testcases;
 
+import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
@@ -19,11 +21,17 @@ import static org.junit.Assert.fail;
 
 public class SearchPlacesTestCases extends TwitterTestParent {
 
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("searchPlacesTestData");
+    }
+
     @Category({RegressionTests.class})
     @Test
+    @Ignore
     public void testSearchPlacesByIp() {
         try {
-            ResponseList<Place> placesList = runFlowAndGetPayload("search-places-by-ip", "searchPlacesTestData");
+            ResponseList<Place> placesList = runFlowAndGetPayload("search-places-by-ip");
 
             assertNotNull(placesList);
 
@@ -36,7 +44,7 @@ public class SearchPlacesTestCases extends TwitterTestParent {
     @Test
     public void testSearchPlacesByCoordinates() {
         try {
-            ResponseList<Place> placesList = runFlowAndGetPayload("search-places-by-coordinates", "searchPlacesTestData");
+            ResponseList<Place> placesList = runFlowAndGetPayload("search-places-by-coordinates");
 
             assertNotNull(placesList);
 

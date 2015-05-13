@@ -26,8 +26,9 @@ public class GetHomeTimelineTestCases extends TwitterTestParent {
 
     @Before
     public void setUp() throws Exception {
-        firstStatus = runFlowAndGetPayload("update-status", "aRandomStatus");
-        secondStatus = runFlowAndGetPayload("update-status", "aRandomStatus");
+        initializeTestRunMessage("randomStatusTestData");
+        firstStatus = runFlowAndGetPayload("update-status");
+        secondStatus = runFlowAndGetPayload("update-status", "randomStatusTestData");
     }
 
     @After

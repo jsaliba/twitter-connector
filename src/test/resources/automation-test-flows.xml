@@ -10,7 +10,7 @@
         http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/current/mule-twitter.xsd
         http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
 
-    <context:property-placeholder location="${TWITTER_CREDENTIALS}"/>
+    <context:property-placeholder location="${AUTOMATION_CREDENTIALS}"/>
 
     <twitter:config name="Twitter"
                     accessKey="${twitter.sandbox.accessKey}"
@@ -132,11 +132,7 @@
         <twitter:search-places config-ref="auxAuxSandbox" doc:name="Twitter" ip="#[flowVars.ip]"/>
     </flow>
 
-    <flow name="get-available-trends-default-values" doc:name="get-available-trends-default-values">
-        <twitter:get-available-trends config-ref="Twitter" doc:name="Twitter"/>
-    </flow>
-
-    <flow name="get-available-trends-parameterized" doc:name="get-available-trends-parameterized">
+    <flow name="get-available-trends" doc:name="get-available-trends">
         <twitter:get-available-trends config-ref="Twitter" doc:name="Twitter"/>
     </flow>
 
@@ -144,11 +140,7 @@
         <twitter:get-geo-details config-ref="Twitter" id="#[flowVars.id]" doc:name="Twitter"/>
     </flow>
 
-    <flow name="get-location-trends-default-values" doc:name="get-location-trends-default-values">
-        <twitter:get-place-trends config-ref="Twitter" doc:name="Twitter"/>
-    </flow>
-
-    <flow name="get-location-trends-parametrized" doc:name="get-location-trends-parametrized">
+    <flow name="get-location-trends" doc:name="get-location-trends">
         <twitter:get-place-trends config-ref="Twitter" doc:name="Twitter" woeid="#[flowVars.woeid]"/>
     </flow>
 
