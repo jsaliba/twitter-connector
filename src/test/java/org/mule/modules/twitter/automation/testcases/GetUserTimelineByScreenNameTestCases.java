@@ -26,17 +26,9 @@ public class GetUserTimelineByScreenNameTestCases extends TwitterTestParent {
 
     @Before
     public void setUp() throws Exception {
-        firstStatus = runFlowAndGetPayload("update-status-aux-sandbox", "aRandomStatus");
-        secondStatus = runFlowAndGetPayload("update-status-aux-sandbox", "aRandomStatus");
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        upsertOnTestRunMessage("statusId", firstStatus.getId());
-        runFlowAndGetPayload("destroy-status-aux-sandbox");
-        upsertOnTestRunMessage("statusId", secondStatus.getId());
-        runFlowAndGetPayload("destroy-status-aux-sandbox");
-
+        initializeTestRunMessage("randomStatusTestData");
+        firstStatus = runFlowAndGetPayload("update-status-aux-sandbox");
+        secondStatus = runFlowAndGetPayload("update-status-aux-sandbox", "randomStatusTestData");
     }
 
     @Category({RegressionTests.class})
@@ -45,7 +37,7 @@ public class GetUserTimelineByScreenNameTestCases extends TwitterTestParent {
         Long expectedStatusId = firstStatus.getId();
 
         try {
-            ResponseList<Status> timeLine = runFlowAndGetPayload("get-user-timeline-by-screen-name-default-values", "auxSandbox");
+            ResponseList<Status> timeLine = runFlowAndGetPayload("get-user-timeline-by-screen-name-default-values", "auxSandboxTestData");
 
             assertTrue(TwitterTestUtils.isStatusIdOnTimeline(timeLine, expectedStatusId));
 
@@ -76,6 +68,15 @@ public class GetUserTimelineByScreenNameTestCases extends TwitterTestParent {
         } catch (Exception e) {
             fail(ConnectorTestUtils.getStackTrace(e));
         }
+
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        upsertOnTestRunMessage("statusId", firstStatus.getId());
+        runFlowAndGetPayload("destroy-status-aux-sandbox");
+        upsertOnTestRunMessage("statusId", secondStatus.getId());
+        runFlowAndGetPayload("destroy-status-aux-sandbox");
 
     }
 

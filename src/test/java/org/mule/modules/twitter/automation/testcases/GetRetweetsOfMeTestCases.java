@@ -28,12 +28,13 @@ public class GetRetweetsOfMeTestCases extends TwitterTestParent {
 
     @Before
     public void setUp() throws Exception {
-        firstRetweet = runFlowAndGetPayload("update-status-aux-sandbox", "aRandomStatus");
-        initializeTestRunMessage("statusId", firstRetweet.getId());
+        initializeTestRunMessage("randomStatusTestData");
+        firstRetweet = runFlowAndGetPayload("update-status-aux-sandbox");
+        upsertOnTestRunMessage("statusId", firstRetweet.getId());
         runFlowAndGetPayload("retweet-status");
 
-        secondRetweet = runFlowAndGetPayload("update-status-aux-sandbox", "aRandomStatus");
-        initializeTestRunMessage("statusId", secondRetweet.getId());
+        secondRetweet = runFlowAndGetPayload("update-status-aux-sandbox", "randomStatusTestData");
+        upsertOnTestRunMessage("statusId", secondRetweet.getId());
         runFlowAndGetPayload("retweet-status");
     }
 
@@ -68,7 +69,7 @@ public class GetRetweetsOfMeTestCases extends TwitterTestParent {
     public void testGetRetweetsOfMeParameterized() {
         Long expectedStatusId = secondRetweet.getId();
 
-        initializeTestRunMessage("getRetweetsOfMeTestData");
+        upsertBeanFromContextOnTestRunMessage("getRetweetsOfMeTestData");
         upsertOnTestRunMessage("sinceId", firstRetweet.getId());
         try {
             ResponseList<Status> responseList = runFlowAndGetPayload("get-retweets-of-me-parametrized");

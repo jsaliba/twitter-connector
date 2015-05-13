@@ -22,7 +22,7 @@ public class DestroyStatusTestCases extends TwitterTestParent {
 
     @Before
     public void setUp() throws Exception {
-        initializeTestRunMessage("aRandomStatus");
+        initializeTestRunMessage("randomStatusTestData");
         upsertOnTestRunMessage("statusId", ((Status) runFlowAndGetPayload("update-status")).getId());
 
     }

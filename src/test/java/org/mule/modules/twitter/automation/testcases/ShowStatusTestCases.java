@@ -24,7 +24,7 @@ public class ShowStatusTestCases extends TwitterTestParent {
 
     @Before
     public void setUp() throws Exception {
-        initializeTestRunMessage("aRandomStatus");
+        initializeTestRunMessage("randomStatusTestData");
         long id = ((Status) runFlowAndGetPayload("update-status")).getId();
         upsertOnTestRunMessage("id", id);
         upsertOnTestRunMessage("statusId", id);

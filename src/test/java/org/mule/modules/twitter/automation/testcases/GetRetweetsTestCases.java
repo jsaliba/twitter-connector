@@ -27,16 +27,10 @@ public class GetRetweetsTestCases extends TwitterTestParent {
 
     @Before
     public void setUp() throws Exception {
-        aRetweet = runFlowAndGetPayload("update-status-aux-sandbox", "aRandomStatus");
-        initializeTestRunMessage("statusId", aRetweet.getId());
-        runFlowAndGetPayload("retweet-status");
-    }
-
-    @After
-    public void tearDown() throws Exception {
+        initializeTestRunMessage("randomStatusTestData");
+        aRetweet = runFlowAndGetPayload("update-status-aux-sandbox");
         upsertOnTestRunMessage("statusId", aRetweet.getId());
-        runFlowAndGetPayload("destroy-status-aux-sandbox");
-
+        runFlowAndGetPayload("retweet-status");
     }
 
     @Category({RegressionTests.class})
@@ -55,6 +49,13 @@ public class GetRetweetsTestCases extends TwitterTestParent {
         } catch (Exception e) {
             fail(ConnectorTestUtils.getStackTrace(e));
         }
+
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        upsertOnTestRunMessage("statusId", aRetweet.getId());
+        runFlowAndGetPayload("destroy-status-aux-sandbox");
 
     }
 

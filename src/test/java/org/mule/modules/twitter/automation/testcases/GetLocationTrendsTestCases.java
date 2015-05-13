@@ -6,6 +6,7 @@
 
 package org.mule.modules.twitter.automation.testcases;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
@@ -18,27 +19,17 @@ import static org.junit.Assert.fail;
 
 public class GetLocationTrendsTestCases extends TwitterTestParent {
 
-    @Category({RegressionTests.class})
-    @Test
-    public void testGetLocationTrendsDefaultValues() {
-        try {
-            Trends trends = runFlowAndGetPayload("get-location-trends-default-values");
-            assertNotNull(trends);
-
-        } catch (Exception e) {
-            fail(ConnectorTestUtils.getStackTrace(e));
-        }
-
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("placeByWOEIDTestData");
     }
 
     @Category({RegressionTests.class})
     @Test
-    public void testGetLocationTrendsParameterized() {
-        initializeTestRunMessage("placeByWOEID");
+    public void testGetLocationTrends() {
         try {
-            Trends trends = runFlowAndGetPayload("get-location-trends-parametrized");
+            Trends trends = runFlowAndGetPayload("get-location-trends");
             assertNotNull(trends);
-
         } catch (Exception e) {
             fail(ConnectorTestUtils.getStackTrace(e));
         }

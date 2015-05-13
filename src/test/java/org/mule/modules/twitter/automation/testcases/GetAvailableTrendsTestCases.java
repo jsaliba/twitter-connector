@@ -6,6 +6,7 @@
 
 package org.mule.modules.twitter.automation.testcases;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.tests.ConnectorTestUtils;
@@ -21,31 +22,20 @@ import static org.junit.Assert.fail;
 
 public class GetAvailableTrendsTestCases extends TwitterTestParent {
 
-    @Category({RegressionTests.class})
+    @Before
+    public void setUp() throws Exception {
+        initializeTestRunMessage("getAvailableTrendsTestData");
+    }
+
+    @Category({RegressionTests.class, SmokeTests.class})
     @Test
     public void testGetAvailableTrendsDefaultValues() {
         try {
-            ResponseList<Location> locations = runFlowAndGetPayload("get-available-trends-default-values");
+            ResponseList<Location> locations = runFlowAndGetPayload("get-available-trends");
             assertNotNull(locations);
 
         } catch (Exception e) {
             fail(ConnectorTestUtils.getStackTrace(e));
         }
-
     }
-
-    @Category({SmokeTests.class})
-    @Test
-    public void testGetAvailableTrendsParameterized() {
-        initializeTestRunMessage("getAvailableTrendsTestData");
-        try {
-            ResponseList<Location> locations = runFlowAndGetPayload("get-available-trends-parameterized");
-            assertNotNull(locations);
-
-        } catch (Exception e) {
-            fail(ConnectorTestUtils.getStackTrace(e));
-        }
-
-    }
-
 }

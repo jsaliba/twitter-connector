@@ -1027,7 +1027,6 @@ public class TwitterConnector {
             this.callback = callback;
         }
 
-        @Override
         public Object process() throws Exception {
             try {
                 return callback.process();
@@ -1036,7 +1035,6 @@ public class TwitterConnector {
             }
         }
 
-        @Override
         public Object process(Object payload) {
             try {
                 return callback.process(payload);
@@ -1045,7 +1043,6 @@ public class TwitterConnector {
             }
         }
 
-        @Override
         public Object process(Object payload, Map<String, Object> properties) throws Exception {
             try {
                 return callback.process(payload);
@@ -1054,7 +1051,6 @@ public class TwitterConnector {
             }
         }
 
-        @Override
         public MuleEvent processEvent(MuleEvent event) throws MuleException {
             try {
                 return callback.processEvent(event);

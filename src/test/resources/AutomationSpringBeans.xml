@@ -5,16 +5,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
+    <import resource="ConnectorTestCaseSpringBeans.xml"/>
+
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
-            <value>${TWITTER_CREDENTIALS}</value>
+            <value>${AUTOMATION_CREDENTIALS}</value>
         </property>
     </bean>
 
     <bean id="randomShortString" class="org.mule.modules.tests.ConnectorTestUtils"
           factory-method="generateRandomShortString" scope="prototype"/>
 
-    <util:map id="aRandomStatus" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object"
+    <util:map id="randomStatusTestData" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object"
               scope="prototype">
         <entry key="status" value-ref="randomShortString"/>
     </util:map>
@@ -23,24 +25,24 @@
         <constructor-arg value="#{'Hi @'}${twitter.auxAuxSandbox.userScreenName} #{randomShortString}"/>
     </bean>
 
-    <util:map id="aRandomMention" map-class="java.util.HashMap" key-type="java.lang.String"
+    <util:map id="randomMentionTestData" map-class="java.util.HashMap" key-type="java.lang.String"
               value-type="java.lang.Object" scope="prototype">
         <entry key="status" value-ref="aRandomMentionStatus"/>
     </util:map>
 
-    <util:map id="sandbox" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+    <util:map id="sandboxTestData" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="userId" value="${twitter.sandbox.userId}"/>
         <entry key="userName" value="${twitter.sandbox.userName}"/>
         <entry key="userScreenName" value="${twitter.sandbox.userScreenName}"/>
     </util:map>
 
-    <util:map id="auxSandbox" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+    <util:map id="auxSandboxTestData" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="userId" value="${twitter.auxSandbox.userId}"/>
         <entry key="userName" value="${twitter.auxSandbox.userName}"/>
         <entry key="userScreenName" value="${twitter.auxSandbox.userScreenName}"/>
     </util:map>
 
-    <util:map id="auxAuxSandbox" map-class="java.util.HashMap" key-type="java.lang.String"
+    <util:map id="auxAuxSandboxTestData" map-class="java.util.HashMap" key-type="java.lang.String"
               value-type="java.lang.Object">
         <entry key="userId" value="${twitter.auxAuxSandbox.userId}"/>
         <entry key="userName" value="${twitter.auxAuxSandbox.userName}"/>
@@ -71,7 +73,7 @@
         <entry key="id" value="8b9ec16fdc0d7e55"/>
     </util:map>
 
-    <util:map id="placeByWOEID" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+    <util:map id="placeByWOEIDTestData" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="woeid" value="23424775"/>
     </util:map>
 
@@ -137,9 +139,9 @@
         <entry key="recipientSandboxUserId" value="${twitter.auxAuxSandbox.userId}"/>
     </util:map>
 
-    <util:map id="aTweetToQueryFor" map-class="java.util.HashMap" key-type="java.lang.String"
+    <util:map id="aTweetToQueryForTestData" map-class="java.util.HashMap" key-type="java.lang.String"
               value-type="java.lang.Object">
-        <entry key="status" value="Reminder: Blue Angels practice today http://t.co/L9JXJ2ee"/>
+        <entry key="status" value="Reminder: Blue Angels practice today - http://t.co/L9JXJ2ee"/>
     </util:map>
 
     <util:map id="searchTestData" map-class="java.util.HashMap" key-type="java.lang.String"
