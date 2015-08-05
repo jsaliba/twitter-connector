@@ -24,12 +24,10 @@ public class HttpClientImpl implements HttpClient {
         }
     }
 
-    @Override
     public HttpResponse request(HttpRequest req) throws TwitterException {
         return client.request(req);
     }
 
-    @Override
     public void shutdown() {
         client.shutdown();
     }
