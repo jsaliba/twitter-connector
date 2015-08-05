@@ -13,18 +13,18 @@
     <context:property-placeholder location="${AUTOMATION_CREDENTIALS}"/>
 
     <twitter:config name="Twitter"
-                    accessKey="${twitter.sandbox.accessKey}"
-                    accessSecret="${twitter.sandbox.accessSecret}" consumerKey="${twitter.sandbox.consumerKey}"
+                    accessToken="${twitter.sandbox.accessKey}"
+                    accessTokenSecret="${twitter.sandbox.accessSecret}" consumerKey="${twitter.sandbox.consumerKey}"
                     consumerSecret="${twitter.sandbox.consumerSecret}" doc:name="Twitter"
             />
     <twitter:config name="auxSandbox"
-                    accessKey="${twitter.auxSandbox.accessKey}"
-                    accessSecret="${twitter.auxSandbox.accessSecret}" consumerKey="${twitter.auxSandbox.consumerKey}"
+                    accessToken="${twitter.auxSandbox.accessKey}"
+                    accessTokenSecret="${twitter.auxSandbox.accessSecret}" consumerKey="${twitter.auxSandbox.consumerKey}"
                     consumerSecret="${twitter.auxSandbox.consumerSecret}" doc:name="Twitter"
             />
     <twitter:config name="auxAuxSandbox"
-                    accessKey="${twitter.auxAuxSandbox.accessKey}"
-                    accessSecret="${twitter.auxAuxSandbox.accessSecret}"
+                    accessToken="${twitter.auxAuxSandbox.accessKey}"
+                    accessTokenSecret="${twitter.auxAuxSandbox.accessSecret}"
                     consumerKey="${twitter.auxAuxSandbox.consumerKey}"
                     consumerSecret="${twitter.auxAuxSandbox.consumerSecret}" doc:name="Twitter"
             />

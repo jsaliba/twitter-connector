@@ -1,70 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
-	xmlns:mongo="http://www.mulesoft.org/schema/mule/mongo" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
-	xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
-	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
-	xmlns:twitter="http://www.mulesoft.org/schema/mule/twitter" xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+      xmlns:mongo="http://www.mulesoft.org/schema/mule/mongo" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
+      xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+      xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+      xmlns:twitter="http://www.mulesoft.org/schema/mule/twitter" xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+      xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.2"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/current/mule-twitter.xsd
 http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
-http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+
 http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
 http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
 http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mongo/current/mule-mongo.xsd
 http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd">
-	<http:listener-config name="HTTP_Listener_Configuration"
-		host="127.0.0.1" port="8081" doc:name="HTTP Listener Configuration" />
-	<twitter:config name="Twitter__Configuration" accessKey="${twitter.access.key}"
-		accessSecret="${twitter.access.secret}" consumerKey="${twitter.consumer.key}"
-		consumerSecret="${twitter.consumer.secret}" doc:name="Twitter: Configuration" />
-	<mongo:config name="Mongo_DB" username="${mongo.username}"
-		password="${mongo.password}" database="${mongo.database}" host="${mongo.host}"
-		port="${mongo.port}" autoConnectRetry="true" doc:name="Mongo DB" />
-	<flow name="Get_Followers_Flow">
-		<http:listener config-ref="HTTP_Listener_Configuration"
-			path="/getfollowers" doc:name="HTTP" />
-		<set-property propertyName="twitterCursor" value="-1"
-			doc:name="Twitter Cursor" />
-		<expression-transformer expression="#[return []]"
-			doc:name="Empty Collection" />
-		<request-reply doc:name="Request-Reply">
-			<vm:outbound-endpoint exchange-pattern="one-way"
-				doc:name="VM" path="twitter.getfollowers">
-				<message-properties-transformer>
-					<delete-message-property key="MULE_REPLYTO" />
-				</message-properties-transformer>
-			</vm:outbound-endpoint>
-			<vm:inbound-endpoint exchange-pattern="one-way"
-				doc:name="VM" path="twitter.getfollowers.reply" />
-		</request-reply>
-		<mulexml:object-to-xml-transformer
-			doc:name="Object to XML" />
-	</flow>
-	<flow name="Get_All_Followers_Flow">
-		<vm:inbound-endpoint exchange-pattern="one-way"
-			doc:name="VM" path="twitter.getfollowers" />
-		<enricher target="#[flowVars.twitterFollowers]" doc:name="Message Enricher">
-			<twitter:get-followers config-ref="Twitter__Configuration"
-				cursor="#[message.inboundProperties['twitterCursor']]" doc:name="Get Followers" />
-		</enricher>
-		<expression-component doc:name="Add all followers"><![CDATA[payload.addAll(flowVars.twitterFollowers);]]></expression-component>
-		<choice doc:name="Choice">
-			<when expression="#[flowVars.twitterFollowers.hasNext()]">
-				<set-property propertyName="twitterCursor"
-					value="#[flowVars.twitterFollowers.getNextCursor()]" doc:name="Set Twitter Cursor" />
-			</when>
-			<otherwise>
-				<vm:outbound-endpoint exchange-pattern="one-way"
-					doc:name="VM" path="twitter.getfollowers.reply" />
-			</otherwise>
-		</choice>
-	</flow>
+    <http:listener-config name="HTTP_Listener_Configuration"
+                          host="127.0.0.1" port="8081" doc:name="HTTP Listener Configuration"/>
+    <twitter:config name="Twitter__Configuration" consumerKey="${twitter.consumer.key}"
+                    consumerSecret="${twitter.consumer.secret}" doc:name="Twitter: Configuration"
+                    accessToken="${twitter.access.key}" accessTokenSecret="${twitter.access.secret}"/>
+    <mongo:config name="Mongo_DB" username="${mongo.username}"
+                  password="${mongo.password}" database="${mongo.database}" host="${mongo.host}"
+                  port="${mongo.port}" autoConnectRetry="true" doc:name="Mongo DB"/>
+    <flow name="Get_Followers_Flow">
+        <http:listener config-ref="HTTP_Listener_Configuration"
+                       path="/getfollowers" doc:name="HTTP"/>
+        <set-property propertyName="twitterCursor" value="-1"
+                      doc:name="Twitter Cursor"/>
+        <expression-transformer expression="#[return []]"
+                                doc:name="Empty Collection"/>
+        <request-reply doc:name="Request-Reply">
+            <vm:outbound-endpoint exchange-pattern="one-way"
+                                  doc:name="VM" path="twitter.getfollowers">
+                <message-properties-transformer>
+                    <delete-message-property key="MULE_REPLYTO"/>
+                </message-properties-transformer>
+            </vm:outbound-endpoint>
+            <vm:inbound-endpoint exchange-pattern="one-way"
+                                 doc:name="VM" path="twitter.getfollowers.reply"/>
+        </request-reply>
+        <mulexml:object-to-xml-transformer
+                doc:name="Object to XML"/>
+    </flow>
+    <flow name="Get_All_Followers_Flow">
+        <vm:inbound-endpoint exchange-pattern="one-way"
+                             doc:name="VM" path="twitter.getfollowers"/>
+        <enricher target="#[flowVars.twitterFollowers]" doc:name="Message Enricher">
+            <twitter:get-followers config-ref="Twitter__Configuration"
+                                   cursor="#[message.inboundProperties['twitterCursor']]" doc:name="Get Followers"/>
+        </enricher>
+        <expression-component doc:name="Add all followers">
+            <![CDATA[payload.addAll(flowVars.twitterFollowers);]]></expression-component>
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.twitterFollowers.hasNext()]">
+                <set-property propertyName="twitterCursor"
+                              value="#[flowVars.twitterFollowers.getNextCursor()]" doc:name="Set Twitter Cursor"/>
+            </when>
+            <otherwise>
+                <vm:outbound-endpoint exchange-pattern="one-way"
+                                      doc:name="VM" path="twitter.getfollowers.reply"/>
+            </otherwise>
+        </choice>
+    </flow>
     <flow name="Streaming_Statuses_Flow" initialState="started">
         <twitter:filtered-stream config-ref="Twitter__Configuration" doc:name="Twitter (Streaming)">
             <twitter:keywords>

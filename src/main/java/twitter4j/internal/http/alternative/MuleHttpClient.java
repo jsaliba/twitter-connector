@@ -43,7 +43,6 @@ public class MuleHttpClient implements HttpClient {
         client = new DefaultLocalMuleClient(context);
     }
 
-    @Override
     public HttpResponse request(final HttpRequest req) throws TwitterException {
         Object body = "";
         final boolean hasFile = HttpParameter.containsFile(req.getParameters());
@@ -53,7 +52,6 @@ public class MuleHttpClient implements HttpClient {
         if (req.getMethod().equals(RequestMethod.POST)) {
             body = new OutputHandler() {
 
-                @Override
                 public void write(MuleEvent event, OutputStream os) throws IOException {
                     if (req.getMethod() == POST) {
                         if (hasFile) {
@@ -117,7 +115,6 @@ public class MuleHttpClient implements HttpClient {
         }
     }
 
-    @Override
     public void shutdown() { // NOSONAR
     }
 
