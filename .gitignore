@@ -7,3 +7,5 @@
 target
 *.iml
 dependency-reduced-pom.xml
+/.apt_generated/
+.factorypath

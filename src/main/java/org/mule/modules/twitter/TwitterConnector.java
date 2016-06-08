@@ -6,6 +6,12 @@
 
 package org.mule.modules.twitter;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
+import javax.validation.constraints.NotNull;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.UnhandledException;
 import org.apache.commons.logging.Log;
@@ -20,15 +26,35 @@ import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.api.callback.SourceCallback;
+import org.mule.api.lifecycle.LifecycleManager;
 import org.mule.modules.twitter.UserEvent.EventType;
 import org.mule.modules.twitter.connection.strategy.TwitterConnectionManagement;
-import twitter4j.*;
+
+import twitter4j.DirectMessage;
+import twitter4j.FilterQuery;
+import twitter4j.GeoLocation;
+import twitter4j.GeoQuery;
+import twitter4j.Location;
+import twitter4j.PagableResponseList;
+import twitter4j.Paging;
+import twitter4j.Place;
+import twitter4j.Query;
+import twitter4j.QueryResult;
+import twitter4j.ResponseList;
+import twitter4j.SimilarPlaces;
+import twitter4j.SiteStreamsAdapter;
+import twitter4j.Status;
+import twitter4j.StatusAdapter;
+import twitter4j.StatusUpdate;
+import twitter4j.Trends;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterStream;
+import twitter4j.User;
+import twitter4j.UserList;
+import twitter4j.UserStreamAdapter;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
-
-import javax.validation.constraints.NotNull;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Twitter is an online social networking service and microblogging service that enables its users to send and read
@@ -42,6 +68,9 @@ public class TwitterConnector {
 
     private static final Log logger = LogFactory.getLog(TwitterConnector.class);
 
+    @Inject
+	private LifecycleManager lifecycleManager;
+    
     @NotNull
     @ConnectionStrategy
     private TwitterConnectionManagement connectionManagement;
@@ -647,8 +676,20 @@ public class TwitterConnector {
     public void filteredStream(@Default("0") int count,
                                @Placement(group = "User Ids to Follow") @Optional List<String> userIds,
                                @Placement(group = "Keywords to Track") @Optional List<String> keywords,
+                               @Placement(group = "Locations") @Optional List<GeoLoc> locations,      
                                final SourceCallback callback) {
-        listenToStatues(callback).filter(new FilterQuery(count, toLongArray(userIds), toStringArray(keywords)));
+    	double[][] geoLocations;
+    	if (locations != null) {
+    		geoLocations = new double[locations.size()][2];
+	    	for (int i = 0; i < locations.size(); i++) {
+	    		geoLocations[i] = locations.get(i).toDoubleArray();
+	    	}
+    	}
+    	else {
+    		geoLocations = new double[0][0];
+    	}
+    	
+        listenToStatues(callback).filter(new FilterQuery(count, toLongArray(userIds), toStringArray(keywords), geoLocations));
     }
 
     /**
@@ -980,6 +1021,8 @@ public class TwitterConnector {
         return list.toArray(new String[list.size()]);
     }
 
+    
+    
     private TwitterStream listenToStatues(final SourceCallback callback_) {
         initStream();
         final SoftCallback callback = new SoftCallback(callback_);
@@ -992,7 +1035,12 @@ public class TwitterConnector {
             @Override
             public void onStatus(Status status) {
                 try {
-                    callback.process(status);
+                	if (lifecycleManager.getState().isStarted()) {                	
+                		callback.process(status);
+                	}
+                	else {
+                		logger.debug("Not processing Twitter status since Lifecycle status isn't ");
+                	}
                 } catch (Exception e) {
                     logger.error(e.getMessage(), e);
                 }
@@ -1000,7 +1048,7 @@ public class TwitterConnector {
         });
         return twitterStream;
     }
-
+    
     private long[] toLongArray(List<String> longList) {
         if (longList == null) {
             return new long[0];
@@ -1021,7 +1069,15 @@ public class TwitterConnector {
         this.twitter = connectionManagement.getTwitter();
     }
 
-    static final class SoftCallback implements SourceCallback {
+    public LifecycleManager getLifecycleManager() {
+		return lifecycleManager;
+	}
+
+	public void setLifecycleManager(LifecycleManager lifecycleManager) {
+		this.lifecycleManager = lifecycleManager;
+	}
+
+	static final class SoftCallback implements SourceCallback {
         private final SourceCallback callback;
 
         public SoftCallback(SourceCallback callback) {

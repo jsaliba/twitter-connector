@@ -10,11 +10,11 @@
 	<parent>
 		<groupId>org.mule.tools.devkit</groupId>
 		<artifactId>mule-devkit-parent</artifactId>
-		<version>3.6.1</version>
+		<version>3.8.2</version>
 	</parent>
 
 	<properties>
-		<mule.version>3.6.0</mule.version>
+		<mule.version>3.8.0</mule.version>
 		<category>Community</category>
 		<licensePath>LICENSE.md</licensePath>
 		<devkit.studio.package.skip>false</devkit.studio.package.skip>
@@ -52,6 +52,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+		    <groupId>org.mule.modules</groupId>
+		    <artifactId>mule-connector-test</artifactId>
+		    <version>2.0.7</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.htmlparser</groupId>
 			<artifactId>htmlparser</artifactId>
 			<version>1.6</version>
@@ -59,7 +65,6 @@
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
-
 	<repositories>
 		<repository>
 			<id>mulesoft-releases</id>
